@@ -1,0 +1,13 @@
+[
+    "header",
+    "main",
+    [
+        "article",
+        "aside",
+        [
+            "section",
+            "section"
+        ]
+    ],
+    "footer"
+]
