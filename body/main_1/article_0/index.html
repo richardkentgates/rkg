@@ -5,13 +5,66 @@
     helping businesses manage their entire online presence.
 </p>
 <p>
-    My open source work includes WordPress plugins for image optimization, privacy-first
-    analytics, and JavaScript management, as well as j-make, a client-side library for
-    building pages from JSON. You can find everything on
+    My open source work includes WordPress plugins for metadata management, email routing,
+    JavaScript injection, and privacy-first analytics, as well as OS-level daemons for
+    lossless media processing and j-make, a client-side library for building pages from JSON.
+    You can find everything on
     <a href="https://github.com/richardkentgates" target="_blank">GitHub</a>.
 </p>
 
 <h3 id="projects">Open Source Projects</h3>
+
+<div class="project-card">
+    <h4>Metamanager <span class="tech">v2.3.117 + v2.4.57</span></h4>
+    <p>
+        Complete metadata management for WordPress. The WordPress plugin handles Schema.org
+        structured data for 10+ types, Open Graph, XML &amp; HTML sitemaps, robots.txt,
+        link checker, breadcrumb labels, business profile, and author profiles. The OS-level
+        daemons handle lossless image/video/audio compression and bidirectional EXIF/IPTC/XMP
+        metadata embedding &mdash; all outside of PHP so WordPress never blocks.
+    </p>
+    <p class="tech">PHP &middot; Bash &middot; WordPress &middot; GPL v3.0</p>
+    <a href="https://github.com/richardkentgates/metamanager-plugin" target="_blank">Plugin on GitHub &rarr;</a><br>
+    <a href="https://github.com/richardkentgates/metamanager" target="_blank">Daemons on GitHub &rarr;</a><br>
+    <a href="https://metamanager.richardkentgates.com" target="_blank">Documentation &rarr;</a>
+</div>
+
+<div class="project-card">
+    <h4>MXRoute Mailer <span class="tech">v1.4.42</span></h4>
+    <p>
+        WordPress plugin that routes email through MXRoute's HTTP API or SMTP &mdash;
+        automatically choosing the best transport for each email. Solves blocked SMTP ports
+        on cloud hosting. Includes email queue, persistent attachment storage, smart transport
+        switching, email logging with search and filtering, and test tools.
+    </p>
+    <p class="tech">PHP &middot; WordPress &middot; GPL v2.0</p>
+    <a href="https://github.com/richardkentgates/mxroute-mailer" target="_blank">View on GitHub &rarr;</a><br>
+    <a href="https://mailer.richardkentgates.com" target="_blank">Documentation &rarr;</a>
+</div>
+
+<div class="project-card">
+    <h4>Scriptomatic <span class="tech">v3.3.0</span></h4>
+    <p>
+        WordPress plugin for managing JavaScript across your site. Inline script editor with
+        CodeMirror, external URL manager, conditional loading (11 condition types), activity
+        log with one-click rollback, managed JS files, REST API, and WP-CLI. Free + Pro.
+    </p>
+    <p class="tech">PHP &middot; WordPress &middot; GPL v2.0</p>
+    <a href="https://github.com/richardkentgates/scriptomatic" target="_blank">View on GitHub &rarr;</a><br>
+    <a href="https://scriptomatic.richardkentgates.com" target="_blank">Documentation &rarr;</a>
+</div>
+
+<div class="project-card">
+    <h4>rich-statistics <span class="tech">v2.4.26</span></h4>
+    <p>
+        Privacy-first analytics for WordPress publishers. No IP tracking, no cookies,
+        fully self-hosted. Includes a PWA dashboard with charts, desktop app downloads
+        for Linux and Windows, and multilingual support.
+    </p>
+    <p class="tech">PHP &middot; WordPress &middot; GPL v3.0</p>
+    <a href="https://github.com/richardkentgates/rich-statistics" target="_blank">View on GitHub &rarr;</a><br>
+    <a href="https://statistics.richardkentgates.com" target="_blank">Documentation &rarr;</a>
+</div>
 
 <div class="project-card">
     <h4>j-make</h4>
@@ -20,69 +73,22 @@
         and populates each element by fetching content from a matching directory on your
         server. No build step, no back-end required. Works on GitHub Pages out of the box.
     </p>
-    <p class="tech">HTML &middot; JavaScript &middot; MIT License</p>
+    <p class="tech">JavaScript &middot; MIT License</p>
     <a href="https://github.com/richardkentgates/j-make" target="_blank">View on GitHub &rarr;</a><br>
-    <a href="https://j-make.richardkentgates.com" target="_blank">Project Site &rarr;</a>
-</div>
-
-<div class="project-card">
-    <h4>MXRoute Mailer</h4>
-    <p>
-        A WordPress plugin that routes all outgoing email through MXRoute's HTTPS API
-        on port 443, bypassing SMTP blocks on cloud hosting. Includes email logging,
-        Reply-To support, test tools, and GitHub-based automatic updates.
-    </p>
-    <p class="tech">PHP &middot; WordPress &middot; GPL v2.0</p>
-    <a href="https://github.com/richardkentgates/mxroute-mailer" target="_blank">View on GitHub &rarr;</a><br>
-    <a href="https://mailer.richardkentgates.com" target="_blank">Project Site &rarr;</a>
-</div>
-
-<div class="project-card">
-    <h4>metamanager</h4>
-    <p>
-        Lossless image compression and standards-compliant EXIF/IPTC/XMP metadata
-        embedding for WordPress, powered by OS-level daemons. Handles image optimization
-        at the system level for performance that plugin-only approaches can't match.
-    </p>
-    <p class="tech">PHP &middot; WordPress</p>
-    <a href="https://github.com/richardkentgates/metamanager" target="_blank">View on GitHub &rarr;</a><br>
-    <a href="https://metamanager.richardkentgates.com" target="_blank">Project Site &rarr;</a>
-</div>
-
-<div class="project-card">
-    <h4>rich-statistics</h4>
-    <p>
-        Privacy-first analytics for WordPress publishers. No IP tracking, no cookies,
-        fully self-hosted. Gives you the insights you need without compromising your
-        visitors' privacy or complying with ever-changing consent regulations.
-    </p>
-    <p class="tech">PHP &middot; WordPress</p>
-    <a href="https://github.com/richardkentgates/rich-statistics" target="_blank">View on GitHub &rarr;</a><br>
-    <a href="https://richstatistics.com/" target="_blank">Project Site &rarr;</a>
-</div>
-
-<div class="project-card">
-    <h4>scriptomatic</h4>
-    <p>
-        A WordPress plugin for managing JavaScript across your site. Control where and
-        how scripts load &mdash; in the header, footer, or conditionally on specific pages
-        &mdash; without editing theme files.
-    </p>
-    <p class="tech">PHP &middot; WordPress &middot; GPL v2.0</p>
-    <a href="https://github.com/richardkentgates/scriptomatic" target="_blank">View on GitHub &rarr;</a><br>
-    <a href="https://scriptomatic.richardkentgates.com" target="_blank">Project Site &rarr;</a>
+    <a href="https://j-make.richardkentgates.com" target="_blank">Documentation &rarr;</a>
 </div>
 
 <div class="project-card">
     <h4>Web-Monitor</h4>
     <p>
-        A WordPress monitor web application for tracking site health and uptime. Lightweight
-        and self-contained, designed for operators who want visibility without reliance on
-        third-party SaaS monitoring.
+        A self-contained web app for monitoring site uptime. Add URLs, get 60-second
+        auto-polling with response time tracking, browser notifications on status changes,
+        per-site history panels, and import/export. No server required &mdash; runs entirely
+        in the browser with localStorage.
     </p>
-    <p class="tech">HTML &middot; WordPress &middot; GPL v3.0</p>
+    <p class="tech">HTML &middot; JavaScript &middot; GPL v3.0</p>
     <a href="https://github.com/richardkentgates/Web-Monitor" target="_blank">View on GitHub &rarr;</a><br>
-    <a href="https://monitor.richardkentgates.com" target="_blank">Project Site &rarr;</a>
+    <a href="https://monitor.richardkentgates.com" target="_blank">Live App &rarr;</a>
 </div>
 
 <h3 id="gcm">Gap Creek Media</h3>
