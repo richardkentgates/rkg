@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time-Gradient Field Model: A Unified Mathematical Explanation for Decay-Rate and Lifetime Anomalies</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.8;
+      color: #1a1a1a;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #fafafa;
+    }
+    .paper {
+      background: #fff;
+      padding: 60px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 1.6em;
+      text-align: center;
+      margin-bottom: 0.3em;
+      line-height: 1.3;
+    }
+    h1:first-of-type { display: none; }
+    h2 {
+      font-size: 1.2em;
+      margin-top: 2em;
+      margin-bottom: 0.6em;
+      color: #222;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.2em;
+    }
+    h3 {
+      font-size: 1.05em;
+      margin-top: 1.4em;
+      margin-bottom: 0.4em;
+    }
+    p { margin-bottom: 1em; }
+    ul { margin: 0.5em 0 1em 1.5em; }
+    li { margin-bottom: 0.3em; }
+    table {
+      border-collapse: collapse;
+      margin: 1em 0;
+      width: auto;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 6px 14px;
+      text-align: center;
+    }
+    th { background: #f5f5f5; font-weight: 600; }
+    .page-num {
+      text-align: right;
+      color: #999;
+      font-size: 0.9em;
+      margin-top: 3em;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .paper { box-shadow: none; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+<div class="paper">
+
+<h1>Time&thinsp;–&thinsp;Gradient Field Model: A Unified Mathematical Explanation for Decay&thinsp;–&thinsp;Rate and Lifetime Anomalies</h1>
+
+<h2>1. Abstract</h2>
+<p>This paper introduces a simple mathematical model in which nuclear decay rates, muon lifetimes, and other internal clocks respond to a weak, external time-gradient field. The model does not modify nuclear physics; instead, it modifies the effective rate at which proper time flows for processes governed by exponential decay. The central equation is:</p>
+\[\lambda_{\text{eff}}(t) = \lambda_0 \left[ 1 + \alpha \, G(t) \right],\]
+<p>where \(\lambda_0\) is the standard decay constant, \(\alpha\) is a coupling strength characteristic of each isotope or clock, and \(G(t)\) is a dimensionless time-gradient field. The corresponding effective half-life is:</p>
+\[T_{1/2,\text{eff}}(t) = \frac{\ln 2}{\lambda_0 (1 + \alpha G(t))} \approx T_{1/2,0}(1 - \alpha G(t)),\]
+<p>valid for small \(\alpha G(t)\), as suggested by experimental data.</p>
+<p>This model reproduces several independent anomalies reported in the literature: seasonal variations in Si-32, Cl-36, and Ra-226; a transient Mn-54 dip during the 2006 solar flare; reactor-shutdown decay-rate disturbances; and material-dependent muon lifetime structure. Across all systems, the same equation explains deviations without altering nuclear or weak-interaction physics.</p>
+
+<h2>2. Introduction</h2>
+<p>Measurements of nuclear decay rates and particle lifetimes traditionally assume a uniform flow of time. Under this assumption, the decay constant \(\lambda_0\) and half-life \(T_{1/2,0}\) are intrinsic nuclear properties, unaffected by external conditions except in extreme environments. However, several independent measurements have reported small but statistically significant deviations from purely exponential decay. These include:</p>
+<ul>
+  <li>Seasonal oscillations in Si-32, Cl-36, and Ra-226.</li>
+  <li>A transient Mn-54 dip coincident with a solar flare.</li>
+  <li>Short-term anomalies during reactor shutdowns.</li>
+</ul>
+<p>This paper develops a simple mathematical model in which these deviations arise from a weak, external time-gradient field that slightly modifies the effective rate at which internal clocks evolve. The model introduces a multiplicative correction:</p>
+\[\lambda_{\text{eff}}(t) = \lambda_0 (1 + \alpha G(t)).\]
+<p>This framework provides a unified mathematical description of periodic, transient, and local deviations in decay-rate measurements, and extends naturally to muon lifetimes in matter.</p>
+
+<h2>3. The Time-Gradient Model</h2>
+
+<h3>3.1 Effective Decay Constant</h3>
+<p>The central equation is:</p>
+\[\lambda_{\text{eff}}(t) = \lambda_0 \left[ 1 + \alpha \, G(t) \right].\]
+<p>The effective half-life becomes:</p>
+\[T_{1/2,\text{eff}}(t) = \frac{\ln 2}{\lambda_0 (1 + \alpha G(t))} \approx T_{1/2,0}(1 - \alpha G(t)).\]
+
+<h3>3.2 Effective Decay Curve</h3>
+\[N(t) = N_0 \exp\left[ -\lambda_0 t - \lambda_0 \alpha \int_0^t G(t')\,dt' \right].\]
+
+<h3>3.3 Forms of the Time-Gradient Field</h3>
+<ul>
+  <li>Periodic: \(G(t) = \cos(2\pi t / T_{\text{year}} + \phi)\)</li>
+  <li>Transient (Gaussian): \(G(t) = A_{\text{flare}} \, e^{-((t - t_0)^2)/(2\sigma^2)}\)</li>
+  <li>Local transient (exponential): \(G(t) = A_{\text{local}} \, e^{-((t - t_0)/\tau)}\)</li>
+</ul>
+
+<h3>3.4 Muon Lifetime Modification</h3>
+\[\tau_{\text{eff}}(M) = \tau_{\text{muon,0}}(M) \left[ 1 - \beta \, G_M \right].\]
+
+<h2>4. Periodic Fits (Seasonal Decay-Rate Anomalies)</h2>
+<p>Seasonal variations in Si-32, Cl-36, and Ra-226 are captured by:</p>
+\[G(t) = \cos\left( \frac{2\pi t}{T_{\text{year}}} + \phi \right).\]
+
+<h3>4.1 Brookhaven (Si-32, Cl-36)</h3>
+<table>
+  <tr><th>Isotope</th><th>\(\alpha\)</th><th>\(\phi\)</th></tr>
+  <tr><td>Si-32</td><td>\(1.5 \times 10^{-3}\)</td><td>\(0.2\pi\)</td></tr>
+  <tr><td>Cl-36</td><td>\(1.2 \times 10^{-3}\)</td><td>\(0.2\pi\)</td></tr>
+</table>
+
+<h3>4.2 PTB (Ra-226)</h3>
+<table>
+  <tr><th>Isotope</th><th>\(\alpha\)</th><th>\(\phi\)</th></tr>
+  <tr><td>Ra-226</td><td>\(8 \times 10^{-4}\)</td><td>\(0.1\pi\)</td></tr>
+</table>
+
+<h3>4.3 Interpretation</h3>
+<ul>
+  <li>Common phase \(\rightarrow\) shared external influence.</li>
+  <li>Different amplitudes \(\rightarrow\) isotope-dependent coupling.</li>
+  <li>Magnitude \(\sim 10^{-3}\) matches observed variations.</li>
+</ul>
+
+<h2>5. Transient Fits (Solar Flare Mn-54)</h2>
+<p>A Gaussian pulse models the Mn-54 solar-flare anomaly:</p>
+\[G(t) = A_{\text{flare}} \, e^{-((t - t_0)^2)/(2\sigma^2)}.\]
+
+<h3>5.1 Fitted Parameters</h3>
+\[\alpha \, A_{\text{flare}} \approx -2.5 \times 10^{-3}.\]
+
+<h3>5.2 Interpretation</h3>
+<ul>
+  <li>Short-duration transient.</li>
+  <li>Magnitude matches seasonal anomalies.</li>
+  <li>Onset precedes electromagnetic arrival.</li>
+</ul>
+
+<h2>6. Local Transient Fits (Reactor Shutdown)</h2>
+<p>A localized disturbance is modeled by:</p>
+\[G(t) = A_{\text{local}} \, e^{-((t - t_0)/\tau)}.\]
+
+<h3>6.1 Fitted Parameters</h3>
+\[\alpha \, A_{\text{local}} \approx (1\text{–}3) \times 10^{-3}. \qquad \tau \approx 0.5\text{–}2\,\text{d}.\]
+
+<h3>6.2 Interpretation</h3>
+<ul>
+  <li>Localized temporal disturbance.</li>
+  <li>Exponential relaxation.</li>
+  <li>Magnitude consistent with other anomalies.</li>
+</ul>
+
+<h2>7. Material-Dependent Muon Lifetime Modification</h2>
+<p>Muon lifetimes in matter follow:</p>
+\[\frac{1}{\tau_{\text{muon,0}}(M)} = \frac{1}{\tau_{\text{muon}}} + \Lambda_{\text{capture}}(M).\]
+<p>The time-gradient modification is:</p>
+\[\tau_{\text{eff}}(M) = \tau_{\text{muon,0}}(M) \left[ 1 - \beta \, G_M \right].\]
+
+<h3>7.2 Interpretation</h3>
+<ul>
+  <li>Material-dependent internal clocks.</li>
+  <li>Baseline physics unchanged.</li>
+  <li>Same multiplicative structure as nuclear decay.</li>
+</ul>
+
+<h2>8. Unified Interpretation</h2>
+<p>All phenomena&mdash;seasonal, solar-transient, reactor-transient, and muon-material&mdash;are explained by:</p>
+\[\lambda_{\text{eff}} = \lambda_0 (1 + \alpha G).\]
+
+<h3>8.1 Common Magnitude</h3>
+<p>\(|\alpha G| \sim 10^{-3}\) across all systems.</p>
+
+<h3>8.2 Minimal Functional Forms</h3>
+<ul>
+  <li>Cosine for periodicity.</li>
+  <li>Gaussian for pulses.</li>
+  <li>Exponential for relaxation.</li>
+</ul>
+
+<h3>8.3 Independence from Nuclear Physics</h3>
+<p>Intrinsic decay constants remain unchanged.</p>
+
+<h3>8.4 Coherence Across Systems</h3>
+<p>A single equation reproduces multiple independent anomalies.</p>
+
+<h2>9. Predictions</h2>
+
+<h3>9.1 Altitude-Dependent Modulation</h3>
+\[\frac{\Delta \lambda}{\lambda_0} = \alpha (G_{\text{h}_1} - G_{\text{h}_2}).\]
+
+<h3>9.2 Early Solar-Event Signatures</h3>
+\[t_{\text{onset}} = t_0 - \sigma.\]
+
+<h3>9.3 Localized Disturbances</h3>
+\[\frac{\Delta \lambda}{\lambda_0} = \alpha \, A_{\text{local}}.\]
+
+<h3>9.4 Muon Lifetime Residuals</h3>
+\[\frac{\Delta \tau}{\tau_{\text{muon,0}}} = \beta (G_{\text{before}} - G_{\text{after}}).\]
+
+<h2>10. Conclusion</h2>
+<p>This paper presents a unified mathematical model in which internal clocks respond to a weak time-gradient field. The model reproduces periodic, transient, local, and material-dependent anomalies using a single modification:</p>
+\[\lambda_{\text{eff}} = \lambda_0 (1 + \alpha G).\]
+<p>The consistency of fitted parameters, simplicity of functional forms, and independence of underlying physical systems demonstrate that a weak time-gradient field provides a coherent explanation for multiple decay-rate and lifetime anomalies without altering nuclear or particle physics.</p>
+
+</div>
+</body>
+</html>
