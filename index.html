@@ -13,6 +13,105 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/gh/richardkentgates/j-make@master/j-make.js"></script>
+    <style>
+        .collapse-trigger {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            user-select: none;
+            padding: 10px 16px;
+            background: var(--blue-light);
+            border: 1px solid rgba(45,140,240,.2);
+            border-radius: 6px;
+            margin-bottom: 16px;
+            transition: background .15s;
+        }
+        .collapse-trigger:hover {
+            background: rgba(45,140,240,.12);
+        }
+        .collapse-trigger span {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--blue-dark);
+        }
+        .collapse-trigger .arrow {
+            font-size: 12px;
+            color: var(--blue);
+            transition: transform .2s;
+        }
+        .collapse-trigger.open .arrow {
+            transform: rotate(90deg);
+        }
+        .collapse-body {
+            display: none;
+        }
+        .collapse-body.open {
+            display: block;
+        }
+        .physics-toc {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .physics-toc h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: .06em;
+            margin: 0 0 10px;
+        }
+        .physics-toc ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .physics-toc li {
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 13px;
+        }
+        .physics-toc li:last-child {
+            border-bottom: none;
+        }
+        .physics-toc a {
+            color: var(--blue);
+            text-decoration: none;
+        }
+        .physics-toc a:hover {
+            text-decoration: underline;
+        }
+        .capstone-card {
+            border-left: 3px solid var(--blue);
+        }
+        .capstone-card h4 {
+            font-size: 16px;
+        }
+    </style>
 </head>
 <body></body>
+<script>
+$(document).ready(function() {
+    // Wait for j-make to finish loading content
+    setTimeout(function() {
+        // Collapse all paper groups except capstone
+        $('.collapse-body').each(function() {
+            var $trigger = $(this).prev('.collapse-trigger');
+            if (!$trigger.hasClass('open')) {
+                $(this).removeClass('open');
+            }
+        });
+
+        // Toggle collapse
+        $(document).on('click', '.collapse-trigger', function() {
+            var $body = $(this).next('.collapse-body');
+            $(this).toggleClass('open');
+            $body.toggleClass('open');
+        });
+    }, 1500);
+});
+</script>
 </html>
