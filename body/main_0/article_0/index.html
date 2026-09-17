@@ -246,17 +246,24 @@
 
 <h3 id="data">Computation Data</h3>
 <p>
-    Raw numerical output from forward tests, backward reconstruction, and Fisher information
-    analysis of the scalar field G(t) = 10<sup>&minus;3</sup> + 10<sup>&minus;4</sup>&middot;cos(2&pi;t).
-    Tab-separated arrays suitable for plotting.
+    Raw numerical output and source code for all computations. Each file documents the
+    scalar field G(t) = 10<sup>&minus;3</sup> + 10<sup>&minus;4</sup>&middot;cos(2&pi;t).
 </p>
 <div class="project-card">
     <h4>Forward &amp; Backward &amp; Fisher Results</h4>
     <p class="tech">Tab-separated &middot; 500 data points &middot; t &isin; [0, 1]</p>
-    <a href="https://richardkentgates.com/papers/forward_results.txt" target="_blank">forward_results.txt &rarr;</a><br>
-    <a href="https://richardkentgates.com/papers/backward_results.txt" target="_blank">backward_results.txt &rarr;</a><br>
-    <a href="https://richardkentgates.com/papers/fisher_results.txt" target="_blank">fisher_results.txt &rarr;</a><br>
-    <a href="https://richardkentgates.com/papers/signal_processing_proof.txt" target="_blank">signal_processing_proof.txt &rarr;</a><br>
-    <a href="https://richardkentgates.com/papers/scalar_field_tests.py" target="_blank">scalar_field_tests.py (source) &rarr;</a><br>
-    <a href="https://richardkentgates.com/papers/signal_processing_proof.py" target="_blank">signal_processing_proof.py (SVD/conditioning/iterative source) &rarr;</a>
+    <a href="https://richardkentgates.com/papers/forward_results.txt" target="_blank">forward_results.txt (t, &lambda;<sub>eff</sub>, g<sub>eff</sub>, a<sub>eff</sub>) &rarr;</a><br>
+    <a href="https://richardkentgates.com/papers/backward_results.txt" target="_blank">backward_results.txt (t, G<sub>recon</sub>) &rarr;</a><br>
+    <a href="https://richardkentgates.com/papers/fisher_results.txt" target="_blank">fisher_results.txt (t, G<sub>true</sub>, G&#x0302;<sub>hat</sub>, Fisher F, CRLB) &rarr;</a>
+</div>
+<div class="project-card">
+    <h4>Signal Processing Proof</h4>
+    <p class="tech">SVD &middot; conditioning &kappa; &middot; LS/regularized/iterative comparison &middot; theory closure</p>
+    <a href="https://richardkentgates.com/papers/signal_processing_proof.txt" target="_blank">signal_processing_proof.txt &rarr;</a>
+</div>
+<div class="project-card">
+    <h4>Source Code</h4>
+    <p class="tech">Python 3 &middot; NumPy only &middot; no external dependencies</p>
+    <a href="https://richardkentgates.com/papers/scalar_field_tests.py" target="_blank">scalar_field_tests.py (forward, backward, Fisher) &rarr;</a><br>
+    <a href="https://richardkentgates.com/papers/signal_processing_proof.py" target="_blank">signal_processing_proof.py (SVD, conditioning, iterative) &rarr;</a>
 </div>
