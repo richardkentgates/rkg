@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>G(t) Scalar Field Visualizer</title>
+  <style>
+    :root {
+      --blue: #2d8cf0; --blue-dark: #1a6fcb; --blue-light: #e8f3fe;
+      --dark: #0f1623; --dark-2: #1a2233; --mid: #333344;
+      --muted: #6b7a99; --border: #e4eaf4; --bg: #f8fafc;
+      --white: #fff; --mono: 'Menlo','Consolas',monospace;
+      --sans: -apple-system,'Segoe UI',Roboto,sans-serif;
+      --radius: 8px;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--sans); color: var(--mid); background: var(--bg); line-height: 1.6; }
+    .topbar { background: var(--dark); padding: 14px 32px; }
+    .topbar a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500;
+      padding: 6px 12px; border-radius: 6px; transition: background .15s, color .15s; }
+    .topbar a:hover { background: rgba(45,140,240,.15); color: var(--blue); }
+    .topbar a.back { color: #8fa4c8; }
+    .container { max-width: 960px; margin: 0 auto; padding: 32px 24px; }
+    h1 { font-size: 24px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
+    .subtitle { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
+    .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 24px; margin-bottom: 20px; }
+    .card h2 { font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 14px;
+      padding-bottom: 6px; border-bottom: 2px solid var(--blue); }
+    label { display: block; font-size: 13px; font-weight: 600; color: var(--muted);
+      text-transform: uppercase; letter-spacing: .04em; margin-bottom: 4px; }
+    .slider-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    input[type=range] { flex: 1; accent-color: var(--blue); }
+    .val { font-family: var(--mono); font-size: 13px; color: var(--blue-dark);
+      background: var(--blue-light); padding: 2px 8px; border-radius: 4px; min-width: 90px; text-align: center; }
+    canvas { width: 100%; height: 320px; border: 1px solid var(--border); border-radius: 6px; display: block; }
+    .eq { font-family: var(--mono); font-size: 13px; background: var(--dark); color: #82cfff;
+      padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; overflow-x: auto; white-space: pre; }
+    .stats { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px,1fr)); gap: 12px; margin-top: 14px; }
+    .stat { background: var(--bg); border: 1px solid var(--border); border-radius: 6px; padding: 12px; }
+    .stat-label { font-size: 11px; font-weight: 700; color: var(--muted); text-transform: uppercase;
+      letter-spacing: .05em; margin-bottom: 4px; }
+    .stat-val { font-family: var(--mono); font-size: 15px; color: var(--dark); }
+    footer { text-align: center; padding: 24px; font-size: 13px; color: var(--muted); margin-top: 32px; }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 600px) { .container { padding: 16px 12px; } canvas { height: 220px; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><a class="back" href="https://richardkentgates.com">&larr; richardkentgates.com</a></div>
+  <div class="container">
+    <h1>G(t) Scalar Field Visualizer</h1>
+    <p class="subtitle">Unified Scalar Time-Gradient Field Theory &mdash; interactive exploration</p>
+
+    <div class="card">
+      <h2>Field Definition</h2>
+      <div class="eq">G(t) = A_base + A_amp &middot; cos(2&pi; &middot; t)</div>
+      <label>Base Amplitude (A_base)</label>
+      <div class="slider-row">
+        <input type="range" id="base" min="0" max="0.005" step="0.0001" value="0.001">
+        <span class="val" id="base-val">1.000e-3</span>
+      </div>
+      <label>Oscillation Amplitude (A_amp)</label>
+      <div class="slider-row">
+        <input type="range" id="amp" min="0" max="0.002" step="0.00005" value="0.0001">
+        <span class="val" id="amp-val">1.000e-4</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>G(t) over t &isin; [0, 1]</h2>
+      <canvas id="plot" width="900" height="320"></canvas>
+      <div class="stats">
+        <div class="stat"><div class="stat-label">Min G(t)</div><div class="stat-val" id="s-min">-</div></div>
+        <div class="stat"><div class="stat-label">Max G(t)</div><div class="stat-val" id="s-max">-</div></div>
+        <div class="stat"><div class="stat-label">Mean G(t)</div><div class="stat-val" id="s-mean">-</div></div>
+        <div class="stat"><div class="stat-label">Peak-to-Peak</div><div class="stat-val" id="s-p2p">-</div></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Fractional Deviations</h2>
+      <canvas id="devplot" width="900" height="280"></canvas>
+      <div class="stats">
+        <div class="stat"><div class="stat-label">Decay &Delta;&lambda;/&lambda;&sub0; (c=1.0)</div><div class="stat-val" id="d-decay">-</div></div>
+        <div class="stat"><div class="stat-label">Gravity &Delta;g/g&sub0; (c=0.5)</div><div class="stat-val" id="d-grav">-</div></div>
+        <div class="stat"><div class="stat-label">Inertia &Delta;a/a&sub0; (c=0.5)</div><div class="stat-val" id="d-iner">-</div></div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="https://richardkentgates.com">&larr; Back to richardkentgates.com</a>
+    &nbsp;&middot;&nbsp; Built with vanilla JS &middot; No dependencies
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const canvas = $('plot'), ctx = canvas.getContext('2d');
+    const devCanvas = $('devplot'), dctx = devCanvas.getContext('2d');
+
+    function resizeCanvas(c) {
+      const r = c.getBoundingClientRect();
+      c.width = r.width * devicePixelRatio;
+      c.height = r.height * devicePixelRatio;
+      c.getContext('2d').setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+    }
+
+    function G(t, base, amp) { return base + amp * Math.cos(2 * Math.PI * t); }
+
+    function draw() {
+      resizeCanvas(canvas);
+      resizeCanvas(devCanvas);
+
+      const base = parseFloat($('base').value);
+      const amp = parseFloat($('amp').value);
+      $('base-val').textContent = base.toExponential(3);
+      $('amp-val').textContent = amp.toExponential(3);
+
+      const W = canvas.width / devicePixelRatio, H = canvas.height / devicePixelRatio;
+      const pad = { l: 60, r: 20, t: 20, b: 36 };
+      const pw = W - pad.l - pad.r, ph = H - pad.t - pad.b;
+
+      // Compute G(t) values
+      const N = 500;
+      const vals = [];
+      let gMin = Infinity, gMax = -Infinity, gSum = 0;
+      for (let i = 0; i < N; i++) {
+        const t = i / (N - 1);
+        const g = G(t, base, amp);
+        vals.push({ t, g });
+        if (g < gMin) gMin = g;
+        if (g > gMax) gMax = g;
+        gSum += g;
+      }
+      const gMean = gSum / N;
+      const range = gMax - gMin || 1e-6;
+      const yPad = range * 0.15;
+      const yLo = gMin - yPad, yHi = gMax + yPad;
+
+      $('s-min').textContent = gMin.toExponential(4);
+      $('s-max').textContent = gMax.toExponential(4);
+      $('s-mean').textContent = gMean.toExponential(4);
+      $('s-p2p').textContent = range.toExponential(4);
+
+      // ── Main G(t) plot ──
+      ctx.clearRect(0, 0, W, H);
+      // Grid
+      ctx.strokeStyle = '#e8ecf2'; ctx.lineWidth = 1;
+      for (let i = 0; i <= 5; i++) {
+        const y = pad.t + (ph * i / 5);
+        ctx.beginPath(); ctx.moveTo(pad.l, y); ctx.lineTo(pad.l + pw, y); ctx.stroke();
+      }
+      // Axes labels
+      ctx.fillStyle = '#6b7a99'; ctx.font = '11px sans-serif'; ctx.textAlign = 'right';
+      for (let i = 0; i <= 5; i++) {
+        const v = yHi - (yHi - yLo) * i / 5;
+        const y = pad.t + (ph * i / 5);
+        ctx.fillText(v.toExponential(2), pad.l - 6, y + 4);
+      }
+      ctx.textAlign = 'center';
+      for (let i = 0; i <= 4; i++) {
+        const x = pad.l + (pw * i / 4);
+        ctx.fillText((i / 4).toFixed(2), x, H - 8);
+      }
+      ctx.fillText('t', pad.l + pw / 2, H - 0);
+      // Curve
+      ctx.strokeStyle = '#2d8cf0'; ctx.lineWidth = 2.5;
+      ctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        const x = pad.l + vals[i].t * pw;
+        const y = pad.t + (1 - (vals[i].g - yLo) / (yHi - yLo)) * ph;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+
+      // ── Deviation plot ──
+      const dW = devCanvas.width / devicePixelRatio, dH = devCanvas.height / devicePixelRatio;
+      const dpw = dW - pad.l - pad.r, dph = dH - pad.t - pad.b;
+      const c_lam = 1.0, c_g = 0.5;
+      let devMax = 0;
+      const devs = vals.map(v => {
+        const dl = c_lam * v.g, dg = c_g * v.g;
+        devMax = Math.max(devMax, Math.abs(dl), Math.abs(dg));
+        return { t: v.t, dl, dg };
+      });
+      const dRange = devMax * 1.3 || 1e-6;
+
+      $('d-decay').textContent = '+/- ' + (c_lam * gMean).toExponential(3);
+      $('d-grav').textContent = '+/- ' + (c_g * gMean).toExponential(3);
+      $('d-iner').textContent = '+/- ' + (c_g * gMean).toExponential(3);
+
+      dctx.clearRect(0, 0, dW, dH);
+      // Grid
+      dctx.strokeStyle = '#e8ecf2'; dctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i++) {
+        const y = pad.t + (dph * i / 4);
+        dctx.beginPath(); dctx.moveTo(pad.l, y); dctx.lineTo(pad.l + dpw, y); dctx.stroke();
+      }
+      // Zero line
+      const zeroY = pad.t + dph / 2;
+      dctx.strokeStyle = '#ccc'; dctx.lineWidth = 1;
+      dctx.beginPath(); dctx.moveTo(pad.l, zeroY); dctx.lineTo(pad.l + dpw, zeroY); dctx.stroke();
+      // Labels
+      dctx.fillStyle = '#6b7a99'; dctx.font = '11px sans-serif'; dctx.textAlign = 'right';
+      for (let i = 0; i <= 4; i++) {
+        const v = dRange - (2 * dRange) * i / 4;
+        const y = pad.t + (dph * i / 4);
+        dctx.fillText(v.toExponential(1), pad.l - 6, y + 4);
+      }
+      dctx.textAlign = 'center';
+      for (let i = 0; i <= 4; i++) {
+        dctx.fillText((i / 4).toFixed(2), pad.l + (dpw * i / 4), dH - 8);
+      }
+      // Decay line
+      dctx.strokeStyle = '#2d8cf0'; dctx.lineWidth = 2;
+      dctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        const x = pad.l + devs[i].t * dpw;
+        const y = pad.t + (1 - (devs[i].dl + dRange) / (2 * dRange)) * dph;
+        i === 0 ? dctx.moveTo(x, y) : dctx.lineTo(x, y);
+      }
+      dctx.stroke();
+      // Gravity line
+      dctx.strokeStyle = '#10b981'; dctx.lineWidth = 2;
+      dctx.beginPath();
+      for (let i = 0; i < N; i++) {
+        const x = pad.l + devs[i].t * dpw;
+        const y = pad.t + (1 - (devs[i].dg + dRange) / (2 * dRange)) * dph;
+        i === 0 ? dctx.moveTo(x, y) : dctx.lineTo(x, y);
+      }
+      dctx.stroke();
+      // Legend
+      dctx.font = '12px sans-serif';
+      dctx.fillStyle = '#2d8cf0'; dctx.textAlign = 'left';
+      dctx.fillText('\u2500 Decay \u0394\u03BB/\u03BB\u2080 (c=1.0)', pad.l + 10, pad.t + 16);
+      dctx.fillStyle = '#10b981';
+      dctx.fillText('\u2500 Gravity \u0394g/g\u2080 (c=0.5)', pad.l + 10, pad.t + 34);
+    }
+
+    $('base').addEventListener('input', draw);
+    $('amp').addEventListener('input', draw);
+    window.addEventListener('resize', draw);
+    draw();
+  </script>
+</body>
+</html>
