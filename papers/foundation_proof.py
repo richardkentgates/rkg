@@ -98,7 +98,7 @@ print("3. INFORMATION CANNOT BE LOST")
 print("=" * 70)
 
 # The Bekenstein-Hawking entropy of a black hole:
-# S = A / (4 * l_Pl^2) = 4*pi*G*M^2 / (hbar*c)
+# S = A / (4 * l_Pl^2) = 4*pi*G*M^2 / (hbar*c)   [S/k_B in nats; bits = S/ln(2)]
 # This is the MAXIMUM entropy (information) for a given mass.
 
 # If a black hole evaporates completely:
@@ -114,8 +114,8 @@ print("=" * 70)
 M_Pl = 2.176e-8  # kg
 M_relic = 1e-5 * M_Pl  # relic mass from our calculations
 
-S_relic = 4 * np.pi * G_Newt * M_relic**2 / (hbar * c)
-S_BH_10Msun = 4 * np.pi * G_Newt * (10 * 1.989e30)**2 / (hbar * c)
+S_relic = 4 * np.pi * G_Newt * M_relic**2 / (hbar * c * np.log(2))
+S_BH_10Msun = 4 * np.pi * G_Newt * (10 * 1.989e30)**2 / (hbar * c * np.log(2))
 
 print(f"\nBlack hole entropy:")
 print(f"  S(10 M_sun BH) = {S_BH_10Msun:.2e} bits")
@@ -158,19 +158,19 @@ m_muon = 105.66e-3  # GeV/c^2
 tau_muon = 2.197e-6  # seconds (rest lifetime)
 
 print(f"\nMuon lifetime dilation:")
-print(f"{'gamma':>10} {'tau_lab (s)':>15} {'distance (m)':>15} {'info (bits)':>15}")
+print(f"{'gamma':>10} {'tau_lab (s)':>15} {'distance (m)':>15} {'I_max lab (bits)':>16}")
 print(f"{'-'*55}")
 for g in gamma_vals:
     tau_lab = g * tau_muon
     dist = g * c * tau_muon  # distance traveled
-    info = tau_lab / t_Pl * I_per_tPl  # information in lab frame
-    print(f"{g:10.0f} {tau_lab:15.3e} {dist:15.3e} {info:15.2e}")
+    info = tau_lab / t_Pl * I_per_tPl  # max lab-frame capacity
+    print(f"{g:10.0f} {tau_lab:15.3e} {dist:15.3e} {info:16.2e}")
 
 print(f"\n  As gamma increases:")
 print(f"  - Lifetime increases (more time)")
 print(f"  - Distance increases (more space)")
-print(f"  - Information is CONSTANT (internal state unchanged)")
-print(f"  -> Distance and time scale together, information is invariant")
+print(f"  - Internal info is CONSTANT (particle state unchanged); lab capacity grows")
+print(f"  -> Distance and time scale together; internal information is invariant")
 
 # 4b. Energy-time uncertainty relation
 # Delta_E * Delta_t >= hbar/2
