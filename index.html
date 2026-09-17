@@ -564,6 +564,49 @@ a.sponsor-btn svg {
   fill: var(--blue);
 }
 
+/* ── Collapse toggle ──────────────────────────────────────────────────── */
+.collapse-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 16px;
+  background: var(--blue-light);
+  border: 1px solid rgba(45,140,240,.2);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  transition: background .15s;
+}
+.collapse-trigger:hover {
+  background: rgba(45,140,240,.12);
+}
+.collapse-trigger span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+.collapse-trigger .arrow {
+  font-size: 12px;
+  color: var(--blue);
+  transition: transform .2s;
+}
+.collapse-trigger.open .arrow {
+  transform: rotate(90deg);
+}
+.collapse-body {
+  display: none;
+}
+.collapse-body.open {
+  display: block;
+}
+.capstone-card {
+  border-left: 3px solid var(--blue);
+}
+.capstone-card h4 {
+  font-size: 16px;
+}
+
 /* ── Footer ────────────────────────────────────────────────────────────── */
 footer {
   background: linear-gradient(160deg, var(--dark) 0%, var(--dark-2) 100%);
@@ -702,7 +745,7 @@ footer a:hover {
     "@type": "ScholarlyArticle",
     "name": "The Theory of Everything: One Axiom, One Field, All of Physics",
     "url": "https://richardkentgates.com/papers/theory-of-everything.html",
-    "description": "One axiom generates quantum mechanics, general relativity, and thermodynamics. One scalar field IS the quantum vacuum, IS spacetime.",
+    "description": "One axiom generates quantum mechanics, general relativity, and thermodynamics.",
     "author": {
       "@type": "Person",
       "name": "Richard Kent Gates"
@@ -713,7 +756,7 @@ footer a:hover {
     "@type": "ScholarlyArticle",
     "name": "Time-Gradient Field Model",
     "url": "https://richardkentgates.com/papers/time-gradient-field-model.html",
-    "description": "Unified mathematical explanation for decay-rate and lifetime anomalies via a scalar time-gradient field.",
+    "description": "Unified mathematical explanation for decay-rate and lifetime anomalies.",
     "author": {
       "@type": "Person",
       "name": "Richard Kent Gates"
@@ -722,9 +765,9 @@ footer a:hover {
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
-    "name": "The Field Is the Universe: A Unified Proof",
+    "name": "The Field Is the Universe",
     "url": "https://richardkentgates.com/papers/unified-proof.html",
-    "description": "Working backward from the current state, the field drives expansion, radiation, structure, and accelerated expansion.",
+    "description": "The field drives expansion, radiation, structure, and accelerated expansion.",
     "author": {
       "@type": "Person",
       "name": "Richard Kent Gates"
