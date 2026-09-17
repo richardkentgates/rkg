@@ -539,6 +539,49 @@ a.sponsor-btn svg {
   fill: var(--blue);
 }
 
+/* ── Collapse toggle ──────────────────────────────────────────────────── */
+.collapse-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding: 10px 16px;
+  background: var(--blue-light);
+  border: 1px solid rgba(45,140,240,.2);
+  border-radius: 6px;
+  margin-bottom: 16px;
+  transition: background .15s;
+}
+.collapse-trigger:hover {
+  background: rgba(45,140,240,.12);
+}
+.collapse-trigger span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--blue-dark);
+}
+.collapse-trigger .arrow {
+  font-size: 12px;
+  color: var(--blue);
+  transition: transform .2s;
+}
+.collapse-trigger.open .arrow {
+  transform: rotate(90deg);
+}
+.collapse-body {
+  display: none;
+}
+.collapse-body.open {
+  display: block;
+}
+.capstone-card {
+  border-left: 3px solid var(--blue);
+}
+.capstone-card h4 {
+  font-size: 16px;
+}
+
 /* ── Footer ────────────────────────────────────────────────────────────── */
 footer {
   background: linear-gradient(160deg, var(--dark) 0%, var(--dark-2) 100%);
