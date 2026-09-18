@@ -75,14 +75,6 @@
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{microtype}
-\usepackage{breakurl}
-\usepackage[breaklinks=true]{hyperref}
-\usepackage{enumitem}
-\setlist{noitemsep,topsep=0pt}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -223,7 +215,7 @@ the field has always been, always producing energy.
 
 \begin{figure}
 \centering
-\includegraphics{fig-bigbang-vs-field}
+\includesvg{fig-bigbang-vs-field.svg}
 \caption{Figure 1: The Big Bang model requires a singularity. The scalar
 field model has no beginning --- the field has always been, always
 producing energy.}
