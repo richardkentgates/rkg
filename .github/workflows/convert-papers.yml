@@ -44,8 +44,6 @@ jobs:
           \usepackage[breaklinks=true]{hyperref}
           \usepackage{enumitem}
           \setlist{noitemsep,topsep=0pt}
-          \allowdisplaybreaks
-          \sloppy
           TEX
 
           for html in papers/*.html; do
@@ -57,15 +55,13 @@ jobs:
               --wrap=auto \
               --standalone \
               -V documentclass=article \
-              -V geometry:margin=1in \
+              -V geometry:margin=0.75in \
               -V fontsize=10pt \
               -H /tmp/header.tex \
               --metadata title="" \
               -o "papers/$base.tex"
-            # Fix: \includesvg{foo.svg} -> \includegraphics{foo} (use PDF version)
             sed -i 's/\\includesvg{\([^}]*\)\.svg}/\\includegraphics{\1}/g' "papers/$base.tex"
             sed -i 's/\\includesvg{\([^}]*\)}/\\includegraphics{\1}/g' "papers/$base.tex"
-            # Also fix any remaining \includegraphics with .svg extension
             sed -i 's/\\includegraphics{\([^}]*\)\.svg}/\\includegraphics{\1}/g' "papers/$base.tex"
           done
 
