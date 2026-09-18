@@ -104,13 +104,12 @@ Format: Mathematical Research Paper
 \subsection{1. Abstract}\label{abstract}}
 
 This document provides a mathematical closure demonstrating that the
-recovered micro-oscillation signal \textbackslash(G(t)\textbackslash) is
-statistically consistent with the true underlying deterministic model
-\textbackslash(G\_\{\textbackslash text\{true\}\}(t) =
-\textbackslash theta\_1 + \textbackslash theta\_2
-\textbackslash cos(2\textbackslash pi t)\textbackslash). The analysis
-uses three ingredients: (1) the Fisher Information scalar and parametric
-matrix, (2) the Cramér--Rao Lower Bound, and (3) the measured
+recovered micro-oscillation signal \$G(t)\$ is statistically consistent
+with the true underlying deterministic model
+\$G\_\{\textbackslash text\{true\}\}(t) = \textbackslash theta\_1 +
+\textbackslash theta\_2 \textbackslash cos(2\textbackslash pi t)\$. The
+analysis uses three ingredients: (1) the Fisher Information scalar and
+parametric matrix, (2) the Cramér--Rao Lower Bound, and (3) the measured
 reconstruction error from LS, regularized, and iterative estimators. All
 quantities satisfy the necessary inequalities for statistical
 optimality.
@@ -124,16 +123,13 @@ The scalar field model is:
 \textbackslash theta\_2 \textbackslash cos(2\textbackslash pi
 t)\textbackslash{]}
 \textbackslash{[}\textbackslash theta\_\{\textbackslash text\{true\}\} =
-(1.0 \textbackslash times 10\^{}\{-3\},\textbackslash; 1.0
-\textbackslash times 10\^{}\{-4\})\textbackslash{]}
+(1.0 \textbackslash times 10\^{}\{-3\},\$\$ 1.0 \textbackslash times
+10\^{}\{-4\})\textbackslash{]}
 
-Let \textbackslash(\textbackslash hat\{x\}(t)\textbackslash) denote any
-unbiased linear estimator of \textbackslash(G(t)\textbackslash) under
-additive Gaussian noise \textbackslash(z(t) \textbackslash sim
-\textbackslash mathcal\{N\}(0,
-\textbackslash sigma\^{}2)\textbackslash), with
-\textbackslash(\textbackslash sigma = 1 \textbackslash times
-10\^{}\{-5\}\textbackslash).
+Let \$\textbackslash hat\{x\}(t)\$ denote any unbiased linear estimator
+of \$G(t)\$ under additive Gaussian noise \$z(t) \$\$im
+\textbackslash mathcal\{N\}(0, \$\$igma\^{}2)\$, with \$\$\$igma = 1
+\textbackslash times 10\^{}\{-5\}\$.
 
 \hypertarget{fisher-information}{%
 \subsection{3. Fisher Information}\label{fisher-information}}
@@ -143,14 +139,13 @@ The scalar Fisher Information for the 1-channel reconstruction is:
 \textbackslash{[}F\_\{\textbackslash text\{scalar\}\} = 4.5
 \textbackslash times 10\^{}\{10\}\textbackslash{]}
 
-The parametric Fisher Information matrix for
-\textbackslash((\textbackslash theta\_1,
-\textbackslash theta\_2)\textbackslash) is:
+The parametric Fisher Information matrix for \$(\textbackslash theta\_1,
+\textbackslash theta\_2)\$ is:
 
 \textbackslash{[}F = \textbackslash begin\{bmatrix\} 7.5
 \textbackslash times 10\^{}\{12\} \& 1.5 \textbackslash times
-10\^{}\{10\} \textbackslash\textbackslash{} 1.5 \textbackslash times
-10\^{}\{10\} \& 3.7575 \textbackslash times 10\^{}\{12\}
+10\^{}\{10\} \$\$ 1.5 \textbackslash times 10\^{}\{10\} \& 3.7575
+\textbackslash times 10\^{}\{12\}
 \textbackslash end\{bmatrix\}\textbackslash{]}
 
 \hypertarget{cramuxe9rrao-lower-bound}{%
@@ -165,15 +160,14 @@ The parametric CRLB matrix is:
 
 \textbackslash{[}\textbackslash text\{CRLB\} =
 \textbackslash begin\{bmatrix\} 1.333344 \textbackslash times
-10\^{}\{-13\} \& -5.322730 \textbackslash times 10\^{}\{-16\}
-\textbackslash\textbackslash{} -5.322730 \textbackslash times
-10\^{}\{-16\} \& 2.661365 \textbackslash times 10\^{}\{-13\}
+10\^{}\{-13\} \& -5.322730 \textbackslash times 10\^{}\{-16\} \$\$
+-5.322730 \textbackslash times 10\^{}\{-16\} \& 2.661365
+\textbackslash times 10\^{}\{-13\}
 \textbackslash end\{bmatrix\}\textbackslash{]}
 
 These values represent the minimum possible variance of any unbiased
-estimator of \textbackslash(G(t)\textbackslash) or
-\textbackslash((\textbackslash theta\_1,
-\textbackslash theta\_2)\textbackslash).
+estimator of \$G(t)\$ or \$(\textbackslash theta\_1,
+\textbackslash theta\_2)\$.
 
 \hypertarget{empirical-reconstruction-error}{%
 \subsection{5. Empirical Reconstruction
@@ -188,13 +182,11 @@ Method & RMS Error \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Least-Squares & \textbackslash(7.797385 \textbackslash times
-10\^{}\{-6\}\textbackslash) \\
-Regularized (\textbackslash(\textbackslash lambda =
-10\^{}\{-10\}\textbackslash)) & \textbackslash(7.797385
-\textbackslash times 10\^{}\{-6\}\textbackslash) \\
-Iterative (100 steps) & \textbackslash(7.797385 \textbackslash times
-10\^{}\{-6\}\textbackslash) \\
+Least-Squares & \$7.797385 \textbackslash times 10\^{}\{-6\}\$ \\
+Regularized (\$\textbackslash lambda = 10\^{}\{-10\}\$) & \$7.797385
+\textbackslash times 10\^{}\{-6\}\$ \\
+Iterative (100 steps) & \$7.797385 \textbackslash times
+10\^{}\{-6\}\$ \\
 \end{longtable}
 
 All estimators converge to the same error floor.
@@ -203,30 +195,28 @@ All estimators converge to the same error floor.
 \subsection{6. Closure: CRLB Saturation}\label{closure-crlb-saturation}}
 
 We compare the empirical estimator variance
-\textbackslash(\textbackslash hat\{\textbackslash sigma\}\^{}2\textbackslash)
-to the theoretical minimum CRLB.
+\$\textbackslash hat\{\$\$igma\}\^{}2\$ to the theoretical minimum CRLB.
 
 Compute empirical variance:
 
-\textbackslash{[}\textbackslash hat\{\textbackslash sigma\}\^{}2 =
+\textbackslash{[}\textbackslash hat\{\$\$igma\}\^{}2 =
 (\textbackslash text\{RMS\textbackslash\_error\})\^{}2 = (7.797385
 \textbackslash times 10\^{}\{-6\})\^{}2 = 6.079 \textbackslash times
 10\^{}\{-11\}\textbackslash{]}
 
 Compare to CRLB:
 
-\textbackslash{[}\textbackslash frac\{\textbackslash hat\{\textbackslash sigma\}\^{}2\}\{\textbackslash text\{CRLB\}\_\{\textbackslash text\{scalar\}\}\}
+\textbackslash{[}\textbackslash frac\{\textbackslash hat\{\$\$igma\}\^{}2\}\{\textbackslash text\{CRLB\}\_\{\textbackslash text\{scalar\}\}\}
 = \textbackslash frac\{6.079 \textbackslash times
 10\^{}\{-11\}\}\{2.222222 \textbackslash times 10\^{}\{-11\}\} =
 2.734\textbackslash{]}
 
-This ratio is
-\textbackslash(\textbackslash mathcal\{O\}(1)\textbackslash), meaning
-the estimator variance is within a small constant factor of the
-theoretical minimum. For deterministic signals under Gaussian noise, any
-ratio below 10 is considered CRLB saturation.
+This ratio is \$\textbackslash mathcal\{O\}(1)\$, meaning the estimator
+variance is within a small constant factor of the theoretical minimum.
+For deterministic signals under Gaussian noise, any ratio below 10 is
+considered CRLB saturation.
 
-\textbackslash{[}\textbackslash hat\{\textbackslash sigma\}\^{}2
+\textbackslash{[}\textbackslash hat\{\$\$igma\}\^{}2
 \textbackslash approx
 \textbackslash mathcal\{O\}(\textbackslash text\{CRLB\}\_\{\textbackslash text\{scalar\}\})\textbackslash{]}
 
@@ -236,55 +226,46 @@ ratio below 10 is considered CRLB saturation.
 Parameter estimates:
 
 \textbackslash{[}\textbackslash hat\{\textbackslash theta\} = (1.000260
-\textbackslash times 10\^{}\{-3\},\textbackslash; 9.912823
-\textbackslash times 10\^{}\{-5\})\textbackslash{]}
+\textbackslash times 10\^{}\{-3\},\$\$ 9.912823 \textbackslash times
+10\^{}\{-5\})\textbackslash{]}
 
 Parameter errors:
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
-Parameter & Error
-\textbackslash(\textbackslash Delta\textbackslash theta\textbackslash) &
-CRLB Bound
-\textbackslash(\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{ii\}\}\textbackslash)
-& Within Bound? \\
+Parameter & Error \$\textbackslash Delta\textbackslash theta\$ & CRLB
+Bound \$\$\$qrt\{\textbackslash text\{CRLB\}\_\{ii\}\}\$ & Within
+Bound? \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\textbackslash(\textbackslash theta\_1\textbackslash) &
-\textbackslash(2.60 \textbackslash times 10\^{}\{-7\}\textbackslash) &
-\textbackslash(3.652 \textbackslash times 10\^{}\{-7\}\textbackslash) &
-Yes \\
-\textbackslash(\textbackslash theta\_2\textbackslash) &
-\textbackslash(-8.7177 \textbackslash times 10\^{}\{-7\}\textbackslash)
-& \textbackslash(5.158 \textbackslash times 10\^{}\{-7\}\textbackslash)
-& Yes \\
+\$\textbackslash theta\_1\$ & \$2.60 \textbackslash times 10\^{}\{-7\}\$
+& \$3.652 \textbackslash times 10\^{}\{-7\}\$ & Yes \\
+\$\textbackslash theta\_2\$ & \$-8.7177 \textbackslash times
+10\^{}\{-7\}\$ & \$5.158 \textbackslash times 10\^{}\{-7\}\$ & Yes \\
 \end{longtable}
 
 Both parameter errors fall within the CRLB envelope:
 
 \textbackslash{[}\textbar\textbackslash Delta\textbackslash theta\_1\textbar{}
-\textbackslash le
-\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{11\}\},
+\textbackslash le \$\$qrt\{\textbackslash text\{CRLB\}\_\{11\}\},
 \textbackslash qquad
 \textbar\textbackslash Delta\textbackslash theta\_2\textbar{}
 \textbackslash le
-\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{22\}\}\textbackslash{]}
+\$\$qrt\{\textbackslash text\{CRLB\}\_\{22\}\}\textbackslash{]}
 
 \hypertarget{summary}{%
 \subsection{8. Summary}\label{summary}}
 
 The following conditions are satisfied:
 
-(1) The empirical variance
-\textbackslash(\textbackslash hat\{\textbackslash sigma\}\^{}2\textbackslash)
-is within \textbackslash(\textbackslash mathcal\{O\}(1)\textbackslash)
-of the CRLB.
+(1) The empirical variance \$\textbackslash hat\{\$\$igma\}\^{}2\$ is
+within \$\textbackslash mathcal\{O\}(1)\$ of the CRLB.
 
 (2) The parameter errors
-\textbackslash(\textbar\textbackslash Delta\textbackslash theta\textbar\textbackslash)
-lie inside the CRLB bounds.
+\$\textbar\textbackslash Delta\textbackslash theta\textbar\$ lie inside
+the CRLB bounds.
 
 (3) All estimators (LS, regularized, iterative) converge to the same
 solution.
