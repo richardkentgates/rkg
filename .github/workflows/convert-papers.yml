@@ -58,7 +58,7 @@ jobs:
               --standalone \
               -V documentclass=article \
               -V geometry:margin=1in \
-              -V fontsize=11pt \
+              -V fontsize=10pt \
               -H /tmp/header.tex \
               --metadata title="" \
               -o "papers/$base.tex"
