@@ -3,7 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  11pt,
+  10pt,
 ]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -37,7 +37,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -83,8 +83,6 @@
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{enumitem}
 \setlist{noitemsep,topsep=0pt}
-\allowdisplaybreaks
-\sloppy
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -149,7 +147,7 @@ different scales.
 
 \begin{figure}
 \centering
-\includesvg{fig-multi-scale-field.svg}
+\includegraphics{fig-multi-scale-field}
 \caption{Figure 1: The same scalar field G(t) at every scale. QM sees
 vacuum fluctuations (high-frequency oscillation). GR sees spacetime
 curvature (low-frequency gradient). The cosmological constant problem
@@ -206,7 +204,7 @@ parameters. All sectors. All scales.
 
 \begin{figure}
 \centering
-\includesvg{fig-correction-law-hub.svg}
+\includegraphics{fig-correction-law-hub}
 \caption{Figure 2: The unified correction law as a hub diagram. One
 equation, two parameters, five sectors.}
 \end{figure}
