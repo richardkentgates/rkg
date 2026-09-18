@@ -75,14 +75,6 @@
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{microtype}
-\usepackage{breakurl}
-\usepackage[breaklinks=true]{hyperref}
-\usepackage{enumitem}
-\setlist{noitemsep,topsep=0pt}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -119,7 +111,8 @@ Definitions}\label{foundational-definitions}}
 \hypertarget{distance}{%
 \subsubsection{0.1 Distance}\label{distance}}
 
-Spatial separation between two events \$A\$ and \$B\$:
+Spatial separation between two events \textbackslash(A\textbackslash)
+and \textbackslash(B\textbackslash):
 
 \textbackslash{[}\textbackslash Delta x = \textbackslash\textbar{} x\_B
 - x\_A \textbackslash\textbar\textbackslash{]}
@@ -130,7 +123,7 @@ Spatial separation between two events \$A\$ and \$B\$:
 Proper time at each event:
 
 \textbackslash{[}d\textbackslash tau =
-\$\$qrt\{-g\_\{\textbackslash mu\textbackslash nu\}\textbackslash,dx\^{}\textbackslash mu\textbackslash,dx\^{}\textbackslash nu\}\textbackslash{]}
+\textbackslash sqrt\{-g\_\{\textbackslash mu\textbackslash nu\}\textbackslash,dx\^{}\textbackslash mu\textbackslash,dx\^{}\textbackslash nu\}\textbackslash{]}
 
 \hypertarget{information}{%
 \subsubsection{0.3 Information}\label{information}}
@@ -170,9 +163,11 @@ The information capacity of a separation:
 \textbackslash{[}I\_\{AB\} = f(\textbackslash Delta
 x,\textbackslash,\textbackslash Delta\textbackslash tau,\textbackslash,G(t))\textbackslash{]}
 
-Where \$\textbackslash Delta x\$ sets minimum signal time,
-\$\textbackslash Delta\textbackslash tau\$ sets local information rate,
-and \$G(t)\$ modulates both. The full expression:
+Where \textbackslash(\textbackslash Delta x\textbackslash) sets minimum
+signal time,
+\textbackslash(\textbackslash Delta\textbackslash tau\textbackslash)
+sets local information rate, and \textbackslash(G(t)\textbackslash)
+modulates both. The full expression:
 
 \textbackslash{[}I\_\{AB\} = \textbackslash frac\{\textbackslash Delta
 x\}\{c \textbackslash cdot \textbackslash Delta\textbackslash tau\}
@@ -187,14 +182,16 @@ G(t)\textbackslash right)\textbackslash{]}
 An information object is defined as:
 
 \textbackslash{[}\textbackslash mathcal\{I\} =
-\textbackslash\{\textbackslash psi,\$\$\textbackslash phi,\$\$G(t),\$\$\textbackslash nabla
-G,\$\$\textbackslash Delta\textbackslash tau\textbackslash\}\textbackslash{]}
+\textbackslash\{\textbackslash psi,\textbackslash;\textbackslash phi,\textbackslash;G(t),\textbackslash;\textbackslash nabla
+G,\textbackslash;\textbackslash Delta\textbackslash tau\textbackslash\}\textbackslash{]}
 
-Where \$\textbackslash psi\$ is the quantum state,
-\$\textbackslash phi\$ is the field phase, \$G(t)\$ is the scalar field
-amplitude, \$\textbackslash nabla G\$ is the local time gradient, and
-\$\textbackslash Delta\textbackslash tau\$ is the proper time difference
-between endpoints.
+Where \textbackslash(\textbackslash psi\textbackslash) is the quantum
+state, \textbackslash(\textbackslash phi\textbackslash) is the field
+phase, \textbackslash(G(t)\textbackslash) is the scalar field amplitude,
+\textbackslash(\textbackslash nabla G\textbackslash) is the local time
+gradient, and
+\textbackslash(\textbackslash Delta\textbackslash tau\textbackslash) is
+the proper time difference between endpoints.
 
 \hypertarget{frame-drag-formalization}{%
 \subsection{2. Frame Drag
@@ -240,12 +237,13 @@ The transformation of the information object:
 \textbackslash{[}\textbackslash mathcal\{I\}\textquotesingle{} =
 R(\textbackslash vec\{\textbackslash Omega\}\_\{\textbackslash text\{drag\}\})\textbackslash,\textbackslash mathcal\{I\}\textbackslash{]}
 
-Where \$R\$ is a rotation operator acting on phase, basis, and local
-time density:
+Where \textbackslash(R\textbackslash) is a rotation operator acting on
+phase, basis, and local time density:
 
 \textbackslash{[}R(\textbackslash Omega) =
 \textbackslash begin\{pmatrix\} \textbackslash cos\textbackslash theta
-\& -\$\$in\textbackslash theta \$\$ \$\$in\textbackslash theta \&
+\& -\textbackslash sin\textbackslash theta
+\textbackslash\textbackslash{} \textbackslash sin\textbackslash theta \&
 \textbackslash cos\textbackslash theta \textbackslash end\{pmatrix\},
 \textbackslash quad \textbackslash theta = \textbackslash Omega
 \textbackslash cdot dt\textbackslash{]}
@@ -272,7 +270,7 @@ Where:
 \subsubsection{3.2 Scalar Field
 Perturbation}\label{scalar-field-perturbation}}
 
-Induced perturbation in \$G(t)\$:
+Induced perturbation in \textbackslash(G(t)\textbackslash):
 
 \textbackslash{[}G\_\{\textbackslash text\{GW\}\}(t,x) = G(t) +
 \textbackslash delta
@@ -310,13 +308,15 @@ Entanglement as a single information object across two endpoints:
 
 \begin{figure}
 \centering
-\includegraphics{fig-entanglement-shared-object}
+\includesvg{fig-entanglement-shared-object.svg}
 \caption{Figure 1: Entanglement is a single information object
-\$\textbackslash mathcal\{I\}\_\{AB\}\$ spanning two endpoints A and B
-with different local time densities (\$\textbackslash tau\_A
-\textbackslash neq \textbackslash tau\_B\$). The phase difference
-\$\textbackslash phi\_A - \textbackslash phi\_B\$ remains constant,
-preserving entanglement.}
+\textbackslash(\textbackslash mathcal\{I\}\_\{AB\}\textbackslash)
+spanning two endpoints A and B with different local time densities
+(\textbackslash(\textbackslash tau\_A \textbackslash neq
+\textbackslash tau\_B\textbackslash)). The phase difference
+\textbackslash(\textbackslash phi\_A -
+\textbackslash phi\_B\textbackslash) remains constant, preserving
+entanglement.}
 \end{figure}
 
 \hypertarget{temporal-density-constraint}{%
@@ -329,8 +329,9 @@ Entanglement coherence condition:
 =
 \textbackslash frac\{d\textbackslash mathcal\{I\}\_B\}\{dt\}\textbackslash{]}
 
-Even when \$\textbackslash Delta\textbackslash tau\_A \textbackslash neq
-\textbackslash Delta\textbackslash tau\_B\$.
+Even when \textbackslash(\textbackslash Delta\textbackslash tau\_A
+\textbackslash neq
+\textbackslash Delta\textbackslash tau\_B\textbackslash).
 
 \hypertarget{entanglement-under-time-dilation}{%
 \subsubsection{4.3 Entanglement Under Time
@@ -340,8 +341,8 @@ Phase evolution at each endpoint:
 
 \textbackslash begin\{align\} \textbackslash phi\_A(t) \&=
 \textbackslash phi\_0 + \textbackslash int
-G(t)\textbackslash,d\textbackslash tau\_A \$\$ \textbackslash phi\_B(t)
-\&= \textbackslash phi\_0 + \textbackslash int
+G(t)\textbackslash,d\textbackslash tau\_A \textbackslash\textbackslash{}
+\textbackslash phi\_B(t) \&= \textbackslash phi\_0 + \textbackslash int
 G(t)\textbackslash,d\textbackslash tau\_B \textbackslash end\{align\}
 
 Entanglement preservation condition:
@@ -359,21 +360,23 @@ Decoherence threshold:
 G\_B(t)\textbackslash right)dt\textbackslash right\textbar{}
 \textgreater{} \textbackslash epsilon\textbackslash{]}
 
-Where \$\textbackslash epsilon\$ is the coherence limit. The decoherence
-time:
+Where \textbackslash(\textbackslash epsilon\textbackslash) is the
+coherence limit. The decoherence time:
 
 \textbackslash{[}t\_\{\textbackslash text\{dec\}\} =
-\textbackslash frac\{\textbackslash epsilon\}\{2\textbackslash,A\_\{\textbackslash text\{amp\}\}\textbackslash,\textbar\$\$in(\textbackslash delta/2)\textbar\}\textbackslash{]}
+\textbackslash frac\{\textbackslash epsilon\}\{2\textbackslash,A\_\{\textbackslash text\{amp\}\}\textbackslash,\textbar\textbackslash sin(\textbackslash delta/2)\textbar\}\textbackslash{]}
 
 \begin{figure}
 \centering
 \includegraphics{fig-rotation-decoherence.png}
 \caption{Figure 2: Right panel: Decoherence time
-\$t\_\{\textbackslash text\{dec\}\}\$ as a function of the phase
-difference \$\textbackslash delta\$ between two endpoints. At
-\$\textbackslash delta = 0\$ (perfect coherence),
-\$t\_\{\textbackslash text\{dec\}\} \textbackslash to
-\textbackslash infty\$. As \$\textbackslash delta\$ increases,
+\textbackslash(t\_\{\textbackslash text\{dec\}\}\textbackslash) as a
+function of the phase difference
+\textbackslash(\textbackslash delta\textbackslash) between two
+endpoints. At \textbackslash(\textbackslash delta = 0\textbackslash)
+(perfect coherence), \textbackslash(t\_\{\textbackslash text\{dec\}\}
+\textbackslash to \textbackslash infty\textbackslash). As
+\textbackslash(\textbackslash delta\textbackslash) increases,
 decoherence accelerates.}
 \end{figure}
 
@@ -382,21 +385,24 @@ decoherence accelerates.}
 
 \hypertarget{full-expression-for-i_ab}{%
 \subsubsection{5.1 Full Expression for
-\$I\_\{AB\}\$}\label{full-expression-for-i_ab}}
+\textbackslash(I\_\{AB\}\textbackslash)}\label{full-expression-for-i_ab}}
 
 Starting from the axioms:
 
 \begin{enumerate}
 \tightlist
 \item
-  Distance produces time: \$\textbackslash Delta\textbackslash tau
-  \$\$eq \textbackslash Delta x / c\$
+  Distance produces time:
+  \textbackslash(\textbackslash Delta\textbackslash tau
+  \textbackslash geq \textbackslash Delta x / c\textbackslash)
 \item
-  Time is information: \$I \$\$im 2\textbackslash pi / \textbackslash ln
-  2\$ per Planck time
+  Time is information: \textbackslash(I \textbackslash sim
+  2\textbackslash pi / \textbackslash ln 2\textbackslash) per Planck
+  time
 \item
-  \$G(t)\$ modulates both: \$X\_\{\textbackslash text\{eff\}\} = X\_0(1
-  + c\_X G)\$
+  \textbackslash(G(t)\textbackslash) modulates both:
+  \textbackslash(X\_\{\textbackslash text\{eff\}\} = X\_0(1 + c\_X
+  G)\textbackslash)
 \end{enumerate}
 
 Therefore:
@@ -410,7 +416,7 @@ G(t)\textbackslash right)\textbackslash{]}
 
 \hypertarget{transformation-operator-rvecomega_textdrag}{%
 \subsubsection{5.2 Transformation Operator
-\$R(\textbackslash vec\{\textbackslash Omega\}\_\{\textbackslash text\{drag\}\})\$}\label{transformation-operator-rvecomega_textdrag}}
+\textbackslash(R(\textbackslash vec\{\textbackslash Omega\}\_\{\textbackslash text\{drag\}\})\textbackslash)}\label{transformation-operator-rvecomega_textdrag}}
 
 The Lense-Thirring frame-dragging rate:
 
@@ -420,7 +426,7 @@ The Lense-Thirring frame-dragging rate:
 The rotation operator acts on the information object:
 
 \textbackslash{[}R(\textbackslash Omega) =
-\textbackslash exp\textbackslash left(-i\textbackslash,\textbackslash Omega\textbackslash,dt\textbackslash,\textbackslash frac\{\$\$igma\_y\}\{2\}\textbackslash right)\textbackslash{]}
+\textbackslash exp\textbackslash left(-i\textbackslash,\textbackslash Omega\textbackslash,dt\textbackslash,\textbackslash frac\{\textbackslash sigma\_y\}\{2\}\textbackslash right)\textbackslash{]}
 
 This operator rotates the phase, preserves the norm (information is
 preserved), and transforms the basis vectors.
@@ -445,13 +451,15 @@ The information capacity modulates:
 I\_\{AB\}\textbackslash left(1 +
 c\_I\textbackslash,h(t,x)\textbackslash right)\textbackslash{]}
 
-The modulation depth: \$\textbackslash delta I / I = c\_I
-\textbackslash cdot h\$. For LIGO-scale \$h \$\$im 10\^{}\{-21\}\$:
-\$\textbackslash delta I / I \$\$im 10\^{}\{-21\}\$.
+The modulation depth: \textbackslash(\textbackslash delta I / I = c\_I
+\textbackslash cdot h\textbackslash). For LIGO-scale \textbackslash(h
+\textbackslash sim 10\^{}\{-21\}\textbackslash):
+\textbackslash(\textbackslash delta I / I \textbackslash sim
+10\^{}\{-21\}\textbackslash).
 
 \hypertarget{entanglement-coherence-under-arbitrary-deltatau}{%
 \subsubsection{5.4 Entanglement Coherence Under Arbitrary
-\$\textbackslash Delta\textbackslash tau\$}\label{entanglement-coherence-under-arbitrary-deltatau}}
+\textbackslash(\textbackslash Delta\textbackslash tau\textbackslash)}\label{entanglement-coherence-under-arbitrary-deltatau}}
 
 Phase difference:
 
@@ -460,8 +468,8 @@ Phase difference:
 d\textbackslash tau\_B\textbackslash right)\textbackslash{]}
 
 For entanglement preservation:
-\$\textbackslash Delta\textbackslash phi(t) =
-\textbackslash text\{constant\}\$. This requires:
+\textbackslash(\textbackslash Delta\textbackslash phi(t) =
+\textbackslash text\{constant\}\textbackslash). This requires:
 
 \textbackslash{[}\textbackslash frac\{d\textbackslash tau\_A\}\{dt\} =
 \textbackslash frac\{d\textbackslash tau\_B\}\{dt\}
@@ -471,24 +479,24 @@ For entanglement preservation:
 
 \hypertarget{decoherence-threshold-in-terms-of-gt}{%
 \subsubsection{5.5 Decoherence Threshold in Terms of
-\$G(t)\$}\label{decoherence-threshold-in-terms-of-gt}}
+\textbackslash(G(t)\textbackslash)}\label{decoherence-threshold-in-terms-of-gt}}
 
-For \$G\_A(t) = A\_\{\textbackslash text\{base\}\} +
+For \textbackslash(G\_A(t) = A\_\{\textbackslash text\{base\}\} +
 A\_\{\textbackslash text\{amp\}\}\textbackslash cos(2\textbackslash pi t
-+ \textbackslash delta\_A)\$ and \$G\_B(t) =
++ \textbackslash delta\_A)\textbackslash) and \textbackslash(G\_B(t) =
 A\_\{\textbackslash text\{base\}\} +
 A\_\{\textbackslash text\{amp\}\}\textbackslash cos(2\textbackslash pi t
-+ \textbackslash delta\_B)\$:
++ \textbackslash delta\_B)\textbackslash):
 
 \textbackslash{[}G\_A(t) - G\_B(t) =
--2A\_\{\textbackslash text\{amp\}\}\$\$in\textbackslash left(\textbackslash frac\{\textbackslash delta\}\{2\}\textbackslash right)\$\$in\textbackslash left(2\textbackslash pi
+-2A\_\{\textbackslash text\{amp\}\}\textbackslash sin\textbackslash left(\textbackslash frac\{\textbackslash delta\}\{2\}\textbackslash right)\textbackslash sin\textbackslash left(2\textbackslash pi
 t + \textbackslash frac\{\textbackslash delta\_A +
 \textbackslash delta\_B\}\{2\}\textbackslash right)\textbackslash{]}
 
 The decoherence time:
 
 \textbackslash{[}t\_\{\textbackslash text\{dec\}\} =
-\textbackslash frac\{\textbackslash epsilon\}\{2\textbackslash,A\_\{\textbackslash text\{amp\}\}\textbackslash,\textbar\$\$in(\textbackslash delta/2)\textbar\}\textbackslash{]}
+\textbackslash frac\{\textbackslash epsilon\}\{2\textbackslash,A\_\{\textbackslash text\{amp\}\}\textbackslash,\textbar\textbackslash sin(\textbackslash delta/2)\textbar\}\textbackslash{]}
 
 \hypertarget{proofs}{%
 \subsection{6. Proofs}\label{proofs}}
@@ -497,19 +505,22 @@ The decoherence time:
 \subsubsection{6.1 Entanglement Preserved Under Frame
 Drag}\label{entanglement-preserved-under-frame-drag}}
 
-The information object \$\textbackslash mathcal\{I\}\$ is a single
-entity. Frame dragging applies \$R(\textbackslash Omega)\$ to the phase.
-\$R(\textbackslash Omega)\$ is unitary:
-\$\textbar R\textbackslash psi\textbar{} =
-\textbar\textbackslash psi\textbar\$. The phase change is global (same
-\$R\$ for both endpoints). Therefore \$\textbackslash phi\_A -
-\textbackslash phi\_B = \textbackslash text\{constant\}\$. Unitary
-transformations preserve inner products. Entanglement is defined by
-inner products. Therefore entanglement is preserved under frame drag.
+The information object
+\textbackslash(\textbackslash mathcal\{I\}\textbackslash) is a single
+entity. Frame dragging applies
+\textbackslash(R(\textbackslash Omega)\textbackslash) to the phase.
+\textbackslash(R(\textbackslash Omega)\textbackslash) is unitary:
+\textbackslash(\textbar R\textbackslash psi\textbar{} =
+\textbar\textbackslash psi\textbar\textbackslash). The phase change is
+global (same \textbackslash(R\textbackslash) for both endpoints).
+Therefore \textbackslash(\textbackslash phi\_A - \textbackslash phi\_B =
+\textbackslash text\{constant\}\textbackslash). Unitary transformations
+preserve inner products. Entanglement is defined by inner products.
+Therefore entanglement is preserved under frame drag.
 
 \begin{figure}
 \centering
-\includegraphics{fig-frame-dragging}
+\includesvg{fig-frame-dragging.svg}
 \caption{Figure 3: Frame dragging rotates both phases by the same amount
 R(Omega). The relative phase phi\_A - phi\_B is unchanged. Entanglement
 is preserved.}
@@ -519,61 +530,72 @@ is preserved.}
 \subsubsection{6.2 Entanglement Preserved Under Gravitational
 Waves}\label{entanglement-preserved-under-gravitational-waves}}
 
-GW modulates \$G(t)\$ at both endpoints. The modulation is symmetric:
-same \$h(t)\$ for both. Phase evolution: \$\textbackslash phi =
+GW modulates \textbackslash(G(t)\textbackslash) at both endpoints. The
+modulation is symmetric: same \textbackslash(h(t)\textbackslash) for
+both. Phase evolution: \textbackslash(\textbackslash phi =
 \textbackslash phi\_0 + \textbackslash int
-G\_\{\textbackslash text\{GW\}\}(t)\textbackslash,d\textbackslash tau\$.
-The modulation adds the same term to both \$\textbackslash phi\_A\$ and
-\$\textbackslash phi\_B\$. Therefore \$\textbackslash phi\_A -
-\textbackslash phi\_B = \textbackslash text\{constant\}\$. The GW
-perturbation is a gauge transformation. Gauge transformations do not
-affect physical observables. Entanglement correlations are
-gauge-invariant. Therefore entanglement is preserved under GWs.
+G\_\{\textbackslash text\{GW\}\}(t)\textbackslash,d\textbackslash tau\textbackslash).
+The modulation adds the same term to both
+\textbackslash(\textbackslash phi\_A\textbackslash) and
+\textbackslash(\textbackslash phi\_B\textbackslash). Therefore
+\textbackslash(\textbackslash phi\_A - \textbackslash phi\_B =
+\textbackslash text\{constant\}\textbackslash). The GW perturbation is a
+gauge transformation. Gauge transformations do not affect physical
+observables. Entanglement correlations are gauge-invariant. Therefore
+entanglement is preserved under GWs.
 
 \hypertarget{entanglement-preserved-under-time-dilation}{%
 \subsubsection{6.3 Entanglement Preserved Under Time
 Dilation}\label{entanglement-preserved-under-time-dilation}}
 
 Time dilation changes the rate of phase evolution:
-\$\textbackslash phi\_A = \textbackslash phi\_0 + \textbackslash int
-G(t)\textbackslash,d\textbackslash tau\_A\$, \$\textbackslash phi\_B =
-\textbackslash phi\_0 + \textbackslash int
-G(t)\textbackslash,d\textbackslash tau\_B\$. The phase difference:
-\$\textbackslash Delta\textbackslash phi = \textbackslash int
-G(t)(d\textbackslash tau\_A - d\textbackslash tau\_B)\$. Even when
-\$d\textbackslash tau\_A \textbackslash neq d\textbackslash tau\_B\$,
-the information object remains single. The phase drift is a global
-property, not a local one. Entanglement correlations depend on relative
-phase, not absolute. Relative phase is preserved. Therefore entanglement
-is preserved under time dilation.
+\textbackslash(\textbackslash phi\_A = \textbackslash phi\_0 +
+\textbackslash int
+G(t)\textbackslash,d\textbackslash tau\_A\textbackslash),
+\textbackslash(\textbackslash phi\_B = \textbackslash phi\_0 +
+\textbackslash int
+G(t)\textbackslash,d\textbackslash tau\_B\textbackslash). The phase
+difference: \textbackslash(\textbackslash Delta\textbackslash phi =
+\textbackslash int G(t)(d\textbackslash tau\_A -
+d\textbackslash tau\_B)\textbackslash). Even when
+\textbackslash(d\textbackslash tau\_A \textbackslash neq
+d\textbackslash tau\_B\textbackslash), the information object remains
+single. The phase drift is a global property, not a local one.
+Entanglement correlations depend on relative phase, not absolute.
+Relative phase is preserved. Therefore entanglement is preserved under
+time dilation.
 
 \hypertarget{decoherence-from-second-order-divergence-in-gt}{%
 \subsubsection{6.4 Decoherence from Second-Order Divergence in
-\$G(t)\$}\label{decoherence-from-second-order-divergence-in-gt}}
+\textbackslash(G(t)\textbackslash)}\label{decoherence-from-second-order-divergence-in-gt}}
 
-For \$G\_A(t) = G(t) + \textbackslash delta G\_A(t)\$ and \$G\_B(t) =
-G(t) + \textbackslash delta G\_B(t)\$:
+For \textbackslash(G\_A(t) = G(t) + \textbackslash delta
+G\_A(t)\textbackslash) and \textbackslash(G\_B(t) = G(t) +
+\textbackslash delta G\_B(t)\textbackslash):
 
 \begin{enumerate}
 \tightlist
 \item
-  Phase difference: \$\textbackslash Delta\textbackslash phi =
-  \textbackslash int (G\_A - G\_B)\textbackslash,dt\$
+  Phase difference:
+  \textbackslash(\textbackslash Delta\textbackslash phi =
+  \textbackslash int (G\_A - G\_B)\textbackslash,dt\textbackslash)
 \item
-  First-order: \$G\_A - G\_B = \textbackslash delta G\_A -
-  \textbackslash delta G\_B\$ averages to zero over time
+  First-order: \textbackslash(G\_A - G\_B = \textbackslash delta G\_A -
+  \textbackslash delta G\_B\textbackslash) averages to zero over time
 \item
-  Second-order: \$d\^{}2(G\_A - G\_B)/dt\^{}2\$ accumulates as
-  \$t\^{}3\$
+  Second-order: \textbackslash(d\^{}2(G\_A -
+  G\_B)/dt\^{}2\textbackslash) accumulates as
+  \textbackslash(t\^{}3\textbackslash)
 \item
-  Decoherence time: \$t\_\{\textbackslash text\{dec\}\} \$\$im
-  \textbackslash left(6\textbackslash epsilon /
+  Decoherence time: \textbackslash(t\_\{\textbackslash text\{dec\}\}
+  \textbackslash sim \textbackslash left(6\textbackslash epsilon /
   \textbar d\^{}2(\textbackslash delta
-  G)/dt\^{}2\textbar\textbackslash right)\^{}\{1/3\}\$
+  G)/dt\^{}2\textbar\textbackslash right)\^{}\{1/3\}\textbackslash)
 \end{enumerate}
 
-Decoherence requires second-order divergence in \$G(t)\$. First-order
-differences average out. Second-order differences accumulate.
+Decoherence requires second-order divergence in
+\textbackslash(G(t)\textbackslash). First-order differences average out.
+Second-order differences accumulate.
 
 \hypertarget{closure-checks}{%
 \subsection{7. Closure Checks}\label{closure-checks}}
@@ -589,14 +611,20 @@ Object & Units & Status \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\$\textbackslash Delta x\$ & Length \${[}L{]}\$ & PASS \\
-\$d\textbackslash tau\$ & Time \${[}T{]}\$ & PASS \\
-\$I\$ & Bits \${[}1{]}\$ & PASS \\
-\$G(t)\$ & Dimensionless \${[}1{]}\$ & PASS \\
-\$I\_\{AB\}\$ & Bits \${[}1{]}\$ & PASS \\
-\$\textbackslash Omega\_\{\textbackslash text\{drag\}\}\$ & Frequency
-\${[}T\^{}\{-1\}{]}\$ & PASS \\
-\$h(t,x)\$ & Dimensionless \${[}1{]}\$ & PASS \\
+\textbackslash(\textbackslash Delta x\textbackslash) & Length
+\textbackslash({[}L{]}\textbackslash) & PASS \\
+\textbackslash(d\textbackslash tau\textbackslash) & Time
+\textbackslash({[}T{]}\textbackslash) & PASS \\
+\textbackslash(I\textbackslash) & Bits
+\textbackslash({[}1{]}\textbackslash) & PASS \\
+\textbackslash(G(t)\textbackslash) & Dimensionless
+\textbackslash({[}1{]}\textbackslash) & PASS \\
+\textbackslash(I\_\{AB\}\textbackslash) & Bits
+\textbackslash({[}1{]}\textbackslash) & PASS \\
+\textbackslash(\textbackslash Omega\_\{\textbackslash text\{drag\}\}\textbackslash)
+& Frequency \textbackslash({[}T\^{}\{-1\}{]}\textbackslash) & PASS \\
+\textbackslash(h(t,x)\textbackslash) & Dimensionless
+\textbackslash({[}1{]}\textbackslash) & PASS \\
 \end{longtable}
 
 \hypertarget{operator-consistency}{%
@@ -609,13 +637,15 @@ Operator & Check & Status \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Correction law & \$X\_\{\textbackslash text\{eff\}\} = X\_0(1 + c\_X
-G)\$ & PASS \\
-Rotation preserves norm & \$\textbar R\textbackslash psi\textbar{} =
-\textbar\textbackslash psi\textbar\$ & PASS \\
-Rotation is orthogonal & \$R\^{}T R = I\$ & PASS \\
-GW modulation is linear & \$I(h\_1 + h\_2) = I(h\_1) + I(h\_2) - I(0)\$
-& PASS \\
+Correction law & \textbackslash(X\_\{\textbackslash text\{eff\}\} =
+X\_0(1 + c\_X G)\textbackslash) & PASS \\
+Rotation preserves norm &
+\textbackslash(\textbar R\textbackslash psi\textbar{} =
+\textbar\textbackslash psi\textbar\textbackslash) & PASS \\
+Rotation is orthogonal & \textbackslash(R\^{}T R = I\textbackslash) &
+PASS \\
+GW modulation is linear & \textbackslash(I(h\_1 + h\_2) = I(h\_1) +
+I(h\_2) - I(0)\textbackslash) & PASS \\
 \end{longtable}
 
 \hypertarget{derivation-closure}{%
@@ -628,10 +658,11 @@ Derivation & Status \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-\$I\_\{AB\}\$ formula closes & PASS \\
+\textbackslash(I\_\{AB\}\textbackslash) formula closes & PASS \\
 Lense-Thirring derivation closes & PASS \\
 GW perturbation derivation closes & PASS \\
-Entanglement preservation (same \$\textbackslash tau\$) & PASS \\
+Entanglement preservation (same
+\textbackslash(\textbackslash tau\textbackslash)) & PASS \\
 Decoherence threshold derivation closes & PASS \\
 \end{longtable}
 
@@ -645,14 +676,14 @@ Proof & Result & Status \\
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Frame drag: inner product preserved & \$\textbackslash Delta = 0\$ &
-PASS \\
-GW: phase difference constant & \$\textbackslash text\{std\} = 0\$ &
-PASS \\
+Frame drag: inner product preserved &
+\textbackslash(\textbackslash Delta = 0\textbackslash) & PASS \\
+GW: phase difference constant &
+\textbackslash(\textbackslash text\{std\} = 0\textbackslash) & PASS \\
 Time dilation: phase drift linear & Preserves correlations & PASS \\
 Decoherence: second-order divergence &
-\$\textbackslash langle\textbar d\^{}2\textbar\textbackslash rangle
-\textgreater{} 0\$ & PASS \\
+\textbackslash(\textbackslash langle\textbar d\^{}2\textbar\textbackslash rangle
+\textgreater{} 0\textbackslash) & PASS \\
 \end{longtable}
 
 \hypertarget{conclusion}{%
@@ -668,15 +699,17 @@ It is the natural consequence of:
 \begin{itemize}
 \tightlist
 \item
-  Distance \$\textbackslash to\$ Time \$\textbackslash to\$ Information
-  \$\textbackslash to\$ Preserved
+  Distance \textbackslash(\textbackslash to\textbackslash) Time
+  \textbackslash(\textbackslash to\textbackslash) Information
+  \textbackslash(\textbackslash to\textbackslash) Preserved
 \item
-  Scalar field dynamics (\$G(t)\$)
+  Scalar field dynamics (\textbackslash(G(t)\textbackslash))
 \item
-  Temporal gradients (\$\textbackslash nabla\textbackslash tau\$)
+  Temporal gradients
+  (\textbackslash(\textbackslash nabla\textbackslash tau\textbackslash))
 \item
-  Bounded oscillation (\$A\_\{\textbackslash text\{amp\}\} \$\$im
-  10\^{}\{-4\}\$)
+  Bounded oscillation (\textbackslash(A\_\{\textbackslash text\{amp\}\}
+  \textbackslash sim 10\^{}\{-4\}\textbackslash))
 \item
   No singularities (information preserved)
 \end{itemize}
