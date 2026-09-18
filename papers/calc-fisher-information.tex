@@ -1,0 +1,166 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\href{https://richardkentgates.com}{← richardkentgates.com}
+
+\hypertarget{fisher-information-calculator}{%
+\section{Fisher Information
+Calculator}\label{fisher-information-calculator}}
+
+Multi-channel optimal reconstruction of G(t) via Cramér--Rao bound
+
+\hypertarget{model}{%
+\subsection{Model}\label{model}}
+
+Y\_i(t) = Y0\_i · (1 + c\_i · G(t)) + noise\_i noise \textasciitilde{}
+N(0, σ²\_i) G(t) = A\_base + A\_amp · cos(2πt) Fisher Information: F =
+Σ\_i {[} Y0\_i² · c\_i² / σ\_i² {]} Cramér--Rao bound: σ²\_G ≥ 1 / F
+Optimal estimate: Gˆ(t) = {[}Σ\_i (c\_i·Y0\_i/σ²\_i)(Y\_i(t)-Y0\_i){]} /
+F
+
+\hypertarget{scalar-field-parameters}{%
+\subsection{Scalar Field Parameters}\label{scalar-field-parameters}}
+
+A\_base
+
+A\_amp
+
+\hypertarget{measurement-streams}{%
+\subsection{Measurement Streams}\label{measurement-streams}}
+
+Add independent measurement channels. Each stream Y\textsubscript{i}(t)
+= Y0\textsubscript{i}·(1 + c\textsubscript{i}·G(t)) +
+ε\textsubscript{i}. More streams → tighter Cramér--Rao bound.
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Stream & Y0\textsubscript{i} & c\textsubscript{i} & σ\textsubscript{i}
+& \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
++ Add Stream
+
+− Remove
+
+Compute
+
+\hypertarget{results-card}{}
+\hypertarget{results}{%
+\subsection{Results}\label{results}}
+
+Fisher Information F
+
+\hypertarget{r-f}{}
+-
+
+Cramér--Rao σ²\_G ≥
+
+\hypertarget{r-cr}{}
+-
+
+Cramér--Rao σ\_G ≥
+
+\hypertarget{r-crs}{}
+-
+
+RMS Recon Error
+
+\hypertarget{r-rms}{}
+-
+
+Gˆ Mean
+
+\hypertarget{r-gmean}{}
+-
+
+G True Mean
+
+\hypertarget{r-tmean}{}
+-
+
+{{} G(t) true} {{} Gˆ(t) reconstructed} {{} ±σ\_G bound}
+
+\href{https://richardkentgates.com}{← Back to richardkentgates.com} ~·~
+Unified Scalar Time-Gradient Field Theory
+
+\end{document}

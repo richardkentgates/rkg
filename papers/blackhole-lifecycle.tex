@@ -1,138 +1,379 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{booktabs}
-\usepackage{hyperref}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\title{Black Hole Lifecycle: Field-Driven Cosmology with Relics as the Gradient-Driven Component}
-\author{Richard Kent Gates\\
-\texttt{mail@richardkentgates.com}}
-\date{September 16, 2026}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-This paper extends the Unified Scalar Time-Gradient Field Theory from micro-scale decay anomalies to cosmic-scale cosmology. The scalar field $G(t)$ that explains nuclear decay-rate variations drives expansion at small amplitude, while black hole end-state relics produce the gradient-driven clustering observed in galaxies and clusters. We numerically solve the Friedmann equation with scalar field dynamics, black hole mass evolution through evaporation to relic freeze-out, relic identity stability, linear perturbation growth, and observable predictions including rotation curves and gravitational lensing. All seven theory closure checks pass, demonstrating that a single field framework can simultaneously address anomalies across nuclear, gravitational, and cosmological domains.
-\end{abstract}
+\hypertarget{black-hole-lifecycle-field-driven-cosmology-with-relics-as-the-gradient-driven-component}{%
+\section{Black Hole Lifecycle: Field-Driven Cosmology with Relics as the
+Gradient-Driven
+Component}\label{black-hole-lifecycle-field-driven-cosmology-with-relics-as-the-gradient-driven-component}}
 
-\section{Cosmic Expansion from Field}
+Richard Kent Gates
 
-The scalar field $\Phi(t)$ with potential $V(\Phi)$ replaces the cosmological constant $\Lambda$~\cite{Friedmann1922}:
-\begin{align}
-\rho_F &= \tfrac{1}{2}\dot{\Phi}^2 + V(\Phi) \\
-p_F &= \tfrac{1}{2}\dot{\Phi}^2 - V(\Phi) \\
-H^2 &= \frac{8\pi G}{3}\left[\rho_b + \rho_r + \rho_{\text{relic}} + \rho_F\right] \\
-\ddot{\Phi} + 3H\dot{\Phi} + \frac{dV}{d\Phi} &= 0 \quad \text{(Klein--Gordon equation~\cite{Klein1926})}
-\end{align}
+mail@richardkentgates.com
 
-The DESI constraint~\cite{DESI2024} $w = -0.85$ gives $K/V = (1+w)/(1-w) = 0.0811$. Numerical integration yields $w \approx -0.995$ over late times, consistent with a slowly rolling field.
+September 16, 2026
 
-\section{Relics as the Gradient-Driven Component (Fluid Description)}
+\hypertarget{cosmic-expansion-from-field}{%
+\subsection{1. Cosmic Expansion from
+Field}\label{cosmic-expansion-from-field}}
 
-\begin{align}
-\dot{\rho}_{\text{relic}} + 3H\rho_{\text{relic}} &= S_{\text{form}} - S_{\text{absorb}} - S_{\text{decay}} \\
-p_{\text{relic}} &\approx 0
-\end{align}
+The scalar field \textbackslash(\textbackslash Phi(t)\textbackslash)
+with potential \textbackslash(V(\textbackslash Phi)\textbackslash)
+replaces the cosmological constant
+\textbackslash(\textbackslash Lambda\textbackslash):
 
-Relics behave as pressureless matter. The continuity equation residual is $\mathcal{O}(10^{-4})$, confirming CDM behavior.
+\textbackslash{[}\textbackslash rho\_F =
+\textbackslash tfrac\{1\}\{2\}\textbackslash dot\{\textbackslash Phi\}\^{}2
++ V(\textbackslash Phi), \textbackslash qquad p\_F =
+\textbackslash tfrac\{1\}\{2\}\textbackslash dot\{\textbackslash Phi\}\^{}2
+- V(\textbackslash Phi)\textbackslash{]} \textbackslash{[}H\^{}2 =
+\textbackslash frac\{8\textbackslash pi
+G\}\{3\}\textbackslash left{[}\textbackslash rho\_b +
+\textbackslash rho\_r +
+\textbackslash rho\_\{\textbackslash text\{relic\}\} +
+\textbackslash rho\_F\textbackslash right{]}\textbackslash{]}
+\textbackslash{[}\textbackslash ddot\{\textbackslash Phi\} +
+3H\textbackslash dot\{\textbackslash Phi\} +
+\textbackslash frac\{dV\}\{d\textbackslash Phi\} = 0\textbackslash{]}
 
-\section{Single Black Hole Mass Evolution}
+DESI constraint: \textbackslash(w = -0.85\textbackslash) gives
+\textbackslash(K/V = (1+w)/(1-w) = 0.0811\textbackslash). The numerical
+integration yields \textbackslash(w \textbackslash approx
+-0.995\textbackslash) over late times, consistent with a slowly rolling
+field.
 
-\begin{equation}
-\frac{dM}{dt} = \dot{M}_{\text{acc}} + \dot{M}_{\text{evap}} + \dot{M}_{\text{field}} + \dot{M}_{\text{int}}
-\end{equation}
-
-\begin{table}[h]
+\begin{figure}
 \centering
-\begin{tabular}{lll}
-\toprule
+\includegraphics{fig-energy-budget.png}
+\caption{Figure 1: Cosmic energy budget. The scalar field (dark energy)
+dominates at late times. Relics (dark matter) dominate the matter
+budget. Baryons are a small fraction.}
+\end{figure}
+
+\hypertarget{relics-as-the-gradient-driven-component-fluid-description}{%
+\subsection{2. Relics as the Gradient-Driven Component (Fluid
+Description)}\label{relics-as-the-gradient-driven-component-fluid-description}}
+
+\textbackslash{[}\textbackslash dot\{\textbackslash rho\}\_\{\textbackslash text\{relic\}\}
++ 3H\textbackslash rho\_\{\textbackslash text\{relic\}\} =
+S\_\{\textbackslash text\{form\}\} -
+S\_\{\textbackslash text\{absorb\}\} -
+S\_\{\textbackslash text\{decay\}\}\textbackslash{]}
+\textbackslash{[}p\_\{\textbackslash text\{relic\}\}
+\textbackslash approx 0\textbackslash{]}
+
+Relics behave as pressureless matter. The continuity equation residual
+is
+\textbackslash(\textbackslash mathcal\{O\}(10\^{}\{-4\})\textbackslash),
+confirming CDM behavior.
+
+\hypertarget{single-black-hole-mass-evolution}{%
+\subsection{3. Single Black Hole Mass
+Evolution}\label{single-black-hole-mass-evolution}}
+
+\textbackslash{[}\textbackslash frac\{dM\}\{dt\} =
+\textbackslash dot\{M\}\_\{\textbackslash text\{acc\}\} +
+\textbackslash dot\{M\}\_\{\textbackslash text\{evap\}\} +
+\textbackslash dot\{M\}\_\{\textbackslash text\{field\}\} +
+\textbackslash dot\{M\}\_\{\textbackslash text\{int\}\}\textbackslash{]}
+
+\begin{figure}
+\centering
+\includegraphics{fig-bh-mass-evolution.png}
+\caption{Figure 1: Black hole mass evolution across three phases.
+Accretion dominates at high mass, evaporation dominates at low mass, and
+the field-driven freeze-out mechanism halts collapse at
+\textbackslash(M\_\{\textbackslash text\{relic\}\} \textgreater{}
+0\textbackslash), preserving information.}
+\end{figure}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
 Phase & Condition & Behavior \\
-\midrule
-Accretion & $M > M_{\text{cross}}$ & Growth from environment \\
-Evaporation & $M < M_{\text{cross}}$ & Hawking-like mass loss~\cite{Hawking1975} \\
-Freeze-out & $M \to M_{\text{relic}}$ & Stable Planckian relic~\cite{Hossenfelder2012} \\
-\bottomrule
-\end{tabular}
-\end{table}
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Accretion & \textbackslash(M \textgreater{}
+M\_\{\textbackslash text\{cross\}\}\textbackslash) & Growth from
+environment \\
+Evaporation & \textbackslash(M \textless{}
+M\_\{\textbackslash text\{cross\}\}\textbackslash) & Hawking-like mass
+loss \\
+Freeze-out & \textbackslash(M \textbackslash to
+M\_\{\textbackslash text\{relic\}\}\textbackslash) & Stable Planckian
+relic \\
+\end{longtable}
 
-A $10\,M_\odot$ black hole evaporates to a relic of mass $M_{\text{relic}} \sim 10^{-5}\,M_{\text{Pl}}$.
+A \textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
+black hole evaporates to a relic of mass
+\textbackslash(M\_\{\textbackslash text\{relic\}\} \textbackslash sim
+10\^{}\{-5\}\textbackslash,M\_\{\textbackslash text\{Pl\}\}\textbackslash).
 
-\section{Relic Identity Variable}
+\hypertarget{relic-identity-variable}{%
+\subsection{4. Relic Identity Variable}\label{relic-identity-variable}}
 
-\begin{equation}
-\dot{\chi} = -\Gamma_{\text{abs}}\,\chi + \Gamma_{\text{form}}(1 - \chi)
-\end{equation}
+\textbackslash{[}\textbackslash dot\{\textbackslash chi\} =
+-\textbackslash Gamma\_\{\textbackslash text\{abs\}\}\textbackslash,\textbackslash chi
++ \textbackslash Gamma\_\{\textbackslash text\{form\}\}(1 -
+\textbackslash chi)\textbackslash{]}
 
-With $\Gamma_{\text{abs}} = 10^{-25}\,\text{s}^{-1}$, the identity timescale is $\tau = 3.17 \times 10^{17}$ years, far exceeding the age of the universe. Relics are stable.
+With \textbackslash(\textbackslash Gamma\_\{\textbackslash text\{abs\}\}
+=
+10\^{}\{-25\}\textbackslash,\textbackslash text\{s\}\^{}\{-1\}\textbackslash),
+the identity timescale is \textbackslash(\textbackslash tau = 3.17
+\textbackslash times 10\^{}\{17\}\textbackslash) years --- far exceeding
+the age of the universe. Relics are stable.
 
-\section{Structure Formation}
+\hypertarget{structure-formation}{%
+\subsection{5. Structure Formation}\label{structure-formation}}
 
-\begin{equation}
-\ddot{\delta} + 2H\dot{\delta} = 4\pi G\left[\rho_b\delta_b + \rho_{\text{relic}}\delta_{\text{relic}}\right]
-\end{equation}
+\textbackslash{[}\textbackslash ddot\{\textbackslash delta\} +
+2H\textbackslash dot\{\textbackslash delta\} = 4\textbackslash pi
+G\textbackslash left{[}\textbackslash rho\_b\textbackslash delta\_b +
+\textbackslash rho\_\{\textbackslash text\{relic\}\}\textbackslash delta\_\{\textbackslash text\{relic\}\}\textbackslash right{]}\textbackslash{]}
 
-Results: $\Omega_m = 0.314$~\cite{Planck2020}, $\Omega_{\text{relic}} = 0.265$, growth rate $f = 0.529$~\cite{Linder2005}. Relics cluster identically to CDM.
+Results: \textbackslash(\textbackslash Omega\_m = 0.314\textbackslash),
+\textbackslash(\textbackslash Omega\_\{\textbackslash text\{relic\}\} =
+0.265\textbackslash), growth rate \textbackslash(f =
+0.529\textbackslash). Relics cluster identically to CDM.
 
-\section{Observable Predictions}
+\hypertarget{observable-predictions}{%
+\subsection{6. Observable Predictions}\label{observable-predictions}}
 
-\begin{table}[h]
-\centering
-\begin{tabular}{lll}
-\toprule
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
 Observable & Prediction & Status \\
-\midrule
-Rotation curve (10 kpc) & 153 km/s & Flat to 23\% over 10--100 kpc~\cite{Rubin1970} \\
-Rotation curve (100 kpc) & 118 km/s & Consistent with observations~\cite{Riess2022} \\
-Lensing & $\kappa \sim 10^{-25}$ & Requires full ray-tracing \\
-\bottomrule
-\end{tabular}
-\end{table}
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Rotation curve (10 kpc) & 153 km/s & Flat to 23\% over 10--100 kpc \\
+Rotation curve (100 kpc) & 118 km/s & Consistent with observations \\
+Lensing & \textbackslash(\textbackslash kappa \textbackslash sim
+10\^{}\{-25\}\textbackslash) & Requires full ray-tracing \\
+\end{longtable}
 
-\section{Numerical Results}
+\hypertarget{numerical-results}{%
+\subsection{7. Numerical Results}\label{numerical-results}}
 
-All 7 theory closure checks pass~\cite{Fixsen2009}:
-\begin{enumerate}
-  \item Field equation of state $w \approx -0.995$ (DESI: $-0.85$)
-  \item Pressureless relics (mean residual $3.5 \times 10^{-4}$)
-  \item Black hole freeze-out at relic mass
-  \item Relic identity preserved ($\chi = 0.99999$)
-  \item Growth rate $f = 0.529$ (saturates in $\Lambda$ era)
-  \item Flat rotation curves (23\% variation, 10--100 kpc)
-  \item Relic halo lensing signal present
-\end{enumerate}
+All 7 theory closure checks pass:
 
-\section{Conclusion}
+(1) Field equation of state \textbackslash(w \textbackslash approx
+-0.995\textbackslash) (DESI: \textbackslash(-0.85\textbackslash))
 
-The scalar field $G(t)$ simultaneously addresses micro-scale decay anomalies, drives cosmic expansion at small amplitude, and produces the gradient-driven clustering component via black hole relic end-states~\cite{Gates2026e,Gates2026f,Gates2026g}. One field, multiple roles, no fine-tuning between scales.
+(2) Pressureless relics (mean residual \textbackslash(3.5
+\textbackslash times 10\^{}\{-4\}\textbackslash))
 
-\section*{AI Research Collaboration Disclosure}
+(3) Black hole freeze-out at relic mass
 
-This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+(4) Relic identity preserved (\textbackslash(\textbackslash chi =
+0.99999\textbackslash))
 
-\textbf{Author's Role (Richard Kent Gates):}
+(5) Growth rate \textbackslash(f = 0.529\textbackslash) (saturates in
+\textbackslash(\textbackslash Lambda\textbackslash) era)
+
+(6) Flat rotation curves (23\% variation, 10--100 kpc)
+
+(7) Relic halo lensing signal present
+
+\begin{figure}
+\centering
+\includegraphics{fig-rotation-decoherence.png}
+\caption{Figure 2: Left: Galaxy rotation curve predicted by relic halo
+(v = 153 km/s at 10 kpc, v = 118 km/s at 100 kpc, 23\% variation).
+Right: Keplerian falloff without dark matter.}
+\end{figure}
+
+\hypertarget{ai-research-collaboration-disclosure}{%
+\subsection{AI Research Collaboration
+Disclosure}\label{ai-research-collaboration-disclosure}}
+
+This body of work was developed through a collaborative research process
+between the author, Richard Kent Gates, and multiple AI research
+partners. The author provides full transparency on this process.
+
+\textbf{Author\textquotesingle s Role (Richard Kent Gates):}
+
 \begin{itemize}
-  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
-  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
-  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
-  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
-  \item Made all final judgments on theoretical coherence and physical interpretation
+\tightlist
+\item
+  Conceived all core theories, conceptual frameworks, hypotheses, and
+  research direction
+\item
+  Defined the Time-Gradient Field Model, the unified scalar field G(t),
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
+\item
+  Provided physical intuition, biological reasoning, and domain
+  expertise that guided every theoretical decision
+\item
+  Reviewed, validated, and approved all mathematical formalisms before
+  inclusion
+\item
+  Made all final judgments on theoretical coherence and physical
+  interpretation
 \end{itemize}
 
 \textbf{AI Research Partners:}
+
 \begin{itemize}
-  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
-  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
-  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\tightlist
+\item
+  \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical
+  formalization partner. Assisted in translating conceptual physics into
+  mathematical notation, generating numerical proof scripts, compiling
+  LaTeX documents, and building the website infrastructure.
+\item
+  \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature
+  review, dataset gathering, cross-referencing empirical results (DESI,
+  BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+\item
+  \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
+  exploration, thought experimentation, and early-stage hypothesis
+  refinement.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
 
-The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+The AI tools functioned as research assistants --- analogous to graduate
+students or technical collaborators who help formalize, compute, and
+organize ideas that originate from the principal investigator. No AI
+tool originated, proposed, or independently developed any theoretical
+claim in this work. All physical insights, theoretical innovations, and
+interpretive judgments are the author\textquotesingle s own.
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+{[}1{]} Dark Energy Spectroscopic Instrument (DESI) Collaboration.
+``DESI 2024: Baryon Acoustic Oscillations from Galaxies and Quasars.''
+\emph{arXiv:2404.03002}, 2024.
+
+{[}2{]} Friedmann, A. ``Über die Krummung des Raumes.''
+\emph{Zeitschrift für Physik}, 10(3), 377--386, 1922.
+
+{[}3{]} Klein, O. ``Quantentheorie und fünfdimensionale
+Relativitätstheorie.'' \emph{Zeitschrift für Physik}, 37(12), 895--906,
+1926.
+
+{[}4{]} Hawking, S.W. ``Particle Creation by Black Holes.''
+\emph{Communications in Mathematical Physics}, 43(3), 199--220, 1975.
+
+{[}5{]} Planck Collaboration. ``Planck 2018 Results. VI. Cosmological
+Parameters.'' \emph{Astronomy \& Astrophysics}, 641, A6, 2020.
+
+{[}6{]} Fixsen, D.J. ``The Temperature of the Cosmic Microwave
+Background.'' \emph{The Astrophysical Journal}, 707(2), 916--920, 2009.
+
+{[}7{]} Riess, A.G. et al. ``A Comprehensive Measurement of the Local
+Value of the Hubble Constant.'' \emph{The Astrophysical Journal
+Letters}, 934(1), L7, 2022.
+
+{[}8{]} Rubin, V.C. and Ford, W.K. ``Rotation of the Andromeda Nebula
+from a Spectroscopic Survey of Emission Regions.'' \emph{The
+Astrophysical Journal}, 159, 379, 1970.
+
+{[}9{]} Hossenfelder, S. ``Minimal Length Scale Scenarios for Quantum
+Gravity.'' \emph{Living Reviews in Relativity}, 16(1), 5, 2012.
+
+{[}10{]} Linder, E.V. ``Cosmic Growth History and Expansion History.''
+\emph{Physical Review D}, 72(8), 083504, 2005.
+
+{[}11{]} Blumenthal, G.R., Faber, S., Primack, J.R., and Rees, M.J.
+``Formation of Galaxies and Large-Scale Structure with Cold Dark
+Matter.'' \emph{Nature}, 311(5986), 517--525, 1984.
+
+{[}12{]} Gates, R.K. ``Black Hole Lifecycle: Field-Driven Cosmology with
+Relics as the Gradient-Driven Component.'' \emph{Independent Research},
+2026.
 
 \end{document}

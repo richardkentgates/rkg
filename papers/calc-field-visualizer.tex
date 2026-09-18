@@ -1,0 +1,135 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\href{https://richardkentgates.com}{← richardkentgates.com}
+
+\hypertarget{gt-scalar-field-visualizer}{%
+\section{G(t) Scalar Field
+Visualizer}\label{gt-scalar-field-visualizer}}
+
+Unified Scalar Time-Gradient Field Theory --- interactive exploration
+
+\hypertarget{field-definition}{%
+\subsection{Field Definition}\label{field-definition}}
+
+G(t) = A\_base + A\_amp · cos(2π · t)
+
+Base Amplitude (A\_base)
+
+\protect\hypertarget{base-val}{}{1.000e-3}
+
+Oscillation Amplitude (A\_amp)
+
+\protect\hypertarget{amp-val}{}{1.000e-4}
+
+\hypertarget{gt-over-t-0-1}{%
+\subsection{G(t) over t ∈ {[}0, 1{]}}\label{gt-over-t-0-1}}
+
+Min G(t)
+
+\hypertarget{s-min}{}
+-
+
+Max G(t)
+
+\hypertarget{s-max}{}
+-
+
+Mean G(t)
+
+\hypertarget{s-mean}{}
+-
+
+Peak-to-Peak
+
+\hypertarget{s-p2p}{}
+-
+
+\hypertarget{fractional-deviations}{%
+\subsection{Fractional Deviations}\label{fractional-deviations}}
+
+Decay Δλ/λ\&sub0; (c=1.0)
+
+\hypertarget{d-decay}{}
+-
+
+Gravity Δg/g\&sub0; (c=0.5)
+
+\hypertarget{d-grav}{}
+-
+
+Inertia Δa/a\&sub0; (c=0.5)
+
+\hypertarget{d-iner}{}
+-
+
+\href{https://richardkentgates.com}{← Back to richardkentgates.com} ~·~
+Built with vanilla JS · No dependencies
+
+\end{document}
