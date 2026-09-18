@@ -75,14 +75,6 @@
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{microtype}
-\usepackage{breakurl}
-\usepackage[breaklinks=true]{hyperref}
-\usepackage{enumitem}
-\setlist{noitemsep,topsep=0pt}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -120,7 +112,8 @@ Information cannot be lost.
 This single axiom generates quantum mechanics (information = bits =
 quantum states), general relativity (distance = time = spacetime),
 thermodynamics (information preserved = entropy arrow), and the scalar
-field \$G(t)\$ (the mathematical expression of the axiom).
+field \textbackslash(G(t)\textbackslash) (the mathematical expression of
+the axiom).
 
 \hypertarget{the-field}{%
 \subsection{2. The Field}\label{the-field}}
@@ -146,7 +139,7 @@ different scales.
 
 \begin{figure}
 \centering
-\includegraphics{fig-multi-scale-field}
+\includesvg{fig-multi-scale-field.svg}
 \caption{Figure 1: The same scalar field G(t) at every scale. QM sees
 vacuum fluctuations (high-frequency oscillation). GR sees spacetime
 curvature (low-frequency gradient). The cosmological constant problem
@@ -165,33 +158,45 @@ This single law applies to ALL sectors:
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
-Sector & \$X\_\{\textbackslash text\{eff\}\}\$ & \$c\_X\$ & Domain \\
+Sector & \textbackslash(X\_\{\textbackslash text\{eff\}\}\textbackslash)
+& \textbackslash(c\_X\textbackslash) & Domain \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Decay & \$\textbackslash lambda\_\{\textbackslash text\{eff\}\}\$ &
-\$Q\_\textbackslash alpha d\_\textbackslash alpha + Q\_\textbackslash mu
-d\_\textbackslash mu\$ & QM (nuclear) \\
-Gravity & \$g\_\{\textbackslash text\{eff\}\}\$ & \$\$\$um
-f\_i(d\_\textbackslash alpha + \textbackslash beta\_i
-d\_\textbackslash mu)\$ & GR (macroscopic) \\
-Inertia & \$a\_\{\textbackslash text\{eff\}\}\$ & same as time gradient
-& GR (macroscopic) \\
-Fine structure & \$\textbackslash alpha(\textbackslash phi)\$ &
-\$d\_\textbackslash alpha\$ & QM + GR (fundamental) \\
-Mass ratio & \$\textbackslash mu(\textbackslash phi)\$ &
-\$d\_\textbackslash mu\$ & QM + GR (fundamental) \\
+Decay &
+\textbackslash(\textbackslash lambda\_\{\textbackslash text\{eff\}\}\textbackslash)
+& \textbackslash(Q\_\textbackslash alpha d\_\textbackslash alpha +
+Q\_\textbackslash mu d\_\textbackslash mu\textbackslash) & QM
+(nuclear) \\
+Gravity &
+\textbackslash(g\_\{\textbackslash text\{eff\}\}\textbackslash) &
+\textbackslash(\textbackslash sum f\_i(d\_\textbackslash alpha +
+\textbackslash beta\_i d\_\textbackslash mu)\textbackslash) & GR
+(macroscopic) \\
+Inertia &
+\textbackslash(a\_\{\textbackslash text\{eff\}\}\textbackslash) & same
+as time gradient & GR (macroscopic) \\
+Fine structure &
+\textbackslash(\textbackslash alpha(\textbackslash phi)\textbackslash) &
+\textbackslash(d\_\textbackslash alpha\textbackslash) & QM + GR
+(fundamental) \\
+Mass ratio &
+\textbackslash(\textbackslash mu(\textbackslash phi)\textbackslash) &
+\textbackslash(d\_\textbackslash mu\textbackslash) & QM + GR
+(fundamental) \\
 \end{longtable}
 
 The coupling constants are not free parameters. They are derived from QM
 sensitivity coefficients, material composition, and two fundamental
-dilaton couplings (\$d\_\textbackslash alpha\$,
-\$d\_\textbackslash mu\$). Two free parameters. All sectors. All scales.
+dilaton couplings
+(\textbackslash(d\_\textbackslash alpha\textbackslash),
+\textbackslash(d\_\textbackslash mu\textbackslash)). Two free
+parameters. All sectors. All scales.
 
 \begin{figure}
 \centering
-\includegraphics{fig-correction-law-hub}
+\includesvg{fig-correction-law-hub.svg}
 \caption{Figure 2: The unified correction law as a hub diagram. One
 equation, two parameters, five sectors.}
 \end{figure}
@@ -202,8 +207,8 @@ equation, two parameters, five sectors.}
 \begin{itemize}
 \tightlist
 \item
-  Drives expansion (\$H\^{}2 \$\$im
-  \textbackslash rho\_\{\textbackslash text\{field\}\}\$)
+  Drives expansion (\textbackslash(H\^{}2 \textbackslash sim
+  \textbackslash rho\_\{\textbackslash text\{field\}\}\textbackslash))
 \item
   Produces radiation (oscillation at large amplitude)
 \item
@@ -212,14 +217,15 @@ equation, two parameters, five sectors.}
   Produces accelerated expansion (field at small amplitude)
 \item
   Modifies decay rates
-  (\$\textbackslash lambda\_\{\textbackslash text\{eff\}\} =
-  \textbackslash lambda\_0(1 + \textbackslash alpha G)\$)
+  (\textbackslash(\textbackslash lambda\_\{\textbackslash text\{eff\}\}
+  = \textbackslash lambda\_0(1 + \textbackslash alpha G)\textbackslash))
 \item
-  Modifies the time gradient (\$g\_\{\textbackslash text\{eff\}\} =
-  g\_0(1 + \$\$amma G)\$)
+  Modifies the time gradient
+  (\textbackslash(g\_\{\textbackslash text\{eff\}\} = g\_0(1 +
+  \textbackslash gamma G)\textbackslash))
 \item
-  Prevents singularities (\$G \textbackslash to \$\$amma\^{}\{-1\}\$
-  stops collapse)
+  Prevents singularities (\textbackslash(G \textbackslash to
+  \textbackslash gamma\^{}\{-1\}\textbackslash) stops collapse)
 \item
   Preserves information (no singularities = no information loss)
 \end{itemize}
@@ -264,10 +270,11 @@ consciousness needed. No magic.
 Emerges}\label{the-entropy-arrow-emerges}}
 
 The field\textquotesingle s fundamental equations are time-reversible
-(\$dS/dt = 0\$). But coarse-graining (incomplete description) produces
-\$dS/dt \textgreater{} 0\$. The entropy arrow is not a law. It is a
-consequence of information preservation plus incomplete description. The
-arrow of time = the direction of information resolution.
+(\textbackslash(dS/dt = 0\textbackslash)). But coarse-graining
+(incomplete description) produces \textbackslash(dS/dt \textgreater{}
+0\textbackslash). The entropy arrow is not a law. It is a consequence of
+information preservation plus incomplete description. The arrow of time
+= the direction of information resolution.
 
 \hypertarget{e-mcuxb2-backward}{%
 \subsection{8. E = mc² Backward}\label{e-mcuxb2-backward}}
@@ -286,9 +293,9 @@ Forward: matter releases energy. Backward: energy condenses into matter.
 \end{itemize}
 
 Matter is not a substance. Matter is the field vibration slowed to the
-point of condensation. \$c\^{}2\$ is the field\textquotesingle s maximum
-vibration speed --- the speed of light = the speed of information = the
-speed of state changes.
+point of condensation. \textbackslash(c\^{}2\textbackslash) is the
+field\textquotesingle s maximum vibration speed --- the speed of light =
+the speed of information = the speed of state changes.
 
 \hypertarget{what-this-resolves}{%
 \subsection{9. What This Resolves}\label{what-this-resolves}}
@@ -316,9 +323,10 @@ Hubble tension & Field amplitude varies with environment \\
 
 One axiom: distance → time → information → preserved.
 
-One field: \$G(t)\$.
+One field: \textbackslash(G(t)\textbackslash).
 
-One law: \$X\_\{\textbackslash text\{eff\}\} = X\_0(1 + c\_X G)\$.
+One law: \textbackslash(X\_\{\textbackslash text\{eff\}\} = X\_0(1 +
+c\_X G)\textbackslash).
 
 All of physics.
 
