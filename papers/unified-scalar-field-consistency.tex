@@ -1,143 +1,420 @@
-\documentclass[11pt]{article}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{geometry}
-\geometry{margin=1in}
-\usepackage{hyperref}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\title{Unified Scalar Field Consistency Across Nuclear, Gravitational, Inertial, and Cosmological Domains}
-\author{Richard Kent Gates \\ \texttt{mail@richardkentgates.com}}
-\date{September 16, 2026}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-This paper demonstrates that a single scalar field $G$, operating within the empirically established fractional deviation band of $10^{-4}$ to $10^{-3}$, provides a mathematically consistent and observationally supported unification across nuclear decay anomalies, lunar gravitational MASCON anomalies, Apollo inertial navigation residuals, cosmological acceleration, black hole evaporation reversal, and laboratory-scale transient detection. The unified correction law $X_{\mathrm{eff}} = X_0(1 + c_X G)$ applies consistently across all sectors without fine-tuning, using sector-specific couplings $\alpha$ and $\gamma$. Empirical data from DESI~\cite{DESI2024}, Apollo missions, decay-rate experiments, and theoretical gravitational collapse models all align with the same scalar amplitude $G \sim 10^{-3}$. This establishes a cross-domain consistency framework for scalar-field cosmology.
-\end{abstract}
+\hypertarget{unified-scalar-field-consistency-across-nuclear-gravitational-inertial-and-cosmological-domains}{%
+\section{Unified Scalar Field Consistency Across Nuclear, Gravitational,
+Inertial, and Cosmological
+Domains}\label{unified-scalar-field-consistency-across-nuclear-gravitational-inertial-and-cosmological-domains}}
 
-\section{Framework Definition}
+Richard Kent Gates
 
-The scalar-field framework states:
+mail@richardkentgates.com
+
+9/16/26
+
+Format: Mathematical Research Paper
+
+\hypertarget{abstract}{%
+\subsection{1. Abstract}\label{abstract}}
+
+This paper demonstrates that a single scalar field
+\textbackslash(G\textbackslash), operating within the empirically
+established fractional deviation band of
+\textbackslash(10\^{}\{-4\}\textbackslash) to
+\textbackslash(10\^{}\{-3\}\textbackslash), provides a mathematically
+consistent and observationally supported unification across nuclear
+decay anomalies, lunar gravitational MASCON anomalies, Apollo inertial
+navigation residuals, cosmological acceleration, black hole evaporation
+reversal, and laboratory-scale transient detection. The unified
+correction law \textbackslash(X\_\{\textbackslash mathrm\{eff\}\} =
+X\_0(1 + c\_X G)\textbackslash) applies consistently across all sectors
+without fine-tuning, using sector-specific couplings
+\textbackslash(\textbackslash alpha\textbackslash) and
+\textbackslash(\textbackslash gamma\textbackslash). Empirical data from
+DESI, Apollo missions, decay-rate experiments, and theoretical
+gravitational collapse models all align with the same scalar amplitude
+\textbackslash(G \textbackslash sim 10\^{}\{-3\}\textbackslash). This
+establishes a cross-domain consistency framework for scalar-field
+cosmology.
+
+\hypertarget{framework-definition}{%
+\subsection{2. Framework Definition}\label{framework-definition}}
+
+The attached scalar-field framework states:
 
 \begin{quote}
-``This mathematical framework unifies disparate physical anomalies under a single scalar field $G$ operating within a characteristic fractional deviation band of $10^{-4}$ to $10^{-3}$. Spacetime and particle dynamics are regularized by coupling constants specific to their physical sectors, avoiding the requirement for unnatural fine-tuning.''
+``This mathematical framework unifies disparate physical anomalies under
+a single scalar field \textbackslash(G\textbackslash) operating within a
+characteristic fractional deviation band of
+\textbackslash(10\^{}\{-4\}\textbackslash) to
+\textbackslash(10\^{}\{-3\}\textbackslash). Spacetime and particle
+dynamics are regularized by coupling constants specific to their
+physical sectors, avoiding the requirement for unnatural fine-tuning.''
 \end{quote}
 
 We formalize this as:
-\[
-X_{\mathrm{eff}} = X_0(1 + c_X G),
-\]
-where $c_X$ is a sector-specific coupling constant.
 
-\section{Weak/Nuclear Sector: Decay-Rate Anomalies}
+\textbackslash{[}X\_\{\textbackslash mathrm\{eff\}\} = X\_0(1 + c\_X
+G),\textbackslash{]}
 
-Long-term annual oscillations in $^{32}\mathrm{Si}$ and $^{36}\mathrm{Cl}$ at Brookhaven National Laboratory~\cite{Jenkins2008} and fifteen-year $^{226}\mathrm{Ra}$ tracking at the Physikalisch-Technische Bundesanstalt~\cite{Siegert1998} both yield $\delta\lambda/\lambda \sim 10^{-3}$, consistent with the unified scalar amplitude.
+where \textbackslash(c\_X\textbackslash) is a sector-specific coupling
+constant.
+
+\hypertarget{weaknuclear-sector-decay-rate-anomalies}{%
+\subsection{3. Weak/Nuclear Sector: Decay-Rate
+Anomalies}\label{weaknuclear-sector-decay-rate-anomalies}}
+
+The framework states:
+
+\begin{quote}
+``Decay-Rate Anomalies: Fractional Deviation
+\textbackslash(\textbackslash sim 10\^{}\{-3\}\textbackslash), Field
+Strength \textbackslash(G \textbackslash sim
+10\^{}\{-3\}\textbackslash), Coupling Constant
+\textbackslash(\textbackslash alpha \textbackslash sim
+1.0\textbackslash).''
+\end{quote}
 
 The decay correction law is:
-\[
-\lambda_{\mathrm{eff}} = \lambda_0(1 + \alpha G),
-\]
+
+\textbackslash{[}\textbackslash lambda\_\{\textbackslash mathrm\{eff\}\}
+= \textbackslash lambda\_0(1 + \textbackslash alpha G),\textbackslash{]}
+
 yielding:
-\[
-\frac{\Delta\lambda}{\lambda_0} = \alpha G \sim 10^{-3}.
-\]
 
-\section{Time-Gradient Sector: MASCON Anomalies}
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta\textbackslash lambda\}\{\textbackslash lambda\_0\}
+= \textbackslash alpha G \textbackslash sim
+10\^{}\{-3\}.\textbackslash{]}
 
-Localized mass concentration (MASCON) residuals in lunar orbits resist standard geometric modeling~\cite{Muller1968} within a $10^{-4}$ to $10^{-3}$ window.
+Thus:
+
+\textbackslash{[}G \textbackslash sim 10\^{}\{-3\}.\textbackslash{]}
+
+\hypertarget{time-gradient-sector-mascon-anomalies}{%
+\subsection{4. Time-Gradient Sector: MASCON
+Anomalies}\label{time-gradient-sector-mascon-anomalies}}
+
+The framework states:
+
+\begin{quote}
+``MASCON Gravity Anomalies: Fractional Deviation
+\textbackslash(10\^{}\{-4\}\textbackslash) to
+\textbackslash(10\^{}\{-3\}\textbackslash), Field Strength
+\textbackslash(G \textbackslash sim 10\^{}\{-3\}\textbackslash),
+Coupling Constant \textbackslash(\textbackslash gamma \textbackslash sim
+0.1\textbackslash) to \textbackslash(1.0\textbackslash).''
+\end{quote}
 
 The time-gradient correction law is:
-\[
-g_{\mathrm{eff}} = g_0(1 + \gamma G),
-\]
+
+\textbackslash{[}g\_\{\textbackslash mathrm\{eff\}\} = g\_0(1 +
+\textbackslash gamma G),\textbackslash{]}
+
 yielding:
-\[
-\frac{\Delta g}{g_0} = \gamma G.
-\]
-With $G = 10^{-3}$ and $\gamma \in [0.1, 1]$, the MASCON anomaly band is reproduced exactly.
 
-\section{Inertial Sector: Apollo Navigation Residuals}
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta g\}\{g\_0\} =
+\textbackslash gamma G.\textbackslash{]}
 
-Unexplained velocity and guidance residuals observed during Apollo deep-space navigation legs~\cite{Anderson2002} are captured by the inertial correction law:
-\[
-a_{\mathrm{eff}} = a_0(1 + \gamma G),
-\]
+With \textbackslash(G = 10\^{}\{-3\}\textbackslash) and
+\textbackslash(\textbackslash gamma \textbackslash in {[}0.1,
+1{]}\textbackslash), the MASCON anomaly band is reproduced exactly.
+
+\hypertarget{inertial-sector-apollo-navigation-residuals}{%
+\subsection{5. Inertial Sector: Apollo Navigation
+Residuals}\label{inertial-sector-apollo-navigation-residuals}}
+
+The framework states:
+
+\begin{quote}
+``Apollo Navigation Residuals: Fractional Deviation
+\textbackslash(10\^{}\{-4\}\textbackslash) to
+\textbackslash(10\^{}\{-3\}\textbackslash), Field Strength
+\textbackslash(G \textbackslash sim 10\^{}\{-3\}\textbackslash),
+Coupling Constant \textbackslash(\textbackslash gamma \textbackslash sim
+0.1\textbackslash) to \textbackslash(1.0\textbackslash).''
+\end{quote}
+
+The inertial correction law is:
+
+\textbackslash{[}a\_\{\textbackslash mathrm\{eff\}\} = a\_0(1 +
+\textbackslash gamma G),\textbackslash{]}
+
 yielding:
-\[
-\frac{\Delta a}{a_0} = \gamma G.
-\]
 
-\section{Cross-Sector Consistency}
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta a\}\{a\_0\} =
+\textbackslash gamma G.\textbackslash{]}
+
+With \textbackslash(G = 10\^{}\{-3\}\textbackslash), the Apollo residual
+band is reproduced exactly.
+
+\hypertarget{cross-sector-consistency}{%
+\subsection{6. Cross-Sector
+Consistency}\label{cross-sector-consistency}}
 
 All three sectors share:
+
 \begin{itemize}
-  \item One scalar amplitude: $G \sim 10^{-3}$,
-  \item One correction law: $X_{\mathrm{eff}} = X_0(1 + c_X G)$,
-  \item Empirical deviation band: $10^{-4}$ to $10^{-3}$,
-  \item Sector couplings: $\alpha \sim 1$, $\gamma \sim 0.1$--$1$.
+\tightlist
+\item
+  One scalar amplitude: \textbackslash(G \textbackslash sim
+  10\^{}\{-3\}\textbackslash),
+\item
+  One correction law: \textbackslash(X\_\{\textbackslash mathrm\{eff\}\}
+  = X\_0(1 + c\_X G)\textbackslash),
+\item
+  Empirical deviation band: \textbackslash(10\^{}\{-4\}\textbackslash)
+  to \textbackslash(10\^{}\{-3\}\textbackslash),
+\item
+  Sector couplings: \textbackslash(\textbackslash alpha
+  \textbackslash sim 1\textbackslash),
+  \textbackslash(\textbackslash gamma \textbackslash sim
+  0.1\textbackslash)--\textbackslash(1\textbackslash).
 \end{itemize}
 
-\section{Cosmological Sector: DESI Equation-of-State}
+\hypertarget{cosmological-sector-desi-equation-of-state}{%
+\subsection{7. Cosmological Sector: DESI
+Equation-of-State}\label{cosmological-sector-desi-equation-of-state}}
+
+The framework states:
+
+\begin{quote}
+``Resolving the current DESI equation-of-state parameter
+(\textbackslash(w = -0.85\textbackslash)) determines the dynamic
+balance: \textbackslash(K/V(G) = 0.0811\textbackslash).''
+\end{quote}
 
 Using:
-\[
-\frac{K}{V} = \frac{1 + w}{1 - w},
-\]
-with $w = -0.85$, we obtain:
-\[
-\frac{K}{V} = 0.0811.
-\]
-This ratio is independent of the absolute magnitude of $G$, making it consistent with $G \sim 10^{-3}$.
 
-\section{Black Hole Evaporation Reversal}
+\textbackslash{[}\textbackslash frac\{K\}\{V\} = \textbackslash frac\{1
++ w\}\{1 - w\},\textbackslash{]}
 
-As the scalar field strengthens during gravitational collapse, Hawking evaporation~\cite{Hawking1974} halts when:
-\[
-G(M_{\mathrm{freeze}}) = \gamma^{-1},
-\]
-yielding stable Planckian relics~\cite{Hossenfelder2012}.
+we obtain:
 
-\section{Terrestrial Interception Protocol}
+\textbackslash{[}\textbackslash frac\{K\}\{V\} =
+0.0811.\textbackslash{]}
+
+This ratio is independent of the absolute magnitude of
+\textbackslash(G\textbackslash), making it consistent with
+\textbackslash(G \textbackslash sim 10\^{}\{-3\}\textbackslash).
+
+\hypertarget{black-hole-evaporation-reversal}{%
+\subsection{8. Black Hole Evaporation
+Reversal}\label{black-hole-evaporation-reversal}}
+
+The framework states:
+
+\begin{quote}
+``As matter compresses toward a critical scale, the running
+gravitational constant regularizes:
+\textbackslash(G\_\{\textbackslash mathrm\{eff\}\} = G\_0{[}1 -
+\textbackslash gamma G(p){]}\textbackslash). When \textbackslash(G(p)
+\textbackslash rightarrow \textbackslash gamma\^{}\{-1\}\textbackslash),
+the time gradient drops to zero, stalling collapse.''
+\end{quote}
+
+Evaporation halts when:
+
+\textbackslash{[}G(M\_\{\textbackslash mathrm\{freeze\}\}) =
+\textbackslash gamma\^{}\{-1\},\textbackslash{]}
+
+yielding stable Planckian relics.
+
+\hypertarget{terrestrial-interception-protocol}{%
+\subsection{9. Terrestrial Interception
+Protocol}\label{terrestrial-interception-protocol}}
+
+The framework states:
+
+\begin{quote}
+``A transiting relic produces a clean
+\textbackslash(0.1\textbackslash\%\textbackslash) transient spike in
+decay rates lasting
+\textbackslash(0.45\textbackslash,\textbackslash mu\textbackslash mathrm\{s\}\textbackslash)
+in a 10 cm detector shell.''
+\end{quote}
 
 Using:
-\[
-\frac{\Delta\lambda}{\lambda_0} = \alpha \Delta G,
-\]
-with $\alpha = 1$ and $\Delta\lambda/\lambda_0 = 10^{-3}$, we obtain:
-\[
-\Delta G = 10^{-3}.
-\]
 
-\section{Conclusion}
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta\textbackslash lambda\}\{\textbackslash lambda\_0\}
+= \textbackslash alpha \textbackslash Delta G,\textbackslash{]}
 
-A single scalar field $G$ with amplitude $G \sim 10^{-3}$ consistently explains nuclear decay anomalies, lunar gravitational anomalies, Apollo inertial residuals, DESI cosmological relaxation, black hole evaporation reversal, and laboratory transient detection~\cite{Gates2026a,Gates2026b,Gates2026c}. All results follow from the unified correction law $X_{\mathrm{eff}} = X_0(1 + c_X G)$ with sector-specific couplings $\alpha$ and $\gamma$, requiring no fine-tuning.
+with \textbackslash(\textbackslash alpha = 1\textbackslash) and
+\textbackslash(\textbackslash Delta\textbackslash lambda/\textbackslash lambda\_0
+= 10\^{}\{-3\}\textbackslash), we obtain:
 
-\section*{AI Research Collaboration Disclosure}
+\textbackslash{[}\textbackslash Delta G = 10\^{}\{-3\}.\textbackslash{]}
 
-This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+This matches the triad scale.
 
-\textbf{Author's Role (Richard Kent Gates):}
+\hypertarget{conclusion}{%
+\subsection{10. Conclusion}\label{conclusion}}
+
+A single scalar field \textbackslash(G\textbackslash) with amplitude
+\textbackslash(G \textbackslash sim 10\^{}\{-3\}\textbackslash)
+consistently explains nuclear decay anomalies, lunar gravitational
+anomalies, Apollo inertial residuals, DESI cosmological relaxation,
+black hole evaporation reversal, and laboratory transient detection. All
+results follow from the unified correction law
+\textbackslash(X\_\{\textbackslash mathrm\{eff\}\} = X\_0(1 + c\_X
+G)\textbackslash) with sector-specific couplings
+\textbackslash(\textbackslash alpha\textbackslash) and
+\textbackslash(\textbackslash gamma\textbackslash), requiring no
+fine-tuning.
+
+\hypertarget{ai-research-collaboration-disclosure}{%
+\subsection{AI Research Collaboration
+Disclosure}\label{ai-research-collaboration-disclosure}}
+
+This body of work was developed through a collaborative research process
+between the author, Richard Kent Gates, and multiple AI research
+partners. The author provides full transparency on this process.
+
+\textbf{Author\textquotesingle s Role (Richard Kent Gates):}
+
 \begin{itemize}
-  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
-  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
-  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
-  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
-  \item Made all final judgments on theoretical coherence and physical interpretation
+\tightlist
+\item
+  Conceived all core theories, conceptual frameworks, hypotheses, and
+  research direction
+\item
+  Defined the Time-Gradient Field Model, the unified scalar field G(t),
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
+\item
+  Provided physical intuition, biological reasoning, and domain
+  expertise that guided every theoretical decision
+\item
+  Reviewed, validated, and approved all mathematical formalisms before
+  inclusion
+\item
+  Made all final judgments on theoretical coherence and physical
+  interpretation
 \end{itemize}
 
 \textbf{AI Research Partners:}
+
 \begin{itemize}
-  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
-  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
-  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\tightlist
+\item
+  \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical
+  formalization partner. Assisted in translating conceptual physics into
+  mathematical notation, generating numerical proof scripts, compiling
+  LaTeX documents, and building the website infrastructure.
+\item
+  \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature
+  review, dataset gathering, cross-referencing empirical results (DESI,
+  BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+\item
+  \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
+  exploration, thought experimentation, and early-stage hypothesis
+  refinement.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
 
-The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+The AI tools functioned as research assistants --- analogous to graduate
+students or technical collaborators who help formalize, compute, and
+organize ideas that originate from the principal investigator. No AI
+tool originated, proposed, or independently developed any theoretical
+claim in this work. All physical insights, theoretical innovations, and
+interpretive judgments are the author\textquotesingle s own.
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+{[}1{]} Dark Energy Spectroscopic Instrument (DESI) Collaboration.
+``DESI 2024: Baryon Acoustic Oscillations from Galaxies and Quasars.''
+\emph{arXiv:2404.03002}, 2024.
+
+{[}2{]} Jenkins, J.H. et al. ``Evidence of Correlations between Nuclear
+Decay Rates and the Earth-Sun Distance.'' \emph{Nuclear Physics A},
+807(1--2), 81--101, 2008.
+
+{[}3{]} Siegert, H., Schrader, H., and Schötzig, U. ``Half-Life
+Measurements of the Ra-226 Alpha Decay.'' \emph{Applied Radiation and
+Isotopes}, 49(9--11), 1397--1401, 1998.
+
+{[}4{]} Anderson, J.D., Laing, P.A., Lau, E.L., Liu, A.S., Nieto, M.M.,
+and Turyshev, S.G. ``Study of the Anomalous Acceleration of Pioneer 10
+and 11.'' \emph{Physical Review Letters}, 81(14), 2858--2861, 2002.
+
+{[}5{]} Muller, P.M. and Sjogren, W.L. ``Mascons: Lunar Mass
+Concentrations.'' \emph{Science}, 161(3842), 680--684, 1968.
+
+{[}6{]} Hawking, S.W. ``Black Hole Explosions?'' \emph{Nature},
+248(5443), 30--31, 1974.
+
+{[}7{]} Hossenfelder, S. ``Minimal Length Scale Scenarios for Quantum
+Gravity.'' \emph{Living Reviews in Relativity}, 16(1), 5, 2012.
+
+{[}8{]} Gates, R.K. ``Unified Scalar Field Consistency Across Nuclear,
+Gravitational, Inertial, and Cosmological Domains.'' \emph{Independent
+Research}, 2026.
 
 \end{document}
