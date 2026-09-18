@@ -3,7 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  11pt,
+  10pt,
 ]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -37,7 +37,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -83,8 +83,6 @@
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{enumitem}
 \setlist{noitemsep,topsep=0pt}
-\allowdisplaybreaks
-\sloppy
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -318,7 +316,7 @@ Entanglement as a single information object across two endpoints:
 
 \begin{figure}
 \centering
-\includesvg{fig-entanglement-shared-object.svg}
+\includegraphics{fig-entanglement-shared-object}
 \caption{Figure 1: Entanglement is a single information object
 \textbackslash(\textbackslash mathcal\{I\}\_\{AB\}\textbackslash)
 spanning two endpoints A and B with different local time densities
@@ -530,7 +528,7 @@ Therefore entanglement is preserved under frame drag.
 
 \begin{figure}
 \centering
-\includesvg{fig-frame-dragging.svg}
+\includegraphics{fig-frame-dragging}
 \caption{Figure 3: Frame dragging rotates both phases by the same amount
 R(Omega). The relative phase phi\_A - phi\_B is unchanged. Entanglement
 is preserved.}
