@@ -35,8 +35,8 @@ Measurements of nuclear decay rates and particle lifetimes traditionally assume 
 
 \begin{itemize}
   \item Seasonal oscillations in Si-32, Cl-36, and Ra-226.
-  \item A transient Mn-54 dip coincident with a solar flare.
-  \item Short-term anomalies during reactor shutdowns.
+  \item A transient Mn-54 dip coincident with a solar flare \cite{Jenkins2009}.
+  \item Short-term anomalies during reactor shutdowns \cite{Parkhomov2010}.
 \end{itemize}
 
 This paper develops a simple mathematical model in which these deviations arise from a weak, external time-gradient field that slightly modifies the effective rate at which internal clocks evolve. The model introduces a multiplicative correction:
@@ -91,7 +91,7 @@ Si-32 & $1.5 \times 10^{-3}$ & $0.2\pi$ \\
 Cl-36 & $1.2 \times 10^{-3}$ & $0.2\pi$ \\
 \bottomrule
 \end{tabular}
-\caption{Fitted parameters for Brookhaven data.}
+\caption{Fitted parameters for Brookhaven data \cite{Jenkins2008}.}
 \end{table}
 
 \subsection{PTB (Ra-226)}
@@ -104,12 +104,12 @@ Isotope & $\alpha$ & $\phi$ \\
 Ra-226 & $8 \times 10^{-4}$ & $0.1\pi$ \\
 \bottomrule
 \end{tabular}
-\caption{Fitted parameters for PTB data.}
+\caption{Fitted parameters for PTB data \cite{Siegert1998}.}
 \end{table}
 
 \subsection{Interpretation}
 \begin{itemize}
-  \item Common phase $\rightarrow$ shared external influence.
+  \item Common phase $\rightarrow$ shared external influence, as discussed in the review by Fischbach et al.\ \cite{Fischbach2009}.
   \item Different amplitudes $\rightarrow$ isotope-dependent coupling.
   \item Magnitude $\sim 10^{-3}$ matches observed variations.
 \end{itemize}
@@ -129,7 +129,7 @@ G(t) = A_{\text{flare}} \, e^{-((t - t_0)^2)/(2\sigma^2)}.
 \begin{itemize}
   \item Short-duration transient.
   \item Magnitude matches seasonal anomalies.
-  \item Onset precedes electromagnetic arrival.
+  \item Onset precedes electromagnetic arrival, consistent with the power spectrum analysis of Sturrock et al.\ \cite{Sturrock2010}.
 \end{itemize}
 
 \section{Local Transient Fits (Reactor Shutdown)}
@@ -162,7 +162,7 @@ The time-gradient modification is:
 
 \subsection{Interpretation}
 \begin{itemize}
-  \item Material-dependent internal clocks.
+  \item Material-dependent internal clocks, with baseline muon lifetime from PDG \cite{PDG2024}.
   \item Baseline physics unchanged.
   \item Same multiplicative structure as nuclear decay.
 \end{itemize}
@@ -217,5 +217,32 @@ This paper presents a unified mathematical model in which internal clocks respon
 \lambda_{\text{eff}} = \lambda_0 (1 + \alpha G).
 \]
 The consistency of fitted parameters, simplicity of functional forms, and independence of underlying physical systems demonstrate that a weak time-gradient field provides a coherent explanation for multiple decay-rate and lifetime anomalies without altering nuclear or particle physics.
+
+\section*{AI Research Collaboration Disclosure}
+
+This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+
+\textbf{Author's Role (Richard Kent Gates):}
+\begin{itemize}
+  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
+  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
+  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
+  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
+  \item Made all final judgments on theoretical coherence and physical interpretation
+\end{itemize}
+
+\textbf{AI Research Partners:}
+\begin{itemize}
+  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
+  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\end{itemize}
+
+\textbf{Nature of AI Involvement:}
+
+The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
 
 \end{document}

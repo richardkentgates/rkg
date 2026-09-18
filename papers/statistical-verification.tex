@@ -16,7 +16,7 @@
 \maketitle
 
 \begin{abstract}
-This document provides a mathematical closure demonstrating that the recovered micro-oscillation signal $G(t)$ is statistically consistent with the true underlying deterministic model $G_{\text{true}}(t) = \theta_1 + \theta_2 \cos(2\pi t)$. The analysis uses three ingredients: (1) the Fisher Information scalar and parametric matrix, (2) the Cram\'{e}r--Rao Lower Bound, and (3) the measured reconstruction error from LS, regularized, and iterative estimators. All quantities satisfy the necessary inequalities for statistical optimality.
+This document provides a mathematical closure demonstrating that the recovered micro-oscillation signal $G(t)$ is statistically consistent with the true underlying deterministic model $G_{\text{true}}(t) = \theta_1 + \theta_2 \cos(2\pi t)$. The analysis uses three ingredients: (1) the Fisher Information scalar and parametric matrix \cite{Fisher1925}, (2) the Cram\'{e}r--Rao Lower Bound \cite{Cramer1946}, and (3) the measured reconstruction error from LS, regularized, and iterative estimators. All quantities satisfy the necessary inequalities for statistical optimality.
 \end{abstract}
 
 \section{Model}
@@ -63,9 +63,9 @@ From the reconstruction results:
 \toprule
 Method & RMS Error \\
 \midrule
-Least-Squares & $7.797385 \times 10^{-6}$ \\
-Regularized ($\lambda = 10^{-10}$) & $7.797385 \times 10^{-6}$ \\
-Iterative (100 steps) & $7.797385 \times 10^{-6}$ \\
+Least-Squares \cite{Legendre1805} & $7.797385 \times 10^{-6}$ \\
+Regularized ($\lambda = 10^{-10}$) \cite{Tikhonov1963} & $7.797385 \times 10^{-6}$ \\
+Iterative (100 steps) \cite{VanTrees2001} & $7.797385 \times 10^{-6}$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -126,5 +126,32 @@ The following conditions are satisfied:
 \end{enumerate}
 
 The reconstruction method operates at the theoretical statistical limit.
+
+\section*{AI Research Collaboration Disclosure}
+
+This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+
+\textbf{Author's Role (Richard Kent Gates):}
+\begin{itemize}
+  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
+  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
+  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
+  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
+  \item Made all final judgments on theoretical coherence and physical interpretation
+\end{itemize}
+
+\textbf{AI Research Partners:}
+\begin{itemize}
+  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
+  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\end{itemize}
+
+\textbf{Nature of AI Involvement:}
+
+The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
 
 \end{document}

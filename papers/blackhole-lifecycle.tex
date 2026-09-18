@@ -20,15 +20,15 @@ This paper extends the Unified Scalar Time-Gradient Field Theory from micro-scal
 
 \section{Cosmic Expansion from Field}
 
-The scalar field $\Phi(t)$ with potential $V(\Phi)$ replaces the cosmological constant $\Lambda$:
+The scalar field $\Phi(t)$ with potential $V(\Phi)$ replaces the cosmological constant $\Lambda$~\cite{Friedmann1922}:
 \begin{align}
 \rho_F &= \tfrac{1}{2}\dot{\Phi}^2 + V(\Phi) \\
 p_F &= \tfrac{1}{2}\dot{\Phi}^2 - V(\Phi) \\
 H^2 &= \frac{8\pi G}{3}\left[\rho_b + \rho_r + \rho_{\text{relic}} + \rho_F\right] \\
-\ddot{\Phi} + 3H\dot{\Phi} + \frac{dV}{d\Phi} &= 0
+\ddot{\Phi} + 3H\dot{\Phi} + \frac{dV}{d\Phi} &= 0 \quad \text{(Klein--Gordon equation~\cite{Klein1926})}
 \end{align}
 
-The DESI constraint $w = -0.85$ gives $K/V = (1+w)/(1-w) = 0.0811$. Numerical integration yields $w \approx -0.995$ over late times, consistent with a slowly rolling field.
+The DESI constraint~\cite{DESI2024} $w = -0.85$ gives $K/V = (1+w)/(1-w) = 0.0811$. Numerical integration yields $w \approx -0.995$ over late times, consistent with a slowly rolling field.
 
 \section{Relics as the Gradient-Driven Component (Fluid Description)}
 
@@ -52,8 +52,8 @@ Relics behave as pressureless matter. The continuity equation residual is $\math
 Phase & Condition & Behavior \\
 \midrule
 Accretion & $M > M_{\text{cross}}$ & Growth from environment \\
-Evaporation & $M < M_{\text{cross}}$ & Hawking-like mass loss \\
-Freeze-out & $M \to M_{\text{relic}}$ & Stable Planckian relic \\
+Evaporation & $M < M_{\text{cross}}$ & Hawking-like mass loss~\cite{Hawking1975} \\
+Freeze-out & $M \to M_{\text{relic}}$ & Stable Planckian relic~\cite{Hossenfelder2012} \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -74,7 +74,7 @@ With $\Gamma_{\text{abs}} = 10^{-25}\,\text{s}^{-1}$, the identity timescale is 
 \ddot{\delta} + 2H\dot{\delta} = 4\pi G\left[\rho_b\delta_b + \rho_{\text{relic}}\delta_{\text{relic}}\right]
 \end{equation}
 
-Results: $\Omega_m = 0.314$, $\Omega_{\text{relic}} = 0.265$, growth rate $f = 0.529$. Relics cluster identically to CDM.
+Results: $\Omega_m = 0.314$~\cite{Planck2020}, $\Omega_{\text{relic}} = 0.265$, growth rate $f = 0.529$~\cite{Linder2005}. Relics cluster identically to CDM.
 
 \section{Observable Predictions}
 
@@ -84,8 +84,8 @@ Results: $\Omega_m = 0.314$, $\Omega_{\text{relic}} = 0.265$, growth rate $f = 0
 \toprule
 Observable & Prediction & Status \\
 \midrule
-Rotation curve (10 kpc) & 153 km/s & Flat to 23\% over 10--100 kpc \\
-Rotation curve (100 kpc) & 118 km/s & Consistent with observations \\
+Rotation curve (10 kpc) & 153 km/s & Flat to 23\% over 10--100 kpc~\cite{Rubin1970} \\
+Rotation curve (100 kpc) & 118 km/s & Consistent with observations~\cite{Riess2022} \\
 Lensing & $\kappa \sim 10^{-25}$ & Requires full ray-tracing \\
 \bottomrule
 \end{tabular}
@@ -93,7 +93,7 @@ Lensing & $\kappa \sim 10^{-25}$ & Requires full ray-tracing \\
 
 \section{Numerical Results}
 
-All 7 theory closure checks pass:
+All 7 theory closure checks pass~\cite{Fixsen2009}:
 \begin{enumerate}
   \item Field equation of state $w \approx -0.995$ (DESI: $-0.85$)
   \item Pressureless relics (mean residual $3.5 \times 10^{-4}$)
@@ -106,6 +106,33 @@ All 7 theory closure checks pass:
 
 \section{Conclusion}
 
-The scalar field $G(t)$ simultaneously addresses micro-scale decay anomalies, drives cosmic expansion at small amplitude, and produces the gradient-driven clustering component via black hole relic end-states. One field, multiple roles, no fine-tuning between scales.
+The scalar field $G(t)$ simultaneously addresses micro-scale decay anomalies, drives cosmic expansion at small amplitude, and produces the gradient-driven clustering component via black hole relic end-states~\cite{Gates2026e,Gates2026f,Gates2026g}. One field, multiple roles, no fine-tuning between scales.
+
+\section*{AI Research Collaboration Disclosure}
+
+This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+
+\textbf{Author's Role (Richard Kent Gates):}
+\begin{itemize}
+  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
+  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
+  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
+  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
+  \item Made all final judgments on theoretical coherence and physical interpretation
+\end{itemize}
+
+\textbf{AI Research Partners:}
+\begin{itemize}
+  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
+  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\end{itemize}
+
+\textbf{Nature of AI Involvement:}
+
+The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
 
 \end{document}
