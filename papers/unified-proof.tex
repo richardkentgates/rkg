@@ -1,128 +1,366 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
 \usepackage{amsmath,amssymb}
-\usepackage{booktabs}
-\usepackage{hyperref}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage{svg}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\title{The Field Is the Universe: A Unified Proof}
-\subtitle{Working backward from the current state. Time = First Information. The field is eternal.}
-\author{Richard Kent Gates\\
-\texttt{mail@richardkentgates.com}}
-\date{September 16, 2026}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-Working backward from the current state of the universe, using the complete body of scalar field theory results, we prove that the scalar field $G(t)$ is the universe \cite{Planck2020,Gates2026h}. The field drives expansion, produces radiation (CMB), nucleosynthesis (BBN), structure (relics from black hole evaporation), and accelerated expansion --- all from field oscillation at varying amplitudes. The foundation (distance $\to$ time $\to$ information $\to$ preserved) forbids singularities \cite{Gates2026i}. The field has no beginning, no singularity, no emptiness. The observations ARE the field. Time IS the field's evolution. Information IS the field's state. Fourteen theory closure checks pass \cite{Gates2026j}.
-\end{abstract}
+\hypertarget{the-field-is-the-universe-a-unified-proof}{%
+\section{The Field Is the Universe: A Unified
+Proof}\label{the-field-is-the-universe-a-unified-proof}}
 
-\section{The Current State}
+Working backward from the current state. Time = First Information. The
+field is eternal.
 
-We observe today: expansion ($H_0 = 70$ km/s/Mpc) \cite{Riess2022}, accelerated expansion ($\Omega_\Lambda = 0.68$, $w \sim -1$), gradient-driven clustering from relics ($\Omega_{\text{relic}} = 0.27$ from black hole end-states) \cite{Hawking1975}, baryons ($\Omega_b = 0.05$), radiation (CMB at $T = 2.7255$ K) \cite{Fixsen2009}, structure (galaxies, clusters, voids), and modified decay rates ($\lambda_{\text{eff}} = \lambda_0(1 + \alpha G(t))$) \cite{Gates2026a,Gates2026b}. All of this is the scalar field $G(t)$ \cite{Gates2026c}.
+Richard Kent Gates
 
-\section{Tracing Backward}
+mail@richardkentgates.com
 
-The field amplitude $A(t)$ determines the epoch. Going backward, $A$ increases:
+September 16, 2026
 
-\begin{itemize}
-  \item \textbf{Today:} $A \sim$ small, $\rho \sim V_0$, $w \sim -1$, field-driven expansion
-  \item \textbf{$z \sim 1$:} $A \sim$ medium, $\rho \sim$ matter, $w \sim 0$, structure forms \cite{Blumenthal1984}
-  \item \textbf{$z \sim 1100$:} $A \sim$ large, $\rho \sim$ radiation, $w \sim 1/3$, CMB emitted \cite{Fixsen2009}
-  \item \textbf{$z \sim 10^9$:} $A \sim$ very large, $\rho \sim$ huge, $T \sim 10^9$ K, BBN occurs \cite{Alpher1948}
-  \item \textbf{$z \to \infty$:} $A$ bounded by potential barrier. NOT infinity. \cite{Gates2026d}
-\end{itemize}
+\hypertarget{the-current-state}{%
+\subsection{1. The Current State}\label{the-current-state}}
 
-\section{The Field Cannot Diverge}
+We observe today: expansion (H\&sub0; = 70 km/s/Mpc), accelerated
+expansion (ΩΛ = 0.68, w \textasciitilde{} −1), gradient-driven
+clustering from relics (Ω\textsubscript{relic} = 0.27 from black hole
+end-states), baryons (Ω\textsubscript{b} = 0.05), radiation (CMB at T =
+2.7255 K), structure (galaxies, clusters, voids), and modified decay
+rates (λ\textsubscript{eff} = λ\&sub0;(1 + αG(t))). All of this is the
+scalar field G(t).
+
+\hypertarget{tracing-backward}{%
+\subsection{2. Tracing Backward}\label{tracing-backward}}
+
+The field amplitude A(t) determines the epoch. Going backward, A
+increases. The math requires:
+
+TODAY: A \textasciitilde{} small, rho \textasciitilde{} V0, w
+\textasciitilde{} -1, field-driven expansion \textbar{} field amplitude
+INCREASES backward v z \textasciitilde{} 1: A \textasciitilde{} medium,
+rho \textasciitilde{} matter, w \textasciitilde{} 0, structure forms
+\textbar{} amplitude keeps increasing v z \textasciitilde{} 1100: A
+\textasciitilde{} large, rho \textasciitilde{} radiation, w
+\textasciitilde{} 1/3, CMB emitted \textbar{} amplitude keeps increasing
+v z \textasciitilde{} 10\^{}9: A \textasciitilde{} very large, rho
+\textasciitilde{} huge, T \textasciitilde{} 10\^{}9 K, BBN occurs
+\textbar{} amplitude keeps increasing v z -\textgreater{} inf: A
+-\textgreater{} bounded by potential barrier. NOT infinity.
+
+\begin{figure}
+\centering
+\includegraphics{fig-backward-tracing.png}
+\caption{Figure 2: Going backward from today, the field amplitude
+increases. But the potential barrier phi\_c bounds it from above. No
+singularity in either direction.}
+\end{figure}
+
+\hypertarget{the-field-cannot-diverge}{%
+\subsection{3. The Field Cannot
+Diverge}\label{the-field-cannot-diverge}}
 
 The field equation is time-reversible:
-\begin{equation}
-\phi'' + 3H\phi' + \frac{dV}{d\phi} = 0
-\end{equation}
 
-Going backward, the oscillation amplitude grows. But $V(\phi)$ has a minimum. The field oscillates between finite bounds. Even going backward infinitely: $|\phi| \le \phi_c$. No singularity in either direction.
+\textbackslash{[}\textbackslash phi\textquotesingle\textquotesingle{} +
+3H\textbackslash phi\textquotesingle{} +
+\textbackslash frac\{dV\}\{d\textbackslash phi\} = 0\textbackslash{]}
 
-\section{Time = First Information}
+Going backward, the oscillation amplitude grows. But V(φ) has a minimum.
+The field oscillates between finite bounds. Even going backward
+infinitely: \textbar φ\textbar{} ≤ φ\textsubscript{c}. No singularity in
+either direction.
 
-A state change is one bit. The field changes $\to$ information is generated. The field has always been changing (no singularity, no beginning). Therefore information has always been generated.
+\hypertarget{time-first-information}{%
+\subsection{4. Time = First Information}\label{time-first-information}}
 
-There is no ``first'' information --- just as there is no ``first'' real number. The field is a continuum of state changes, each one a bit of information. The question ``what created the first information?'' assumes a beginning. The math forbids a beginning. The question is malformed.
+A state change is one bit. The field changes → information is generated.
+The field has always been changing (no singularity, no beginning).
+Therefore information has always been generated.
 
-The correct statement: the field IS. The field changes. Change IS time. Time IS information. The field has always been. Information has always been generated. There is no ``first'' --- only ``always.''
+There is no ``first'' information --- just as there is no ``first'' real
+number. The field is a continuum of state changes, each one a bit of
+information. The question ``what created the first information?''
+assumes a beginning. The math forbids a beginning. The question is
+malformed.
 
-\section{The Observations Are the Field}
+The correct statement: the field IS. The field changes. Change IS time.
+Time IS information. The field has always been. Information has always
+been generated. There is no ``first'' --- only ``always.''
 
-The observations are not evidence FOR the field. The observations ARE the field:
+\hypertarget{the-observations-are-the-field}{%
+\subsection{5. The Observations Are the
+Field}\label{the-observations-are-the-field}}
+
+The observations are not evidence FOR the field. The observations ARE
+the field.
+
 \begin{itemize}
-  \item \textbf{CMB:} the field oscillating at large amplitude ($z \sim 1100$)
-  \item \textbf{BBN:} the field oscillating at very large amplitude ($z \sim 10^9$)
-  \item \textbf{Expansion:} the field amplitude damping over time
-  \item \textbf{Structure:} relics (from BH evaporation) clustering
-  \item \textbf{Dark energy:} the field at small amplitude (today)
+\tightlist
+\item
+  \textbf{CMB:} the field oscillating at large amplitude (z
+  \textasciitilde{} 1100)
+\item
+  \textbf{BBN:} the field oscillating at very large amplitude (z
+  \textasciitilde{} 10\&sup9;)
+\item
+  \textbf{Expansion:} the field amplitude damping over time
+\item
+  \textbf{Structure:} relics (from BH evaporation) clustering
+\item
+  \textbf{Dark energy:} the field at small amplitude (today)
 \end{itemize}
 
-\section{The Universe Did Not Start Empty}
+\hypertarget{the-universe-did-not-start-empty}{%
+\subsection{6. The Universe Did Not Start
+Empty}\label{the-universe-did-not-start-empty}}
 
-The Big Bang says: universe starts empty, then fills up \cite{Gamow1948,Guth1981}. The math says: the field has always been, always producing energy.
+The Big Bang says: universe starts empty, then fills up. The math says:
+the field has always been, always producing energy.
 
 \begin{itemize}
-  \item \textbf{Big Bang:} empty $\to$ singularity \cite{Penrose1965} $\to$ inflation \cite{Guth1981} $\to$ hot dense state $\to$ today
-  \item \textbf{Field:} always full $\to$ field oscillates $\to$ amplitude damps $\to$ today \cite{Gates2026e,Gates2026f,Gates2026g}
+\tightlist
+\item
+  \textbf{Big Bang:} empty → singularity → inflation → hot dense state →
+  today
+\item
+  \textbf{Field:} always full → field oscillates → amplitude damps →
+  today
 \end{itemize}
 
-The ``emptiness'' before the Big Bang is an artifact of assuming a singularity. Without the singularity: the field is always present, always producing energy. The universe has always been full.
-
-\section{Mathematical Results}
-
-\begin{table}[h]
+\begin{figure}
 \centering
-\begin{tabular}{lll}
-\toprule
+\includesvg{fig-bigbang-vs-field.svg}
+\caption{Figure 1: The Big Bang model requires a singularity. The scalar
+field model has no beginning --- the field has always been, always
+producing energy.}
+\end{figure}
+
+The ``emptiness'' before the Big Bang is an artifact of assuming a
+singularity. Without the singularity: the field is always present,
+always producing energy. The universe has always been full.
+
+\hypertarget{mathematical-results-from-prior-work}{%
+\subsection{7. Mathematical Results from Prior
+Work}\label{mathematical-results-from-prior-work}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
 Result & Value & Source \\
-\midrule
-Forward-backward consistency & error $= 1.11 \times 10^{-16}$ & scalar\_field\_tests.py \\
-Fisher information $F$ & 15,000,000,000 & scalar\_field\_tests.py \\
-CRLB $\sigma_G$ & $\ge 8.16 \times 10^{-6}$ & scalar\_field\_tests.py \\
-Condition number $\kappa(H)$ & 1.00 & signal\_processing\_proof.py \\
-Relic pressureless residual & $3.5 \times 10^{-4}$ & blackhole\_lifecycle.py \\
-BH freeze-out mass & $10^{-5}\,M_{\text{Pl}}$ & blackhole\_lifecycle.py \\
-Growth rate $f$ & 0.529 & blackhole\_lifecycle.py \\
-Field equation of state $w$ & $-0.995$ & blackhole\_lifecycle.py \\
-\bottomrule
-\end{tabular}
-\end{table}
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Forward-backward consistency & error = 1.11 × 10−¹\&sup6; &
+scalar\_field\_tests.py \\
+Fisher information F & 15,000,000,000 & scalar\_field\_tests.py \\
+CRLB σ\textsubscript{G} & ≥ 8.16 × 10−\&sup6; &
+scalar\_field\_tests.py \\
+Condition number κ(H) & 1.00 & signal\_processing\_proof.py \\
+Relic pressureless residual & 3.5 × 10−\&sup4; &
+blackhole\_lifecycle.py \\
+BH freeze-out mass & 10−\&sup5; M\textsubscript{Pl} &
+blackhole\_lifecycle.py \\
+Growth rate f & 0.529 & blackhole\_lifecycle.py \\
+Field equation of state w & −0.995 & blackhole\_lifecycle.py \\
+\end{longtable}
 
-\section{Conclusion}
+\hypertarget{conclusion}{%
+\subsection{8. Conclusion}\label{conclusion}}
 
-The universe is the field. The field has always been. The observations are the field's history. Time is the field's evolution. Information is the field's state. There is no beginning, no singularity, no emptiness. There is only the field, changing, forever.
+The universe is the field.
 
-\section*{AI Research Collaboration Disclosure}
+The field has always been.
 
-This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+The observations are the field's history.
 
-\textbf{Author's Role (Richard Kent Gates):}
+Time is the field's evolution.
+
+Information is the field's state.
+
+There is no beginning, no singularity, no emptiness.
+
+There is only the field, changing, forever.
+
+\hypertarget{ai-research-collaboration-disclosure}{%
+\subsection{AI Research Collaboration
+Disclosure}\label{ai-research-collaboration-disclosure}}
+
+This body of work was developed through a collaborative research process
+between the author, Richard Kent Gates, and multiple AI research
+partners. The author provides full transparency on this process.
+
+\textbf{Author\textquotesingle s Role (Richard Kent Gates):}
+
 \begin{itemize}
-  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
-  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
-  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
-  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
-  \item Made all final judgments on theoretical coherence and physical interpretation
+\tightlist
+\item
+  Conceived all core theories, conceptual frameworks, hypotheses, and
+  research direction
+\item
+  Defined the Time-Gradient Field Model, the unified scalar field G(t),
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
+\item
+  Provided physical intuition, biological reasoning, and domain
+  expertise that guided every theoretical decision
+\item
+  Reviewed, validated, and approved all mathematical formalisms before
+  inclusion
+\item
+  Made all final judgments on theoretical coherence and physical
+  interpretation
 \end{itemize}
 
 \textbf{AI Research Partners:}
+
 \begin{itemize}
-  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
-  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
-  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\tightlist
+\item
+  \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical
+  formalization partner. Assisted in translating conceptual physics into
+  mathematical notation, generating numerical proof scripts, compiling
+  LaTeX documents, and building the website infrastructure.
+\item
+  \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature
+  review, dataset gathering, cross-referencing empirical results (DESI,
+  BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+\item
+  \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
+  exploration, thought experimentation, and early-stage hypothesis
+  refinement.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
 
-The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+The AI tools functioned as research assistants --- analogous to graduate
+students or technical collaborators who help formalize, compute, and
+organize ideas that originate from the principal investigator. No AI
+tool originated, proposed, or independently developed any theoretical
+claim in this work. All physical insights, theoretical innovations, and
+interpretive judgments are the author\textquotesingle s own.
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+{[}1{]} Planck Collaboration (2020). "Planck 2018 results. VI.
+Cosmological parameters." \emph{Astronomy \& Astrophysics}, 641, A6.
+
+{[}2{]} Fixsen, D.J. (2009). "The Temperature of the Cosmic Microwave
+Background." \emph{The Astrophysical Journal}, 707, 916--920.
+
+{[}3{]} Riess, A.G. et al. (2022). "A Comprehensive Measurement of the
+Local Value of the Hubble Constant." \emph{The Astrophysical Journal
+Letters}, 934, L7.
+
+{[}4{]} Hawking, S.W. (1975). "Particle creation by black holes."
+\emph{Communications in Mathematical Physics}, 43, 199--220.
+
+{[}5{]} Gamow, G. (1948). "The Origin of Elements and the Structure of
+the Universe." \emph{Proceedings of the National Academy of Sciences},
+34, 25--32.
+
+{[}6{]} Guth, A.H. (1981). "Inflationary universe: A possible solution
+to the horizon and flatness problems." \emph{Physical Review D}, 23,
+347--356.
+
+{[}7{]} Alpher, R.A., Bethe, H.A., Gamow, G. (1948). "The Origin of
+Chemical Elements." \emph{Physical Review}, 73, 803--804.
+
+{[}8{]} Penrose, R. (1965). "Gravitational Collapse and Space-Time
+Singularities." \emph{Physical Review Letters}, 14, 57--59.
+
+{[}9{]} Blumenthal, G.R., Faber, S.M., Primack, J.R., Rees, M.J. (1984).
+"Formation of galaxies and large-scale structure with cold dark matter."
+\emph{Nature}, 311, 517--525.
+
+{[}10{]} Gates, R.K. (2026). Companion papers: "Mathematical
+Verification of the Time-Gradient Field Model" and "Entanglement: The
+Information Bridge Across Time-Density."
 
 \end{document}

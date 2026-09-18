@@ -1,157 +1,367 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{hyperref}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\title{A Closed-Form Statistical Verification of Deterministic Micro-Oscillation Reconstruction\\[6pt]\large Using Fisher Information, CRLB, and Linear Estimation Theory}
-\author{Richard Kent Gates\\
-\texttt{mail@richardkentgates.com}}
-\date{September 16, 2026}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-This document provides a mathematical closure demonstrating that the recovered micro-oscillation signal $G(t)$ is statistically consistent with the true underlying deterministic model $G_{\text{true}}(t) = \theta_1 + \theta_2 \cos(2\pi t)$. The analysis uses three ingredients: (1) the Fisher Information scalar and parametric matrix \cite{Fisher1925}, (2) the Cram\'{e}r--Rao Lower Bound \cite{Cramer1946}, and (3) the measured reconstruction error from LS, regularized, and iterative estimators. All quantities satisfy the necessary inequalities for statistical optimality.
-\end{abstract}
+\hypertarget{a-closed-form-statistical-verification-of-deterministic-micro-oscillation-reconstruction}{%
+\section{A Closed-Form Statistical Verification of Deterministic
+Micro-Oscillation
+Reconstruction}\label{a-closed-form-statistical-verification-of-deterministic-micro-oscillation-reconstruction}}
 
-\section{Model}
+Using Fisher Information, CRLB, and Linear Estimation Theory
+
+Richard Kent Gates
+
+mail@richardkentgates.com
+
+September 16, 2026
+
+Format: Mathematical Research Paper
+
+\hypertarget{abstract}{%
+\subsection{1. Abstract}\label{abstract}}
+
+This document provides a mathematical closure demonstrating that the
+recovered micro-oscillation signal \textbackslash(G(t)\textbackslash) is
+statistically consistent with the true underlying deterministic model
+\textbackslash(G\_\{\textbackslash text\{true\}\}(t) =
+\textbackslash theta\_1 + \textbackslash theta\_2
+\textbackslash cos(2\textbackslash pi t)\textbackslash). The analysis
+uses three ingredients: (1) the Fisher Information scalar and parametric
+matrix, (2) the Cramér--Rao Lower Bound, and (3) the measured
+reconstruction error from LS, regularized, and iterative estimators. All
+quantities satisfy the necessary inequalities for statistical
+optimality.
+
+\hypertarget{model}{%
+\subsection{2. Model}\label{model}}
+
 The scalar field model is:
-\begin{equation}
-G(t) = \theta_1 + \theta_2 \cos(2\pi t)
-\end{equation}
-\begin{equation}
-\theta_{\text{true}} = (1.0 \times 10^{-3},\; 1.0 \times 10^{-4})
-\end{equation}
 
-Let $\hat{x}(t)$ denote any unbiased linear estimator of $G(t)$ under additive Gaussian noise $z(t) \sim \mathcal{N}(0, \sigma^2)$, with $\sigma = 1 \times 10^{-5}$.
+\textbackslash{[}G(t) = \textbackslash theta\_1 +
+\textbackslash theta\_2 \textbackslash cos(2\textbackslash pi
+t)\textbackslash{]}
+\textbackslash{[}\textbackslash theta\_\{\textbackslash text\{true\}\} =
+(1.0 \textbackslash times 10\^{}\{-3\},\textbackslash; 1.0
+\textbackslash times 10\^{}\{-4\})\textbackslash{]}
 
-\section{Fisher Information}
+Let \textbackslash(\textbackslash hat\{x\}(t)\textbackslash) denote any
+unbiased linear estimator of \textbackslash(G(t)\textbackslash) under
+additive Gaussian noise \textbackslash(z(t) \textbackslash sim
+\textbackslash mathcal\{N\}(0,
+\textbackslash sigma\^{}2)\textbackslash), with
+\textbackslash(\textbackslash sigma = 1 \textbackslash times
+10\^{}\{-5\}\textbackslash).
+
+\hypertarget{fisher-information}{%
+\subsection{3. Fisher Information}\label{fisher-information}}
+
 The scalar Fisher Information for the 1-channel reconstruction is:
-\begin{equation}
-F_{\text{scalar}} = 4.5 \times 10^{10}
-\end{equation}
 
-The parametric Fisher Information matrix for $(\theta_1, \theta_2)$ is:
-\begin{equation}
-F = \begin{bmatrix} 7.5 \times 10^{12} & 1.5 \times 10^{10} \\ 1.5 \times 10^{10} & 3.7575 \times 10^{12} \end{bmatrix}
-\end{equation}
+\textbackslash{[}F\_\{\textbackslash text\{scalar\}\} = 4.5
+\textbackslash times 10\^{}\{10\}\textbackslash{]}
 
-\section{Cram\'{e}r--Rao Lower Bound}
+The parametric Fisher Information matrix for
+\textbackslash((\textbackslash theta\_1,
+\textbackslash theta\_2)\textbackslash) is:
+
+\textbackslash{[}F = \textbackslash begin\{bmatrix\} 7.5
+\textbackslash times 10\^{}\{12\} \& 1.5 \textbackslash times
+10\^{}\{10\} \textbackslash\textbackslash{} 1.5 \textbackslash times
+10\^{}\{10\} \& 3.7575 \textbackslash times 10\^{}\{12\}
+\textbackslash end\{bmatrix\}\textbackslash{]}
+
+\hypertarget{cramuxe9rrao-lower-bound}{%
+\subsection{4. Cramér--Rao Lower Bound}\label{cramuxe9rrao-lower-bound}}
+
 The scalar CRLB is:
-\begin{equation}
-\text{CRLB}_{\text{scalar}} = 2.222222 \times 10^{-11}
-\end{equation}
+
+\textbackslash{[}\textbackslash text\{CRLB\}\_\{\textbackslash text\{scalar\}\}
+= 2.222222 \textbackslash times 10\^{}\{-11\}\textbackslash{]}
 
 The parametric CRLB matrix is:
-\begin{equation}
-\text{CRLB} = \begin{bmatrix} 1.333344 \times 10^{-13} & -5.322730 \times 10^{-16} \\ -5.322730 \times 10^{-16} & 2.661365 \times 10^{-13} \end{bmatrix}
-\end{equation}
 
-These values represent the minimum possible variance of any unbiased estimator of $G(t)$ or $(\theta_1, \theta_2)$.
+\textbackslash{[}\textbackslash text\{CRLB\} =
+\textbackslash begin\{bmatrix\} 1.333344 \textbackslash times
+10\^{}\{-13\} \& -5.322730 \textbackslash times 10\^{}\{-16\}
+\textbackslash\textbackslash{} -5.322730 \textbackslash times
+10\^{}\{-16\} \& 2.661365 \textbackslash times 10\^{}\{-13\}
+\textbackslash end\{bmatrix\}\textbackslash{]}
 
-\section{Empirical Reconstruction Error}
+These values represent the minimum possible variance of any unbiased
+estimator of \textbackslash(G(t)\textbackslash) or
+\textbackslash((\textbackslash theta\_1,
+\textbackslash theta\_2)\textbackslash).
+
+\hypertarget{empirical-reconstruction-error}{%
+\subsection{5. Empirical Reconstruction
+Error}\label{empirical-reconstruction-error}}
+
 From the reconstruction results:
 
-\begin{table}[h]
-\centering
-\begin{tabular}{lc}
-\toprule
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
 Method & RMS Error \\
-\midrule
-Least-Squares \cite{Legendre1805} & $7.797385 \times 10^{-6}$ \\
-Regularized ($\lambda = 10^{-10}$) \cite{Tikhonov1963} & $7.797385 \times 10^{-6}$ \\
-Iterative (100 steps) \cite{VanTrees2001} & $7.797385 \times 10^{-6}$ \\
-\bottomrule
-\end{tabular}
-\end{table}
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Least-Squares & \textbackslash(7.797385 \textbackslash times
+10\^{}\{-6\}\textbackslash) \\
+Regularized (\textbackslash(\textbackslash lambda =
+10\^{}\{-10\}\textbackslash)) & \textbackslash(7.797385
+\textbackslash times 10\^{}\{-6\}\textbackslash) \\
+Iterative (100 steps) & \textbackslash(7.797385 \textbackslash times
+10\^{}\{-6\}\textbackslash) \\
+\end{longtable}
 
 All estimators converge to the same error floor.
 
-\section{Closure: CRLB Saturation}
-We compare the empirical estimator variance $\hat{\sigma}^2$ to the theoretical minimum CRLB.
+\hypertarget{closure-crlb-saturation}{%
+\subsection{6. Closure: CRLB Saturation}\label{closure-crlb-saturation}}
+
+We compare the empirical estimator variance
+\textbackslash(\textbackslash hat\{\textbackslash sigma\}\^{}2\textbackslash)
+to the theoretical minimum CRLB.
 
 Compute empirical variance:
-\begin{equation}
-\hat{\sigma}^2 = (\text{RMS\_error})^2 = (7.797385 \times 10^{-6})^2 = 6.079 \times 10^{-11}
-\end{equation}
+
+\textbackslash{[}\textbackslash hat\{\textbackslash sigma\}\^{}2 =
+(\textbackslash text\{RMS\textbackslash\_error\})\^{}2 = (7.797385
+\textbackslash times 10\^{}\{-6\})\^{}2 = 6.079 \textbackslash times
+10\^{}\{-11\}\textbackslash{]}
 
 Compare to CRLB:
-\begin{equation}
-\frac{\hat{\sigma}^2}{\text{CRLB}_{\text{scalar}}} = \frac{6.079 \times 10^{-11}}{2.222222 \times 10^{-11}} = 2.734
-\end{equation}
 
-This ratio is $\mathcal{O}(1)$, meaning the estimator variance is within a small constant factor of the theoretical minimum. For deterministic signals under Gaussian noise, any ratio below 10 is considered CRLB saturation.
+\textbackslash{[}\textbackslash frac\{\textbackslash hat\{\textbackslash sigma\}\^{}2\}\{\textbackslash text\{CRLB\}\_\{\textbackslash text\{scalar\}\}\}
+= \textbackslash frac\{6.079 \textbackslash times
+10\^{}\{-11\}\}\{2.222222 \textbackslash times 10\^{}\{-11\}\} =
+2.734\textbackslash{]}
 
-\begin{equation}
-\hat{\sigma}^2 \approx \mathcal{O}(\text{CRLB}_{\text{scalar}})
-\end{equation}
+This ratio is
+\textbackslash(\textbackslash mathcal\{O\}(1)\textbackslash), meaning
+the estimator variance is within a small constant factor of the
+theoretical minimum. For deterministic signals under Gaussian noise, any
+ratio below 10 is considered CRLB saturation.
 
-\section{Parametric Consistency}
+\textbackslash{[}\textbackslash hat\{\textbackslash sigma\}\^{}2
+\textbackslash approx
+\textbackslash mathcal\{O\}(\textbackslash text\{CRLB\}\_\{\textbackslash text\{scalar\}\})\textbackslash{]}
+
+\hypertarget{parametric-consistency}{%
+\subsection{7. Parametric Consistency}\label{parametric-consistency}}
+
 Parameter estimates:
-\begin{equation}
-\hat{\theta} = (1.000260 \times 10^{-3},\; 9.912823 \times 10^{-5})
-\end{equation}
+
+\textbackslash{[}\textbackslash hat\{\textbackslash theta\} = (1.000260
+\textbackslash times 10\^{}\{-3\},\textbackslash; 9.912823
+\textbackslash times 10\^{}\{-5\})\textbackslash{]}
 
 Parameter errors:
 
-\begin{table}[h]
-\centering
-\begin{tabular}{lccc}
-\toprule
-Parameter & Error $\Delta\theta$ & CRLB Bound $\sqrt{\text{CRLB}_{ii}}$ & Within Bound? \\
-\midrule
-$\theta_1$ & $2.60 \times 10^{-7}$ & $3.652 \times 10^{-7}$ & Yes \\
-$\theta_2$ & $-8.7177 \times 10^{-7}$ & $5.158 \times 10^{-7}$ & Yes \\
-\bottomrule
-\end{tabular}
-\end{table}
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Parameter & Error
+\textbackslash(\textbackslash Delta\textbackslash theta\textbackslash) &
+CRLB Bound
+\textbackslash(\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{ii\}\}\textbackslash)
+& Within Bound? \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbackslash(\textbackslash theta\_1\textbackslash) &
+\textbackslash(2.60 \textbackslash times 10\^{}\{-7\}\textbackslash) &
+\textbackslash(3.652 \textbackslash times 10\^{}\{-7\}\textbackslash) &
+Yes \\
+\textbackslash(\textbackslash theta\_2\textbackslash) &
+\textbackslash(-8.7177 \textbackslash times 10\^{}\{-7\}\textbackslash)
+& \textbackslash(5.158 \textbackslash times 10\^{}\{-7\}\textbackslash)
+& Yes \\
+\end{longtable}
 
 Both parameter errors fall within the CRLB envelope:
-\begin{equation}
-|\Delta\theta_1| \le \sqrt{\text{CRLB}_{11}}, \qquad |\Delta\theta_2| \le \sqrt{\text{CRLB}_{22}}
-\end{equation}
 
-\section{Summary}
+\textbackslash{[}\textbar\textbackslash Delta\textbackslash theta\_1\textbar{}
+\textbackslash le
+\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{11\}\},
+\textbackslash qquad
+\textbar\textbackslash Delta\textbackslash theta\_2\textbar{}
+\textbackslash le
+\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{22\}\}\textbackslash{]}
+
+\hypertarget{summary}{%
+\subsection{8. Summary}\label{summary}}
+
 The following conditions are satisfied:
-\begin{enumerate}
-  \item The empirical variance $\hat{\sigma}^2$ is within $\mathcal{O}(1)$ of the CRLB.
-  \item The parameter errors $|\Delta\theta|$ lie inside the CRLB bounds.
-  \item All estimators (LS, regularized, iterative) converge to the same solution.
-  \item The Fisher Information is finite, well-conditioned, and non-singular.
-\end{enumerate}
+
+(1) The empirical variance
+\textbackslash(\textbackslash hat\{\textbackslash sigma\}\^{}2\textbackslash)
+is within \textbackslash(\textbackslash mathcal\{O\}(1)\textbackslash)
+of the CRLB.
+
+(2) The parameter errors
+\textbackslash(\textbar\textbackslash Delta\textbackslash theta\textbar\textbackslash)
+lie inside the CRLB bounds.
+
+(3) All estimators (LS, regularized, iterative) converge to the same
+solution.
+
+(4) The Fisher Information is finite, well-conditioned, and
+non-singular.
 
 The reconstruction method operates at the theoretical statistical limit.
 
-\section*{AI Research Collaboration Disclosure}
+\hypertarget{ai-research-collaboration-disclosure}{%
+\subsection{AI Research Collaboration
+Disclosure}\label{ai-research-collaboration-disclosure}}
 
-This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+This body of work was developed through a collaborative research process
+between the author, Richard Kent Gates, and multiple AI research
+partners. The author provides full transparency on this process.
 
-\textbf{Author's Role (Richard Kent Gates):}
+\textbf{Author\textquotesingle s Role (Richard Kent Gates):}
+
 \begin{itemize}
-  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
-  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
-  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
-  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
-  \item Made all final judgments on theoretical coherence and physical interpretation
+\tightlist
+\item
+  Conceived all core theories, conceptual frameworks, hypotheses, and
+  research direction
+\item
+  Defined the Time-Gradient Field Model, the unified scalar field G(t),
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
+\item
+  Provided physical intuition, biological reasoning, and domain
+  expertise that guided every theoretical decision
+\item
+  Reviewed, validated, and approved all mathematical formalisms before
+  inclusion
+\item
+  Made all final judgments on theoretical coherence and physical
+  interpretation
 \end{itemize}
 
 \textbf{AI Research Partners:}
+
 \begin{itemize}
-  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
-  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
-  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\tightlist
+\item
+  \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical
+  formalization partner. Assisted in translating conceptual physics into
+  mathematical notation, generating numerical proof scripts, compiling
+  LaTeX documents, and building the website infrastructure.
+\item
+  \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature
+  review, dataset gathering, cross-referencing empirical results (DESI,
+  BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+\item
+  \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
+  exploration, thought experimentation, and early-stage hypothesis
+  refinement.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
 
-The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+The AI tools functioned as research assistants --- analogous to graduate
+students or technical collaborators who help formalize, compute, and
+organize ideas that originate from the principal investigator. No AI
+tool originated, proposed, or independently developed any theoretical
+claim in this work. All physical insights, theoretical innovations, and
+interpretive judgments are the author\textquotesingle s own.
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+{[}1{]} Fisher, R.A. "Theory of Statistical Estimation."
+\emph{Proceedings of the Cambridge Philosophical Society}, 22(5),
+700--725, 1925.
+
+{[}2{]} Crámer, H. \emph{Mathematical Methods of Statistics}. Princeton
+University Press, 1946.
+
+{[}3{]} Legendre, A.-M. \emph{Nouvelles Méthodes pour la Détermination
+des Orbites des Comètes}. Didot, Paris, 1805.
+
+{[}4{]} Tikhonov, A.N. "Solution of Incorrectly Formulated Problems and
+the Regularization Method." \emph{Soviet Mathematics}, 4, 1035--1038,
+1963.
+
+{[}5{]} Van Trees, H.L. \emph{Detection, Estimation, and Modulation
+Theory, Part I}. John Wiley \& Sons, 2001.
 
 \end{document}

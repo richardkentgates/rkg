@@ -1,160 +1,431 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
 \usepackage{amsmath,amssymb}
-\usepackage{booktabs}
-\usepackage{hyperref}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage{svg}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\title{The Foundation: Distance, Time, Information, and the Prohibition of Singularities}
-\author{Richard Kent Gates\\
-\texttt{mail@richardkentgates.com}}
-\date{September 16, 2026}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-Three principles form the foundation of existence: (1) distance necessitates time, (2) time is information, (3) information cannot be lost. We prove these mathematically using the metric, the Bekenstein bound~\cite{Bekenstein1973}, and unitarity~\cite{tHooft1993,Susskind1995}. We show that singularities violate all three principles and are therefore forbidden. The scalar field $G(t)$ is the mathematical expression of this prohibition: it prevents collapse to infinite density (black holes)~\cite{Hawking1976} and prevents expansion from infinite density (Big Bang). Accelerator physics provides direct evidence for the distance-time-information coupling through Lorentz lifetime dilation~\cite{Lorentz1904}, energy-time uncertainty~\cite{Heisenberg1927,Mandelshtam1945}, and cross-section modifications by $G(t)$.
-\end{abstract}
+\hypertarget{the-foundation-distance-time-information-and-the-prohibition-of-singularities}{%
+\section{The Foundation: Distance, Time, Information, and the
+Prohibition of
+Singularities}\label{the-foundation-distance-time-information-and-the-prohibition-of-singularities}}
 
-\section{The Foundation}
+Richard Kent Gates
+
+mail@richardkentgates.com
+
+September 16, 2026
+
+\hypertarget{the-foundation}{%
+\subsection{1. The Foundation}\label{the-foundation}}
 
 Three principles form the foundation of existence:
 
 \begin{enumerate}
-  \item \textbf{Distance necessitates time.} Spatial separation requires temporal separation. A signal crossing distance $\Delta x$ requires time $\Delta t = \Delta x/c$.
-  \item \textbf{Time is information.} A clock tick is a state change. Each state change is one bit. The Bekenstein bound~\cite{Bekenstein1973} gives $\sim 9$ bits per Planck time.
-  \item \textbf{Information cannot be lost.} Unitarity~\cite{tHooft1993,Susskind1995} requires information preservation. The Bekenstein bound sets the maximum information content of any region.
+\tightlist
+\item
+  \textbf{Distance necessitates time.} You cannot have spatial
+  separation without temporal separation. A signal crossing distance
+  \textbackslash(\textbackslash Delta x\textbackslash) requires time
+  \textbackslash(\textbackslash Delta t = \textbackslash Delta x /
+  c\textbackslash). Distance without time is operationally undefined.
+\item
+  \textbf{Time is information.} A clock tick is a state change. Each
+  state change is one bit. The Bekenstein bound gives
+  \textbackslash(\textbackslash sim 9\textbackslash) bits per Planck
+  time. Time elapsed equals information generated.
+\item
+  \textbf{Information cannot be lost.} Unitarity requires that
+  information is preserved. The Bekenstein bound sets the maximum
+  information content of any region. Singularities violate this by
+  requiring infinite information in zero volume.
 \end{enumerate}
 
-\section{Distance Necessitates Time}
+\hypertarget{distance-necessitates-time}{%
+\subsection{2. Distance Necessitates
+Time}\label{distance-necessitates-time}}
 
-From the metric $ds^2 = -c^2 dt^2 + dx^2$:
-\begin{align}
-\text{Lightlike: } dx &= c\,dt \\
-\text{Timelike: } dt &> dx/c
-\end{align}
+From the metric \textbackslash(ds\^{}2 = -c\^{}2 dt\^{}2 +
+dx\^{}2\textbackslash):
 
-At the Planck scale: $l_{\text{Pl}} = c \cdot t_{\text{Pl}}$. Distance IS time at the fundamental level.
+\textbackslash{[}\textbackslash text\{Lightlike: \} dx =
+c\textbackslash,dt
+\textbackslash quad\textbackslash Rightarrow\textbackslash quad
+\textbackslash text\{distance REQUIRES time\}\textbackslash{]}
+\textbackslash{[}\textbackslash text\{Timelike: \} dt \textgreater{}
+dx/c \textbackslash quad\textbackslash Rightarrow\textbackslash quad
+\textbackslash text\{time EXCEEDS distance\}/c\textbackslash{]}
 
-\section{Time Is Information}
+At the Planck scale: \textbackslash(l\_\{\textbackslash text\{Pl\}\} = c
+\textbackslash cdot t\_\{\textbackslash text\{Pl\}\}\textbackslash).
+Distance IS time at the fundamental level.
 
-The Bekenstein bound~\cite{Bekenstein1973} at the Planck scale:
-\begin{equation}
-I_{\text{max}} = \frac{2\pi R E}{\hbar c \ln 2} = \frac{2\pi}{\ln 2} \approx 9.06 \text{ bits per Planck time}
-\end{equation}
+\hypertarget{time-is-information}{%
+\subsection{3. Time Is Information}\label{time-is-information}}
+
+The Bekenstein bound at the Planck scale:
+
+\textbackslash{[}I\_\{\textbackslash text\{max\}\} =
+\textbackslash frac\{2\textbackslash pi R E\}\{\textbackslash hbar c
+\textbackslash ln 2\} =
+\textbackslash frac\{2\textbackslash pi\}\{\textbackslash ln 2\}
+\textbackslash approx 9.06 \textbackslash text\{ bits per Planck
+time\}\textbackslash{]}
 
 For the observable universe (holographic bound):
-\begin{equation}
-I_{\text{univ}} \sim \left(\frac{R}{l_{\text{Pl}}}\right)^2 \sim 10^{122} \text{ bits}
-\end{equation}
 
-\section{Information Cannot Be Lost}
+\textbackslash{[}I\_\{\textbackslash text\{univ\}\} \textbackslash sim
+\textbackslash left(\textbackslash frac\{R\}\{l\_\{\textbackslash text\{Pl\}\}\}\textbackslash right)\^{}2
+\textbackslash sim 10\^{}\{122\} \textbackslash text\{
+bits\}\textbackslash{]}
 
-A singularity ($r \to 0$, $\rho \to \infty$) would require infinite information in zero volume. This violates the Bekenstein bound~\cite{Bekenstein1973}. Therefore singularities are forbidden~\cite{Penrose1965}.
+\hypertarget{information-cannot-be-lost}{%
+\subsection{4. Information Cannot Be
+Lost}\label{information-cannot-be-lost}}
 
-The scalar field $G(t)$ enforces this:
-\begin{equation}
-G \to \gamma^{-1} \text{ as collapse proceeds} \quad\Rightarrow\quad \text{the time gradient weakens} \quad\Rightarrow\quad \text{collapse stops}
-\end{equation}
-\begin{equation}
-M_{\text{relic}} > 0, \quad R_{\text{relic}} > 0 \quad\Rightarrow\quad \text{distance} > 0, \text{ time} > 0, \text{ information preserved}
-\end{equation}
+A singularity (\textbackslash(r \textbackslash to 0\textbackslash),
+\textbackslash(\textbackslash rho \textbackslash to
+\textbackslash infty\textbackslash)) would require infinite information
+in zero volume. This violates the Bekenstein bound. Therefore
+singularities are forbidden.
 
-\section{The Information-Distance-Time Triangle}
+The scalar field \textbackslash(G(t)\textbackslash) enforces this:
 
-Distance requires time (signal propagation). Time is information (state changes = bits). Information requires distance (Bekenstein bound: $I \sim RE$). All three are fundamentally coupled.
+\textbackslash{[}G \textbackslash to \textbackslash gamma\^{}\{-1\}
+\textbackslash text\{ as collapse proceeds\}
+\textbackslash quad\textbackslash Rightarrow\textbackslash quad
+\textbackslash text\{the time gradient weakens\}
+\textbackslash quad\textbackslash Rightarrow\textbackslash quad
+\textbackslash text\{collapse stops\}\textbackslash{]}
+\textbackslash{[}M\_\{\textbackslash text\{relic\}\} \textgreater{} 0,
+\textbackslash quad R\_\{\textbackslash text\{relic\}\} \textgreater{} 0
+\textbackslash quad\textbackslash Rightarrow\textbackslash quad
+\textbackslash text\{distance\} \textgreater{} 0, \textbackslash text\{
+time\} \textgreater{} 0, \textbackslash text\{ information
+preserved\}\textbackslash{]}
 
-\section{Accelerator Evidence}
+\hypertarget{the-information-distance-time-triangle}{%
+\subsection{5. The Information-Distance-Time
+Triangle}\label{the-information-distance-time-triangle}}
 
-\subsection{Lorentz Factor and Lifetime Dilation}
-
-The Lorentz factor~\cite{Lorentz1904} demonstrates that as $\gamma$ increases, lifetime and distance scale together, but internal information is invariant:
-
-\begin{table}[h]
+\begin{figure}
 \centering
-\begin{tabular}{cccc}
-\toprule
-$\gamma$ & $\tau_{\text{lab}}$ (s) & Distance (m) & Information \\
-\midrule
-1 & $2.20 \times 10^{-6}$ & 659 & invariant \\
-100 & $2.20 \times 10^{-4}$ & 65,900 & invariant \\
-10,000 & $2.20 \times 10^{-2}$ & 6,590,000 & invariant \\
-100,000 & $2.20 \times 10^{-1}$ & 65,900,000 & invariant \\
-\bottomrule
-\end{tabular}
-\end{table}
+\includesvg{fig-info-distance-time-triangle.svg}
+\caption{Figure 1: The Information-Distance-Time Triangle. Distance
+requires time (signal propagation), time is information (state changes =
+bits), and information requires distance (Bekenstein bound). At the
+Planck scale, \textbackslash(l\_\{\textbackslash text\{Pl\}\} = c
+\textbackslash cdot t\_\{\textbackslash text\{Pl\}\}\textbackslash) ---
+distance IS time.}
+\end{figure}
 
-As $\gamma$ increases: lifetime and distance scale together, but internal information is invariant.
+Distance requires time (signal propagation). Time is information (state
+changes = bits). Information requires distance (Bekenstein bound:
+\textbackslash(I \textbackslash sim RE\textbackslash)). All three are
+fundamentally coupled.
 
-\subsection{Energy-Time Uncertainty}
+\hypertarget{accelerator-evidence}{%
+\subsection{6. Accelerator Evidence}\label{accelerator-evidence}}
 
-The energy-time uncertainty relation~\cite{Heisenberg1927,Mandelshtam1945}:
+Accelerators probe the smallest distances, directly testing the
+distance-time-information coupling:
 
-\begin{equation}
-\Delta E \cdot \Delta t \ge \frac{\hbar}{2} \quad\Rightarrow\quad \Delta x = c \cdot \Delta t = \frac{\hbar c}{2 \Delta E}
-\end{equation}
+\hypertarget{lorentz-factor-and-lifetime-dilation}{%
+\subsubsection{6.1. Lorentz Factor and Lifetime
+Dilation}\label{lorentz-factor-and-lifetime-dilation}}
 
-Higher energy probes shorter distances and shorter times. Each measurement carries at least 1 bit.
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+\textbackslash(\textbackslash gamma\textbackslash) &
+\textbackslash(\textbackslash tau\_\{\textbackslash text\{lab\}\}\textbackslash)
+(s) & Distance (m) & Information \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1 & \textbackslash(2.20 \textbackslash times 10\^{}\{-6\}\textbackslash)
+& 659 & invariant \\
+100 & \textbackslash(2.20 \textbackslash times
+10\^{}\{-4\}\textbackslash) & 65,900 & invariant \\
+10,000 & \textbackslash(2.20 \textbackslash times
+10\^{}\{-2\}\textbackslash) & 6,590,000 & invariant \\
+100,000 & \textbackslash(2.20 \textbackslash times
+10\^{}\{-1\}\textbackslash) & 65,900,000 & invariant \\
+\end{longtable}
 
-\subsection{Cross-Sections Carry Field Information}
+As \textbackslash(\textbackslash gamma\textbackslash) increases:
+lifetime and distance scale together, but internal information is
+invariant. Distance and time are coupled; information is preserved.
 
-\begin{equation}
-\sigma_{\text{eff}} = \sigma_0 \left(1 + c_X G(t)\right)^2
-\end{equation}
+\begin{figure}
+\centering
+\includegraphics{fig-lorentz-scaling.png}
+\caption{Figure 3: Left: Lifetime and distance scale together with
+Lorentz factor. Right: Internal information remains invariant regardless
+of speed. Distance and time are coupled; information is preserved.}
+\end{figure}
 
-At $G = 10^{-3}$: $\sigma_{\text{eff}}/\sigma_0 = 1.002$. Accelerator data contains information about $G(t)$.
+\hypertarget{energy-time-uncertainty}{%
+\subsubsection{6.2. Energy-Time
+Uncertainty}\label{energy-time-uncertainty}}
 
-\section{Singularity = Information Catastrophe}
+\textbackslash{[}\textbackslash Delta E \textbackslash cdot
+\textbackslash Delta t \textbackslash ge
+\textbackslash frac\{\textbackslash hbar\}\{2\}
+\textbackslash quad\textbackslash Rightarrow\textbackslash quad
+\textbackslash Delta x = c \textbackslash cdot \textbackslash Delta t =
+\textbackslash frac\{\textbackslash hbar c\}\{2 \textbackslash Delta
+E\}\textbackslash{]}
 
-A singularity means: distance $\to 0$ (no space), time $\to$ undefined (no clocks), information $\to$ undefined (no states). This violates the foundation~\cite{Hawking1976}. Therefore singularities are forbidden.
+Higher energy probes shorter distances and shorter times. Each
+measurement carries at least 1 bit. Distance, time, and information are
+coupled.
 
-The scalar field $G(t)$ is the mathematical expression of this prohibition:
+\hypertarget{cross-sections-carry-field-information}{%
+\subsubsection{6.3. Cross-Sections Carry Field
+Information}\label{cross-sections-carry-field-information}}
+
+\textbackslash{[}\textbackslash sigma\_\{\textbackslash text\{eff\}\} =
+\textbackslash sigma\_0 \textbackslash left(1 + c\_X
+G(t)\textbackslash right)\^{}2\textbackslash{]}
+
+The scalar field modifies cross-sections measurably. At \textbackslash(G
+= 10\^{}\{-3\}\textbackslash):
+\textbackslash(\textbackslash sigma\_\{\textbackslash text\{eff\}\}/\textbackslash sigma\_0
+= 1.002\textbackslash). Accelerator data contains information about
+\textbackslash(G(t)\textbackslash).
+
+\hypertarget{singularity-information-catastrophe}{%
+\subsection{7. Singularity = Information
+Catastrophe}\label{singularity-information-catastrophe}}
+
+A singularity means:
+
 \begin{itemize}
-  \item Black holes: $G \to \gamma^{-1}$ stops collapse, relic mass $> 0$
-  \item Cosmology: $V(\phi) > 0$ always, $H > 0$ always, no beginning
+\tightlist
+\item
+  Distance \textbackslash(\textbackslash to 0\textbackslash) (no space)
+\item
+  Time \textbackslash(\textbackslash to\textbackslash) undefined (no
+  clocks)
+\item
+  Information \textbackslash(\textbackslash to\textbackslash) undefined
+  (no states)
 \end{itemize}
 
-\section{Theory Closure}
+This violates the foundation. Therefore singularities are forbidden.
 
-All 8 checks pass~\cite{Gates2026h,Gates2026i,Gates2026j}:
-\begin{enumerate}
-  \item Distance requires time (metric constraint)
-  \item Time is information (Bekenstein: $\sim$9 bits/Planck time)
-  \item Information preserved in black holes (relic mass $> 0$)
-  \item Information preserved in cosmology (no singularity)
-  \item Accelerator: lifetime dilation preserves information
-  \item Accelerator: energy-time uncertainty couples distance and time
-  \item Accelerator: cross-sections carry $G(t)$ information
-  \item Singularities forbidden by the foundation
-\end{enumerate}
+The scalar field \textbackslash(G(t)\textbackslash) is the mathematical
+expression of this prohibition:
 
-\section*{AI Research Collaboration Disclosure}
-
-This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
-
-\textbf{Author's Role (Richard Kent Gates):}
 \begin{itemize}
-  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
-  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
-  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
-  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
-  \item Made all final judgments on theoretical coherence and physical interpretation
+\tightlist
+\item
+  Black holes: \textbackslash(G \textbackslash to
+  \textbackslash gamma\^{}\{-1\}\textbackslash) stops collapse, relic
+  mass \textbackslash(\textgreater{} 0\textbackslash)
+\item
+  Cosmology: \textbackslash(V(\textbackslash phi) \textgreater{}
+  0\textbackslash) always, \textbackslash(H \textgreater{}
+  0\textbackslash) always, no beginning
+\end{itemize}
+
+\hypertarget{theory-closure}{%
+\subsection{8. Theory Closure}\label{theory-closure}}
+
+All 8 checks pass:
+
+(1) Distance requires time (metric constraint)
+
+(2) Time is information (Bekenstein: \textasciitilde9 bits/Planck time)
+
+(3) Information preserved in black holes (relic mass \textgreater{} 0)
+
+(4) Information preserved in cosmology (no singularity)
+
+(5) Accelerator: lifetime dilation preserves information
+
+(6) Accelerator: energy-time uncertainty couples distance and time
+
+(7) Accelerator: cross-sections carry G(t) information
+
+(8) Singularities forbidden by the foundation
+
+\hypertarget{ai-research-collaboration-disclosure}{%
+\subsection{AI Research Collaboration
+Disclosure}\label{ai-research-collaboration-disclosure}}
+
+This body of work was developed through a collaborative research process
+between the author, Richard Kent Gates, and multiple AI research
+partners. The author provides full transparency on this process.
+
+\textbf{Author\textquotesingle s Role (Richard Kent Gates):}
+
+\begin{itemize}
+\tightlist
+\item
+  Conceived all core theories, conceptual frameworks, hypotheses, and
+  research direction
+\item
+  Defined the Time-Gradient Field Model, the unified scalar field G(t),
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
+\item
+  Provided physical intuition, biological reasoning, and domain
+  expertise that guided every theoretical decision
+\item
+  Reviewed, validated, and approved all mathematical formalisms before
+  inclusion
+\item
+  Made all final judgments on theoretical coherence and physical
+  interpretation
 \end{itemize}
 
 \textbf{AI Research Partners:}
+
 \begin{itemize}
-  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
-  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
-  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\tightlist
+\item
+  \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical
+  formalization partner. Assisted in translating conceptual physics into
+  mathematical notation, generating numerical proof scripts, compiling
+  LaTeX documents, and building the website infrastructure.
+\item
+  \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature
+  review, dataset gathering, cross-referencing empirical results (DESI,
+  BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+\item
+  \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
+  exploration, thought experimentation, and early-stage hypothesis
+  refinement.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
 
-The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+The AI tools functioned as research assistants --- analogous to graduate
+students or technical collaborators who help formalize, compute, and
+organize ideas that originate from the principal investigator. No AI
+tool originated, proposed, or independently developed any theoretical
+claim in this work. All physical insights, theoretical innovations, and
+interpretive judgments are the author\textquotesingle s own.
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+{[}1{]} Bekenstein, J.D. ``Black Holes and Entropy.'' \emph{Physical
+Review D}, 7(8), 2333--2346, 1973.
+
+{[}2{]} 't Hooft, G. ``Dimensional Reduction in Quantum Gravity.''
+\emph{arXiv:gr-qc/9310026}, 1993.
+
+{[}3{]} Susskind, L. ``The World as a Hologram.'' \emph{Journal of
+Mathematical Physics}, 36(11), 6377--6396, 1995.
+
+{[}4{]} Hawking, S.W. ``Breakdown of Predictability in Gravitational
+Collapse.'' \emph{Physical Review D}, 14(10), 2460--2473, 1976.
+
+{[}5{]} Penrose, R. ``Gravitational Collapse and Space-Time
+Singularities.'' \emph{Physical Review Letters}, 14(3), 57--59, 1965.
+
+{[}6{]} Lorentz, H.A. ``Considerations on Gravitation.''
+\emph{Proceedings of the Amsterdam Academy of Sciences}, 7, 588--596,
+1904.
+
+{[}7{]} Heisenberg, W. ``Über den anschaulichen Inhalt der
+quantentheoretischen Kinematik und Mechanik.'' \emph{Zeitschrift für
+Physik}, 43(3--4), 172--198, 1927.
+
+{[}8{]} Mandelshtam, L.I. and Tamm, I.E. ``The Uncertainty Relation
+Between Energy and Time in Non-relativistic Quantum Mechanics.''
+\emph{Journal of Physics (USSR)}, 9(3), 249--254, 1945.
+
+{[}9{]} Gates, R.K. ``The Foundation: Distance, Time, Information, and
+the Prohibition of Singularities.'' \emph{Independent Research}, 2026.
 
 \end{document}

@@ -1,150 +1,433 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
 \usepackage{amsmath,amssymb}
-\usepackage{booktabs}
-\usepackage{hyperref}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\usepackage{svg}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\title{The Theory of Everything: One Axiom, One Field, All of Physics}
-\author{Richard Kent Gates\\
-\texttt{mail@richardkentgates.com}}
-\date{September 16, 2026}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\begin{center}
-\fbox{\parbox{0.8\textwidth}{\centering\large
-\textbf{Axiom:} Distance necessitates time. Time is information. Information cannot be lost.
-}}
-\end{center}
+\hypertarget{the-theory-of-everything}{%
+\section{The Theory of Everything}\label{the-theory-of-everything}}
 
-\section{The Field}
+One Axiom. One Field. All of Physics.
+
+Richard Kent Gates
+
+mail@richardkentgates.com
+
+September 16, 2026
+
+\hypertarget{the-axiom}{%
+\subsection{1. The Axiom}\label{the-axiom}}
+
+Distance necessitates time.\\
+Time is information.\\
+Information cannot be lost.
+
+This single axiom generates quantum mechanics (information = bits =
+quantum states), general relativity (distance = time = spacetime),
+thermodynamics (information preserved = entropy arrow), and the scalar
+field \textbackslash(G(t)\textbackslash) (the mathematical expression of
+the axiom).
+
+\hypertarget{the-field}{%
+\subsection{2. The Field}\label{the-field}}
 
 The scalar field:
-\begin{equation}
-G(t) = 10^{-3} + 10^{-4}\cos(2\pi t)
-\end{equation}
 
-The field IS the quantum vacuum. The quantum vacuum IS spacetime. They were never separate. GR sees the field's large-scale gradient (spacetime curvature). QM sees the field's small-scale oscillation (vacuum fluctuations). Both see the same field, the same law, all scales.
+\textbackslash{[}G(t) = 10\^{}\{-3\} +
+10\^{}\{-4\}\textbackslash cos(2\textbackslash pi t)\textbackslash{]}
 
-\section{The Correction Law (The Bridge)}
-
-\begin{equation}
-X_{\text{eff}} = X_0 \left(1 + c_X \, G(t)\right)
-\end{equation}
-
-This single law applies to all sectors:
-
-\begin{table}[h]
-\centering
-\begin{tabular}{llll}
-\toprule
-Sector & $X_{\text{eff}}$ & $c_X$ & Domain \\
-\midrule
-Decay & $\lambda_{\text{eff}}$ & $Q_\alpha d_\alpha + Q_\mu d_\mu$ & QM (nuclear) \\
-Gravity & $g_{\text{eff}}$ & $\sum f_i(d_\alpha + \beta_i d_\mu)$ & GR (macroscopic) \\
-Inertia & $a_{\text{eff}}$ & same as time gradient & GR (macroscopic) \\
-Fine structure & $\alpha(\phi)$ & $d_\alpha$ & QM + GR (fundamental) \\
-Mass ratio & $\mu(\phi)$ & $d_\mu$ & QM + GR (fundamental) \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Two free parameters ($d_\alpha$, $d_\mu$). All sectors. All scales.
-
-\section{What the Field Does}
+The field IS the quantum vacuum. The quantum vacuum IS spacetime. They
+were never separate. They were always the same thing described at
+different scales.
 
 \begin{itemize}
-  \item Drives expansion ($H^2 \sim \rho_{\text{field}}$)
-  \item Produces radiation (oscillation at large amplitude)
-  \item Produces matter (vibration condensing into relics)
-  \item Produces accelerated expansion (field at small amplitude)
-  \item Modifies decay rates ($\lambda_{\text{eff}} = \lambda_0(1 + \alpha G)$)
-  \item Modifies the time gradient ($g_{\text{eff}} = g_0(1 + \gamma G)$)
-  \item Prevents singularities ($G \to \gamma^{-1}$ stops collapse)
-  \item Preserves information (no singularities = no information loss)
+\tightlist
+\item
+  \textbf{GR sees:} spacetime curvature (large-scale field gradient)
+\item
+  \textbf{QM sees:} vacuum fluctuations (small-scale field oscillation)
+\item
+  \textbf{Both see:} the same field, the same law, all scales
 \end{itemize}
 
-\section{The Quantum Vacuum Is Spacetime}
-
-The cosmological constant problem \cite{Weinberg1989} (10$^{122}$ discrepancy) dissolves: the QM vacuum energy and the observed accelerated expansion are the SAME field measured at different scales. QM sees the field's zero-point oscillation (all modes). GR sees the field's macroscopic average (background). The discrepancy is an artifact of treating them as separate.
-
-\section{The Measurement Problem Dissolves}
-
-Superposition = field in undetermined state \cite{WheelerZurek}. Measurement = information resolves. Not collapse. Information resolution. The axiom forces the field's state to become definite when it interacts. No observer needed. No magic.
-
-\section{The Entropy Arrow Emerges}
-
-The field's equations are time-reversible ($dS/dt = 0$). Coarse-graining produces $dS/dt > 0$. The entropy arrow is a consequence of information preservation plus incomplete description.
-
-\section{$E = mc^2$ Backward}
-
-Forward: matter releases energy \cite{Einstein1905}. Backward: energy condenses into matter.
-\begin{itemize}
-  \item Fast vibration (high amplitude) = energy = radiation
-  \item Slow vibration (low amplitude) = matter = relics
-  \item The field damps: radiation era $\to$ matter era $\to$ expansion era
-\end{itemize}
-
-Matter is the field vibration slowed to the point of condensation. $c^2$ is the field's maximum vibration speed --- the speed of light = the speed of information.
-
-\section{What This Resolves}
-
-\begin{table}[h]
+\begin{figure}
 \centering
-\begin{tabular}{ll}
-\toprule
+\includesvg{fig-multi-scale-field.svg}
+\caption{Figure 1: The same scalar field G(t) at every scale. QM sees
+vacuum fluctuations (high-frequency oscillation). GR sees spacetime
+curvature (low-frequency gradient). The cosmological constant problem
+dissolves.}
+\end{figure}
+
+\hypertarget{the-correction-law-the-bridge}{%
+\subsection{3. The Correction Law (The
+Bridge)}\label{the-correction-law-the-bridge}}
+
+\textbackslash{[}X\_\{\textbackslash text\{eff\}\} = X\_0
+\textbackslash left(1 + c\_X \textbackslash,
+G(t)\textbackslash right)\textbackslash{]}
+
+This single law applies to ALL sectors:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Sector & \textbackslash(X\_\{\textbackslash text\{eff\}\}\textbackslash)
+& \textbackslash(c\_X\textbackslash) & Domain \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Decay &
+\textbackslash(\textbackslash lambda\_\{\textbackslash text\{eff\}\}\textbackslash)
+& \textbackslash(Q\_\textbackslash alpha d\_\textbackslash alpha +
+Q\_\textbackslash mu d\_\textbackslash mu\textbackslash) & QM
+(nuclear) \\
+Gravity &
+\textbackslash(g\_\{\textbackslash text\{eff\}\}\textbackslash) &
+\textbackslash(\textbackslash sum f\_i(d\_\textbackslash alpha +
+\textbackslash beta\_i d\_\textbackslash mu)\textbackslash) & GR
+(macroscopic) \\
+Inertia &
+\textbackslash(a\_\{\textbackslash text\{eff\}\}\textbackslash) & same
+as time gradient & GR (macroscopic) \\
+Fine structure &
+\textbackslash(\textbackslash alpha(\textbackslash phi)\textbackslash) &
+\textbackslash(d\_\textbackslash alpha\textbackslash) & QM + GR
+(fundamental) \\
+Mass ratio &
+\textbackslash(\textbackslash mu(\textbackslash phi)\textbackslash) &
+\textbackslash(d\_\textbackslash mu\textbackslash) & QM + GR
+(fundamental) \\
+\end{longtable}
+
+The coupling constants are not free parameters. They are derived from QM
+sensitivity coefficients, material composition, and two fundamental
+dilaton couplings
+(\textbackslash(d\_\textbackslash alpha\textbackslash),
+\textbackslash(d\_\textbackslash mu\textbackslash)). Two free
+parameters. All sectors. All scales.
+
+\begin{figure}
+\centering
+\includesvg{fig-correction-law-hub.svg}
+\caption{Figure 2: The unified correction law as a hub diagram. One
+equation, two parameters, five sectors.}
+\end{figure}
+
+\hypertarget{what-the-field-does}{%
+\subsection{4. What the Field Does}\label{what-the-field-does}}
+
+\begin{itemize}
+\tightlist
+\item
+  Drives expansion (\textbackslash(H\^{}2 \textbackslash sim
+  \textbackslash rho\_\{\textbackslash text\{field\}\}\textbackslash))
+\item
+  Produces radiation (oscillation at large amplitude)
+\item
+  Produces matter (vibration condensing into relics)
+\item
+  Produces accelerated expansion (field at small amplitude)
+\item
+  Modifies decay rates
+  (\textbackslash(\textbackslash lambda\_\{\textbackslash text\{eff\}\}
+  = \textbackslash lambda\_0(1 + \textbackslash alpha G)\textbackslash))
+\item
+  Modifies the time gradient
+  (\textbackslash(g\_\{\textbackslash text\{eff\}\} = g\_0(1 +
+  \textbackslash gamma G)\textbackslash))
+\item
+  Prevents singularities (\textbackslash(G \textbackslash to
+  \textbackslash gamma\^{}\{-1\}\textbackslash) stops collapse)
+\item
+  Preserves information (no singularities = no information loss)
+\end{itemize}
+
+\hypertarget{the-quantum-vacuum-is-spacetime}{%
+\subsection{5. The Quantum Vacuum Is
+Spacetime}\label{the-quantum-vacuum-is-spacetime}}
+
+The cosmological constant problem (10\textsuperscript{122} orders of
+magnitude discrepancy) dissolves: the QM vacuum energy and the observed
+accelerated expansion are NOT different things. They are the SAME field
+measured at different scales. QM sees the field\textquotesingle s
+zero-point oscillation (all modes). GR sees the field\textquotesingle s
+macroscopic average (background). The discrepancy is an artifact of
+treating them as separate.
+
+\begin{itemize}
+\tightlist
+\item
+  Virtual particles = field fluctuations
+\item
+  Vacuum energy = field zero-point energy
+\item
+  Casimir effect = field boundary conditions
+\item
+  Lamb shift = field coupling to electron
+\end{itemize}
+
+\hypertarget{the-measurement-problem-dissolves}{%
+\subsection{6. The Measurement Problem
+Dissolves}\label{the-measurement-problem-dissolves}}
+
+Superposition = field in undetermined state. Measurement = information
+resolves. Collapse = the field\textquotesingle s state becomes
+determined by interaction. Not collapse. Information resolution. The
+axiom (information cannot be lost) forces the field\textquotesingle s
+state to become definite when it interacts. No observer needed. No
+consciousness needed. No magic.
+
+\hypertarget{the-entropy-arrow-emerges}{%
+\subsection{7. The Entropy Arrow
+Emerges}\label{the-entropy-arrow-emerges}}
+
+The field\textquotesingle s fundamental equations are time-reversible
+(\textbackslash(dS/dt = 0\textbackslash)). But coarse-graining
+(incomplete description) produces \textbackslash(dS/dt \textgreater{}
+0\textbackslash). The entropy arrow is not a law. It is a consequence of
+information preservation plus incomplete description. The arrow of time
+= the direction of information resolution.
+
+\hypertarget{e-mcuxb2-backward}{%
+\subsection{8. E = mc² Backward}\label{e-mcuxb2-backward}}
+
+Forward: matter releases energy. Backward: energy condenses into matter.
+
+\begin{itemize}
+\tightlist
+\item
+  Fast vibration (high amplitude) = energy = radiation
+\item
+  Slow vibration (low amplitude) = matter = relics
+\item
+  The field damps (Hubble friction): radiation era → matter era →
+  expansion era
+\end{itemize}
+
+Matter is not a substance. Matter is the field vibration slowed to the
+point of condensation. \textbackslash(c\^{}2\textbackslash) is the
+field\textquotesingle s maximum vibration speed --- the speed of light =
+the speed of information = the speed of state changes.
+
+\hypertarget{what-this-resolves}{%
+\subsection{9. What This Resolves}\label{what-this-resolves}}
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
 Problem & Resolution \\
-\midrule
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
 GR/QM unification & Same field, same law, all scales \\
-Cosmological constant \cite{Weinberg1989} & Vacuum energy = field at small amplitude \\
-Casimir effect \cite{Casimir1948} & Zero-point field oscillation \\
-Lamb shift \cite{Lamb1947} & Vacuum field coupling \\
+Cosmological constant & Vacuum energy = field at small amplitude \\
 Measurement problem & Information resolution, not collapse \\
-Entropy arrow & Information preservation + coarse-graining \\
-Black hole information \cite{Hawking1976} & Relics preserve information (no singularity) \\
-Penrose singularity \cite{Penrose1965} & Forbidden by the axiom \\
+Entropy arrow & Consequence of information preservation +
+coarse-graining \\
+Black hole information & Relics preserve information (no singularity) \\
 Big Bang singularity & Forbidden by the axiom \\
-Hierarchy problem \cite{Giudice2008} & Field couples to everything uniformly \\
-Hubble tension \cite{Riess2022} & Field amplitude varies with environment \\
-BH evaporation \cite{Hawking1975} & Field-mediated, no information loss \\
-\bottomrule
-\end{tabular}
-\end{table}
+Hierarchy problem & Field couples to everything uniformly \\
+Hubble tension & Field amplitude varies with environment \\
+\end{longtable}
 
-\section{Conclusion}
+\hypertarget{conclusion}{%
+\subsection{10. Conclusion}\label{conclusion}}
 
-One axiom: distance $\to$ time $\to$ information $\to$ preserved. One field: $G(t)$. One law: $X_{\text{eff}} = X_0(1 + c_X G)$. All of physics.
+One axiom: distance → time → information → preserved.
 
-The Theory of Everything is not a new force or a new particle. It is a new understanding of what already exists: the field IS. The field changes. Change IS time. Time IS information. Information cannot be lost. The field cannot end. There is only the field, changing, forever.
+One field: \textbackslash(G(t)\textbackslash).
 
-\section*{AI Research Collaboration Disclosure}
+One law: \textbackslash(X\_\{\textbackslash text\{eff\}\} = X\_0(1 +
+c\_X G)\textbackslash).
 
-This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+All of physics.
 
-\textbf{Author's Role (Richard Kent Gates):}
+The Theory of Everything is not a new force or a new particle. It is a
+new understanding of what already exists: the field IS. The field
+changes. Change IS time. Time IS information. Information cannot be
+lost. The field cannot end. There is only the field, changing, forever.
+
+\hypertarget{ai-research-collaboration-disclosure}{%
+\subsection{AI Research Collaboration
+Disclosure}\label{ai-research-collaboration-disclosure}}
+
+This body of work was developed through a collaborative research process
+between the author, Richard Kent Gates, and multiple AI research
+partners. The author provides full transparency on this process.
+
+\textbf{Author\textquotesingle s Role (Richard Kent Gates):}
+
 \begin{itemize}
-  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
-  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
-  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
-  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
-  \item Made all final judgments on theoretical coherence and physical interpretation
+\tightlist
+\item
+  Conceived all core theories, conceptual frameworks, hypotheses, and
+  research direction
+\item
+  Defined the Time-Gradient Field Model, the unified scalar field G(t),
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
+\item
+  Provided physical intuition, biological reasoning, and domain
+  expertise that guided every theoretical decision
+\item
+  Reviewed, validated, and approved all mathematical formalisms before
+  inclusion
+\item
+  Made all final judgments on theoretical coherence and physical
+  interpretation
 \end{itemize}
 
 \textbf{AI Research Partners:}
+
 \begin{itemize}
-  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
-  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
-  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\tightlist
+\item
+  \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical
+  formalization partner. Assisted in translating conceptual physics into
+  mathematical notation, generating numerical proof scripts, compiling
+  LaTeX documents, and building the website infrastructure.
+\item
+  \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature
+  review, dataset gathering, cross-referencing empirical results (DESI,
+  BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+\item
+  \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
+  exploration, thought experimentation, and early-stage hypothesis
+  refinement.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
 
-The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+The AI tools functioned as research assistants --- analogous to graduate
+students or technical collaborators who help formalize, compute, and
+organize ideas that originate from the principal investigator. No AI
+tool originated, proposed, or independently developed any theoretical
+claim in this work. All physical insights, theoretical innovations, and
+interpretive judgments are the author\textquotesingle s own.
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+{[}1{]} Weinberg, S. "The Cosmological Constant Problem." \emph{Reviews
+of Modern Physics}, 61(1), 1--23, 1989.
+
+{[}2{]} Casimir, H.B.G. "On the Attraction Between Two Perfectly
+Conducting Plates." \emph{Proceedings of the Koninklijke Nederlandse
+Akademie van Wetenschappen}, 51, 793--795, 1948.
+
+{[}3{]} Lamb, W.E. \& Retherford, R.C. "Fine Structure of the Hydrogen
+Atom by a Microwave Method." \emph{Physical Review}, 72(3), 241--243,
+1947.
+
+{[}4{]} Einstein, A. "Ist die Trägheit eines Körpers von seinem
+Energieinhalt abhängig?" \emph{Annalen der Physik}, 323(13), 639--641,
+1905.
+
+{[}5{]} Hawking, S.W. "Breakdown of Predictability in Gravitational
+Collapse." \emph{Physical Review D}, 14(10), 2460--2473, 1976.
+
+{[}6{]} Penrose, R. "Gravitational Collapse and Space-Time
+Singularities." \emph{Physical Review Letters}, 14(3), 57--59, 1965.
+
+{[}7{]} Riess, A.G. et al. "A Comprehensive Measurement of the Local
+Value of the Hubble Constant." \emph{The Astrophysical Journal Letters},
+934(1), L7, 2022.
+
+{[}8{]} Giudice, G.F. "Naturalizing Hierarchy." \emph{arXiv:0801.2562},
+2008.
+
+{[}9{]} Hawking, S.W. "Particle Creation by Black Holes."
+\emph{Communications in Mathematical Physics}, 43(3), 199--220, 1975.
+
+{[}10{]} Wheeler, J.A. \& Zurek, W.H. \emph{Quantum Theory and
+Measurement}. Princeton University Press, 1983.
 
 \end{document}
