@@ -499,6 +499,34 @@ section ul li a:hover {
 /* ── Badges ────────────────────────────────────────────────────────────── */
 .badge-row { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 20px; }
 .badge-row img { height: 20px; }
+.hero-badge-section { margin-top: 14px; }
+.hero-badge-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.hero-badges { display: flex; flex-wrap: wrap; gap: 5px; }
+.hero-badge-item {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+.hero-badge-item.dev {
+  background: #e8f3fe;
+  color: #1a6fcb;
+  border: 1px solid #b8d4f0;
+}
+.hero-badge-item.physics {
+  background: #f0f0f5;
+  color: #444;
+  border: 1px solid #d0d0d8;
+}
 
 /* ── Section subtitle ──────────────────────────────────────────────────── */
 .section-lead {
@@ -1012,6 +1040,36 @@ footer a:hover {
         <span class="hero-pill">Web presence management</span>
         <span class="hero-pill">Time-Gradient Field Model</span>
         <span class="hero-pill">Distance &rarr; Time &rarr; Information &rarr; G(t)</span>
+    </div>
+    <div class="hero-badge-section">
+        <div class="hero-badge-label">Development</div>
+        <div class="hero-badges">
+            <span class="hero-badge-item dev">WordPress</span>
+            <span class="hero-badge-item dev">PHP</span>
+            <span class="hero-badge-item dev">Python</span>
+            <span class="hero-badge-item dev">Bash</span>
+            <span class="hero-badge-item dev">MariaDB</span>
+            <span class="hero-badge-item dev">Apache</span>
+            <span class="hero-badge-item dev">Debian</span>
+            <span class="hero-badge-item dev">UFW</span>
+            <span class="hero-badge-item dev">fail2ban</span>
+            <span class="hero-badge-item dev">Git</span>
+            <span class="hero-badge-item dev">GitHub Actions</span>
+        </div>
+    </div>
+    <div class="hero-badge-section">
+        <div class="hero-badge-label">Theoretical Physics</div>
+        <div class="hero-badges">
+            <span class="hero-badge-item physics">Time-Gradient Field</span>
+            <span class="hero-badge-item physics">Unified Scalar Field G(t)</span>
+            <span class="hero-badge-item physics">Quantum Gravity</span>
+            <span class="hero-badge-item physics">Fisher Information</span>
+            <span class="hero-badge-item physics">CRLB</span>
+            <span class="hero-badge-item physics">Cosmological Constant</span>
+            <span class="hero-badge-item physics">Entropy Arrow</span>
+            <span class="hero-badge-item physics">Black Hole Lifecycle</span>
+            <span class="hero-badge-item physics">Entanglement Formalization</span>
+        </div>
     </div>
     <div class="hero-actions">
         <a href="#projects" class="btn btn-primary">Projects</a>
