@@ -3,7 +3,7 @@
 \PassOptionsToPackage{hyphens}{url}
 %
 \documentclass[
-  11pt,
+  10pt,
 ]{article}
 \usepackage{amsmath,amssymb}
 \usepackage{iftex}
@@ -37,7 +37,7 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\usepackage[margin=1in]{geometry}
+\usepackage[margin=0.75in]{geometry}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -83,8 +83,6 @@
 \usepackage[breaklinks=true]{hyperref}
 \usepackage{enumitem}
 \setlist{noitemsep,topsep=0pt}
-\allowdisplaybreaks
-\sloppy
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -225,7 +223,7 @@ the field has always been, always producing energy.
 
 \begin{figure}
 \centering
-\includesvg{fig-bigbang-vs-field.svg}
+\includegraphics{fig-bigbang-vs-field}
 \caption{Figure 1: The Big Bang model requires a singularity. The scalar
 field model has no beginning --- the field has always been, always
 producing energy.}
