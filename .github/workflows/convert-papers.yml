@@ -62,7 +62,10 @@ jobs:
               -H /tmp/header.tex \
               --metadata title="" \
               -o "papers/$base.tex"
-            # Fix SVG references: pdflatex can't include .svg, use .pdf instead
+            # Fix: \includesvg{foo.svg} -> \includegraphics{foo} (use PDF version)
+            sed -i 's/\\includesvg{\([^}]*\)\.svg}/\\includegraphics{\1}/g' "papers/$base.tex"
+            sed -i 's/\\includesvg{\([^}]*\)}/\\includegraphics{\1}/g' "papers/$base.tex"
+            # Also fix any remaining \includegraphics with .svg extension
             sed -i 's/\\includegraphics{\([^}]*\)\.svg}/\\includegraphics{\1}/g' "papers/$base.tex"
           done
 
