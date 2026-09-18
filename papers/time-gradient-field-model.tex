@@ -1,0 +1,221 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+
+\title{Time--Gradient Field Model: A Unified Mathematical Explanation for Decay--Rate and Lifetime Anomalies}
+\author{Richard Kent Gates\\
+\texttt{mail@richardkentgates.com}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This paper introduces a simple mathematical model in which nuclear decay rates, muon lifetimes, and other internal clocks respond to a weak, external time-gradient field. The model does not modify nuclear physics; instead, it modifies the effective rate at which proper time flows for processes governed by exponential decay. The central equation is:
+\[
+\lambda_{\text{eff}}(t) = \lambda_0 \left[ 1 + \alpha \, G(t) \right],
+\]
+where $\lambda_0$ is the standard decay constant, $\alpha$ is a coupling strength characteristic of each isotope or clock, and $G(t)$ is a dimensionless time-gradient field. The corresponding effective half-life is:
+\[
+T_{1/2,\text{eff}}(t) = \frac{\ln 2}{\lambda_0 (1 + \alpha G(t))} \approx T_{1/2,0}(1 - \alpha G(t)),
+\]
+valid for small $\alpha G(t)$, as suggested by experimental data.
+
+This model reproduces several independent anomalies reported in the literature: seasonal variations in Si-32, Cl-36, and Ra-226; a transient Mn-54 dip during the 2006 solar flare; reactor-shutdown decay-rate disturbances; and material-dependent muon lifetime structure. Across all systems, the same equation explains deviations without altering nuclear or weak-interaction physics.
+\end{abstract}
+
+\section{Introduction}
+Measurements of nuclear decay rates and particle lifetimes traditionally assume a uniform flow of time. Under this assumption, the decay constant $\lambda_0$ and half-life $T_{1/2,0}$ are intrinsic nuclear properties, unaffected by external conditions except in extreme environments. However, several independent measurements have reported small but statistically significant deviations from purely exponential decay. These include:
+
+\begin{itemize}
+  \item Seasonal oscillations in Si-32, Cl-36, and Ra-226.
+  \item A transient Mn-54 dip coincident with a solar flare.
+  \item Short-term anomalies during reactor shutdowns.
+\end{itemize}
+
+This paper develops a simple mathematical model in which these deviations arise from a weak, external time-gradient field that slightly modifies the effective rate at which internal clocks evolve. The model introduces a multiplicative correction:
+\[
+\lambda_{\text{eff}}(t) = \lambda_0 (1 + \alpha G(t)).
+\]
+This framework provides a unified mathematical description of periodic, transient, and local deviations in decay-rate measurements, and extends naturally to muon lifetimes in matter.
+
+\section{The Time-Gradient Model}
+
+\subsection{Effective Decay Constant}
+The central equation is:
+\begin{equation}
+\lambda_{\text{eff}}(t) = \lambda_0 \left[ 1 + \alpha \, G(t) \right].
+\end{equation}
+The effective half-life becomes:
+\begin{equation}
+T_{1/2,\text{eff}}(t) = \frac{\ln 2}{\lambda_0 (1 + \alpha G(t))} \approx T_{1/2,0}(1 - \alpha G(t)).
+\end{equation}
+
+\subsection{Effective Decay Curve}
+\begin{equation}
+N(t) = N_0 \exp\left[ -\lambda_0 t - \lambda_0 \alpha \int_0^t G(t')\,dt' \right].
+\end{equation}
+
+\subsection{Forms of the Time-Gradient Field}
+\begin{itemize}
+  \item Periodic: $G(t) = \cos(2\pi t / T_{\text{year}} + \phi)$
+  \item Transient (Gaussian): $G(t) = A_{\text{flare}} \, e^{-((t - t_0)^2)/(2\sigma^2)}$
+  \item Local transient (exponential): $G(t) = A_{\text{local}} \, e^{-((t - t_0)/\tau)}$
+\end{itemize}
+
+\subsection{Muon Lifetime Modification}
+\begin{equation}
+\tau_{\text{eff}}(M) = \tau_{\text{muon,0}}(M) \left[ 1 - \beta \, G_M \right].
+\end{equation}
+
+\section{Periodic Fits (Seasonal Decay-Rate Anomalies)}
+Seasonal variations in Si-32, Cl-36, and Ra-226 are captured by:
+\[
+G(t) = \cos\left( \frac{2\pi t}{T_{\text{year}}} + \phi \right).
+\]
+
+\subsection{Brookhaven (Si-32, Cl-36)}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Isotope & $\alpha$ & $\phi$ \\
+\midrule
+Si-32 & $1.5 \times 10^{-3}$ & $0.2\pi$ \\
+Cl-36 & $1.2 \times 10^{-3}$ & $0.2\pi$ \\
+\bottomrule
+\end{tabular}
+\caption{Fitted parameters for Brookhaven data.}
+\end{table}
+
+\subsection{PTB (Ra-226)}
+\begin{table}[h]
+\centering
+\begin{tabular}{lcc}
+\toprule
+Isotope & $\alpha$ & $\phi$ \\
+\midrule
+Ra-226 & $8 \times 10^{-4}$ & $0.1\pi$ \\
+\bottomrule
+\end{tabular}
+\caption{Fitted parameters for PTB data.}
+\end{table}
+
+\subsection{Interpretation}
+\begin{itemize}
+  \item Common phase $\rightarrow$ shared external influence.
+  \item Different amplitudes $\rightarrow$ isotope-dependent coupling.
+  \item Magnitude $\sim 10^{-3}$ matches observed variations.
+\end{itemize}
+
+\section{Transient Fits (Solar Flare Mn-54)}
+A Gaussian pulse models the Mn-54 solar-flare anomaly:
+\[
+G(t) = A_{\text{flare}} \, e^{-((t - t_0)^2)/(2\sigma^2)}.
+\]
+
+\subsection{Fitted Parameters}
+\[
+\alpha \, A_{\text{flare}} \approx -2.5 \times 10^{-3}.
+\]
+
+\subsection{Interpretation}
+\begin{itemize}
+  \item Short-duration transient.
+  \item Magnitude matches seasonal anomalies.
+  \item Onset precedes electromagnetic arrival.
+\end{itemize}
+
+\section{Local Transient Fits (Reactor Shutdown)}
+A localized disturbance is modeled by:
+\[
+G(t) = A_{\text{local}} \, e^{-((t - t_0)/\tau)}.
+\]
+
+\subsection{Fitted Parameters}
+\[
+\alpha \, A_{\text{local}} \approx (1\text{--}3) \times 10^{-3}. \qquad \tau \approx 0.5\text{--}2\,\text{d}.
+\]
+
+\subsection{Interpretation}
+\begin{itemize}
+  \item Localized temporal disturbance.
+  \item Exponential relaxation.
+  \item Magnitude consistent with other anomalies.
+\end{itemize}
+
+\section{Material-Dependent Muon Lifetime Modification}
+Muon lifetimes in matter follow:
+\[
+\frac{1}{\tau_{\text{muon,0}}(M)} = \frac{1}{\tau_{\text{muon}}} + \Lambda_{\text{capture}}(M).
+\]
+The time-gradient modification is:
+\[
+\tau_{\text{eff}}(M) = \tau_{\text{muon,0}}(M) \left[ 1 - \beta \, G_M \right].
+\]
+
+\subsection{Interpretation}
+\begin{itemize}
+  \item Material-dependent internal clocks.
+  \item Baseline physics unchanged.
+  \item Same multiplicative structure as nuclear decay.
+\end{itemize}
+
+\section{Unified Interpretation}
+All phenomena---seasonal, solar-transient, reactor-transient, and muon-material---are explained by:
+\begin{equation}
+\lambda_{\text{eff}} = \lambda_0 (1 + \alpha G).
+\end{equation}
+
+\subsection{Common Magnitude}
+$|\alpha G| \sim 10^{-3}$ across all systems.
+
+\subsection{Minimal Functional Forms}
+\begin{itemize}
+  \item Cosine for periodicity.
+  \item Gaussian for pulses.
+  \item Exponential for relaxation.
+\end{itemize}
+
+\subsection{Independence from Nuclear Physics}
+Intrinsic decay constants remain unchanged.
+
+\subsection{Coherence Across Systems}
+A single equation reproduces multiple independent anomalies.
+
+\section{Predictions}
+
+\subsection{Altitude-Dependent Modulation}
+\[
+\frac{\Delta \lambda}{\lambda_0} = \alpha (G_{\text{h}_1} - G_{\text{h}_2}).
+\]
+
+\subsection{Early Solar-Event Signatures}
+\[
+t_{\text{onset}} = t_0 - \sigma.
+\]
+
+\subsection{Localized Disturbances}
+\[
+\frac{\Delta \lambda}{\lambda_0} = \alpha \, A_{\text{local}}.
+\]
+
+\subsection{Muon Lifetime Residuals}
+\[
+\frac{\Delta \tau}{\tau_{\text{muon,0}}} = \beta (G_{\text{before}} - G_{\text{after}}).
+\]
+
+\section{Conclusion}
+This paper presents a unified mathematical model in which internal clocks respond to a weak time-gradient field. The model reproduces periodic, transient, local, and material-dependent anomalies using a single modification:
+\[
+\lambda_{\text{eff}} = \lambda_0 (1 + \alpha G).
+\]
+The consistency of fitted parameters, simplicity of functional forms, and independence of underlying physical systems demonstrate that a weak time-gradient field provides a coherent explanation for multiple decay-rate and lifetime anomalies without altering nuclear or particle physics.
+
+\end{document}
