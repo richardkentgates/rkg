@@ -49,7 +49,11 @@ jobs:
           for html in papers/*.html; do
             base=$(basename "$html" .html)
             echo "Converting $base.html -> $base.tex"
-            pandoc "$html" \
+            # Preprocess: convert \( \) to $...$ and \[ \] to $$...$$ for pandoc
+            tmphtml="/tmp/${base}_preprocessed.html"
+            sed 's/\\(/£/g; s/\\)/£/g; s/\\[/§/g; s/\\]/§/g' "$html" > "$tmphtml"
+            sed -i 's/£/\$/g; s/§/\$\$/g' "$tmphtml"
+            pandoc "$tmphtml" \
               -f html \
               -t latex \
               --wrap=auto \
@@ -59,8 +63,8 @@ jobs:
               -V fontsize=10pt \
               -H /tmp/header.tex \
               --metadata title="" \
-              --mathjax \
               -o "papers/$base.tex"
+            rm -f "$tmphtml"
             sed -i 's/\\includesvg{\([^}]*\)\.svg}/\\includegraphics{\1}/g' "papers/$base.tex"
             sed -i 's/\\includesvg{\([^}]*\)}/\\includegraphics{\1}/g' "papers/$base.tex"
             sed -i 's/\\includegraphics{\([^}]*\)\.svg}/\\includegraphics{\1}/g' "papers/$base.tex"
