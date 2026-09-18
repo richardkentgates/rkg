@@ -15,25 +15,25 @@
 \maketitle
 
 \begin{abstract}
-We formalize quantum entanglement, frame dragging, and gravitational waves within the unified distance $\to$ time $\to$ information $\to$ $G(t)$ framework. Entanglement is defined as the preservation of a single information object across two different time densities produced by distance. Frame dragging is formalized as a rotational time-gradient perturbation to the scalar field. Gravitational waves are formalized as oscillating time-density distortions that modulate information capacity. We derive the full expression for the information channel $I_{AB}$, the rotation operator $R(\vec{\Omega}_{\text{drag}})$, the GW perturbation operator, the entanglement coherence condition under arbitrary time dilation, and the decoherence threshold in terms of $G(t)$. We prove that entanglement is preserved under frame dragging, gravitational waves, and time dilation. We prove that decoherence arises from second-order divergence in $G(t)$. All 20 closure checks pass. The formalization is verified.
+We formalize quantum entanglement, frame dragging, and gravitational waves within the unified distance $\to$ time $\to$ information $\to$ $G(t)$ framework. Entanglement is defined as the preservation of a single information object across two different time densities produced by distance. Frame dragging is formalized as a rotational time-gradient perturbation to the scalar field. Gravitational waves are formalized as oscillating time-density distortions that modulate information capacity. We derive the full expression for the information channel $I_{AB}$, the rotation operator $R(\vec{\Omega}_{\text{drag}})$, the GW perturbation operator, the entanglement coherence condition under arbitrary time dilation, and the decoherence threshold in terms of $G(t)$. We prove that entanglement is preserved under frame dragging, gravitational waves, and time dilation. We prove that decoherence arises from second-order divergence in $G(t)$. All 20 closure checks pass. The formalization is verified \cite{Gates2026j}.
 \end{abstract}
 
 \section{Foundational Definitions}
 
 \subsection{Distance}
-Spatial separation between two events $A$ and $B$:
+Spatial separation between two events $A$ and $B$ \cite{NielsenChuang2000}:
 \begin{equation}
 \Delta x = \| x_B - x_A \|
 \end{equation}
 
 \subsection{Time}
-Proper time at each event:
+Proper time at each event \cite{MTW1973}:
 \begin{equation}
 d\tau = \sqrt{-g_{\mu\nu}\,dx^\mu\,dx^\nu}
 \end{equation}
 
 \subsection{Information}
-Information density per unit proper time using the Bekenstein bound:
+Information density per unit proper time using the Bekenstein bound \cite{Bekenstein1973}:
 \begin{equation}
 I(\tau) = \frac{2\pi}{\ln 2} \approx 9.06 \text{ bits per Planck time}
 \end{equation}
@@ -74,7 +74,7 @@ Frame dragging as the curl of the time-gradient field:
 \begin{equation}
 \vec{\Omega}_{\text{drag}} = \nabla \times \nabla\tau
 \end{equation}
-In weak-field GR (Lense-Thirring):
+In weak-field GR (Lense-Thirring) \cite{Lense1918}:
 \begin{equation}
 \Omega_{\text{LT}} = \frac{2GJ}{c^2 r^3}
 \end{equation}
@@ -102,7 +102,7 @@ R(\Omega) = \begin{pmatrix} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta 
 \section{Gravitational Wave Formalization}
 
 \subsection{Time-Gradient Oscillation}
-Gravitational waves as oscillations in the time gradient:
+Gravitational waves as oscillations in the time gradient \cite{Einstein1916}:
 \begin{equation}
 \nabla\tau(t,x) = \nabla\tau_0 + h(t,x)
 \end{equation}
@@ -130,7 +130,7 @@ I_{AB}' = I_{AB}\left(1 + c_I\,h(t,x)\right)
 \section{Quantum Entanglement Formalization}
 
 \subsection{Shared Information State}
-Entanglement as a single information object across two endpoints:
+Entanglement as a single information object across two endpoints \cite{EPR1935,Bell1964}:
 \begin{equation}
 \mathcal{I}_{AB} = \mathcal{I}_A = \mathcal{I}_B
 \end{equation}
@@ -154,7 +154,7 @@ Entanglement preservation condition:
 \end{equation}
 
 \subsection{Decoherence Condition}
-Decoherence threshold:
+Decoherence threshold \cite{Zurek2003}:
 \begin{equation}
 \left|\int \left(G_A(t) - G_B(t)\right)dt\right| > \epsilon
 \end{equation}
@@ -201,7 +201,7 @@ The information capacity modulates:
 \begin{equation}
 I_{AB}' = I_{AB}\left(1 + c_I\,h(t,x)\right)
 \end{equation}
-The modulation depth: $\delta I / I = c_I \cdot h$. For LIGO-scale $h \sim 10^{-21}$: $\delta I / I \sim 10^{-21}$.
+The modulation depth: $\delta I / I = c_I \cdot h$. For LIGO-scale $h \sim 10^{-21}$ \cite{LIGO2016}: $\delta I / I \sim 10^{-21}$.
 
 \subsection{Entanglement Coherence Under Arbitrary $\Delta\tau$}
 Phase difference:
@@ -328,5 +328,32 @@ It is the natural consequence of:
 Frame dragging and gravitational waves are time-density distortions. They modulate the phase evolution of entangled systems but do not destroy the information object. Entanglement is the field expressing its unity across temporal environments.
 
 All 20 closure checks pass. The formalization is verified.
+
+\section*{AI Research Collaboration Disclosure}
+
+This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+
+\textbf{Author's Role (Richard Kent Gates):}
+\begin{itemize}
+  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
+  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
+  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
+  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
+  \item Made all final judgments on theoretical coherence and physical interpretation
+\end{itemize}
+
+\textbf{AI Research Partners:}
+\begin{itemize}
+  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
+  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\end{itemize}
+
+\textbf{Nature of AI Involvement:}
+
+The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+
+\bibliographystyle{unsrt}
+\bibliography{references}
 
 \end{document}
