@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350" font-family="Georgia, serif">
+  <defs>
+    <marker id="arw" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <rect width="800" height="350" fill="#fafafa"/>
+
+  <text x="400" y="25" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">Frame Dragging: Rotation Is Global, Relative Phase Preserved</text>
+
+  <!-- BEFORE (left) -->
+  <rect x="20" y="45" width="340" height="270" rx="8" fill="#fff" stroke="#ddd" stroke-width="1.5"/>
+  <text x="190" y="70" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">BEFORE Frame Dragging</text>
+
+  <!-- Endpoint A before -->
+  <circle cx="100" cy="170" r="30" fill="#2d8cf0" opacity="0.7"/>
+  <text x="100" y="175" text-anchor="middle" font-size="14" fill="white" font-weight="bold">A</text>
+  <line x1="100" y1="140" x2="100" y2="110" stroke="#2d8cf0" stroke-width="2"/>
+  <text x="100" y="105" text-anchor="middle" font-size="10" fill="#2d8cf0">phi_A = 0</text>
+
+  <!-- Endpoint B before -->
+  <circle cx="280" cy="170" r="30" fill="#2d8cf0" opacity="0.7"/>
+  <text x="280" y="175" text-anchor="middle" font-size="14" fill="white" font-weight="bold">B</text>
+  <line x1="280" y1="140" x2="280" y2="110" stroke="#2d8cf0" stroke-width="2"/>
+  <text x="280" y="105" text-anchor="middle" font-size="10" fill="#2d8cf0">phi_B = 0</text>
+
+  <!-- Connection before -->
+  <line x1="130" y1="170" x2="250" y2="170" stroke="#2d8cf0" stroke-width="3" opacity="0.5"/>
+
+  <!-- Phase difference before -->
+  <text x="190" y="230" text-anchor="middle" font-size="11" fill="#333">phi_A - phi_B = 0</text>
+  <rect x="120" y="240" width="140" height="24" rx="4" fill="#e8f5e9"/>
+  <text x="190" y="256" text-anchor="middle" font-size="10" fill="#27ae60">Entangled: YES</text>
+
+  <!-- AFTER (right) -->
+  <rect x="400" y="45" width="380" height="270" rx="8" fill="#fff" stroke="#ddd" stroke-width="1.5"/>
+  <text x="590" y="70" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">AFTER Frame Dragging</text>
+
+  <!-- Rotation arrow -->
+  <path d="M590,90 A20,20 0 1,1 590,92" stroke="#f39c12" stroke-width="2" fill="none" marker-end="url(#arw)"/>
+  <text x="620" y="95" font-size="9" fill="#f39c12">R(Omega)</text>
+
+  <!-- Endpoint A after -->
+  <circle cx="490" cy="170" r="30" fill="#2d8cf0" opacity="0.7"/>
+  <text x="490" y="175" text-anchor="middle" font-size="14" fill="white" font-weight="bold">A</text>
+  <line x1="490" y1="140" x2="510" y2="115" stroke="#e74c3c" stroke-width="2"/>
+  <text x="520" y="110" font-size="10" fill="#e74c3c">phi_A = theta</text>
+
+  <!-- Endpoint B after -->
+  <circle cx="690" cy="170" r="30" fill="#2d8cf0" opacity="0.7"/>
+  <text x="690" y="175" text-anchor="middle" font-size="14" fill="white" font-weight="bold">B</text>
+  <line x1="690" y1="140" x2="710" y2="115" stroke="#e74c3c" stroke-width="2"/>
+  <text x="720" y="110" font-size="10" fill="#e74c3c">phi_B = theta</text>
+
+  <!-- Connection after -->
+  <line x1="520" y1="170" x2="660" y2="170" stroke="#2d8cf0" stroke-width="3" opacity="0.5"/>
+
+  <!-- Phase difference after -->
+  <text x="590" y="230" text-anchor="middle" font-size="11" fill="#333">phi_A - phi_B = 0 (unchanged)</text>
+  <rect x="520" y="240" width="140" height="24" rx="4" fill="#e8f5e9"/>
+  <text x="590" y="256" text-anchor="middle" font-size="10" fill="#27ae60">Entangled: YES</text>
+
+  <!-- Key insight -->
+  <rect x="150" y="290" width="500" height="30" rx="6" fill="#1a2233"/>
+  <text x="400" y="310" text-anchor="middle" font-size="11" fill="#c8d8f0">R(Omega) is unitary: |R psi| = |psi|. Same R for both endpoints. Relative phase unchanged.</text>
+</svg>
