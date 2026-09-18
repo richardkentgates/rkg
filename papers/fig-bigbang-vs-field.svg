@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" font-family="Georgia, serif">
+  <rect width="800" height="400" fill="#fafafa"/>
+
+  <text x="400" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">Big Bang Model vs. Scalar Field Model</text>
+
+  <!-- Big Bang side (left) -->
+  <rect x="30" y="50" width="350" height="320" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="2"/>
+  <text x="205" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="#e74c3c">Big Bang Model</text>
+
+  <!-- Timeline -->
+  <line x1="205" y1="100" x2="205" y2="340" stroke="#ccc" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Steps -->
+  <circle cx="205" cy="110" r="6" fill="#e74c3c"/>
+  <text x="230" y="114" font-size="10" fill="#555">Empty space</text>
+
+  <circle cx="205" cy="150" r="6" fill="#e74c3c"/>
+  <text x="230" y="154" font-size="10" fill="#e74c3c" font-weight="bold">Singularity</text>
+  <text x="230" y="168" font-size="9" fill="#e74c3c">ρ → ∞, T → ∞</text>
+  <!-- X mark -->
+  <line x1="195" y1="143" x2="215" y2="163" stroke="#e74c3c" stroke-width="3"/>
+  <line x1="215" y1="143" x2="195" y2="163" stroke="#e74c3c" stroke-width="3"/>
+
+  <circle cx="205" cy="200" r="6" fill="#f39c12"/>
+  <text x="230" y="204" font-size="10" fill="#555">Inflation</text>
+
+  <circle cx="205" cy="240" r="6" fill="#f39c12"/>
+  <text x="230" y="244" font-size="10" fill="#555">Hot dense state</text>
+
+  <circle cx="205" cy="280" r="6" fill="#f39c12"/>
+  <text x="230" y="284" font-size="10" fill="#555">Structure formation</text>
+
+  <circle cx="205" cy="320" r="8" fill="#2d8cf0"/>
+  <text x="230" y="324" font-size="10" fill="#2d8cf0" font-weight="bold">Today</text>
+
+  <!-- Problems -->
+  <rect x="50" y="350" width="310" height="16" rx="3" fill="#fdecea"/>
+  <text x="205" y="362" text-anchor="middle" font-size="9" fill="#e74c3c">Problems: singularity, horizon, flatness, magnetic monopoles</text>
+
+  <!-- Field side (right) -->
+  <rect x="420" y="50" width="350" height="320" rx="8" fill="#fff" stroke="#27ae60" stroke-width="2"/>
+  <text x="595" y="75" text-anchor="middle" font-size="14" font-weight="bold" fill="#27ae60">Scalar Field Model</text>
+
+  <!-- Timeline -->
+  <line x1="595" y1="100" x2="595" y2="340" stroke="#ccc" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Steps -->
+  <circle cx="595" cy="110" r="6" fill="#27ae60"/>
+  <text x="620" y="114" font-size="10" fill="#27ae60" font-weight="bold">Always full</text>
+  <text x="620" y="128" font-size="9" fill="#27ae60">Field energy present</text>
+
+  <circle cx="595" cy="160" r="6" fill="#27ae60"/>
+  <text x="620" y="164" font-size="10" fill="#555">Field oscillates</text>
+
+  <circle cx="595" cy="200" r="6" fill="#27ae60"/>
+  <text x="620" y="204" font-size="10" fill="#555">Amplitude damps</text>
+
+  <circle cx="595" cy="240" r="6" fill="#27ae60"/>
+  <text x="620" y="244" font-size="10" fill="#555">Matter condenses</text>
+
+  <circle cx="595" cy="280" r="6" fill="#27ae60"/>
+  <text x="620" y="284" font-size="10" fill="#555">Small amplitude today</text>
+
+  <circle cx="595" cy="320" r="8" fill="#2d8cf0"/>
+  <text x="620" y="324" font-size="10" fill="#2d8cf0" font-weight="bold">Today</text>
+
+  <!-- Check mark -->
+  <rect x="440" y="350" width="310" height="16" rx="3" fill="#e8f5e9"/>
+  <text x="595" y="362" text-anchor="middle" font-size="9" fill="#27ae60">No singularity, no horizon problem, no fine-tuning</text>
+
+  <!-- VS -->
+  <text x="400" y="210" text-anchor="middle" font-size="20" font-weight="bold" fill="#888">vs</text>
+
+  <!-- Bottom label -->
+  <text x="400" y="395" text-anchor="middle" font-size="11" fill="#888">The field has no beginning. The universe has always been full.</text>
+</svg>
