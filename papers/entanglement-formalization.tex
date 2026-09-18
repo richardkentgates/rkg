@@ -75,6 +75,16 @@
 % get rid of language-specific shorthands (see #6817):
 \let\LanguageShortHands\languageshorthands
 \def\languageshorthands#1{}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{breakurl}
+\usepackage[breaklinks=true]{hyperref}
+\usepackage{enumitem}
+\setlist{noitemsep,topsep=0pt}
+\allowdisplaybreaks
+\sloppy
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
