@@ -26,6 +26,19 @@ jobs:
 
       - name: Convert HTML to TeX
         run: |
+          cat > /tmp/header.tex << 'TEX'
+          \usepackage{amsmath,amssymb,amsfonts}
+          \usepackage{graphicx}
+          \usepackage{booktabs}
+          \usepackage{microtype}
+          \usepackage{breakurl}
+          \usepackage[breaklinks=true]{hyperref}
+          \usepackage{enumitem}
+          \setlist{noitemsep,topsep=0pt}
+          \allowdisplaybreaks
+          \sloppy
+          TEX
+
           for html in papers/*.html; do
             base=$(basename "$html" .html)
             echo "Converting $base.html -> $base.tex"
@@ -37,6 +50,7 @@ jobs:
               -V documentclass=article \
               -V geometry:margin=1in \
               -V fontsize=11pt \
+              -H /tmp/header.tex \
               --metadata title="" \
               -o "papers/$base.tex"
           done
