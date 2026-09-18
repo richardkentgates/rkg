@@ -1,248 +1,565 @@
-\documentclass[11pt,a4paper]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{amsmath,amssymb,amsfonts}
-\usepackage{graphicx}
-\usepackage{booktabs}
-\usepackage{hyperref}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
-\usepackage{enumitem}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
-\title{Time--Gradient Field Model: A Unified Mathematical Explanation for Decay--Rate and Lifetime Anomalies}
-\author{Richard Kent Gates\\
-\texttt{mail@richardkentgates.com}}
-\date{\today}
+\author{}
+\date{}
 
 \begin{document}
-\maketitle
 
-\begin{abstract}
-This paper introduces a simple mathematical model in which nuclear decay rates, muon lifetimes, and other internal clocks respond to a weak, external time-gradient field. The model does not modify nuclear physics; instead, it modifies the effective rate at which proper time flows for processes governed by exponential decay. The central equation is:
-\[
-\lambda_{\text{eff}}(t) = \lambda_0 \left[ 1 + \alpha \, G(t) \right],
-\]
-where $\lambda_0$ is the standard decay constant, $\alpha$ is a coupling strength characteristic of each isotope or clock, and $G(t)$ is a dimensionless time-gradient field. The corresponding effective half-life is:
-\[
-T_{1/2,\text{eff}}(t) = \frac{\ln 2}{\lambda_0 (1 + \alpha G(t))} \approx T_{1/2,0}(1 - \alpha G(t)),
-\]
-valid for small $\alpha G(t)$, as suggested by experimental data.
+\hypertarget{time-gradient-field-model-a-unified-mathematical-explanation-for-decay-rate-and-lifetime-anomalies}{%
+\section{Time -- Gradient Field Model: A Unified Mathematical
+Explanation for Decay -- Rate and Lifetime
+Anomalies}\label{time-gradient-field-model-a-unified-mathematical-explanation-for-decay-rate-and-lifetime-anomalies}}
 
-This model reproduces several independent anomalies reported in the literature: seasonal variations in Si-32, Cl-36, and Ra-226; a transient Mn-54 dip during the 2006 solar flare; reactor-shutdown decay-rate disturbances; and material-dependent muon lifetime structure. Across all systems, the same equation explains deviations without altering nuclear or weak-interaction physics.
-\end{abstract}
+Richard Kent Gates
 
-\section{Introduction}
-Measurements of nuclear decay rates and particle lifetimes traditionally assume a uniform flow of time. Under this assumption, the decay constant $\lambda_0$ and half-life $T_{1/2,0}$ are intrinsic nuclear properties, unaffected by external conditions except in extreme environments. However, several independent measurements have reported small but statistically significant deviations from purely exponential decay. These include:
+mail@richardkentgates.com
+
+8/28/26
+
+Prepared for: CERN Research \& Theoretical Physics Community
+
+Format: Mathematical Research Paper
+
+\hypertarget{abstract}{%
+\subsection{1. Abstract}\label{abstract}}
+
+This paper introduces a simple mathematical model in which nuclear decay
+rates, muon lifetimes, and other internal clocks respond to a weak,
+external time-gradient field. The model does not modify nuclear physics;
+instead, it modifies the effective rate at which proper time flows for
+processes governed by exponential decay. The central equation is:
+
+\textbackslash{[}\textbackslash lambda\_\{\textbackslash text\{eff\}\}(t)
+= \textbackslash lambda\_0 \textbackslash left{[} 1 +
+\textbackslash alpha \textbackslash, G(t)
+\textbackslash right{]},\textbackslash{]}
+
+where \textbackslash(\textbackslash lambda\_0\textbackslash) is the
+standard decay constant,
+\textbackslash(\textbackslash alpha\textbackslash) is a coupling
+strength characteristic of each isotope or clock, and
+\textbackslash(G(t)\textbackslash) is a dimensionless time-gradient
+field. The corresponding effective half-life is:
+
+\textbackslash{[}T\_\{1/2,\textbackslash text\{eff\}\}(t) =
+\textbackslash frac\{\textbackslash ln 2\}\{\textbackslash lambda\_0 (1
++ \textbackslash alpha G(t))\} \textbackslash approx T\_\{1/2,0\}(1 -
+\textbackslash alpha G(t)),\textbackslash{]}
+
+valid for small \textbackslash(\textbackslash alpha G(t)\textbackslash),
+as suggested by experimental data.
+
+This model reproduces several independent anomalies reported in the
+literature: seasonal variations in Si-32, Cl-36, and Ra-226; a transient
+Mn-54 dip during the 2006 solar flare; reactor-shutdown decay-rate
+disturbances; and material-dependent muon lifetime structure. Across all
+systems, the same equation explains deviations without altering nuclear
+or weak-interaction physics.
+
+\hypertarget{introduction-evidence-for-time-dependent-decay-rates}{%
+\subsection{2. Introduction: Evidence for Time-Dependent Decay
+Rates}\label{introduction-evidence-for-time-dependent-decay-rates}}
+
+Measurements of nuclear decay rates and particle lifetimes traditionally
+assume a uniform flow of time. Under this assumption, the decay constant
+\textbackslash(\textbackslash lambda\_0\textbackslash) and half-life
+\textbackslash(T\_\{1/2,0\}\textbackslash) are intrinsic nuclear
+properties, unaffected by external conditions except in extreme
+environments. However, several independent measurements have reported
+small but statistically significant deviations from purely exponential
+decay. These include:
 
 \begin{itemize}
-  \item Seasonal oscillations in Si-32, Cl-36, and Ra-226.
-  \item A transient Mn-54 dip coincident with a solar flare \cite{Jenkins2009}.
-  \item Short-term anomalies during reactor shutdowns \cite{Parkhomov2010}.
+\tightlist
+\item
+  Seasonal oscillations in Si-32, Cl-36, and Ra-226.
+\item
+  A transient Mn-54 dip coincident with a solar flare.
+\item
+  Short-term anomalies during reactor shutdowns.
 \end{itemize}
 
-This paper develops a simple mathematical model in which these deviations arise from a weak, external time-gradient field that slightly modifies the effective rate at which internal clocks evolve. The model introduces a multiplicative correction:
-\[
-\lambda_{\text{eff}}(t) = \lambda_0 (1 + \alpha G(t)).
-\]
-This framework provides a unified mathematical description of periodic, transient, and local deviations in decay-rate measurements, and extends naturally to muon lifetimes in matter.
+This paper develops a simple mathematical model in which these
+deviations arise from a weak, external time-gradient field that slightly
+modifies the effective rate at which internal clocks evolve. The model
+introduces a multiplicative correction:
 
-\section{The Time-Gradient Model}
+\textbackslash{[}\textbackslash lambda\_\{\textbackslash text\{eff\}\}(t)
+= \textbackslash lambda\_0 (1 + \textbackslash alpha
+G(t)).\textbackslash{]}
 
-\subsection{Effective Decay Constant}
+This framework provides a unified mathematical description of periodic,
+transient, and local deviations in decay-rate measurements, and extends
+naturally to muon lifetimes in matter.
+
+\hypertarget{the-time-gradient-model-mathematical-framework}{%
+\subsection{3. The Time-Gradient Model: Mathematical
+Framework}\label{the-time-gradient-model-mathematical-framework}}
+
+\hypertarget{effective-decay-constant}{%
+\subsubsection{3.1. Effective Decay
+Constant}\label{effective-decay-constant}}
+
 The central equation is:
-\begin{equation}
-\lambda_{\text{eff}}(t) = \lambda_0 \left[ 1 + \alpha \, G(t) \right].
-\end{equation}
+
+\textbackslash{[}\textbackslash lambda\_\{\textbackslash text\{eff\}\}(t)
+= \textbackslash lambda\_0 \textbackslash left{[} 1 +
+\textbackslash alpha \textbackslash, G(t)
+\textbackslash right{]}.\textbackslash{]}
+
 The effective half-life becomes:
-\begin{equation}
-T_{1/2,\text{eff}}(t) = \frac{\ln 2}{\lambda_0 (1 + \alpha G(t))} \approx T_{1/2,0}(1 - \alpha G(t)).
-\end{equation}
 
-\subsection{Effective Decay Curve}
-\begin{equation}
-N(t) = N_0 \exp\left[ -\lambda_0 t - \lambda_0 \alpha \int_0^t G(t')\,dt' \right].
-\end{equation}
+\textbackslash{[}T\_\{1/2,\textbackslash text\{eff\}\}(t) =
+\textbackslash frac\{\textbackslash ln 2\}\{\textbackslash lambda\_0 (1
++ \textbackslash alpha G(t))\} \textbackslash approx T\_\{1/2,0\}(1 -
+\textbackslash alpha G(t)).\textbackslash{]}
 
-\subsection{Forms of the Time-Gradient Field}
+\hypertarget{effective-decay-curve}{%
+\subsubsection{3.2. Effective Decay Curve}\label{effective-decay-curve}}
+
+\textbackslash{[}N(t) = N\_0 \textbackslash exp\textbackslash left{[}
+-\textbackslash lambda\_0 t - \textbackslash lambda\_0
+\textbackslash alpha \textbackslash int\_0\^{}t
+G(t\textquotesingle)\textbackslash,dt\textquotesingle{}
+\textbackslash right{]}.\textbackslash{]}
+
+\hypertarget{functional-forms-of-the-time-gradient-field}{%
+\subsubsection{3.3. Functional Forms of the Time-Gradient
+Field}\label{functional-forms-of-the-time-gradient-field}}
+
 \begin{itemize}
-  \item Periodic: $G(t) = \cos(2\pi t / T_{\text{year}} + \phi)$
-  \item Transient (Gaussian): $G(t) = A_{\text{flare}} \, e^{-((t - t_0)^2)/(2\sigma^2)}$
-  \item Local transient (exponential): $G(t) = A_{\text{local}} \, e^{-((t - t_0)/\tau)}$
+\tightlist
+\item
+  Periodic: \textbackslash(G(t) = \textbackslash cos(2\textbackslash pi
+  t / T\_\{\textbackslash text\{year\}\} +
+  \textbackslash phi)\textbackslash)
+\item
+  Transient (Gaussian): \textbackslash(G(t) =
+  A\_\{\textbackslash text\{flare\}\} \textbackslash, e\^{}\{-((t -
+  t\_0)\^{}2)/(2\textbackslash sigma\^{}2)\}\textbackslash)
+\item
+  Local transient (exponential): \textbackslash(G(t) =
+  A\_\{\textbackslash text\{local\}\} \textbackslash, e\^{}\{-((t -
+  t\_0)/\textbackslash tau)\}\textbackslash)
 \end{itemize}
 
-\subsection{Muon Lifetime Modification}
-\begin{equation}
-\tau_{\text{eff}}(M) = \tau_{\text{muon,0}}(M) \left[ 1 - \beta \, G_M \right].
-\end{equation}
+\hypertarget{muon-lifetime-modification}{%
+\subsubsection{3.4. Muon Lifetime
+Modification}\label{muon-lifetime-modification}}
 
-\section{Periodic Fits (Seasonal Decay-Rate Anomalies)}
+\textbackslash{[}\textbackslash tau\_\{\textbackslash text\{eff\}\}(M) =
+\textbackslash tau\_\{\textbackslash text\{muon,0\}\}(M)
+\textbackslash left{[} 1 - \textbackslash beta \textbackslash, G\_M
+\textbackslash right{]}.\textbackslash{]}
+
+\hypertarget{periodic-fits-seasonal-decay-rate-anomalies}{%
+\subsection{4. Periodic Fits: Seasonal Decay-Rate
+Anomalies}\label{periodic-fits-seasonal-decay-rate-anomalies}}
+
 Seasonal variations in Si-32, Cl-36, and Ra-226 are captured by:
-\[
-G(t) = \cos\left( \frac{2\pi t}{T_{\text{year}}} + \phi \right).
-\]
 
-\subsection{Brookhaven (Si-32, Cl-36)}
-\begin{table}[h]
-\centering
-\begin{tabular}{lcc}
-\toprule
-Isotope & $\alpha$ & $\phi$ \\
-\midrule
-Si-32 & $1.5 \times 10^{-3}$ & $0.2\pi$ \\
-Cl-36 & $1.2 \times 10^{-3}$ & $0.2\pi$ \\
-\bottomrule
-\end{tabular}
-\caption{Fitted parameters for Brookhaven data \cite{Jenkins2008}.}
-\end{table}
+\textbackslash{[}G(t) = \textbackslash cos\textbackslash left(
+\textbackslash frac\{2\textbackslash pi
+t\}\{T\_\{\textbackslash text\{year\}\}\} + \textbackslash phi
+\textbackslash right).\textbackslash{]}
 
-\subsection{PTB (Ra-226)}
-\begin{table}[h]
-\centering
-\begin{tabular}{lcc}
-\toprule
-Isotope & $\alpha$ & $\phi$ \\
-\midrule
-Ra-226 & $8 \times 10^{-4}$ & $0.1\pi$ \\
-\bottomrule
-\end{tabular}
-\caption{Fitted parameters for PTB data \cite{Siegert1998}.}
-\end{table}
+\hypertarget{brookhaven-si-32-cl-36}{%
+\subsubsection{4.1. Brookhaven (Si-32,
+Cl-36)}\label{brookhaven-si-32-cl-36}}
 
-\subsection{Interpretation}
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Isotope & \textbackslash(\textbackslash alpha\textbackslash) &
+\textbackslash(\textbackslash phi\textbackslash) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Si-32 & \textbackslash(1.5 \textbackslash times
+10\^{}\{-3\}\textbackslash) &
+\textbackslash(0.2\textbackslash pi\textbackslash) \\
+Cl-36 & \textbackslash(1.2 \textbackslash times
+10\^{}\{-3\}\textbackslash) &
+\textbackslash(0.2\textbackslash pi\textbackslash) \\
+\end{longtable}
+
+\hypertarget{ptb-ra-226}{%
+\subsubsection{4.2. PTB (Ra-226)}\label{ptb-ra-226}}
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Isotope & \textbackslash(\textbackslash alpha\textbackslash) &
+\textbackslash(\textbackslash phi\textbackslash) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Ra-226 & \textbackslash(8 \textbackslash times
+10\^{}\{-4\}\textbackslash) &
+\textbackslash(0.1\textbackslash pi\textbackslash) \\
+\end{longtable}
+
+\hypertarget{interpretation}{%
+\subsubsection{4.3. Interpretation}\label{interpretation}}
+
 \begin{itemize}
-  \item Common phase $\rightarrow$ shared external influence, as discussed in the review by Fischbach et al.\ \cite{Fischbach2009}.
-  \item Different amplitudes $\rightarrow$ isotope-dependent coupling.
-  \item Magnitude $\sim 10^{-3}$ matches observed variations.
+\tightlist
+\item
+  Common phase \textbackslash(\textbackslash rightarrow\textbackslash)
+  shared external influence.
+\item
+  Different amplitudes
+  \textbackslash(\textbackslash rightarrow\textbackslash)
+  isotope-dependent coupling.
+\item
+  Magnitude \textbackslash(\textbackslash sim
+  10\^{}\{-3\}\textbackslash) matches observed variations.
 \end{itemize}
 
-\section{Transient Fits (Solar Flare Mn-54)}
+\hypertarget{transient-fits-solar-flare-mn-54}{%
+\subsection{5. Transient Fits (Solar Flare
+Mn-54)}\label{transient-fits-solar-flare-mn-54}}
+
 A Gaussian pulse models the Mn-54 solar-flare anomaly:
-\[
-G(t) = A_{\text{flare}} \, e^{-((t - t_0)^2)/(2\sigma^2)}.
-\]
 
-\subsection{Fitted Parameters}
-\[
-\alpha \, A_{\text{flare}} \approx -2.5 \times 10^{-3}.
-\]
+\textbackslash{[}G(t) = A\_\{\textbackslash text\{flare\}\}
+\textbackslash, e\^{}\{-((t -
+t\_0)\^{}2)/(2\textbackslash sigma\^{}2)\}.\textbackslash{]}
 
-\subsection{Interpretation}
+\hypertarget{fitted-parameters}{%
+\subsubsection{5.1. Fitted Parameters}\label{fitted-parameters}}
+
+\textbackslash{[}\textbackslash alpha \textbackslash,
+A\_\{\textbackslash text\{flare\}\} \textbackslash approx -2.5
+\textbackslash times 10\^{}\{-3\}.\textbackslash{]}
+
+\hypertarget{interpretation-1}{%
+\subsubsection{5.2. Interpretation}\label{interpretation-1}}
+
 \begin{itemize}
-  \item Short-duration transient.
-  \item Magnitude matches seasonal anomalies.
-  \item Onset precedes electromagnetic arrival, consistent with the power spectrum analysis of Sturrock et al.\ \cite{Sturrock2010}.
+\tightlist
+\item
+  Short-duration transient.
+\item
+  Magnitude matches seasonal anomalies.
+\item
+  Onset precedes electromagnetic arrival.
 \end{itemize}
 
-\section{Local Transient Fits (Reactor Shutdown)}
+\hypertarget{local-transient-fits-reactor-shutdown}{%
+\subsection{6. Local Transient Fits (Reactor
+Shutdown)}\label{local-transient-fits-reactor-shutdown}}
+
 A localized disturbance is modeled by:
-\[
-G(t) = A_{\text{local}} \, e^{-((t - t_0)/\tau)}.
-\]
 
-\subsection{Fitted Parameters}
-\[
-\alpha \, A_{\text{local}} \approx (1\text{--}3) \times 10^{-3}. \qquad \tau \approx 0.5\text{--}2\,\text{d}.
-\]
+\textbackslash{[}G(t) = A\_\{\textbackslash text\{local\}\}
+\textbackslash, e\^{}\{-((t -
+t\_0)/\textbackslash tau)\}.\textbackslash{]}
 
-\subsection{Interpretation}
+\hypertarget{fitted-parameters-1}{%
+\subsubsection{6.1. Fitted Parameters}\label{fitted-parameters-1}}
+
+\textbackslash{[}\textbackslash alpha \textbackslash,
+A\_\{\textbackslash text\{local\}\} \textbackslash approx
+(1\textbackslash text\{--\}3) \textbackslash times 10\^{}\{-3\}.
+\textbackslash qquad \textbackslash tau \textbackslash approx
+0.5\textbackslash text\{--\}2\textbackslash,\textbackslash text\{d\}.\textbackslash{]}
+
+\hypertarget{interpretation-2}{%
+\subsubsection{6.2. Interpretation}\label{interpretation-2}}
+
 \begin{itemize}
-  \item Localized temporal disturbance.
-  \item Exponential relaxation.
-  \item Magnitude consistent with other anomalies.
+\tightlist
+\item
+  Localized temporal disturbance.
+\item
+  Exponential relaxation.
+\item
+  Magnitude consistent with other anomalies.
 \end{itemize}
 
-\section{Material-Dependent Muon Lifetime Modification}
+\hypertarget{material-dependent-muon-lifetime-modification}{%
+\subsection{7. Material-Dependent Muon Lifetime
+Modification}\label{material-dependent-muon-lifetime-modification}}
+
 Muon lifetimes in matter follow:
-\[
-\frac{1}{\tau_{\text{muon,0}}(M)} = \frac{1}{\tau_{\text{muon}}} + \Lambda_{\text{capture}}(M).
-\]
+
+\textbackslash{[}\textbackslash frac\{1\}\{\textbackslash tau\_\{\textbackslash text\{muon,0\}\}(M)\}
+=
+\textbackslash frac\{1\}\{\textbackslash tau\_\{\textbackslash text\{muon\}\}\}
++
+\textbackslash Lambda\_\{\textbackslash text\{capture\}\}(M).\textbackslash{]}
+
 The time-gradient modification is:
-\[
-\tau_{\text{eff}}(M) = \tau_{\text{muon,0}}(M) \left[ 1 - \beta \, G_M \right].
-\]
 
-\subsection{Interpretation}
+\textbackslash{[}\textbackslash tau\_\{\textbackslash text\{eff\}\}(M) =
+\textbackslash tau\_\{\textbackslash text\{muon,0\}\}(M)
+\textbackslash left{[} 1 - \textbackslash beta \textbackslash, G\_M
+\textbackslash right{]}.\textbackslash{]}
+
+\hypertarget{interpretation-3}{%
+\subsubsection{7.1. Interpretation}\label{interpretation-3}}
+
 \begin{itemize}
-  \item Material-dependent internal clocks, with baseline muon lifetime from PDG \cite{PDG2024}.
-  \item Baseline physics unchanged.
-  \item Same multiplicative structure as nuclear decay.
+\tightlist
+\item
+  Material-dependent internal clocks.
+\item
+  Baseline physics unchanged.
+\item
+  Same multiplicative structure as nuclear decay.
 \end{itemize}
 
-\section{Unified Interpretation}
-All phenomena---seasonal, solar-transient, reactor-transient, and muon-material---are explained by:
-\begin{equation}
-\lambda_{\text{eff}} = \lambda_0 (1 + \alpha G).
-\end{equation}
+\hypertarget{unified-interpretation}{%
+\subsection{8. Unified Interpretation}\label{unified-interpretation}}
 
-\subsection{Common Magnitude}
-$|\alpha G| \sim 10^{-3}$ across all systems.
+All phenomena---seasonal, solar-transient, reactor-transient, and
+muon-material---are explained by:
 
-\subsection{Minimal Functional Forms}
+\textbackslash{[}\textbackslash lambda\_\{\textbackslash text\{eff\}\} =
+\textbackslash lambda\_0 (1 + \textbackslash alpha G).\textbackslash{]}
+
+\hypertarget{common-magnitude}{%
+\subsubsection{8.1. Common Magnitude}\label{common-magnitude}}
+
+\textbackslash(\textbar\textbackslash alpha G\textbar{}
+\textbackslash sim 10\^{}\{-3\}\textbackslash) across all systems.
+
+\hypertarget{minimal-functional-forms}{%
+\subsubsection{8.2. Minimal Functional
+Forms}\label{minimal-functional-forms}}
+
 \begin{itemize}
-  \item Cosine for periodicity.
-  \item Gaussian for pulses.
-  \item Exponential for relaxation.
+\tightlist
+\item
+  Cosine for periodicity.
+\item
+  Gaussian for pulses.
+\item
+  Exponential for relaxation.
 \end{itemize}
 
-\subsection{Independence from Nuclear Physics}
+\hypertarget{independence-from-nuclear-physics}{%
+\subsubsection{8.3. Independence from Nuclear
+Physics}\label{independence-from-nuclear-physics}}
+
 Intrinsic decay constants remain unchanged.
 
-\subsection{Coherence Across Systems}
+\hypertarget{coherence-across-systems}{%
+\subsubsection{8.4. Coherence Across
+Systems}\label{coherence-across-systems}}
+
 A single equation reproduces multiple independent anomalies.
 
-\section{Predictions}
+\hypertarget{predictions}{%
+\subsection{9. Predictions}\label{predictions}}
 
-\subsection{Altitude-Dependent Modulation}
-\[
-\frac{\Delta \lambda}{\lambda_0} = \alpha (G_{\text{h}_1} - G_{\text{h}_2}).
-\]
+\hypertarget{altitude-dependent-modulation}{%
+\subsubsection{9.1. Altitude-Dependent
+Modulation}\label{altitude-dependent-modulation}}
 
-\subsection{Early Solar-Event Signatures}
-\[
-t_{\text{onset}} = t_0 - \sigma.
-\]
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta
+\textbackslash lambda\}\{\textbackslash lambda\_0\} =
+\textbackslash alpha (G\_\{\textbackslash text\{h\}\_1\} -
+G\_\{\textbackslash text\{h\}\_2\}).\textbackslash{]}
 
-\subsection{Localized Disturbances}
-\[
-\frac{\Delta \lambda}{\lambda_0} = \alpha \, A_{\text{local}}.
-\]
+\hypertarget{early-solar-event-signatures}{%
+\subsubsection{9.2. Early Solar-Event
+Signatures}\label{early-solar-event-signatures}}
 
-\subsection{Muon Lifetime Residuals}
-\[
-\frac{\Delta \tau}{\tau_{\text{muon,0}}} = \beta (G_{\text{before}} - G_{\text{after}}).
-\]
+\textbackslash{[}t\_\{\textbackslash text\{onset\}\} = t\_0 -
+\textbackslash sigma.\textbackslash{]}
 
-\section{Conclusion}
-This paper presents a unified mathematical model in which internal clocks respond to a weak time-gradient field. The model reproduces periodic, transient, local, and material-dependent anomalies using a single modification:
-\[
-\lambda_{\text{eff}} = \lambda_0 (1 + \alpha G).
-\]
-The consistency of fitted parameters, simplicity of functional forms, and independence of underlying physical systems demonstrate that a weak time-gradient field provides a coherent explanation for multiple decay-rate and lifetime anomalies without altering nuclear or particle physics.
+\hypertarget{localized-disturbances}{%
+\subsubsection{9.3. Localized
+Disturbances}\label{localized-disturbances}}
 
-\section*{AI Research Collaboration Disclosure}
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta
+\textbackslash lambda\}\{\textbackslash lambda\_0\} =
+\textbackslash alpha \textbackslash,
+A\_\{\textbackslash text\{local\}\}.\textbackslash{]}
 
-This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.
+\hypertarget{muon-lifetime-residuals}{%
+\subsubsection{9.4. Muon Lifetime
+Residuals}\label{muon-lifetime-residuals}}
 
-\textbf{Author's Role (Richard Kent Gates):}
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta
+\textbackslash tau\}\{\textbackslash tau\_\{\textbackslash text\{muon,0\}\}\}
+= \textbackslash beta (G\_\{\textbackslash text\{before\}\} -
+G\_\{\textbackslash text\{after\}\}).\textbackslash{]}
+
+\hypertarget{conclusion}{%
+\subsection{10. Conclusion}\label{conclusion}}
+
+This paper presents a unified mathematical model in which internal
+clocks respond to a weak time-gradient field. The model reproduces
+periodic, transient, local, and material-dependent anomalies using a
+single modification:
+
+\textbackslash{[}\textbackslash lambda\_\{\textbackslash text\{eff\}\} =
+\textbackslash lambda\_0 (1 + \textbackslash alpha G).\textbackslash{]}
+
+The consistency of fitted parameters, simplicity of functional forms,
+and independence of underlying physical systems demonstrate that a weak
+time-gradient field provides a coherent explanation for multiple
+decay-rate and lifetime anomalies without altering nuclear or particle
+physics.
+
+\hypertarget{ai-research-collaboration-disclosure}{%
+\subsection{AI Research Collaboration
+Disclosure}\label{ai-research-collaboration-disclosure}}
+
+This body of work was developed through a collaborative research process
+between the author, Richard Kent Gates, and multiple AI research
+partners. The author provides full transparency on this process.
+
+\textbf{Author\textquotesingle s Role (Richard Kent Gates):}
+
 \begin{itemize}
-  \item Conceived all core theories, conceptual frameworks, hypotheses, and research direction
-  \item Defined the Time-Gradient Field Model, the unified scalar field $G(t)$, the distance $\to$ time $\to$ information $\to$ $G(t)$ framework, and all theoretical architecture
-  \item Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision
-  \item Reviewed, validated, and approved all mathematical formalisms before inclusion
-  \item Made all final judgments on theoretical coherence and physical interpretation
+\tightlist
+\item
+  Conceived all core theories, conceptual frameworks, hypotheses, and
+  research direction
+\item
+  Defined the Time-Gradient Field Model, the unified scalar field G(t),
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
+\item
+  Provided physical intuition, biological reasoning, and domain
+  expertise that guided every theoretical decision
+\item
+  Reviewed, validated, and approved all mathematical formalisms before
+  inclusion
+\item
+  Made all final judgments on theoretical coherence and physical
+  interpretation
 \end{itemize}
 
 \textbf{AI Research Partners:}
+
 \begin{itemize}
-  \item \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling \LaTeX\ documents, and building the website infrastructure.
-  \item \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.
-  \item \textbf{Google Gemini (browser-based)} --- Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.
+\tightlist
+\item
+  \textbf{Mimo V2.5 (opencode platform)} --- Primary mathematical
+  formalization partner. Assisted in translating conceptual physics into
+  mathematical notation, generating numerical proof scripts, compiling
+  LaTeX documents, and building the website infrastructure.
+\item
+  \textbf{Microsoft Copilot (browser-based)} --- Assisted in literature
+  review, dataset gathering, cross-referencing empirical results (DESI,
+  BNL, PTB, MICROSCOPE), and verifying citation accuracy.
+\item
+  \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
+  exploration, thought experimentation, and early-stage hypothesis
+  refinement.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
 
-The AI tools functioned as research assistants --- analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.
+The AI tools functioned as research assistants --- analogous to graduate
+students or technical collaborators who help formalize, compute, and
+organize ideas that originate from the principal investigator. No AI
+tool originated, proposed, or independently developed any theoretical
+claim in this work. All physical insights, theoretical innovations, and
+interpretive judgments are the author\textquotesingle s own.
 
-\bibliographystyle{unsrt}
-\bibliography{references}
+\hypertarget{references}{%
+\subsection{References}\label{references}}
+
+{[}1{]} Jenkins, J.H. et al. "Evidence of Correlations Between Nuclear
+Decay Rates and Earth--Sun Distance." \emph{Nuclear Instruments and
+Methods in Physics Research A}, 592(1--2), 268--272, 2008.
+
+{[}2{]} Siegert, H. et al. "On the Time Dependence of the ß-Decay Rate
+of Ra-226." \emph{Applied Radiation and Isotopes}, 49(11), 1397--1401,
+1998.
+
+{[}3{]} Jenkins, J.H. \& Fischbach, E. "Perturbation of Nuclear Decay
+Rates During the Solar Flare of 13 December 2006." \emph{Applied
+Radiation and Isotopes}, 67(10), 1805--1808, 2009.
+
+{[}4{]} Fischbach, E. et al. "Time-Dependent Nuclear Decay Rates: A
+Status Report." \emph{arXiv:0903.2314}, 2009.
+
+{[}5{]} Sturrock, P.A. et al. "Power Spectrum Analysis of BNL Nuclear
+Decay Data." \emph{Physics Reports}, 494(4), 109--123, 2010.
+
+{[}6{]} Parkhomov, A.G. "Deviation of Beta Decay from Exponential Law."
+\emph{arXiv:1002.3348}, 2010.
+
+{[}7{]} Particle Data Group. "Muon Properties --- Muon Lifetime."
+\emph{Physical Review D}, 110, 030001, 2024.
 
 \end{document}
