@@ -82,6 +82,13 @@ header h1 .version {
   font-weight: 400;
   vertical-align: middle;
 }
+h1.rkg {
+    padding-left: 36px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: contain;
+    background-image: url(https://richardkentgates.com/images/rkg_logo_64x64.jpg);
+}
 header nav {
   display: flex;
   gap: 4px;
@@ -107,14 +114,6 @@ header nav a:hover {
   border: none;
   border-radius: 0;
   padding: 0 40px 32px;
-}
-.hero-avatar {
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid var(--blue);
-  flex-shrink: 0;
 }
 .hero-header {
   display: flex;
@@ -688,10 +687,6 @@ footer a:hover {
   .hero {
     padding: 60px 32px !important;
   }
-  .hero-avatar {
-    width: 64px;
-    height: 64px;
-  }
   .layer-grid {
     grid-template-columns: 1fr;
   }
@@ -729,10 +724,6 @@ footer a:hover {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-  }
-  .hero-avatar {
-    width: 56px;
-    height: 56px;
   }
   .feature-grid {
     grid-template-columns: 1fr;
@@ -1008,7 +999,7 @@ footer a:hover {
 </head>
 <body>
     <header>
-<h1>Richard Kent Gates</h1>
+<h1 class="rkg">Richard Kent Gates</h1>
 <nav>
     <a href="#projects">Projects</a>
     <a href="#hobbies">Physics</a>
@@ -1017,7 +1008,6 @@ footer a:hover {
 </nav>
 <section class="hero" id="hero">
     <div class="hero-header">
-        <img src="images/rkg_logo_300x300.jpg" alt="Richard Kent Gates" class="hero-avatar">
         <h1>Building Software.<br><span class="accent">Exploring Physics.</span></h1>
     </div>
     <div class="hero-subtitle">
