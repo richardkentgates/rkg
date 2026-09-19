@@ -1,3 +1,9 @@
+License for the Scalar Field Theory and Associated Research Materials
+
+The theoretical framework, equations, manuscripts, diagrams, and all related research materials presented on this page (collectively, “this body of work”) are licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+This license applies only to the scientific content authored by Richard Kent Gates and does not modify, replace, or override the copyright or licensing of the rest of this website.
+
 Attribution 4.0 International
 
 =======================================================================
