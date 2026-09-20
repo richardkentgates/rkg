@@ -125,7 +125,7 @@ header nav a:hover {
   line-height: 1.15;
   margin: 0 0 18px;
 }
-.hero h1 .accent { color: ; }
+.hero h1 .accent { color: var( --blue); }
 .hero-subtitle {
   font-size: 17px;
   font-weight: 400;
@@ -161,9 +161,6 @@ header nav a:hover {
   gap: 12px;
   flex-wrap: wrap;
   margin-bottom: 24px;
-}
-.accent {
-  color: var( --blue);
 }
 .btn {
   display: inline-flex;
