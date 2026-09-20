@@ -175,6 +175,7 @@ header nav a:hover {
   transition: background .15s, border-color .15s, color .15s;
   cursor: pointer;
   border: 1px solid var( --blue);
+  color: var( --white);
 }
 .btn:hover {
   background: var(--blue);
