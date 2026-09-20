@@ -162,6 +162,9 @@ header nav a:hover {
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
+.accent {
+  color: var( --blue);
+}
 .btn {
   display: inline-flex;
   align-items: center;
