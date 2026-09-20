@@ -44,7 +44,7 @@ header {
 header h1 {
   margin: 0;
   padding: 0 0 0 16px;
-  border-left: solid 3px var(--blue);
+  border-left: solid 3px ;
   font-size: 22px;
   font-weight: 700;
   color: var(--white);
@@ -52,7 +52,7 @@ header h1 {
 }
 header h1 .version {
   font-size: 13px;
-  color: var(--blue);
+  color: ;
   margin-left: 8px;
   font-weight: 400;
   vertical-align: middle;
@@ -81,7 +81,7 @@ header nav a {
 }
 header nav a:hover {
   background-color: rgba(45, 140, 240, 0.15);
-  color: var(--blue);
+  color: ;
 }
 
 /* ── Hero ──────────────────────────────────────────────────────────────── */
@@ -106,7 +106,7 @@ header nav a:hover {
   gap: 8px;
   font-size: 12px;
   font-weight: 600;
-  color: var(--blue);
+  color: ;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   margin-bottom: 20px;
@@ -114,7 +114,7 @@ header nav a:hover {
 .hero-badge::before {
   content: '';
   width: 6px; height: 6px;
-  background: var(--blue);
+  background: ;
   border-radius: 50%;
   display: inline-block;
 }
@@ -125,7 +125,7 @@ header nav a:hover {
   line-height: 1.15;
   margin: 0 0 18px;
 }
-.hero h1 .accent { color: var(--blue); }
+.hero h1 .accent { color: ; }
 .hero-subtitle {
   font-size: 17px;
   font-weight: 400;
@@ -168,26 +168,17 @@ header nav a:hover {
   gap: 6px;
   padding: 10px 22px;
   border-radius: 6px;
+  background: rbga(255,255,255,0.2);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
   transition: background .15s, border-color .15s, color .15s;
   cursor: pointer;
-  border: 1px solid transparent;
+  border: 1px solid var( --blue);
 }
-.btn-primary {
-  background: transparent;
+.btn:hover {
+  background: var(--blue);
   color: var(--white) !important;
-}
-.btn-primary:hover { background: var(--blue-dark); }
-.btn-outline {
-  background: var(--blue);
-  border-color: rgba(45,140,240,.5);
-  color: var(--blue) !important;
-}
-.btn-outline:hover {
-  background: var(--blue);
-  border-color: var(--blue);
 }
 .hero-install {
   background: rgba(0,0,0,.4);
