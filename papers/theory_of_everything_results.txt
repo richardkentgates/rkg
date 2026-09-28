@@ -245,7 +245,7 @@ E=mc^2 backward: matter = condensed vibration PASS     Field damping produces ma
 Singularities forbidden                       PASS     Axiom requires distance>0, time>0, info preserved
 No beginning                                  PASS     Field is eternal, time-reversible
 Forward-backward consistent                   PASS     Error 1.11e-16
-Fisher measurable                             PASS     F = 15e9, CRLB sigma >= 8.16e-6
+Fisher measurable                             PASS     F = 15e9, CRLB sigma >= 8.16e-6 (signal_processing_proof.py, single channel)
 Signal processing stable                      PASS     kappa = 1.00
 All observations match                        PASS     CMB, BBN, expansion, structure
 

@@ -162,7 +162,8 @@ THE FIELD IS THE UNIVERSE.
 2. THE FIELD:
    - G(t) = 1e-3 + 1e-4 cos(2 pi t) — the scalar field
    - Forward-backward consistent (error 1e-16)
-   - Fisher measurable (F = 15 billion, CRLB sigma_G >= 8.16e-6)
+   - Fisher measurable (F = 15 billion, CRLB sigma_G >= 8.16e-6; single-channel
+     result from signal_processing_proof.py)
    - Signal processing stable (kappa = 1.00)
 
 3. WHAT THE FIELD DOES:
@@ -211,7 +212,7 @@ Foundation: distance->time->info         PASS     Metric + Bekenstein + unitarit
 Singularities forbidden                  PASS     Information catastrophe
 Field no singularity                     PASS     V(phi) > 0, H > 0 always
 Field forward-backward consistent        PASS     Error 1e-16
-Field Fisher measurable                  PASS     F = 15e9, CRLB sigma >= 8.16e-6
+Field Fisher measurable                  PASS     F = 15e9, CRLB sigma >= 8.16e-6 (signal_processing_proof.py, single channel)
 Field signal processing stable           PASS     kappa = 1.00
 CMB from field                           PASS     Oscillation at large amplitude
 BBN from field                           PASS     Same T and H as Big Bang
