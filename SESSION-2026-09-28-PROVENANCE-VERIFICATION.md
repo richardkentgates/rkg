@@ -4,8 +4,8 @@
 **Session file:** `SESSION-2026-09-28-PROVENANCE-VERIFICATION.md` (in this repository)
 **Branch:** `master`
 **Baseline before session:** `8511254` (2026-09-22)
-**Final commit this session:** `a70b356`
-**Commits pushed:** 6 (4 authored, 2 CI auto-converts)
+**Final commit this session:** `5b6040e`
+**Commits pushed:** 7 (5 authored, 2 CI auto-converts)
 **Net change:** 45 files, 728 insertions, 34 deletions
 
 ---
@@ -26,9 +26,10 @@ provenance. No theoretical claim was altered.
 | `3fd29f0` | Highwire tags, provenance section, §7 criterion, Fisher attribution, credits, CSS, README, figure |
 | `0f6e0f3` | CI auto-convert of HTML → PDF/TeX |
 | `9d82091` | Regenerated results files with corrected Fisher attribution |
-| `2976361` | Corrected provenance scope (sections 3–6 reproduced, 7 stated) |
+| `2976361` | Corrected provenance scope (sections 3-6 reproduced, 7 stated) |
 | `9dbffb0` | CI auto-convert of HTML → PDF/TeX |
 | `a70b356` | Two-parameter statistical verification script |
+| `5b6040e` | This session record |
 
 ---
 
@@ -321,4 +322,4 @@ Every change was verified after application:
 - All §3–§7 numbers independently recomputed from stated inputs
 - CI `convert-papers` succeeded twice, regenerating 25 PDF/TeX files per run
 - `README.md` counts cross-checked against `index.html`
-- Working tree clean; local and `origin/master` in sync at `a70b356`
+- Working tree clean; local and `origin/master` in sync at `5b6040e`
