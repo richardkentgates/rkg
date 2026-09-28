@@ -45,6 +45,7 @@ print("=" * 70)
 # The field is RECONSTRUCTIBLE — it has a definite history
 
 # From the Fisher proof: F = 15 billion, CRLB sigma_G >= 8.16e-6
+#   (signal_processing_proof.py, single channel: F = m*s0^2/sigma^2 with m=1)
 # The field is MEASURABLE — its history is real
 
 # From the signal processing proof: kappa(H) = 1.00
@@ -164,6 +165,7 @@ print("=" * 70)
 
 # From the Fisher proof:
 #   F = 15 billion, CRLB sigma_G >= 8.16e-6
+#   (signal_processing_proof.py, single channel: F = m*s0^2/sigma^2 with m=1)
 # The field is MEASURABLE from observations
 
 # From the signal processing proof:
@@ -299,7 +301,8 @@ THE FIELD IS THE UNIVERSE.
 2. THE FIELD:
    - G(t) = 1e-3 + 1e-4 cos(2 pi t) — the scalar field
    - Forward-backward consistent (error 1e-16)
-   - Fisher measurable (F = 15 billion, CRLB sigma_G >= 8.16e-6)
+   - Fisher measurable (F = 15 billion, CRLB sigma_G >= 8.16e-6; single-channel
+     result from signal_processing_proof.py)
    - Signal processing stable (kappa = 1.00)
 
 3. WHAT THE FIELD DOES:
@@ -351,7 +354,7 @@ checks = [
     ("Singularities forbidden", True, "Information catastrophe"),
     ("Field no singularity", True, "V(phi) > 0, H > 0 always"),
     ("Field forward-backward consistent", True, "Error 1e-16"),
-    ("Field Fisher measurable", True, "F = 15e9, CRLB sigma >= 8.16e-6"),
+    ("Field Fisher measurable", True, "F = 15e9, CRLB sigma >= 8.16e-6 (signal_processing_proof.py, single channel)"),
     ("Field signal processing stable", True, "kappa = 1.00"),
     ("CMB from field", True, "Oscillation at large amplitude"),
     ("BBN from field", True, "Same T and H as Big Bang"),

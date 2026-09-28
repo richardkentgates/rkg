@@ -333,7 +333,7 @@ checks = [
     ("Singularities forbidden", True, "Axiom requires distance>0, time>0, info preserved"),
     ("No beginning", True, "Field is eternal, time-reversible"),
     ("Forward-backward consistent", True, "Error 1.11e-16"),
-    ("Fisher measurable", True, "F = 15e9, CRLB sigma >= 8.16e-6"),
+    ("Fisher measurable", True, "F = 15e9, CRLB sigma >= 8.16e-6 (signal_processing_proof.py, single channel)"),
     ("Signal processing stable", True, "kappa = 1.00"),
     ("All observations match", True, "CMB, BBN, expansion, structure"),
 ]

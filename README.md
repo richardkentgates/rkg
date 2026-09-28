@@ -64,7 +64,7 @@ The `papers/` directory contains the Unified Scalar Time-Gradient Field Theory r
 | entanglement-formalization | Entanglement, frame dragging, GWs in the G(t) framework |
 | time-gradient-field-model | Decay-rate and lifetime anomalies |
 | temporal-gradient-gravity-proposal | Gravity as a pure temporal gradient |
-| time-gradient-verification | Independent verification from experimental data |
+| time_gradient_verification | Independent verification from experimental data |
 | statistical-verification | Fisher Information and Cramer-Rao closure |
 | unified-scalar-field-consistency | Cross-sector unification proof |
 | unified-scalar-time-gradient-field | Complete formalized synthesis |
@@ -124,7 +124,7 @@ All badges share `labelColor=6B7280` (gray) for the left label panel.
 `index.html` includes JSON-LD schema.org markup:
 - `Person` — author identity and contact
 - `WebSite` — site metadata
-- `ScholarlyArticle` — one entry per paper (10 total)
+- `ScholarlyArticle` — one entry per paper (11 total)
 - `SoftwareSourceCode` — one entry per open source project (6 total)
 
 ## Design

@@ -3,6 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="citation_title" content="The Field Is the Universe: A Unified Proof">
+  <meta name="citation_author" content="Gates, Richard Kent">
+  <meta name="citation_author_institution" content="Independent Researcher">
+  <meta name="citation_publication_date" content="2026/09/16">
+  <meta name="citation_journal_title" content="Independent Research">
+  <meta name="citation_pdf_url" content="https://richardkentgates.com/papers/unified-proof.pdf">
+  <meta name="citation_abstract" content="Working backward from the present state of the universe, the field amplitude is traced through successive epochs from today to the Planck scale, and the question of whether it diverges or remains bounded is posed directly. A quartic potential confines the field so that its amplitude stays finite in both temporal directions, and no beginning is required. The observations are then identified as the field's own history rather than as evidence for it, with the cosmic microwave background, primordial nucleosynthesis, expansion, and structure each corresponding to a stage of field evolution. Time is identified as information, and the conclusion is that the universe is the field.">
   <title>The Field Is the Universe: A Unified Proof</title>
   <script>
     window.MathJax = {
@@ -179,14 +186,16 @@ z -> inf: A -> bounded by potential barrier. NOT infinity.</div>
 <table style="width:100%;border-collapse:collapse;margin:1em 0;">
   <tr><th style="background:#0f1623;color:#fff;text-align:left;padding:8px 12px;font-size:12px;">Result</th><th style="background:#0f1623;color:#fff;text-align:left;padding:8px 12px;font-size:12px;">Value</th><th style="background:#0f1623;color:#fff;text-align:left;padding:8px 12px;font-size:12px;">Source</th></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Forward-backward consistency</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">error = 1.11 &times; 10&minus;&sup1;&sup6;</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">scalar_field_tests.py</td></tr>
-  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Fisher information F</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">15,000,000,000</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">scalar_field_tests.py</td></tr>
-  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">CRLB &sigma;<sub>G</sub></td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">&ge; 8.16 &times; 10&minus;&sup6;</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">scalar_field_tests.py</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Fisher information F</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">15,000,000,000</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">signal_processing_proof.py</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">CRLB &sigma;<sub>G</sub></td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">&ge; 8.16 &times; 10&minus;&sup6;</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">signal_processing_proof.py</td></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Condition number &kappa;(H)</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">1.00</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">signal_processing_proof.py</td></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Relic pressureless residual</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">3.5 &times; 10&minus;&sup4;</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">BH freeze-out mass</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">10&minus;&sup5; M<sub>Pl</sub></td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Growth rate f</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">0.529</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Field equation of state w</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">&minus;0.995</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
 </table>
+
+<p>Note on the Fisher information rows: these values are the single-channel result from <code>signal_processing_proof.py</code>, computed as \(F = m\,s_0^2/\sigma^2\) with \(m = 1\), \(s_0^2 = 1.5\), and \(\sigma = 10^{-5}\), giving \(F = 1.5 \times 10^{10}\) and \(\sigma_G \geq \sqrt{1/F} = 8.16 \times 10^{-6}\). They are distinct from the multi-stream analysis reported in <code>fisher_results.txt</code> and the Fisher Information calculator, which fit the field amplitude across three independent sector streams and yield \(F = 7.34 \times 10^{6}\) with \(\sigma_G \geq 3.69 \times 10^{-4}\). The two differ in measurement configuration and are not expected to agree.</p>
 
 <h2>8. Conclusion</h2>
 <div class="result-box">
@@ -214,6 +223,7 @@ z -> inf: A -> bounded by potential barrier. NOT infinity.</div>
   <li><strong>Mimo V2.5 (opencode platform)</strong> &mdash; Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling LaTeX documents, and building the website infrastructure.</li>
   <li><strong>Microsoft Copilot (browser-based)</strong> &mdash; Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.</li>
   <li><strong>Google Gemini (browser-based)</strong> &mdash; Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.</li>
+  <li><strong>Space Bunny (OpenCode)</strong> &mdash; Verification and provenance auditing. Read every paper and proof script in the repository and traced each reported figure back to the script and line that produces it. Independently recomputed the Fisher information matrices, the Cram&eacute;r&ndash;Rao bounds, and the parameter errors from the models as stated. Resolved the origin of the Fisher information values quoted in the unified and Theory-of-Everything papers, reconstructed the two-parameter Fisher matrix in the statistical verification paper from its sampling grid, and identified a mislabeled citation and a statistical criterion stated more narrowly than the reported results supported. No theoretical claim, numerical result, or interpretive judgment in this body of work originated with this tool.</li>
 </ul>
 <p><strong>Nature of AI Involvement:</strong></p>
 <p>The AI tools functioned as research assistants &mdash; analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.</p>
