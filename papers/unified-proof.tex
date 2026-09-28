@@ -238,9 +238,9 @@ Result & Value & Source \\
 \endlastfoot
 Forward-backward consistency & error = 1.11 × 10−¹\&sup6; &
 scalar\_field\_tests.py \\
-Fisher information F & 15,000,000,000 & scalar\_field\_tests.py \\
+Fisher information F & 15,000,000,000 & signal\_processing\_proof.py \\
 CRLB σ\textsubscript{G} & ≥ 8.16 × 10−\&sup6; &
-scalar\_field\_tests.py \\
+signal\_processing\_proof.py \\
 Condition number κ(H) & 1.00 & signal\_processing\_proof.py \\
 Relic pressureless residual & 3.5 × 10−\&sup4; &
 blackhole\_lifecycle.py \\
@@ -249,6 +249,25 @@ blackhole\_lifecycle.py \\
 Growth rate f & 0.529 & blackhole\_lifecycle.py \\
 Field equation of state w & −0.995 & blackhole\_lifecycle.py \\
 \end{longtable}
+
+Note on the Fisher information rows: these values are the single-channel
+result from \texttt{signal\_processing\_proof.py}, computed as
+\textbackslash(F =
+m\textbackslash,s\_0\^{}2/\textbackslash sigma\^{}2\textbackslash) with
+\textbackslash(m = 1\textbackslash), \textbackslash(s\_0\^{}2 =
+1.5\textbackslash), and \textbackslash(\textbackslash sigma =
+10\^{}\{-5\}\textbackslash), giving \textbackslash(F = 1.5
+\textbackslash times 10\^{}\{10\}\textbackslash) and
+\textbackslash(\textbackslash sigma\_G \textbackslash geq
+\textbackslash sqrt\{1/F\} = 8.16 \textbackslash times
+10\^{}\{-6\}\textbackslash). They are distinct from the multi-stream
+analysis reported in \texttt{fisher\_results.txt} and the Fisher
+Information calculator, which fit the field amplitude across three
+independent sector streams and yield \textbackslash(F = 7.34
+\textbackslash times 10\^{}\{6\}\textbackslash) with
+\textbackslash(\textbackslash sigma\_G \textbackslash geq 3.69
+\textbackslash times 10\^{}\{-4\}\textbackslash). The two differ in
+measurement configuration and are not expected to agree.
 
 \hypertarget{conclusion}{%
 \subsection{8. Conclusion}\label{conclusion}}
@@ -314,6 +333,19 @@ partners. The author provides full transparency on this process.
   \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
   exploration, thought experimentation, and early-stage hypothesis
   refinement.
+\item
+  \textbf{Space Bunny (OpenCode)} --- Verification and provenance
+  auditing. Read every paper and proof script in the repository and
+  traced each reported figure back to the script and line that produces
+  it. Independently recomputed the Fisher information matrices, the
+  Cramér--Rao bounds, and the parameter errors from the models as
+  stated. Resolved the origin of the Fisher information values quoted in
+  the unified and Theory-of-Everything papers, reconstructed the
+  two-parameter Fisher matrix in the statistical verification paper from
+  its sampling grid, and identified a mislabeled citation and a
+  statistical criterion stated more narrowly than the reported results
+  supported. No theoretical claim, numerical result, or interpretive
+  judgment in this body of work originated with this tool.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}

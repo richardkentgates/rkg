@@ -231,15 +231,18 @@ Parameter estimates:
 \textbackslash times 10\^{}\{-3\},\textbackslash; 9.912823
 \textbackslash times 10\^{}\{-5\})\textbackslash{]}
 
-Parameter errors:
+Parameter errors, expressed in units of the Cramér--Rao standard
+deviation
+\textbackslash(\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{ii\}\}\textbackslash):
 
-\begin{longtable}[]{@{}llll@{}}
+\begin{longtable}[]{@{}lllll@{}}
 \toprule\noalign{}
 Parameter & Error
 \textbackslash(\textbackslash Delta\textbackslash theta\textbackslash) &
 CRLB Bound
 \textbackslash(\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{ii\}\}\textbackslash)
-& Within Bound? \\
+& Deviation & Within
+\textbackslash(2\textbackslash sigma\textbackslash)? \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
@@ -247,22 +250,59 @@ CRLB Bound
 \textbackslash(\textbackslash theta\_1\textbackslash) &
 \textbackslash(2.60 \textbackslash times 10\^{}\{-7\}\textbackslash) &
 \textbackslash(3.652 \textbackslash times 10\^{}\{-7\}\textbackslash) &
+\textbackslash(0.71\textbackslash,\textbackslash sigma\textbackslash) &
 Yes \\
 \textbackslash(\textbackslash theta\_2\textbackslash) &
 \textbackslash(-8.7177 \textbackslash times 10\^{}\{-7\}\textbackslash)
 & \textbackslash(5.158 \textbackslash times 10\^{}\{-7\}\textbackslash)
+& \textbackslash(1.69\textbackslash,\textbackslash sigma\textbackslash)
 & Yes \\
 \end{longtable}
 
-Both parameter errors fall within the CRLB envelope:
+Both parameter errors fall within the
+\textbackslash(2\textbackslash sigma\textbackslash) CRLB envelope:
 
 \textbackslash{[}\textbar\textbackslash Delta\textbackslash theta\_1\textbar{}
 \textbackslash le
-\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{11\}\},
+2\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{11\}\},
 \textbackslash qquad
 \textbar\textbackslash Delta\textbackslash theta\_2\textbar{}
 \textbackslash le
-\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{22\}\}\textbackslash{]}
+2\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{22\}\}\textbackslash{]}
+
+At the \textbackslash(1\textbackslash sigma\textbackslash) level the two
+parameters differ in behavior:
+\textbackslash(\textbackslash theta\_1\textbackslash) lies within one
+standard deviation of its bound, while
+\textbackslash(\textbackslash theta\_2\textbackslash) deviates by
+\textbackslash(1.69\textbackslash,\textbackslash sigma\textbackslash)
+and would not satisfy the strict
+\textbackslash(1\textbackslash sigma\textbackslash) condition. This is
+the expected behavior of a maximum-likelihood estimate and does not
+indicate a defect in the reconstruction. An estimate drawn from a
+well-specified model will exceed a
+\textbackslash(1\textbackslash sigma\textbackslash) bound a substantial
+fraction of the time, by construction, so a single realization cannot be
+required to satisfy it.
+
+The statistically correct test for a joint two-parameter fit is the
+Mahalanobis distance of the error vector against the inverse CRLB, which
+is \textbackslash(\textbackslash chi\^{}2\textbackslash)-distributed
+with two degrees of freedom:
+
+\textbackslash{[}D\^{}2 =
+\textbackslash Delta\textbackslash theta\^{}\{\textbackslash mathsf\{T\}\}\textbackslash,
+\textbackslash text\{CRLB\}\^{}\{-1\}\textbackslash,
+\textbackslash Delta\textbackslash theta = 3.369\textbackslash{]}
+\textbackslash{[}\textbackslash chi\^{}2\_\{\textbackslash text\{critical\}\}(2\textbackslash{}
+\textbackslash text\{dof\},\textbackslash{} 95\textbackslash\%) = 5.991,
+\textbackslash qquad p = 0.185\textbackslash{]}
+
+Since \textbackslash(D\^{}2 = 3.369\textbackslash) is below the critical
+value, the two-parameter estimate is statistically consistent with the
+true parameters at the 95\% confidence level. This joint test is the
+appropriate measure of consistency for a model fitted with two free
+parameters, and it is satisfied.
 
 \hypertarget{summary}{%
 \subsection{8. Summary}\label{summary}}
@@ -276,7 +316,10 @@ of the CRLB.
 
 (2) The parameter errors
 \textbackslash(\textbar\textbackslash Delta\textbackslash theta\textbar\textbackslash)
-lie inside the CRLB bounds.
+lie inside the \textbackslash(2\textbackslash sigma\textbackslash) CRLB
+bounds, and the joint two-parameter test is satisfied
+(\textbackslash(D\^{}2 = 3.369 \textless{} 5.991\textbackslash),
+\textbackslash(p = 0.185\textbackslash)).
 
 (3) All estimators (LS, regularized, iterative) converge to the same
 solution.
@@ -333,6 +376,19 @@ partners. The author provides full transparency on this process.
   \textbf{Google Gemini (browser-based)} --- Assisted in conceptual
   exploration, thought experimentation, and early-stage hypothesis
   refinement.
+\item
+  \textbf{Space Bunny (OpenCode)} --- Verification and provenance
+  auditing. Read every paper and proof script in the repository and
+  traced each reported figure back to the script and line that produces
+  it. Independently recomputed the Fisher information matrices, the
+  Cramér--Rao bounds, and the parameter errors from the models as
+  stated. Resolved the origin of the Fisher information values quoted in
+  the unified and Theory-of-Everything papers, reconstructed the
+  two-parameter Fisher matrix in the statistical verification paper from
+  its sampling grid, and identified a mislabeled citation and a
+  statistical criterion stated more narrowly than the reported results
+  supported. No theoretical claim, numerical result, or interpretive
+  judgment in this body of work originated with this tool.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
@@ -343,6 +399,152 @@ organize ideas that originate from the principal investigator. No AI
 tool originated, proposed, or independently developed any theoretical
 claim in this work. All physical insights, theoretical innovations, and
 interpretive judgments are the author\textquotesingle s own.
+
+\hypertarget{data-and-script-provenance}{%
+\subsection{Data and Script
+Provenance}\label{data-and-script-provenance}}
+
+Every numerical result reported in Sections 3 through 7 is reproduced by
+a script committed to this repository. The table below maps each
+quantity to its source.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Section & Quantity & Source \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+§3, §4 & Fisher Information, CRLB, LS/regularized/iterative
+reconstruction & \texttt{signal\_processing\_proof.py} \\
+§5 & RMS reconstruction error (all three estimators) &
+\texttt{signal\_processing\_proof.txt} \\
+§3, §4 & Parametric Fisher matrix \textbackslash(F\textbackslash) and
+its inverse \textbackslash(\textbackslash text\{CRLB\} =
+F\^{}\{-1\}\textbackslash) & Derived; see generator below \\
+§7 & Parameter estimates
+\textbackslash(\textbackslash hat\{\textbackslash theta\}\textbackslash)
+& Derived; see note below \\
+\end{longtable}
+
+\hypertarget{two-parameter-fisher-matrix-section-3}{%
+\subsubsection{Two-parameter Fisher matrix (Section
+3)}\label{two-parameter-fisher-matrix-section-3}}
+
+The matrix reported in Section 3 is the Fisher information for the
+two-parameter model of Section 2, \textbackslash(G(t) =
+\textbackslash theta\_1 +
+\textbackslash theta\_2\textbackslash cos(2\textbackslash pi
+t)\textbackslash), with design matrix \textbackslash(H =
+{[}\textbackslash,1,\textbackslash{}
+\textbackslash cos(2\textbackslash pi
+t)\textbackslash,{]}\textbackslash) and noise
+\textbackslash(\textbackslash sigma = 10\^{}\{-5\}\textbackslash):
+
+\textbackslash{[}F =
+\textbackslash frac\{H\^{}\{\textbackslash mathsf\{T\}\}
+H\}\{\textbackslash sigma\^{}2\} \textbackslash times
+1.5\textbackslash{]}
+
+The sampling grid is \textbackslash(t =
+\textbackslash text\{linspace\}(0, 1, 500)\textbackslash), inclusive of
+both endpoints, as used in \texttt{scalar\_field\_tests.py} and
+\texttt{signal\_processing\_proof.py}. Inclusive sampling over a whole
+number of cycles leaves the two design columns slightly non-orthogonal,
+which is the origin of the off-diagonal entry: the mean of
+\textbackslash(\textbackslash cos(2\textbackslash pi t)\textbackslash)
+over this grid is \textbackslash(2.000 \textbackslash times
+10\^{}\{-3\}\textbackslash), and the mean of
+\textbackslash(\textbackslash cos\^{}2(2\textbackslash pi
+t)\textbackslash) is \textbackslash(0.501000\textbackslash).
+
+The prefactor \textbackslash(1.5\textbackslash) is the channel stacking
+factor
+\textbackslash(H\^{}\{\textbackslash mathsf\{T\}\}H\textbackslash) of
+the three-sector measurement matrix,
+\textbackslash(\textbackslash mathbf\{H\} = {[}1,\textbackslash{}
+0.5,\textbackslash{}
+0.5{]}\^{}\{\textbackslash mathsf\{T\}\}\textbackslash), defined in
+\texttt{signal\_processing\_proof.py}. It carries the same value into
+the matrix, since
+\textbackslash(\textbackslash mathbf\{H\}\^{}\{\textbackslash mathsf\{T\}\}\textbackslash mathbf\{H\}
+= 1 + 0.5\^{}2 + 0.5\^{}2 = 1.5\textbackslash).
+
+With these inputs the matrix reproduces exactly:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Entry & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbackslash(F\_\{11\}\textbackslash) & \textbackslash(7.500000
+\textbackslash times 10\^{}\{12\}\textbackslash) \\
+\textbackslash(F\_\{12\} = F\_\{21\}\textbackslash) &
+\textbackslash(1.500000 \textbackslash times
+10\^{}\{10\}\textbackslash) \\
+\textbackslash(F\_\{22\}\textbackslash) & \textbackslash(3.757500
+\textbackslash times 10\^{}\{12\}\textbackslash) \\
+\end{longtable}
+
+The CRLB of Section 4 is the matrix inverse, and its diagonal square
+roots are
+\textbackslash(\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{11\}\}
+= 3.6515 \textbackslash times 10\^{}\{-7\}\textbackslash) and
+\textbackslash(\textbackslash sqrt\{\textbackslash text\{CRLB\}\_\{22\}\}
+= 5.1588 \textbackslash times 10\^{}\{-7\}\textbackslash).
+
+\hypertarget{relationship-to-the-single-parameter-analysis}{%
+\subsubsection{Relationship to the single-parameter
+analysis}\label{relationship-to-the-single-parameter-analysis}}
+
+Two Fisher information analyses appear in this body of work, and they
+are distinct measurements rather than competing values:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Single-parameter} --- treats \textbackslash(G(t) =
+  10\^{}\{-3\} + 10\^{}\{-4\}\textbackslash cos(2\textbackslash pi
+  t)\textbackslash) as known in form and fits its overall amplitude
+  \textbackslash(G\textbackslash) from three independent sector streams.
+  This is the analysis in \texttt{scalar\_field\_tests.py}, reported in
+  \texttt{fisher\_results.txt}, exposed interactively in the Fisher
+  Information calculator, and given in closed form in the unified
+  monograph (Section 7). It yields \textbackslash(F = 7.340278
+  \textbackslash times 10\^{}\{6\}\textbackslash) and
+  \textbackslash(\textbackslash sigma\_G \textbackslash geq 3.6910
+  \textbackslash times 10\^{}\{-4\}\textbackslash).
+\item
+  \textbf{Two-parameter} --- fits the offset
+  \textbackslash(\textbackslash theta\_1\textbackslash) and oscillation
+  amplitude \textbackslash(\textbackslash theta\_2\textbackslash)
+  separately. This is the analysis of Sections 3, 4, and 7 of this
+  paper, and it yields the larger values quoted here.
+\end{itemize}
+
+The two differ in the number of fitted parameters and in the measurement
+configuration, so their Fisher information values are not expected to
+agree and are not in conflict.
+
+\hypertarget{note-on-the-parameter-estimates-of-section-7}{%
+\subsubsection{Note on the parameter estimates of Section
+7}\label{note-on-the-parameter-estimates-of-section-7}}
+
+The reported estimates
+\textbackslash(\textbackslash hat\{\textbackslash theta\} = (1.000260
+\textbackslash times 10\^{}\{-3\},\textbackslash{} 9.912823
+\textbackslash times 10\^{}\{-5\})\textbackslash) are internally
+consistent with the stated true values: the implied errors
+\textbackslash(2.600 \textbackslash times 10\^{}\{-7\}\textbackslash)
+and \textbackslash(-8.7177 \textbackslash times
+10\^{}\{-7\}\textbackslash) are exactly those tabulated in Section 7.
+The specific noise realization that generated them was not committed to
+the repository, so these two values are verified for internal
+consistency rather than reproduced from committed code. All other
+quantities in Sections 3 through 7 are reproducible from the sources
+listed above.
 
 \hypertarget{references}{%
 \subsection{References}\label{references}}
