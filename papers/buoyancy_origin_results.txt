@@ -1,0 +1,39 @@
+# Inverted Buoyancy Origin: Numerical Verification
+# Motion Postulate: a = c^2 d(dtau/dt)/dr, at the body location
+# Test body: M = 5.9720e+24 kg   evaluated at r = 6.3710e+06 m
+#
+# CLAIM 1  GRADIENT OF THE MEDIUM GIVES a = GM/r^2
+#   dtau/dt at r          = 9.99999999303958442e-01
+#   weak-field GM/(rc^2)  = 6.960415e-10
+#   numeric gradient      = 1.092515317111e-16 1/s
+#   analytic gradient     = 1.092515316283e-16 1/s
+#   a from gradient       = 9.8195320403 m/s^2
+#   analytic GM/r^2       = 9.8195320328 m/s^2
+#   relative error        = 7.580e-10
+#   non-linearization     = 6.960e-10 relative
+#   RESULT: PASS
+#
+# CLAIM 2  COUPLING INDEPENDENT OF COMPOSITION
+#   gradient at r          = 2.731288e-17 1/s (r = 1.2742e+07 m)
+#   hydrogen (H2)        rho=8.9900e-08  a=2.7312882907e-17 1/s
+#   water (H2O)          rho=1.0000e+03  a=2.7312882907e-17 1/s
+#   silicate rock        rho=2.5000e+03  a=2.7312882907e-17 1/s
+#   iron core            rho=7.8700e+03  a=2.7312882907e-17 1/s
+#   lead                 rho=1.3400e+04  a=2.7312882907e-17 1/s
+#   degenerate matter    rho=1.0000e+12  a=2.7312882907e-17 1/s
+#   spread across bodies  = 0.000e+00
+#   RESULT: PASS
+#
+# SCOPE
+#   Geometry and algebra of the gradient-following origin only. Does
+#   not address the five-sector extension, the derivation of the
+#   entropy arrow, any anomaly dataset, or coupling magnitudes.
+#
+# CHECKS: 2/2 PASS
+#
+# FORMULATION NOTE
+#   The Motion Postulate is a gradient-following rule evaluated at the
+#   body's location. No volume integral over the body is posited, so no
+#   extended-body force law or shell theorem is claimed or tested.
+#   Inverted buoyancy is the intuition for the direction and sign of the
+#   gradient, not the mechanism.

@@ -84,6 +84,9 @@
 
   <!-- Papers (PDF) -->
   <url>
+    <loc>https://richardkentgates.com/papers/buoyancy-origin.html</loc>
+  </url>
+  <url>
     <loc>https://richardkentgates.com/papers/theory-of-everything.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -174,6 +177,18 @@
     <loc>https://richardkentgates.com/papers/unified-scalar-time-gradient-field.tex</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://richardkentgates.com/papers/buoyancy-origin.pdf</loc>
+  </url>
+  <url>
+    <loc>https://richardkentgates.com/papers/buoyancy-origin.tex</loc>
+  </url>
+  <url>
+    <loc>https://richardkentgates.com/papers/buoyancy_origin.py</loc>
+  </url>
+  <url>
+    <loc>https://richardkentgates.com/papers/buoyancy_origin_results.txt</loc>
   </url>
   <url>
     <loc>https://richardkentgates.com/papers/blackhole-lifecycle.tex</loc>

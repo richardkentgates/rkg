@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="citation_title" content="The Inverted Buoyancy Origin of the Time-Gradient Field">
+  <meta name="citation_author" content="Gates, Richard Kent">
+  <meta name="citation_author_institution" content="Independent Researcher">
+  <meta name="citation_publication_date" content="2026/09/28">
+  <meta name="citation_journal_title" content="Independent Research">
+  <meta name="citation_pdf_url" content="https://richardkentgates.com/papers/buoyancy-origin.pdf">
+  <meta name="citation_abstract" content="A clarification of the origin of the time-gradient field model. Gravity is treated as a directional bias rather than a force: an object accelerates along the local gradient of the proper-time rate, following the Motion Postulate. Inverted buoyancy supplies the intuition for the sign of that gradient, since ordinary buoyancy carries a body toward less dense medium while gravity carries it toward slower time. Two properties of this origin are verified numerically. First, the gradient of the proper-time rate reproduces Newtonian acceleration, with relative error below 10 to the minus 9 and no measurable contribution from weak-field linearization at planetary radii. Second, the coupling carries no compositional information, so bodies differing in density by twenty orders of magnitude experience identical acceleration and the equivalence principle holds exactly. The second property makes any composition dependence in the sector coupling a measured deviation from a principled baseline rather than a parameter fitted to data. The paper addresses the geometry and algebra of the origin only. It does not address the extension to the non-gravitational sectors, the derivation of the entropy arrow as the direction of the gradient, or any anomaly dataset.">
+  <title>The Inverted Buoyancy Origin of the Time-Gradient Field</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.8;
+      color: #1a1a1a;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #fafafa;
+    }
+    .paper {
+      background: #fff;
+      padding: 60px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    h1 {
+      font-size: 1.6em;
+      text-align: center;
+      margin-bottom: 0.3em;
+    }
+    .subtitle {
+      text-align: center;
+      color: #555;
+      font-size: 0.95em;
+      margin-bottom: 0.2em;
+    }
+    .author {
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 0.2em;
+    }
+    .date {
+      text-align: center;
+      color: #666;
+      font-size: 0.9em;
+      margin-bottom: 2em;
+    }
+    h2 {
+      font-size: 1.2em;
+      margin-top: 2em;
+      margin-bottom: 0.6em;
+      color: #222;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.2em;
+    }
+    .eq-block {
+      font-family: 'Georgia', serif;
+      margin: 0.8em 0;
+      padding: 0.6em 1em;
+      background: #f8f8f8;
+      border-left: 3px solid #2d8cf0;
+    }
+    .note {
+      font-size: 0.85em;
+      color: #666;
+      margin-bottom: 0.3em;
+    }
+    table {
+      border-collapse: collapse;
+      margin: 1em 0;
+      width: auto;
+      border: 1px solid #ccc;
+    }
+    th, td {
+      padding: 6px 14px;
+      text-align: center;
+      border: 1px solid #ddd;
+    }
+    th {
+      background: #f0f7ff;
+      border: 1px solid #b8d4f0;
+    }
+    .pass {
+      color: #0a7d28;
+      font-weight: 600;
+    }
+    .scope {
+      background: #f8f8f8;
+      border: 1px solid #e4eaf4;
+      border-radius: 6px;
+      padding: 1.2em;
+      margin: 1.5em 0;
+    }
+    a.back {
+      display: block;
+      text-align: center;
+      margin-top: 2em;
+      color: #2d8cf0;
+      text-decoration: none;
+    }
+    @media print {
+      body { background: #fff; padding: 0; }
+      .paper { box-shadow: none; padding: 0; }
+    }
+  </style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ScholarlyArticle",
+  "name": "The Inverted Buoyancy Origin of the Time-Gradient Field",
+  "author": {
+    "@type": "Person",
+    "name": "Richard Kent Gates",
+    "email": "mail@richardkentgates.com",
+    "affiliation": "Independent Researcher"
+  },
+  "datePublished": "September 28, 2026",
+  "description": "A clarification of the origin of the time-gradient field model, in which gravity is a directional bias along the local gradient of the proper-time rate. Two properties of this origin are verified numerically: the gradient reproduces Newtonian acceleration, and the coupling is independent of composition.",
+  "keywords": [
+    "time-gradient field",
+    "scalar field G(t)",
+    "motion postulate",
+    "equivalence principle"
+  ]
+}
+</script>
+</head>
+<body>
+<div class="paper">
+
+<h1>The Inverted Buoyancy Origin of the Time-Gradient Field</h1>
+<p class="subtitle">Gravity as directional bias, not force</p>
+<p class="author">Richard Kent Gates</p>
+<p class="author">mail@richardkentgates.com</p>
+<p class="date">September 28, 2026</p>
+
+<h2>1. Purpose</h2>
+<p>
+The Time-Gradient Field Model is stated across this body of work in terms of three
+postulates: a Field Postulate, a Motion Postulate, and an Efficiency Postulate. Those
+postulates carry the theory. The question of where they come from, and what the
+underlying picture of gravity is, has been implicit rather than stated. This paper
+supplies that statement and verifies the two properties of it that are checkable
+without new data.
+</p>
+<p>
+The origin is an inverted buoyancy. An object in a medium with a density gradient
+drifts toward the less dense region, because it displaces medium and the displaced
+medium has a net weight. Gravity runs the opposite way: matter moves toward
+<em>slower</em> time, not faster. Read the proper-time rate as the density of a
+medium, and the sign inverts. This is the intuition that motivates the Motion
+Postulate and fixes its direction. It is not the mechanism, and this paper does not
+treat it as one.
+</p>
+
+<h2>2. The Motion Postulate as a gradient rule</h2>
+<p>
+The formulation that the papers actually use is a gradient-following rule, stated
+in <em>Mathematical Verification of the Time-Gradient Field Model</em> as follows:
+</p>
+<p class="note">
+"This is not a force but a directional bias from the gradient &part;&Phi;/&part;x."
+</p>
+<p>
+An object accelerates along the local gradient of the time field, evaluated at the
+object's own location. There is no force term, and no integral over the body's
+volume. This distinction is not cosmetic. A volume integral over an extended body
+would raise the question of how the body's internal mass distribution affects the
+result, and that question does not arise here, because the response is local.
+</p>
+<p>
+For a spherical source of mass \(M\), the proper-time rate is
+</p>
+<div class="eq-block">
+\[\frac{d\tau}{dt} = \sqrt{1 - \frac{2GM}{rc^2}}\]
+</div>
+<p>
+so the gradient at radius \(r\) is
+</p>
+<div class="eq-block">
+\[\frac{\partial (d\tau/dt)}{\partial r} \approx \frac{GM}{r^2 c^2}\]
+</div>
+<p>
+and the acceleration, restoring the factor \(c^2\) that converts a rate of change
+of a time ratio into an acceleration, is
+</p>
+<div class="eq-block">
+\[a = c^2 \frac{\partial (d\tau/dt)}{\partial r} = \frac{GM}{r^2}\]
+</div>
+<p>
+This is Newtonian acceleration, recovered identically rather than approximately,
+because \(d\tau/dt\) already contains \(GM/r^2\). The analogy does not need to
+approximate the inverse-square law; the law is a restatement of the gradient.
+</p>
+
+<h2>3. Verification</h2>
+<p>
+Both properties below are computed in <code>buoyancy_origin.py</code>, which writes
+<code>buoyancy_origin_results.txt</code>. Neither requires new data: both are
+algebraic and geometric consequences of the prescription.
+</p>
+
+<h3>3.1 The gradient reproduces Newtonian acceleration</h3>
+<p>
+Evaluating the gradient numerically by central difference and comparing against
+\(GM/r^2\), at the Earth's surface:
+</p>
+<table>
+  <tr><th>Quantity</th><th>Value</th></tr>
+  <tr><td>\(d\tau/dt\) at \(r = 6.371\times10^6\) m</td><td>\(9.99999999304\times10^{-1}\)</td></tr>
+  <tr><td>Weak-field parameter \(GM/(rc^2)\)</td><td>\(6.960\times10^{-10}\)</td></tr>
+  <tr><td>Numerical gradient</td><td>\(1.092515317\times10^{-16}\) s\(^{-1}\)</td></tr>
+  <tr><td>Analytic gradient</td><td>\(1.092515316\times10^{-16}\) s\(^{-1}\)</td></tr>
+  <tr><td>Acceleration from gradient</td><td>\(9.8195320403\) m s\(^{-2}\)</td></tr>
+  <tr><td>Analytic \(GM/r^2\)</td><td>\(9.8195320328\) m s\(^{-2}\)</td></tr>
+  <tr><td>Relative error</td><td>\(7.580\times10^{-10}\)</td></tr>
+  <tr><td>Result</td><td class="pass">PASS</td></tr>
+</table>
+<p>
+The weak-field linearization of \(d\tau/dt\) introduces no measurable error at
+planetary radii: the linearized and exact gradients differ by \(6.960\times10^{-10}\)
+in relative terms, the same order as the parameter itself.
+</p>
+<p class="note">
+Implementation note. The quantity \(1 - d\tau/dt\) must be evaluated as
+\(x/(1 + \sqrt{1-x})\) with \(x = 2GM/(rc^2)\). The naive form \(1 - \sqrt{1-x}\)
+subtracts two numbers near unity whose difference is of order \(10^{-9}\), which
+discards most of the available significant figures and returns zero under
+double-precision arithmetic.
+</p>
+
+<h3>3.2 The coupling carries no compositional information</h3>
+<p>
+The time field is a property of the source mass. It contains no information about
+the material of the body responding to it. An object therefore follows the same
+gradient regardless of what it is made of, and the acceleration depends on the
+medium, not on the body. Evaluating the gradient at a single radius for bodies
+spanning twenty orders of magnitude in density:
+</p>
+<table>
+  <tr><th>Body</th><th>Density (kg m\(^{-3}\))</th><th>Mean \(Z\)</th><th>Acceleration (s\(^{-1}\))</th></tr>
+  <tr><td>Hydrogen (H<sub>2</sub>)</td><td>\(8.99\times10^{-8}\)</td><td>0.1</td><td>\(2.7312882907\times10^{-17}\)</td></tr>
+  <tr><td>Water (H<sub>2</sub>O)</td><td>\(1.00\times10^{3}\)</td><td>18.0</td><td>\(2.7312882907\times10^{-17}\)</td></tr>
+  <tr><td>Silicate rock</td><td>\(2.50\times10^{3}\)</td><td>67.1</td><td>\(2.7312882907\times10^{-17}\)</td></tr>
+  <tr><td>Iron core</td><td>\(7.87\times10^{3}\)</td><td>55.8</td><td>\(2.7312882907\times10^{-17}\)</td></tr>
+  <tr><td>Lead</td><td>\(1.34\times10^{4}\)</td><td>82.4</td><td>\(2.7312882907\times10^{-17}\)</td></tr>
+  <tr><td>Degenerate matter</td><td>\(1.00\times10^{12}\)</td><td>2.0</td><td>\(2.7312882907\times10^{-17}\)</td></tr>
+  <tr><th colspan="3">Spread across all compositions</th><th>\(0.000\times10^{0}\)</th></tr>
+  <tr><td colspan="3">Result</td><td class="pass">PASS</td></tr>
+</table>
+<p>
+The spread is exactly zero. The equivalence principle holds for the origin on its
+own terms, with no appeal to the equivalence principle as an input.
+</p>
+
+<h2>4. Consequence for the sector coupling</h2>
+<p>
+The gravity-sector coupling in the synthesis is written
+</p>
+<div class="eq-block">
+\[c_g = \sum_i f_i \left( d_\alpha + \beta_i d_\mu \right)\]
+</div>
+<p>
+where \(f_i\) are material composition fractions and \(\beta_i\) are composition-dependent
+sensitivity coefficients. Section 3.2 establishes that the buoyancy origin alone
+predicts \(c_g = 0\) for the composition-dependent part, because the medium carries
+no compositional information. Any observed value of \(c_g\) that varies with
+composition is therefore a <em>measured deviation from a principled baseline</em>,
+not a parameter introduced to fit data.
+</p>
+<p>
+This is a stronger claim than a fit, and it is testable in a way a fit is not. A
+composition-independent result would be consistent with the origin. A
+composition-dependent result would require the deviation to be attributed to
+something the origin does not contain, and that something would be new physics with
+a specific place to attach.
+</p>
+
+<h2>5. What this paper does not establish</h2>
+<div class="scope">
+<p>
+<strong>The entropy arrow.</strong> The gradient picture supplies a direction from a
+gradient. It does not, by itself, supply a time asymmetry: the field equation is
+time-reversible, and reversibility is what allows the gradient to have a sign under
+time reversal. In the papers the entropy arrow is asserted as the origin of that
+sign. Establishing it is separate work, not verification of an existing claim, and it
+is the most consequential open item in the framework.
+</p>
+<p>
+<strong>The non-gravitational sectors.</strong> The buoyancy origin yields gravity. It
+does not by itself yield the decay-rate coupling, the fine-structure variation, or
+the mass-ratio variation. The unified correction law
+\(X_{\text{eff}} = X_0(1 + c_X G)\) is a postulate laid across the sectors, not a
+consequence of the gradient picture. Whether one field can serve all sectors is the
+central open question, and this paper does not address it.
+</p>
+<p>
+<strong>Datasets.</strong> No anomaly measurement is used, fitted, or checked here. The
+evidence base is documented in the companion papers on the time-gradient field model
+and its statistical verification.
+</p>
+</div>
+
+<h2>6. Conclusion</h2>
+<p>
+Gravity in this framework is a directional bias along the local gradient of
+proper-time rate, not a force. Inverted buoyancy supplies the intuition for its sign:
+ordinary buoyancy carries a body toward less dense medium, gravity carries matter
+toward slower time, so the sign inverts while the mechanism of a density gradient
+carrying a body with it does not.
+</p>
+<p>
+Two properties of this origin are verified numerically. The gradient of the
+proper-time rate reproduces Newtonian acceleration to a relative error below
+\(10^{-9}\), with no measurable contribution from linearization at planetary radii.
+The coupling is independent of composition, so the equivalence principle holds
+exactly and composition dependence in \(c_g\) becomes a measurable deviation rather
+than a fitted parameter.
+</p>
+
+<p class="author"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>
+
+</div>
+</body>
+</html>

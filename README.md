@@ -64,6 +64,7 @@ The `papers/` directory contains the Unified Scalar Time-Gradient Field Theory r
 | entanglement-formalization | Entanglement, frame dragging, GWs in the G(t) framework |
 | time-gradient-field-model | Decay-rate and lifetime anomalies |
 | temporal-gradient-gravity-proposal | Gravity as a pure temporal gradient |
+| buoyancy-origin | Clarifies the gravity origin: directional bias along the time gradient, with two numerically verified properties |
 | time_gradient_verification | Independent verification from experimental data |
 | statistical-verification | Fisher Information and Cramer-Rao closure |
 | unified-scalar-field-consistency | Cross-sector unification proof |
@@ -89,12 +90,14 @@ Python scripts (NumPy only, no external dependencies) and their tab-separated ou
 |---|---|
 | `scalar_field_tests.py` | `forward_results.txt`, `backward_results.txt`, `fisher_results.txt` |
 | `signal_processing_proof.py` | `signal_processing_proof.txt` |
+| `buoyancy_origin.py` | `buoyancy_origin_results.txt` |
 | `foundation_proof.py` | `foundation_proof_results.txt` |
 | `unified_proof.py` | `unified_proof_results.txt` |
 | `theory_of_everything.py` | `theory_of_everything_results.txt` |
 | `blackhole_lifecycle.py` | `blackhole_lifecycle_results.txt` |
 | `renormalization_proof.py` | `renormalization_proof_results.txt` |
 | `entanglement_formalization.py` | `entanglement_formalization_results.txt` |
+| `statistical_verification.py` | `statistical_verification_results.txt` |
 
 ## CI/CD
 
@@ -124,7 +127,7 @@ All badges share `labelColor=6B7280` (gray) for the left label panel.
 `index.html` includes JSON-LD schema.org markup:
 - `Person` — author identity and contact
 - `WebSite` — site metadata
-- `ScholarlyArticle` — one entry per paper (11 total)
+- `ScholarlyArticle` — one entry per paper (12 total)
 - `SoftwareSourceCode` — one entry per open source project (6 total)
 
 ## Design
