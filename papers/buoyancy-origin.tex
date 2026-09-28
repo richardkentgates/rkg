@@ -1,0 +1,345 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{the-inverted-buoyancy-origin-of-the-time-gradient-field}{%
+\section{The Inverted Buoyancy Origin of the Time-Gradient
+Field}\label{the-inverted-buoyancy-origin-of-the-time-gradient-field}}
+
+Gravity as directional bias, not force
+
+Richard Kent Gates
+
+mail@richardkentgates.com
+
+September 28, 2026
+
+\hypertarget{purpose}{%
+\subsection{1. Purpose}\label{purpose}}
+
+The Time-Gradient Field Model is stated across this body of work in
+terms of three postulates: a Field Postulate, a Motion Postulate, and an
+Efficiency Postulate. Those postulates carry the theory. The question of
+where they come from, and what the underlying picture of gravity is, has
+been implicit rather than stated. This paper supplies that statement and
+verifies the two properties of it that are checkable without new data.
+
+The origin is an inverted buoyancy. An object in a medium with a density
+gradient drifts toward the less dense region, because it displaces
+medium and the displaced medium has a net weight. Gravity runs the
+opposite way: matter moves toward \emph{slower} time, not faster. Read
+the proper-time rate as the density of a medium, and the sign inverts.
+This is the intuition that motivates the Motion Postulate and fixes its
+direction. It is not the mechanism, and this paper does not treat it as
+one.
+
+\hypertarget{the-motion-postulate-as-a-gradient-rule}{%
+\subsection{2. The Motion Postulate as a gradient
+rule}\label{the-motion-postulate-as-a-gradient-rule}}
+
+The formulation that the papers actually use is a gradient-following
+rule, stated in \emph{Mathematical Verification of the Time-Gradient
+Field Model} as follows:
+
+"This is not a force but a directional bias from the gradient ∂Φ/∂x."
+
+An object accelerates along the local gradient of the time field,
+evaluated at the object\textquotesingle s own location. There is no
+force term, and no integral over the body\textquotesingle s volume. This
+distinction is not cosmetic. A volume integral over an extended body
+would raise the question of how the body\textquotesingle s internal mass
+distribution affects the result, and that question does not arise here,
+because the response is local.
+
+For a spherical source of mass \textbackslash(M\textbackslash), the
+proper-time rate is
+
+\textbackslash{[}\textbackslash frac\{d\textbackslash tau\}\{dt\} =
+\textbackslash sqrt\{1 -
+\textbackslash frac\{2GM\}\{rc\^{}2\}\}\textbackslash{]}
+
+so the gradient at radius \textbackslash(r\textbackslash) is
+
+\textbackslash{[}\textbackslash frac\{\textbackslash partial
+(d\textbackslash tau/dt)\}\{\textbackslash partial r\}
+\textbackslash approx \textbackslash frac\{GM\}\{r\^{}2
+c\^{}2\}\textbackslash{]}
+
+and the acceleration, restoring the factor
+\textbackslash(c\^{}2\textbackslash) that converts a rate of change of a
+time ratio into an acceleration, is
+
+\textbackslash{[}a = c\^{}2 \textbackslash frac\{\textbackslash partial
+(d\textbackslash tau/dt)\}\{\textbackslash partial r\} =
+\textbackslash frac\{GM\}\{r\^{}2\}\textbackslash{]}
+
+This is Newtonian acceleration, recovered identically rather than
+approximately, because
+\textbackslash(d\textbackslash tau/dt\textbackslash) already contains
+\textbackslash(GM/r\^{}2\textbackslash). The analogy does not need to
+approximate the inverse-square law; the law is a restatement of the
+gradient.
+
+\hypertarget{verification}{%
+\subsection{3. Verification}\label{verification}}
+
+Both properties below are computed in \texttt{buoyancy\_origin.py},
+which writes \texttt{buoyancy\_origin\_results.txt}. Neither requires
+new data: both are algebraic and geometric consequences of the
+prescription.
+
+\hypertarget{the-gradient-reproduces-newtonian-acceleration}{%
+\subsubsection{3.1 The gradient reproduces Newtonian
+acceleration}\label{the-gradient-reproduces-newtonian-acceleration}}
+
+Evaluating the gradient numerically by central difference and comparing
+against \textbackslash(GM/r\^{}2\textbackslash), at the
+Earth\textquotesingle s surface:
+
+\begin{longtable}[]{@{}ll@{}}
+\toprule\noalign{}
+Quantity & Value \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbackslash(d\textbackslash tau/dt\textbackslash) at \textbackslash(r
+= 6.371\textbackslash times10\^{}6\textbackslash) m &
+\textbackslash(9.99999999304\textbackslash times10\^{}\{-1\}\textbackslash) \\
+Weak-field parameter \textbackslash(GM/(rc\^{}2)\textbackslash) &
+\textbackslash(6.960\textbackslash times10\^{}\{-10\}\textbackslash) \\
+Numerical gradient &
+\textbackslash(1.092515317\textbackslash times10\^{}\{-16\}\textbackslash)
+s\textbackslash(\^{}\{-1\}\textbackslash) \\
+Analytic gradient &
+\textbackslash(1.092515316\textbackslash times10\^{}\{-16\}\textbackslash)
+s\textbackslash(\^{}\{-1\}\textbackslash) \\
+Acceleration from gradient & \textbackslash(9.8195320403\textbackslash)
+m s\textbackslash(\^{}\{-2\}\textbackslash) \\
+Analytic \textbackslash(GM/r\^{}2\textbackslash) &
+\textbackslash(9.8195320328\textbackslash) m
+s\textbackslash(\^{}\{-2\}\textbackslash) \\
+Relative error &
+\textbackslash(7.580\textbackslash times10\^{}\{-10\}\textbackslash) \\
+Result & PASS \\
+\end{longtable}
+
+The weak-field linearization of
+\textbackslash(d\textbackslash tau/dt\textbackslash) introduces no
+measurable error at planetary radii: the linearized and exact gradients
+differ by
+\textbackslash(6.960\textbackslash times10\^{}\{-10\}\textbackslash) in
+relative terms, the same order as the parameter itself.
+
+Implementation note. The quantity \textbackslash(1 -
+d\textbackslash tau/dt\textbackslash) must be evaluated as
+\textbackslash(x/(1 + \textbackslash sqrt\{1-x\})\textbackslash) with
+\textbackslash(x = 2GM/(rc\^{}2)\textbackslash). The naive form
+\textbackslash(1 - \textbackslash sqrt\{1-x\}\textbackslash) subtracts
+two numbers near unity whose difference is of order
+\textbackslash(10\^{}\{-9\}\textbackslash), which discards most of the
+available significant figures and returns zero under double-precision
+arithmetic.
+
+\hypertarget{the-coupling-carries-no-compositional-information}{%
+\subsubsection{3.2 The coupling carries no compositional
+information}\label{the-coupling-carries-no-compositional-information}}
+
+The time field is a property of the source mass. It contains no
+information about the material of the body responding to it. An object
+therefore follows the same gradient regardless of what it is made of,
+and the acceleration depends on the medium, not on the body. Evaluating
+the gradient at a single radius for bodies spanning twenty orders of
+magnitude in density:
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule\noalign{}
+Body & Density (kg m\textbackslash(\^{}\{-3\}\textbackslash)) & Mean
+\textbackslash(Z\textbackslash) & Acceleration
+(s\textbackslash(\^{}\{-1\}\textbackslash)) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Hydrogen (H\textsubscript{2}) &
+\textbackslash(8.99\textbackslash times10\^{}\{-8\}\textbackslash) & 0.1
+&
+\textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
+Water (H\textsubscript{2}O) &
+\textbackslash(1.00\textbackslash times10\^{}\{3\}\textbackslash) & 18.0
+&
+\textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
+Silicate rock &
+\textbackslash(2.50\textbackslash times10\^{}\{3\}\textbackslash) & 67.1
+&
+\textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
+Iron core &
+\textbackslash(7.87\textbackslash times10\^{}\{3\}\textbackslash) & 55.8
+&
+\textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
+Lead & \textbackslash(1.34\textbackslash times10\^{}\{4\}\textbackslash)
+& 82.4 &
+\textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
+Degenerate matter &
+\textbackslash(1.00\textbackslash times10\^{}\{12\}\textbackslash) & 2.0
+&
+\textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
+\multicolumn{2}{@{}l}{%
+Spread across all compositions} &
+\textbackslash(0.000\textbackslash times10\^{}\{0\}\textbackslash) & \\
+\multicolumn{2}{@{}l}{%
+Result} & PASS & \\
+\end{longtable}
+
+The spread is exactly zero. The equivalence principle holds for the
+origin on its own terms, with no appeal to the equivalence principle as
+an input.
+
+\hypertarget{consequence-for-the-sector-coupling}{%
+\subsection{4. Consequence for the sector
+coupling}\label{consequence-for-the-sector-coupling}}
+
+The gravity-sector coupling in the synthesis is written
+
+\textbackslash{[}c\_g = \textbackslash sum\_i f\_i \textbackslash left(
+d\_\textbackslash alpha + \textbackslash beta\_i d\_\textbackslash mu
+\textbackslash right)\textbackslash{]}
+
+where \textbackslash(f\_i\textbackslash) are material composition
+fractions and \textbackslash(\textbackslash beta\_i\textbackslash) are
+composition-dependent sensitivity coefficients. Section 3.2 establishes
+that the buoyancy origin alone predicts \textbackslash(c\_g =
+0\textbackslash) for the composition-dependent part, because the medium
+carries no compositional information. Any observed value of
+\textbackslash(c\_g\textbackslash) that varies with composition is
+therefore a \emph{measured deviation from a principled baseline}, not a
+parameter introduced to fit data.
+
+This is a stronger claim than a fit, and it is testable in a way a fit
+is not. A composition-independent result would be consistent with the
+origin. A composition-dependent result would require the deviation to be
+attributed to something the origin does not contain, and that something
+would be new physics with a specific place to attach.
+
+\hypertarget{what-this-paper-does-not-establish}{%
+\subsection{5. What this paper does not
+establish}\label{what-this-paper-does-not-establish}}
+
+\textbf{The entropy arrow.} The gradient picture supplies a direction
+from a gradient. It does not, by itself, supply a time asymmetry: the
+field equation is time-reversible, and reversibility is what allows the
+gradient to have a sign under time reversal. In the papers the entropy
+arrow is asserted as the origin of that sign. Establishing it is
+separate work, not verification of an existing claim, and it is the most
+consequential open item in the framework.
+
+\textbf{The non-gravitational sectors.} The buoyancy origin yields
+gravity. It does not by itself yield the decay-rate coupling, the
+fine-structure variation, or the mass-ratio variation. The unified
+correction law \textbackslash(X\_\{\textbackslash text\{eff\}\} = X\_0(1
++ c\_X G)\textbackslash) is a postulate laid across the sectors, not a
+consequence of the gradient picture. Whether one field can serve all
+sectors is the central open question, and this paper does not address
+it.
+
+\textbf{Datasets.} No anomaly measurement is used, fitted, or checked
+here. The evidence base is documented in the companion papers on the
+time-gradient field model and its statistical verification.
+
+\hypertarget{conclusion}{%
+\subsection{6. Conclusion}\label{conclusion}}
+
+Gravity in this framework is a directional bias along the local gradient
+of proper-time rate, not a force. Inverted buoyancy supplies the
+intuition for its sign: ordinary buoyancy carries a body toward less
+dense medium, gravity carries matter toward slower time, so the sign
+inverts while the mechanism of a density gradient carrying a body with
+it does not.
+
+Two properties of this origin are verified numerically. The gradient of
+the proper-time rate reproduces Newtonian acceleration to a relative
+error below \textbackslash(10\^{}\{-9\}\textbackslash), with no
+measurable contribution from linearization at planetary radii. The
+coupling is independent of composition, so the equivalence principle
+holds exactly and composition dependence in
+\textbackslash(c\_g\textbackslash) becomes a measurable deviation rather
+than a fitted parameter.
+
+\href{https://richardkentgates.com/}{← richardkentgates.com}
+
+\end{document}
