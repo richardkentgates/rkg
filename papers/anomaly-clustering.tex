@@ -1,0 +1,246 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  10pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=0.75in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{english}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdflang={en},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\hypertarget{the-correlated-anomaly-observation}{%
+\section{The Correlated Anomaly
+Observation}\label{the-correlated-anomaly-observation}}
+
+Five independent measurement series, one fractional deviation band
+
+\hypertarget{the-observation}{%
+\subsection{1. The observation}\label{the-observation}}
+
+Measurements made in four laboratories by three independent groups,
+using four different detection techniques, over intervals from a single
+solar flare to fifteen years, report fractional deviations that fall in
+the same narrow band:
+
+\textbackslash{[}10\^{}\{-4\}
+\textbackslash;\textbackslash le\textbackslash;
+\textbackslash frac\{\textbackslash delta\textbackslash lambda\}\{\textbackslash lambda\_0\}
+\textbackslash;\textbackslash le\textbackslash;
+10\^{}\{-3\}\textbackslash{]}
+
+The series are unrelated to one another. They measure different
+isotopes, at different facilities, with different instruments, for
+different reasons. The shared quantity is the order of magnitude of the
+deviation, not its sign, its phase, or its period.
+
+\hypertarget{the-series}{%
+\subsection{2. The series}\label{the-series}}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule\noalign{}
+Series & Facility & Interval & Fitted
+\textbackslash(\textbackslash alpha\textbackslash) & Source \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbackslash(\^{}\{32\}\textbackslash mathrm\{Si\}\textbackslash)
+seasonal & Brookhaven & 1982--1986, four years & \textbackslash(7.9
+\textbackslash times 10\^{}\{-4\}\textbackslash) & Jenkins et al.
+2008 \\
+\textbackslash(\^{}\{36\}\textbackslash mathrm\{Cl\}\textbackslash)
+seasonal & Brookhaven & 1982--1986, four years & \textbackslash(6.2
+\textbackslash times 10\^{}\{-4\}\textbackslash) & Jenkins et al.
+2008 \\
+\textbackslash(\^{}\{226\}\textbackslash mathrm\{Ra\}\textbackslash)
+seasonal & PTB, Germany & 1983--1998, fifteen years & \textbackslash(8.3
+\textbackslash times 10\^{}\{-4\}\textbackslash) & Siegert et al.
+1998 \\
+\textbackslash(\^{}\{54\}\textbackslash mathrm\{Mn\}\textbackslash)
+solar flare transient & Purdue & 13 December 2006, hours &
+\textbackslash(2.5 \textbackslash times 10\^{}\{-3\}\textbackslash) &
+Jenkins \& Fischbach 2009 \\
+\textbackslash(\^{}\{32\}\textbackslash mathrm\{Si\}\textbackslash)/\textbackslash(\^{}\{36\}\textbackslash mathrm\{Cl\}\textbackslash)
+amplitude & Brookhaven & 239 data points & \textbackslash(7.9(3)
+\textbackslash times 10\^{}\{-4\}\textbackslash) & Jenkins et al.
+2008 \\
+\end{longtable}
+
+Fitted coupling \textbackslash(\textbackslash alpha\textbackslash) under
+the model of the time-gradient field. The Brookhaven series additionally
+reports an annual oscillation of \textbackslash(7.9(3)
+\textbackslash times 10\^{}\{-4\}\textbackslash) with a 35(2) day phase
+shift, a correlation of \textbackslash(r = 0.52\textbackslash) against
+\textbackslash(1/R\^{}2\textbackslash), and a formal probability of
+random correlation \textbackslash(p = 6 \textbackslash times
+10\^{}\{-18\}\textbackslash). The
+\textbackslash(\^{}\{54\}\textbackslash mathrm\{Mn\}\textbackslash)
+transient preceded electromagnetic arrival by 36--40 hours.
+
+\hypertarget{what-the-values-share}{%
+\subsection{3. What the values share}\label{what-the-values-share}}
+
+The four fitted couplings span \textbackslash(6.2 \textbackslash times
+10\^{}\{-4\}\textbackslash) to \textbackslash(2.5 \textbackslash times
+10\^{}\{-3\}\textbackslash), a range of four. Across different isotopes,
+different facilities, and different physical circumstances, they agree
+to within an order of magnitude.
+
+No isotope-specific parameter was introduced to achieve this. The model
+form is fixed in advance:
+
+\textbackslash{[}\textbackslash lambda\_\{\textbackslash mathrm\{eff\}\}(t)
+= \textbackslash lambda\_0 \textbackslash left( 1 + \textbackslash alpha
+\textbackslash, G(t) \textbackslash right)\textbackslash{]}
+
+with a single coupling
+\textbackslash(\textbackslash alpha\textbackslash) per isotope and a
+field \textbackslash(G(t)\textbackslash) of order
+\textbackslash(10\^{}\{-3\}\textbackslash). The agreement across the
+four series is therefore a constraint on the model form, not a
+consequence of fitting freedom in it.
+
+\hypertarget{reported-frequencies}{%
+\subsection{4. Reported frequencies}\label{reported-frequencies}}
+
+Power-spectrum analysis of the Brookhaven data by Sturrock et al. (2010)
+reports the annual frequency at greater than
+\textbackslash(5\textbackslash sigma\textbackslash), a 33-day frequency
+at greater than \textbackslash(5\textbackslash sigma\textbackslash), and
+a 12.5-year frequency at greater than
+\textbackslash(3\textbackslash sigma\textbackslash). The 33-day period
+corresponds to the solar core rotation rate; the 12.5-year frequency
+corresponds to solar r-mode oscillations.
+
+\hypertarget{companion-series-in-other-domains}{%
+\subsection{5. Companion series in other
+domains}\label{companion-series-in-other-domains}}
+
+The same band appears in two non-nuclear series, reported in the same
+corpus:
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Series & Fractional deviation & Basis \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Lunar Mascon residuals & \textbackslash(10\^{}\{-4\}\textbackslash) to
+\textbackslash(10\^{}\{-3\}\textbackslash) & Residual after standard
+spherical-harmonic modelling \\
+Apollo navigation residuals & \textbackslash(10\^{}\{-4\}\textbackslash)
+to \textbackslash(10\^{}\{-3\}\textbackslash) & Velocity and guidance
+residuals on deep-space legs \\
+\end{longtable}
+
+\hypertarget{scope-of-this-page}{%
+\subsection{6. Scope of this page}\label{scope-of-this-page}}
+
+This page records an observation: that five independent measurement
+series report deviations of the same fractional magnitude. It does not
+claim a mechanism, and it does not present the field interpretation.
+
+Every value above is quoted from published measurements or from the
+companion papers in this body of work, with the source named in each
+row. The interpretation of these deviations as a response to a scalar
+field is developed separately, in the time-gradient field model and its
+verification papers, and is not required to read this page.
+
+\hypertarget{sources}{%
+\subsection{7. Sources}\label{sources}}
+
+{[}1{]} Jenkins, J.H. et al. "Evidence of Correlations between Nuclear
+Decay Rates and the Earth-Sun Distance." \emph{Nuclear Physics A},
+807(1--2), 81--101, 2008.
+
+{[}2{]} Siegert, H., Schrader, H., and Schötzig, U. "Half-Life
+Measurements of the Ra-226 Alpha Decay." \emph{Applied Radiation and
+Isotopes}, 49(9--11), 1397--1401, 1998.
+
+{[}3{]} Jenkins, J.H. and Fischbach, E. "Perturbation of Nuclear Decay
+Rates during the Solar Flare of 2006 December 13." \emph{Nuclear Physics
+A}, 825(1--4), 101--108, 2009.
+
+{[}4{]} Sturrock, P.A., Buncher, J.B., Fischbach, E., Gruenwald, J.T.,
+Javorsek, D., Jenkins, J.H. "Power Spectrum Analysis of BNL Decay-Rate
+Data." \emph{Astrophysics and Space Science}, 2010.
+
+Full derivations, fitted parameters, and verification:
+\href{https://richardkentgates.com/papers/time-gradient-field-model.html}{Time-Gradient
+Field Model} and
+\href{https://richardkentgates.com/papers/time_gradient_verification.html}{Mathematical
+Verification of the Time-Gradient Field Model}.
+
+\href{https://richardkentgates.com/}{← richardkentgates.com}
+
+\end{document}
