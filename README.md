@@ -97,7 +97,6 @@ Python scripts (NumPy only, no external dependencies) and their tab-separated ou
 | `blackhole_lifecycle.py` | `blackhole_lifecycle_results.txt` |
 | `renormalization_proof.py` | `renormalization_proof_results.txt` |
 | `entanglement_formalization.py` | `entanglement_formalization_results.txt` |
-| `statistical_verification.py` | `statistical_verification_results.txt` |
 
 ## CI/CD
 
