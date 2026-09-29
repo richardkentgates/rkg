@@ -5,9 +5,12 @@
 # K/V = 0.08108
 # V0 = 5.973180e-27 kg/m^3 = 0.7 rho_crit
 # rho_crit = 8.533115e-27 kg/m^3
-# background field G_bg = 1.0e-03
-# MICROSCOPE bound c_g < 1.0e-02
-# adopted c_g = 1.0e-02
+# c_g is NOT bounded by MICROSCOPE. MICROSCOPE is a differential test
+# between two test masses in the same field, so a coupling universal
+# across materials cancels in the ratio. Only the composition-dependent
+# part is bounded, and that part is zero by construction.
+# c_g is therefore unbounded from above; values below survey the family.
+# illustrative c_g for the integration = 1.0e+00
 #
 # TIME-GRADIENT FIELD  G = 1/(2x sqrt(1-1/x)),  x = r/r_s
 # r/r_s	G
@@ -34,10 +37,11 @@
 2.000e+00	1.61803399	6.180340e-01
 5.000e+00	3.04950976	2.049510e+00
 #
-# adopted c_g = 1.0e-02
-# r_freeze = 1.00002500 r_s  (2.500e-05 r_s outside horizon)
-# G at freeze-out = 1.0000e+02
-# numerical free-fall stalled at r = 1.00002500 r_s
+# illustrative c_g = 1.0e+00 (family survey, not a measurement)
+# r_freeze = 1.20710678 r_s  (2.071e-01 r_s outside horizon)
+# G at freeze-out = 1.0000e+00
+# x_freeze > 1 for ALL c_g > 0. No standoff distance is predicted.
+# numerical free-fall stalled at r = 1.20710678 r_s
 #
 # BOUNCE  rho_G + 3P_G = -2 V(phi) < 0 for all V0 > 0
 #
@@ -49,15 +53,15 @@
 # content of what collapsed, preserved in full; a mass is a classical
 # description of that content, not a quantity the remnant carries.
 #
-# CHECKS: 9/9 PASS
+# CHECKS: 8/9 PASS
 # [PASS] Background field from DESI energy split :: K/V = 0.0811, V0 = 0.7 rho_crit
 # [PASS] Time-gradient field diverges at r_s :: G(1.0001 r_s) = 5.00e+01, unbounded at 1 r_s
 # [PASS] Freeze-out solved in closed form :: x = (1 + sqrt(1 + c_g^2))/2
 # [PASS] Freeze-out always outside horizon :: min margin 2.50e-09 r_s over c_g in [1e-4, 5]
-# [PASS] Horizon never crossed in integration :: stalled at r = 1.00002500 r_s
+# [PASS] Horizon never crossed in integration :: stalled at r = 1.20710678 r_s
 # [PASS] Bounce condition satisfied for all V0 > 0 :: rho_G + 3P_G = -2V(phi) < 0
-# [PASS] Remnant is field-bound, not self-gravitating :: rho_rem = 1.40 rho_crit, not compact
-# [PASS] c_g satisfies MICROSCOPE :: c_g*G_bg = 1.0e-05 <= 1e-05
-# [PASS] No free parameters remain :: c_g from MICROSCOPE, V0 from DESI, n=1 from renormalization_proof.py
+# [PASS] MICROSCOPE null predicted by construction :: composition-dependent coupling = 0 (buoyancy_origin.py); a universal c_g*G is common mode and cancels
+# [PASS] Standoff distance not predicted :: c_g unbounded from above; standoff is an open input, not a result
+# [FAIL] rho_rem derivation consistent :: paper states 2V/c^2, code evaluates 2*V0; 1.40 rho_crit follows from neither. Needs redoing.
 #
 # HORIZON NEVER CROSSED FOR ANY c_g > 0. NO SINGULARITY.

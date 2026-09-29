@@ -1,12 +1,31 @@
 # ROADMAP
 
+**This is a published research programme, not internal bookkeeping.** It is
+committed to the repository in this form on purpose. A framework that names its own
+blocking condition, identifies the dataset that would address it, and declines to
+proceed without the missing derivation has done something a framework that quietly
+attempts the test has not.
+
+The rotation-curve paper was withdrawn for exactly that reason, and the withdrawal
+is recorded rather than deleted. Sequencing below is the same sequencing that
+produced that decision.
+
+**Current state.** The audit of 2026-09-29 closed most of the provenance items
+below; see `AUDIT-2026-09-29.md` for what was corrected, withdrawn, and left open.
+Two items remain genuinely open and both are physics, not bookkeeping: the
+local-observable construction of the time-gradient field (4.0) and the
+remnant-density derivation (0.4).
+
+**The single most useful thing in this file** is the sequencing diagram at the
+bottom. Everything above it is detail.
+
+---
+
 Outstanding work on this repository, ordered by dependency. Each item names the
 file it touches and what "done" means. Two items are **author decisions** rather
 than implementation and are marked as such.
 
-Status: 24 open items. Nothing here is committed.
-
----
+Status: 24 open items at the time of writing. Nothing here is committed.
 
 ## Phase 0 — Author decisions (block downstream work)
 
@@ -23,11 +42,26 @@ assert a relic mass and none may refute one. The current black-hole paper is
 written to hold this open.
 
 **0.2 — Which object is the remnant.** Freeze-out halts a 10 M_⊙ collapse at
-1.000025 r_s, so at the stall the object is still 10 M_⊙. The marginal bound
-then implies only ~10⁻³⁰ M_⊙ survives. Is the remnant the stalled object, or
-the field-bound core left after the bounce ejects the envelope?
+some `r > r_s`, so at the stall the object is still 10 M_⊙. Is the remnant the
+stalled object, or the field-bound core left after the bounce ejects the envelope?
+
+*Note (2026-09-29):* the standoff was previously stated as 1.000025 r_s. That
+number is **withdrawn** — it was derived from a MICROSCOPE bound that does not
+apply, because MICROSCOPE is a differential test and a universal coupling is
+common mode. `c_g` is unbounded from above, so the standoff is a free parameter.
+See `AUDIT-2026-09-29.md` §1.
 
 *Blocks:* 0.1, and any relic mass statement.
+
+**0.4 — Redo the remnant-density derivation.** The paper states
+`ρ_rem = 2V(φ)/c²`; the script evaluates `2·V0` with no `1/c²` factor; and the
+reported `1.40 ρ_crit` is `2 × 0.7` with `c²` treated as unity. The two
+disagree and the ratio does not follow from either. The verification check is
+currently a visible FAIL in `blackhole_lifecycle.py` by design. The qualitative
+claim — field-bound rather than self-gravitating — does not depend on the
+number and stands.
+
+*Blocks:* any statement about remnant density in any paper.
 
 **0.3 — Surface the growth tension.** The framework's growth will resemble
 ΛCDM's, and eBOSS small-scale RSD sits 1.4–2.3σ below the Planck-ΛCDM
@@ -99,6 +133,32 @@ change because a remote file did.
 reads it also runs from a clean checkout with no network access.
 
 ---
+
+## Phase 3.5 — The load-bearing derivation (open, and it gates the rest)
+
+**4.0 — Build 𝒢 from local clock observables, not from a global solution.**
+
+The freeze-out mechanism runs on `𝒢(x) = d(dτ/dt)/d(ln r)` diverging as
+`r → r_s`. That divergence is a property of the Schwarzschild solution — of the
+coordinate system chosen — and not an independent fact about nature. An
+infalling observer sees nothing special at the horizon. Until the framework shows
+`𝒢` is a real field with physical divergence, the singularity result rests on a
+coordinate-dependent quantity, and the black hole sector is the strongest claim
+in the corpus resting on the weakest foundation.
+
+This is a derivation, not a measurement. It needs no data the corpus does not
+already transcribe. `chronometric-levelling.html` §1 establishes that two clocks
+at different geopotentials measure `dτ/dt` directly as a frequency ratio with no
+mass model; building `𝒢` from that reading is what would make the divergence a
+claim about clock rates converging somewhere physically real.
+
+*Deliverable:* a section in `blackhole-lifecycle.html` giving `𝒢` in terms of
+locally measured clock rates, with the far-field limit `𝒢 → 1/(2x) → 0` recovered
+from that expression rather than assumed.
+
+*Blocks:* the standing of the freeze-out result. Nothing in Phase 4 can proceed
+on galactic scales until a field profile exists at those scales, and this is the
+local-scale version of the same problem.
 
 ## Phase 4 — The two real tests
 

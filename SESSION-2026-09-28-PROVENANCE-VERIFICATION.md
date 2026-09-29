@@ -1,3 +1,27 @@
+# Provenance and Self-Audit Record — Time-Gradient Field Theory
+
+**This document is a record of the author's own audits of the corpus, including
+the claims that were withdrawn.** It is published deliberately, not left as
+internal bookkeeping. Independent work is routinely read as asserting everything
+it contains; this file exists so that a reader can see which parts of the corpus
+survived audit and which did not, and can check that distinction for themselves.
+
+**The papers in `papers/` are the post-audit, corrected corpus.** Where a finding
+below is marked withdrawn, the claim has been removed from the papers. Where one
+is marked open, the papers say so at the point of use rather than implying
+resolution. The git history of this repository carries the full diff of every
+correction.
+
+**Withdrawals recorded here:** 6 (Hawking-based relic analysis, a statistical
+finding mislabelled as a defect, a tautological residual, an overstated
+independence claim, the rotation-curve paper in full, and a MICROSCOPE-derived
+coupling bound). **Open items recorded here:** 2 (remnant-density derivation,
+local-observable construction of the time-gradient field).
+
+**Later audits** are recorded in `AUDIT-2026-09-29.md`.
+
+---
+
 # SESSION 2026-09-28 (continued) — Black Hole Lifecycle Rewrite
 
 **Scope of this continuation:** replace `blackhole-lifecycle.html`, its script,

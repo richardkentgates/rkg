@@ -17,7 +17,7 @@
 <meta name="citation_publication_date" content="2026-09-29">
 <meta name="citation_journal_title" content="Independent Research">
 <meta name="citation_pdf_url" content="https://richardkentgates.com/papers/chronometric-levelling.pdf">
-<meta name="citation_abstract" content="The framework's primary observable is the proper-time rate dtau/dt, and its central relation is a = c^2 d(dtau/dt)/dr. Two atomic clocks at different geopotentials measure dtau/dt as a frequency ratio, with no model of the intervening mass. Three published chronometric levelling results are checked against the law. At the Tokyo Skytree, two 87Sr transportable optical lattice clocks 450 m apart give a GR-violation parameter alpha = (1.4 +- 9.1) x 10^-5, consistent with the framework's alpha = 0 limit at 0.15 sigma. Between PTB and MPQ, 457 km apart, chronometric and geodetic determinations of the same geopotential difference, 3918.1(2.6) and 3915.88(0.30) m^2/s^2, agree to 0.85 sigma. Between Paris and PTB over 1415 km of fibre, the residual rate difference after the potential is independently removed is (4.7 +- 5.0) x 10^-17, consistent with zero. No cosmological model, mass function, or fitted parameter enters any result.">
+<meta name="citation_abstract" content="The framework's primary observable is the proper-time rate dtau/dt, and its central relation is a = c^2 d(dtau/dt)/dr. Two atomic clocks at different geopotentials measure dtau/dt as a frequency ratio, with no model of the intervening mass. Three published chronometric levelling results are checked against the law. At the Tokyo Skytree, two 87Sr transportable optical lattice clocks 450 m apart give a GR-violation parameter alpha = (1.4 +- 9.1) x 10^-5, consistent with the framework's alpha = 0 limit at 0.15 sigma. Between PTB and MPQ, 457 km apart, chronometric and geodetic determinations of the same geopotential difference, 3918.1(2.6) and 3915.88(0.30) m^2/s^2, agree to 0.85 sigma. Between Paris and PTB over 1415 km of fibre, the residual rate difference after the potential is independently removed is (4.7 +- 5.0) x 10^-17, consistent with zero. No cosmological model, mass function, or fitted parameter enters any result. A further section establishes that none of these tests bounds the framework's coupling: a universal coupling enters as a common mode and cancels, so the framework is untested by them rather than confirmed or excluded.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -222,25 +222,51 @@ against a terrestrial value directly.
 </p>
 <h3>4.1 What these bound</h3>
 <p>
-Using \(G = \Phi/c^{2} = gR/c^{2} = 6.95\times10^{-10}\) at Earth's surface, each
-published result becomes an upper limit on the framework's coupling \(c_{g}\),
-since a fractional deviation of the rate is \(c_{g}G\):
+The column below records the sensitivity each experiment reaches, expressed as a
+nominal limit on the framework's coupling \(c_{g}\) using the local field
+\(G = \Phi/c^{2} = gR/c^{2} = 6.95\times10^{-10}\). <strong>None of these is a bound on
+\(c_{g}\)</strong> &mdash; the reason is given below the table. They are listed to show
+what each measurement constrains, not what it excludes.
 </p>
 <table>
-  <tr><th>Experiment</th><th>Kind of test</th><th>Limit on \(c_{g}\)</th><th>Informative?</th></tr>
-  <tr><td>Paris&ndash;PTB, 1415 km</td><td>first derivative</td><td class="num">&lt; 7.2&times;10<sup>&minus;8</sup></td><td>yes</td></tr>
-  <tr><td>MICROSCOPE, 21 cm</td><td>differential</td><td class="num">&lt; 1.2&times;10<sup>2</sup></td><td>no &mdash; vacuous</td></tr>
-  <tr><td>Skytree, 450 m</td><td>first derivative</td><td class="num">&lt; 1.3&times;10<sup>5</sup></td><td>no &mdash; vacuous</td></tr>
-  <tr><td>PTB&ndash;MPQ, 457 km</td><td>first derivative</td><td class="num">&lt; 9.5&times;10<sup>5</sup></td><td>no &mdash; vacuous</td></tr>
+  <tr><th>Experiment</th><th>Kind of test</th><th>Nominal limit on \(c_{g}\)</th><th>Bounds \(c_{g}\)?</th></tr>
+  <tr><td>Paris&ndash;PTB, 1415 km</td><td>first derivative</td><td class="num">&lt; 7.2&times;10<sup>&minus;8</sup></td><td>no &mdash; common mode</td></tr>
+  <tr><td>MICROSCOPE, 21 cm</td><td>differential</td><td class="num">&lt; 1.2&times;10<sup>2</sup></td><td>no &mdash; also vacuous</td></tr>
+  <tr><td>Skytree, 450 m</td><td>first derivative</td><td class="num">&lt; 1.3&times;10<sup>5</sup></td><td>no &mdash; also vacuous</td></tr>
+  <tr><td>PTB&ndash;MPQ, 457 km</td><td>first derivative</td><td class="num">&lt; 9.5&times;10<sup>5</sup></td><td>no &mdash; also vacuous</td></tr>
 </table>
 <p>
-One of the four constrains the coupling. The other three are arithmetically correct but carry no
-information: a bound of \(1.2\times10^{2}\), \(1.3\times10^{5}\), or \(9.5\times10^{5}\) on \(c_{g}\)
-is weaker than the requirement that \(c_{g}\) be small at all, since the correction law assumes
-\(|c_{g}G| \ll 1\) and any \(c_{g} \gtrsim 1\) would make the expansion meaningless. Those three
-rows are retained because they record what each measurement could in principle reach, but they
-should not be read as evidence about \(c_{g}\). The only quantitative statement these experiments
-support is \(c_{g} < 7.2\times10^{-8}\) from the Paris&ndash;PTB residual.
+<strong>None of these four bounds the coupling, and the reason is structural rather
+than a matter of sensitivity.</strong> A universal coupling enters all of these
+measurements as a common mode. MICROSCOPE compares two test masses in the same
+field, so a composition-independent coupling cancels in the ratio exactly, and
+what remains &mdash; the composition-dependent part &mdash; is zero by the argument
+in &sect;3.2. The clock comparisons receive the coupling only as a factor-of-two
+correction to the potential difference they already measure,
+\(\Delta\nu/\nu = \Delta(\Phi/c^2)(1 + 2c_{g}G_{\mathrm{bg}})\), and the residual is
+consistent with the GR value to the uncertainty quoted.
+</p>
+<p>
+The table is retained as a record of what each experiment measures and how far it
+reaches, not as a set of constraints. Taken at face value the numbers read as
+bounds, and three of them &mdash; \(1.2\times10^{2}\), \(1.3\times10^{5}\),
+\(9.5\times10^{5}\) &mdash; are weaker than the requirement that \(c_{g}\) be small
+at all, so they would state nothing even on their own terms. An earlier version of
+this section presented the Paris&ndash;PTB row as a quantitative limit,
+\(c_{g} < 7.2\times10^{-8}\). That is withdrawn: it divides a clock residual by the
+local potential, treating the potential as the field, whereas the coupling that
+governs freeze-out is the time-gradient field of
+<code>blackhole-lifecycle.html</code> &sect;2. The two are the same quantity in the
+weak field and differ by a factor tending to unity only at large \(x\), so the
+division is not meaningful as a bound on \(c_{g}\).
+</p>
+<p>
+The consequence is stated here rather than left implicit: <em>no experiment in this
+section bounds \(c_{g}\)</em>, and the framework's collapse result in
+<code>blackhole-lifecycle.html</code> holds for all \(c_{g} &gt; 0\) without one.
+What these experiments do establish is that the framework survives contact with
+every local test without contradiction, and that its distinctive deviation is not
+accessible to any of them. See <code>AUDIT-2026-09-29.md</code> &sect;1 and &sect;10.
 </p>
 <p>
 Transcribed in <code>local_experiment_data.txt</code> and evaluated by
@@ -298,13 +324,13 @@ baseline where the framework's own quantity has been read.
 </p>
 <p>
 &sect;4 widens this to the second derivative and to differential tests. Read
-together, the local data give one quantitative bound on the coupling,
-\(c_{g} < 7.2\times10^{-8}\) from the 1415&nbsp;km residual. The remaining
-three tests translate to bounds of \(10^{2}\) to \(10^{6}\) on \(c_{g}\), which
-are weaker than the assumption that \(c_{g}\) is small and therefore state
-nothing about it. All four are consistent with the framework's zero-correction
-limit, and none of them can distinguish it from the limit itself. The
-framework is not contradicted by any local measurement, and is not
+together, the local data bound nothing at all on the coupling, and the reason
+is not limited sensitivity. A universal \(c_{g}\) enters every one of these
+experiments as a common mode: it cancels in the MICROSCOPE mass ratio, and it
+enters a clock comparison only as a factor-of-two correction to the potential
+difference already measured. All four are consistent with the framework's
+zero-correction limit, and none of them can distinguish it from the limit
+itself. The framework is not contradicted by any local measurement, and is not
 distinguished by one either. That is the state of the evidence, stated
 without inflation.
 </p>

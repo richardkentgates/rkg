@@ -17,7 +17,7 @@
 <meta name="citation_publication_date" content="2026-09-28">
 <meta name="citation_journal_title" content="Independent Research">
 <meta name="citation_pdf_url" content="https://richardkentgates.com/papers/blackhole-lifecycle.pdf">
-<meta name="citation_abstract" content="If mass is the terminal limit of time-density, then the scalar field measuring that time-density must diverge wherever mass would otherwise become singular. Taking the time-gradient field G = d(dtau/dt)/d(ln r) = 1/(2x sqrt(1-1/x)) with x = r/r_s, G diverges as x approaches 1. Since the effective gravitational constant is regulated as G_eff = G_0(1 - c_g G), the divergence drives G_eff to zero before a horizon can form. Solving c_g G = 1 gives the closed form r_freeze/r_s = (1 + sqrt(1 + c_g^2))/2, which exceeds unity for every c_g > 0. Collapse therefore stalls strictly outside the Schwarzschild radius, for any positive coupling, and no singularity forms. The field stress is repulsive, rho_G + 3P_G = 2 phidot^2 - 2V(phi) < 0, so the collapse reverses and ejects. Rather than ending in a singularity, the collapse compresses to its most basic component: the remnant is the time-information content of what collapsed, preserved in full, bound by the field rather than by gravity and sitting at cosmic rather than nuclear density. No remnant mass is required, since a mass is a classical description of that time-density rather than a separate quantity the remnant carries. No relic abundance is assumed anywhere in this body of work.">
+<meta name="citation_abstract" content="If mass is the terminal limit of time-density, then the scalar field measuring that time-density must diverge wherever mass would otherwise become singular. Taking the time-gradient field G = d(dtau/dt)/d(ln r) = 1/(2x sqrt(1-1/x)) with x = r/r_s, G diverges as x approaches 1. Since the effective gravitational constant is regulated as G_eff = G_0(1 - c_g G), the divergence drives G_eff to zero before a horizon can form. Solving c_g G = 1 gives the closed form r_freeze/r_s = (1 + sqrt(1 + c_g^2))/2, which exceeds unity for every c_g > 0. No experiment bounds c_g: MICROSCOPE is a differential test between two masses in the same field, so a universal coupling is common mode and cancels in the ratio, and the clock comparisons see it only as a factor-of-two correction to the potential they already measure. The standoff is therefore a free parameter and no distance is predicted. Collapse therefore stalls strictly outside the Schwarzschild radius, for any positive coupling, and no singularity forms. The field stress is repulsive, rho_G + 3P_G = 2 phidot^2 - 2V(phi) < 0, so the collapse reverses and ejects. Rather than ending in a singularity, the collapse compresses to its most basic component: the remnant is the time-information content of what collapsed, preserved in full, bound by the field rather than by gravity and sitting at cosmic rather than nuclear density. No remnant mass is required, since a mass is a classical description of that time-density rather than a separate quantity the remnant carries. No relic abundance is assumed anywhere in this body of work.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -160,9 +160,10 @@ This field is dimensionless and it <strong>diverges</strong> as \(x \to 1\).
   <tr><td class="num">1.0001</td><td class="num">4.9998e+01</td><td class="num">0.50002</td></tr>
 </table>
 <p class="note">
-The background value \(G \sim 10^{-3}\) is recovered near \(r \sim 100\,r_s\),
-which is where \(\mathcal{G}(x)\) returns \(G(t)\).
-The third column uses the MICROSCOPE-bounded coupling \(c_g = 10^{-2}\).
+This is a sourced field, vanishing in the far field: \(\mathcal{G}(x) \to 1/(2x) \to 0\)
+as \(x \to \infty\), rather than tending to a constant background offset. The
+third column is evaluated at an illustrative \(c_g = 10^{-2}\); since \(c_g\) is
+unconstrained from above (Section 3), it is not a prediction.
 </p>
 <p>
 So as matter falls inward the field does not stay fixed. It grows without
@@ -178,14 +179,49 @@ depends on the field, and regularizes as the field grows:
 \[G_{\mathrm{eff}} = G_0\left(1 - c_g G\right)\]
 </div>
 <p>
-The coupling is not free. MICROSCOPE bounds the fractional deviation of the
-gravitational constant to below \(10^{-5}\). The framework writes that
-deviation as \(c_g G\), and with a background field \(G \sim 10^{-3}\) this
-requires
+An earlier version of this section argued that MICROSCOPE bounds the coupling,
+by pairing its limit with a background field and reporting \(c_g < 10^{-2}\).
+That argument is withdrawn. MICROSCOPE is a differential test: it compares two
+test masses, titanium and platinum-rhodium, in the same field and the same
+orbit, 21&nbsp;cm apart. It bounds the <em>fractional difference</em> in the
+gravitational constant between two materials, not its absolute value. A coupling
+that is universal across materials enters both test masses identically and
+cancels in the ratio,
 </p>
 <div class="eq-block">
-\[c_g < \frac{10^{-5}}{10^{-3}} = 10^{-2}\]
+\[\frac{a_{\mathrm{Ti}}}{a_{\mathrm{Pt}}} = \frac{m_{\mathrm{Ti}}}{m_{\mathrm{Pt}}}\;\frac{1 + c_g G_{\mathrm{Ti}}}{1 + c_g G_{\mathrm{Pt}}} \;\xrightarrow{\;G_{\mathrm{Ti}} = G_{\mathrm{Pt}}\;}\; \frac{m_{\mathrm{Ti}}}{m_{\mathrm{Pt}}}\]
 </div>
+<p>
+so the deviation is common mode and MICROSCOPE returns a null whatever
+\(c_g G\) is. What MICROSCOPE does bound is the composition-dependent part of
+the coupling, and &sect;3.2 of <code>buoyancy-origin.html</code> establishes that
+part as exactly zero, because the time field is a property of the source mass
+and carries no information about the responding body. The framework therefore
+predicts the MICROSCOPE null by construction, and MICROSCOPE constrains
+\(c_g G\) not at all.
+</p>
+<p>
+The same cancellation removes the bound that the chronometric-levelling paper
+drew. A frequency difference between two clocks at geopotentials \(U_1, U_2\)
+receives the coupling only as a factor-of-two correction to the potential
+difference it already measures,
+</p>
+<div class="eq-block">
+\[\frac{\Delta\nu}{\nu} = \Delta\!\left(\frac{\Phi}{c^2}\right) + 2\,c_g G_{\mathrm{bg}}\,\Delta\!\left(\frac{\Phi}{c^2}\right)\]
+</div>
+<p>
+and with the Paris&ndash;PTB residual of \((4.7 \pm 5.0)\times10^{-17}\) on a
+potential difference of \(4.36\times10^{-14}\), this yields
+\(c_g G_{\mathrm{bg}} < 5.7\times10^{-4}\), which is no bound worth having.
+</p>
+<p>
+<strong>No current experiment bounds \(c_g\) from above.</strong> The framework
+therefore makes a qualitative claim only, and declines to predict a standoff
+distance until \(c_g\) is measured. That is a stronger position than a quoted
+number resting on a cancellation, and it is stated here rather than implied:
+Section 4 derives <em>where</em> collapse stalls for any \(c_g\), and
+&sect;7 records the distance as an open input rather than a result.
+</p>
 
 <h2>4. Freeze-out, in closed form</h2>
 <p>
@@ -202,8 +238,11 @@ Solving the quadratic:
 \[\boxed{\;\frac{r_{\mathrm{freeze}}}{r_s} = \frac{1 + \sqrt{1 + c_g^2}}{2}\;}\]
 </div>
 <p>
-There are no free parameters in this expression. The stopping condition is
-derived, not imposed.
+The condition carries no free parameter: the stopping rule is derived, not
+imposed. \(c_g\) appears as the framework's own undetermined coupling, and
+Section 3 shows that no current experiment bounds it. The expression is
+therefore a family parameterised by \(c_g\), and the one property that holds
+across the whole family is \(r_{\mathrm{freeze}} > r_s\).
 </p>
 <table>
   <tr><th>\(c_g\)</th><th>\(r_{\mathrm{freeze}}/r_s\)</th><th>Outside horizon by</th></tr>
@@ -222,9 +261,21 @@ Since \(\sqrt{1 + c_g^2} > 1\) strictly for every \(c_g > 0\),
 \[\frac{r_{\mathrm{freeze}}}{r_s} > 1 \quad \text{for all } c_g > 0\]
 </div>
 <p>
-<strong>The freeze-out always occurs outside the horizon.</strong> For the
-MICROSCOPE-bounded value \(c_g = 10^{-2}\), collapse stalls
-\(2.5 \times 10^{-5}\,r_s\) outside the Schwarzschild radius.
+<strong>The freeze-out always occurs outside the horizon.</strong> This is the
+framework's quantitative result, and it holds for every positive coupling
+without needing one. The table above is a survey of the <em>family</em> of
+standoff distances, not a set of predictions: since \(c_g\) is unconstrained
+from above (Section 3), the corpus does not select a row. The standoff is an
+open input pending a measurement, and &sect;7 records it as such.
+</p>
+<p class="note">
+An earlier version of this section quoted the \(c_g = 10^{-2}\) row, deriving
+\(2.5\times10^{-5}\,r_s\) from a MICROSCOPE bound on \(c_g\). That derivation
+rested on treating a universal coupling as a differential observable, and is
+withdrawn. The qualitative claim is unaffected; the specific distance was never
+supported. For a \(10\,M_\odot\) object the \(c_g = 10^{-2}\) row would
+correspond to a standoff of about \(0.7\) m, so the withdrawn number was not
+observably meaningful even on its own terms.
 </p>
 <p>
 Numerical integration of the regulated radial free-fall confirms this. The
@@ -294,17 +345,26 @@ bound on the remnant density,
 \[\boxed{\;\rho_{\mathrm{rem}} = \frac{2V(\phi)}{c^2}\;}\]
 </div>
 <p>
-Using the potential fixed by the DESI energy split (\(w = -0.85\), so
-\(K/V = 0.0811\), giving \(V_0 = 0.7\,\rho_{\mathrm{crit}}\)):
+<p class="note">
+<strong>Withdrawn pending rederivation.</strong> An earlier version carried the
+value \(1.19\times10^{-26}\,\mathrm{kg\,m^{-3}} = 1.40\,\rho_{\mathrm{crit}}\) here.
+It is withdrawn for two reasons. The boxed relation is \(2V/c^2\), but the script
+evaluates \(2V_0\) with no \(1/c^2\) factor, so the two disagree; and
+\(1.40\,\rho_{\mathrm{crit}}\) is just \(2\times 0.7\) with \(c^2\) treated as
+unity, which is not a legitimate ratio. Substituting the DESI potential
+\(V_0 = 0.7\,\rho_{\mathrm{crit}}\) into \(2V_0/c^2\) gives
+\(2.9\times10^{-43}\,\mathrm{kg\,m^{-3}}\), about seventeen orders of magnitude
+below the value originally quoted, and the discrepancy is not yet resolved. The
+conclusion that the remnant is field-bound rather than self-gravitating does not
+rest on the density number and is unaffected.
 </p>
-<div class="eq-block">
-\[\rho_{\mathrm{rem}} = 1.19 \times 10^{-26} \ \mathrm{kg\,m^{-3}} = 1.40\ \rho_{\mathrm{crit}}\]
-</div>
 <p>
-The remnant sits at <em>cosmic</em> density, not nuclear density. It is a
-field-stabilised region, not a compact object, and it carries no
-Schwarzschild charge because it never crossed a horizon. Its binding length
-is the field Compton wavelength, \(\lambda_C = \hbar/(m_{\mathrm{eff}} c)\).
+The qualitative claim is unaffected: the remnant is a field-stabilised region, not
+a compact object, and it carries no Schwarzschild charge because it never crossed
+a horizon. Its binding length is the field Compton wavelength,
+\(\lambda_C = \hbar/(m_{\mathrm{eff}} c)\). What density it settles at is an open
+question until the derivation is redone consistently, and the corresponding
+verification check is recorded as failing in the results file rather than removed.
 </p>
 
 <h2>7. What is determined, and what is not</h2>
@@ -316,8 +376,9 @@ is the field Compton wavelength, \(\lambda_C = \hbar/(m_{\mathrm{eff}} c)\).
   <li>This ratio exceeds unity for every \(c_g > 0\), so no horizon forms</li>
   <li>The bounce condition holds for any \(V_0 > 0\)</li>
   <li>The remnant is the time-information content, preserved in full, not a fraction of it</li>
-  <li>The remnant is field-bound at \(\rho_{\mathrm{rem}} = 2V/c^2\)</li>
-  <li>All nine verification checks pass</li>
+  <li>The remnant is field-bound rather than self-gravitating</li>
+  <li>No experiment bounds \(c_g\) from above, so no standoff distance is predicted</li>
+  <li>Eight of nine verification checks pass; the remnant-density derivation is recorded as open</li>
 </ul>
 </div>
 <div class="open">
@@ -453,15 +514,24 @@ require it to be.
 <table>
   <tr><th>Section</th><th>Quantity</th><th>Source</th></tr>
   <tr><td>&sect;1</td><td>DESI energy split, \(K/V = 0.0811\)</td><td>Derived from DESI \(w = -0.85\)</td></tr>
-  <tr><td>&sect;2</td><td>Time-gradient field \(G(x)\)</td><td><code>blackhole_lifecycle.py</code></td></tr>
-  <tr><td>&sect;3</td><td>MICROSCOPE bound on \(c_g\)</td><td>Published limit, applied to the field</td></tr>
+  <tr><td>&sect;2</td><td>Time-gradient field \(\mathcal{G}(x)\)</td><td><code>blackhole_lifecycle.py</code></td></tr>
+  <tr><td>&sect;3</td><td>MICROSCOPE does not bound \(c_g\)</td><td>Differential test; a universal coupling is common mode</td></tr>
   <tr><td>&sect;4</td><td>Closed-form freeze-out, all \(c_g\)</td><td><code>blackhole_lifecycle.py</code></td></tr>
   <tr><td>&sect;4</td><td>Numerical fall-time saturation</td><td>Quadrature in <code>blackhole_lifecycle.py</code></td></tr>
   <tr><td>&sect;5</td><td>Bounce condition</td><td>Algebraic, any \(V_0 > 0\)</td></tr>
   <tr><td>&sect;6</td><td>Remnant density \(2V/c^2\)</td><td><code>blackhole_lifecycle.py</code></td></tr>
   <tr><td>&sect;7</td><td>Evaporation horizon; mass-bearing vs information-bearing relic</td><td><code>relic_abundance.py</code>, <code>evaporation_constraints.txt</code></td></tr>
 </table>
-<p>The verification summary in the results file records 9 of 9 checks passing, including the condition that the horizon is never crossed under numerical integration.</p>
+<p>
+The verification summary in the results file records 8 of 9 checks passing, including
+the condition that the horizon is never crossed under numerical integration. The
+ninth check, on the remnant-density derivation, is recorded as <strong>failing</strong>:
+the paper states \(\rho_{\mathrm{rem}} = 2V/c^2\) while the code evaluates \(2V_0\) with
+no \(1/c^2\) factor, and the reported figure of \(1.40\,\rho_{\mathrm{crit}}\) follows
+from neither. The check is retained in the script as a visible failure rather than
+being quietly dropped, because the remnant-density claim is used elsewhere in the
+corpus and should not appear settled until the derivation is redone.
+</p>
 
 <h2>References</h2>
 <p>[1] DESI Collaboration. "DESI 2024 VI: Cosmological Constraints from the Measurements of Baryon Acoustic Oscillations." <em>arXiv:2404.03002</em>, 2024.</p>
@@ -473,6 +543,14 @@ require it to be.
 <p>[5] Boudaud, M. and Cirelli, M. "Voyager 1 further constrain primordial black holes as dark matter." <em>Physical Review Letters</em>, 122, 041104, 2019.</p>
 <p>[6] Su, B.-Y. "Constraining primordial black holes as dark matter using AMS-02 data." <em>European Physical Journal C</em>, 2024.</p>
 <p>[7] "Updated constraints on primordial black hole evaporation." <em>Journal of Physics: Conference Series</em>, 2023.</p>
+<p class="note" style="text-align:center;max-width:760px;margin:2em auto 0;">
+<strong>Provenance.</strong> The MICROSCOPE-derived bound on the coupling, the standoff
+distance it produced, and the remnant-density figure are withdrawn; see
+<code>AUDIT-2026-09-29.md</code> in the repository root. The closed-form freeze-out result
+stands, and does not require a value of the coupling. The local-observable
+construction of the field is recorded as open.
+</p>
+
 <p class="back"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>
 
 </div>

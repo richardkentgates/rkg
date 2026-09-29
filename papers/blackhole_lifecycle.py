@@ -41,12 +41,13 @@ KV_DESI  = (1+w_DESI)/(1-w_DESI)
 # Field background from the DESI energy split
 V0       = 0.7 * rho_crit        # potential in rho_crit units (papers' value)
 m_field  = 0.01                  # dimensionless field mass parameter
-G_bg     = 1e-3                  # background time-gradient field
-# MICROSCOPE (PRL 108, 171801): |G/G_GW - 1| < 1e-5
-# framework writes the deviation as c_g * G, so c_g * G_bg < 1e-5
-MICROSCOPE_LIMIT = 1e-5
-c_g_max  = MICROSCOPE_LIMIT/G_bg
-c_g      = 1e-2                  # adopt the MICROSCOPE-bounded value
+# The coupling c_g is NOT bounded by MICROSCOPE. MICROSCOPE compares two test
+# masses in the same field, so a coupling universal across materials enters both
+# identically and cancels in the ratio; it bounds only the composition-dependent
+# part of the coupling, which is zero by the argument in buoyancy_origin.py.
+# The c_g values below therefore span a survey of the family, not a measurement.
+c_g_choices = [1e-4, 1e-3, 1e-2, 1e-1, 0.5, 1.0, 2.0, 5.0]
+c_g      = 1.0                   # illustrative member; result holds for all c_g > 0
 
 print("="*78)
 print("BLACK HOLE LIFECYCLE: SINGULARITY ELIMINATION BY THE TIME-GRADIENT FIELD")
@@ -63,9 +64,11 @@ print(f"  K/V = (1+w)/(1-w)         = {KV_DESI:.5f}")
 print(f"  potential share of rho_G  = {1/(1+KV_DESI)*100:.1f} %")
 print(f"  rho_crit                  = {rho_crit:.4e} kg/m^3")
 print(f"  V0 = 0.7 rho_crit         = {V0:.4e} kg/m^3")
-print(f"  background field G_bg     = {G_bg:.1e}")
-print(f"  MICROSCOPE bound on c_g   < {c_g_max:.1e}   (c_g * G_bg < {MICROSCOPE_LIMIT:.0e})")
-print(f"  adopted c_g               = {c_g:.1e}")
+print(f"  c_g                       = UNBOUNDED from above by any experiment")
+print(f"     MICROSCOPE is differential (Ti vs PtRh, same field): a universal")
+print(f"     c_g*G is common mode and cancels in the ratio. It bounds only")
+print(f"     the composition-dependent part, which is 0 by construction.")
+print(f"     Survey values used below: {c_g_choices}")
 
 # ══════════════════════════════════════════════════════════════════════════
 # 2. THE TIME-GRADIENT FIELD
@@ -87,8 +90,9 @@ print("  %12s %20s" % ("r / r_s", "G (time-gradient)"))
 for x in xs:
     print("  %12.5f %20.6e" % (x, G_grad(x)))
 print()
-print(f"  G DIVERGES as r -> r_s. Unbounded.")
-print(f"  Background value G ~ {G_bg:.0e} is reached at r ~ {1/(2*G_bg):.0f} r_s.")
+print("  G DIVERGES as r -> r_s. Unbounded.")
+print("  Far field: G -> 1/(2x) -> 0 as x -> infinity. This is a field SOURCED")
+print("  by the mass, vanishing in deep space, not a constant background offset.")
 print("  => as matter falls inward the field grows without bound.")
 
 # ══════════════════════════════════════════════════════════════════════════
@@ -255,6 +259,11 @@ print()
 rho_rem = 2*V0
 print(f"  rho_rem = 2 V0         = {rho_rem:.4e} kg/m^3")
 print(f"  in units of rho_crit   = {rho_rem/rho_crit:.4f}")
+# NOTE: the boxed relation in the paper is rho_rem = 2 V(phi) / c^2, but the
+# code evaluates 2*V0 with no 1/c^2 factor. These disagree. The paper also
+# reports "1.40 rho_crit", which is just 2*0.7 with c^2 treated as unity --
+# an error. Recorded here rather than silently reconciled: the derivation of
+# rho_rem needs redoing, and the cosmic-density claim rests on it.
 print("  => the remnant sits at COSMIC density, not nuclear. It is a")
 print("     field-stabilised region, not a compact object.")
 print()
@@ -282,7 +291,6 @@ print("="*78)
 
 x_limit = 1.0
 smallest_margin = min(freezeout_x(cg) - 1.0 for cg in cgs)
-m_eff_ratio = MICROSCOPE_LIMIT  # c_g * G_bg
 
 checks = [
     ("Background field from DESI energy split", True,
@@ -297,12 +305,14 @@ checks = [
      f"stalled at r = {stalled_at:.8f} r_s" if stalled_at else "reached horizon"),
     ("Bounce condition satisfied for all V0 > 0", True,
      "rho_G + 3P_G = -2V(phi) < 0"),
-    ("Remnant is field-bound, not self-gravitating", True,
-     f"rho_rem = {rho_rem/rho_crit:.2f} rho_crit, not compact"),
-    ("c_g satisfies MICROSCOPE", c_g*G_bg <= MICROSCOPE_LIMIT,
-     f"c_g*G_bg = {c_g*G_bg:.1e} <= {MICROSCOPE_LIMIT:.0e}"),
-    ("No free parameters remain", True,
-     "c_g from MICROSCOPE, V0 from DESI, n=1 from renormalization_proof.py"),
+    ("MICROSCOPE null predicted by construction", True,
+     "composition-dependent coupling = 0 (buoyancy_origin.py); "
+     "a universal c_g*G is common mode and cancels"),
+    ("Standoff distance not predicted", True,
+     "c_g unbounded from above; standoff is an open input, not a result"),
+    ("rho_rem derivation consistent", False,
+     "paper states 2V/c^2, code evaluates 2*V0; 1.40 rho_crit follows from "
+     "neither. Needs redoing."),
 ]
 npass = 0
 for name, ok, note in checks:
@@ -318,10 +328,12 @@ print("LIFECYCLE:")
 print("  1. COLLAPSE    matter falls inward, time-density deepens")
 print(f"  2. FIELD GROWS G = d(dtau/dt)/d(ln r) diverges as r -> r_s")
 print(f"  3. GRAVITY OFF G_eff = G_0(1 - c_g G) -> 0 at c_g G = 1")
-print(f"  4. NO HORIZON  collapse stalls at r = {x_star:.8f} r_s > r_s")
+print(f"  4. NO HORIZON  collapse stalls at r = {x_star:.8f} r_s > r_s for c_g = {c_g:.1e};")
+print(f"                x_freeze > 1 for ALL c_g > 0, so the standoff is a free")
+print(f"                parameter and no specific distance is predicted")
 print("  5. BOUNCE      rho_G + 3P_G < 0 reverses the collapse, ejects")
 print(f"  6. REMNANT     time-information, preserved in full, bound by the field")
-print(f"                at rho = 2V/c^2 (cosmic, not nuclear density)")
+print(f"                (density derivation open; see the FAIL check above)")
 print()
 print("The singularity is eliminated because the time-gradient field diverges")
 print("as r -> r_s, switching G_eff off before the horizon can form. The")
@@ -337,9 +349,12 @@ with open("blackhole_lifecycle_results.txt", "w") as fh:
     fh.write(f"# K/V = {KV_DESI:.5f}\n")
     fh.write(f"# V0 = {V0:.6e} kg/m^3 = 0.7 rho_crit\n")
     fh.write(f"# rho_crit = {rho_crit:.6e} kg/m^3\n")
-    fh.write(f"# background field G_bg = {G_bg:.1e}\n")
-    fh.write(f"# MICROSCOPE bound c_g < {c_g_max:.1e}\n")
-    fh.write(f"# adopted c_g = {c_g:.1e}\n")
+    fh.write("# c_g is NOT bounded by MICROSCOPE. MICROSCOPE is a differential test\n")
+    fh.write("# between two test masses in the same field, so a coupling universal\n")
+    fh.write("# across materials cancels in the ratio. Only the composition-dependent\n")
+    fh.write("# part is bounded, and that part is zero by construction.\n")
+    fh.write("# c_g is therefore unbounded from above; values below survey the family.\n")
+    fh.write(f"# illustrative c_g for the integration = {c_g:.1e}\n")
     fh.write("#\n")
     fh.write("# TIME-GRADIENT FIELD  G = 1/(2x sqrt(1-1/x)),  x = r/r_s\n")
     fh.write("# r/r_s\tG\n")
@@ -352,9 +367,10 @@ with open("blackhole_lifecycle_results.txt", "w") as fh:
         x = freezeout_x(cg)
         fh.write(f"{cg:.3e}\t{x:.8f}\t{x-1.0:.6e}\n")
     fh.write("#\n")
-    fh.write(f"# adopted c_g = {c_g:.1e}\n")
+    fh.write(f"# illustrative c_g = {c_g:.1e} (family survey, not a measurement)\n")
     fh.write(f"# r_freeze = {x_star:.8f} r_s  ({x_star-1.0:.3e} r_s outside horizon)\n")
     fh.write(f"# G at freeze-out = {1.0/c_g:.4e}\n")
+    fh.write("# x_freeze > 1 for ALL c_g > 0. No standoff distance is predicted.\n")
     if stalled_at is not None:
         fh.write(f"# numerical free-fall stalled at r = {stalled_at:.8f} r_s\n")
     fh.write("#\n")
