@@ -87,6 +87,9 @@
     <loc>https://richardkentgates.com/papers/buoyancy-origin.html</loc>
   </url>
   <url>
+    <loc>https://richardkentgates.com/papers/anomaly-clustering.html</loc>
+  </url>
+  <url>
     <loc>https://richardkentgates.com/papers/theory-of-everything.pdf</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -177,6 +180,9 @@
     <loc>https://richardkentgates.com/papers/unified-scalar-time-gradient-field.tex</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://richardkentgates.com/papers/anomaly-clustering.pdf</loc>
   </url>
   <url>
     <loc>https://richardkentgates.com/papers/buoyancy-origin.pdf</loc>

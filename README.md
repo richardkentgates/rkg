@@ -64,6 +64,7 @@ The `papers/` directory contains the Unified Scalar Time-Gradient Field Theory r
 | entanglement-formalization | Entanglement, frame dragging, GWs in the G(t) framework |
 | time-gradient-field-model | Decay-rate and lifetime anomalies |
 | temporal-gradient-gravity-proposal | Gravity as a pure temporal gradient |
+| anomaly-clustering | The correlated anomaly observation: five independent series in one fractional deviation band |
 | buoyancy-origin | Clarifies the gravity origin: directional bias along the time gradient, with two numerically verified properties |
 | time_gradient_verification | Independent verification from experimental data |
 | statistical-verification | Fisher Information and Cramer-Rao closure |

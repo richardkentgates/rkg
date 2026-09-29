@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Correlated Anomaly Observation</title>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
+  <style>
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      line-height: 1.8;
+      color: #1a1a1a;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: #fafafa;
+    }
+    .paper {
+      background: #fff;
+      padding: 60px;
+      border-radius: 4px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    h1 { font-size: 1.6em; text-align: center; margin-bottom: 0.3em; }
+    .subtitle { text-align: center; color: #555; font-size: 0.95em; margin-bottom: 2em; }
+    h2 {
+      font-size: 1.2em; margin-top: 2em; margin-bottom: 0.6em;
+      color: #222; border-bottom: 1px solid #ddd; padding-bottom: 0.2em;
+    }
+    .eq-block {
+      font-family: 'Georgia', serif; margin: 0.8em 0; padding: 0.6em 1em;
+      background: #f8f8f8; border-left: 3px solid #2d8cf0;
+    }
+    .note { font-size: 0.85em; color: #666; margin-bottom: 0.3em; }
+    table { border-collapse: collapse; margin: 1em 0; width: 100%; border: 1px solid #ccc; }
+    th, td { padding: 8px 12px; text-align: left; border: 1px solid #ddd; }
+    th { background: #f0f7ff; border: 1px solid #b8d4f0; }
+    td.num { text-align: right; }
+    .band {
+      background: #f8f8f8; border: 1px solid #e4eaf4; border-radius: 6px;
+      padding: 1.2em; margin: 1.5em 0;
+    }
+    .back {
+      display: block; text-align: center; margin-top: 2em;
+      color: #2d8cf0; text-decoration: none;
+    }
+    @media print { body { background: #fff; padding: 0; } .paper { box-shadow: none; padding: 0; } }
+  </style>
+</head>
+<body>
+<div class="paper">
+
+<h1>The Correlated Anomaly Observation</h1>
+<p class="subtitle">
+    Five independent measurement series, one fractional deviation band
+</p>
+
+<h2>1. The observation</h2>
+<p>
+Measurements made in four laboratories by three independent groups, using four
+different detection techniques, over intervals from a single solar flare to
+fifteen years, report fractional deviations that fall in the same narrow band:
+</p>
+<div class="eq-block">
+\[10^{-4} \;\le\; \frac{\delta\lambda}{\lambda_0} \;\le\; 10^{-3}\]
+</div>
+<p>
+The series are unrelated to one another. They measure different isotopes, at
+different facilities, with different instruments, for different reasons. The
+shared quantity is the order of magnitude of the deviation, not its sign, its
+phase, or its period.
+</p>
+
+<h2>2. The series</h2>
+<table>
+  <tr>
+    <th>Series</th>
+    <th>Facility</th>
+    <th>Interval</th>
+    <th>Fitted \(\alpha\)</th>
+    <th>Source</th>
+  </tr>
+  <tr>
+    <td>\(^{32}\mathrm{Si}\) seasonal</td>
+    <td>Brookhaven</td>
+    <td>1982&ndash;1986, four years</td>
+    <td class="num">\(7.9 \times 10^{-4}\)</td>
+    <td>Jenkins et al. 2008</td>
+  </tr>
+  <tr>
+    <td>\(^{36}\mathrm{Cl}\) seasonal</td>
+    <td>Brookhaven</td>
+    <td>1982&ndash;1986, four years</td>
+    <td class="num">\(6.2 \times 10^{-4}\)</td>
+    <td>Jenkins et al. 2008</td>
+  </tr>
+  <tr>
+    <td>\(^{226}\mathrm{Ra}\) seasonal</td>
+    <td>PTB, Germany</td>
+    <td>1983&ndash;1998, fifteen years</td>
+    <td class="num">\(8.3 \times 10^{-4}\)</td>
+    <td>Siegert et al. 1998</td>
+  </tr>
+  <tr>
+    <td>\(^{54}\mathrm{Mn}\) solar flare transient</td>
+    <td>Purdue</td>
+    <td>13 December 2006, hours</td>
+    <td class="num">\(2.5 \times 10^{-3}\)</td>
+    <td>Jenkins &amp; Fischbach 2009</td>
+  </tr>
+  <tr>
+    <td>\(^{32}\mathrm{Si}\)/\(^{36}\mathrm{Cl}\) amplitude</td>
+    <td>Brookhaven</td>
+    <td>239 data points</td>
+    <td class="num">\(7.9(3) \times 10^{-4}\)</td>
+    <td>Jenkins et al. 2008</td>
+  </tr>
+</table>
+<p class="note">
+Fitted coupling \(\alpha\) under the model of the time-gradient field. The
+Brookhaven series additionally reports an annual oscillation of
+\(7.9(3) \times 10^{-4}\) with a 35(2) day phase shift, a correlation of
+\(r = 0.52\) against \(1/R^2\), and a formal probability of random correlation
+\(p = 6 \times 10^{-18}\). The \(^{54}\mathrm{Mn}\) transient preceded
+electromagnetic arrival by 36&ndash;40 hours.
+</p>
+
+<h2>3. What the values share</h2>
+<p>
+The four fitted couplings span
+\(6.2 \times 10^{-4}\) to \(2.5 \times 10^{-3}\), a range of four. Across
+different isotopes, different facilities, and different physical circumstances,
+they agree to within an order of magnitude.
+</p>
+<p>
+No isotope-specific parameter was introduced to achieve this. The model form is
+fixed in advance:
+</p>
+<div class="eq-block">
+\[\lambda_{\mathrm{eff}}(t) = \lambda_0 \left( 1 + \alpha \, G(t) \right)\]
+</div>
+<p>
+with a single coupling \(\alpha\) per isotope and a field \(G(t)\) of order
+\(10^{-3}\). The agreement across the four series is therefore a constraint on
+the model form, not a consequence of fitting freedom in it.
+</p>
+
+<h2>4. Reported frequencies</h2>
+<p>
+Power-spectrum analysis of the Brookhaven data by Sturrock et al. (2010) reports
+the annual frequency at greater than \(5\sigma\), a 33-day frequency at greater
+than \(5\sigma\), and a 12.5-year frequency at greater than \(3\sigma\). The
+33-day period corresponds to the solar core rotation rate; the 12.5-year
+frequency corresponds to solar r-mode oscillations.
+</p>
+
+<h2>5. Companion series in other domains</h2>
+<p>
+The same band appears in two non-nuclear series, reported in the same corpus:
+</p>
+<table>
+  <tr><th>Series</th><th>Fractional deviation</th><th>Basis</th></tr>
+  <tr>
+    <td>Lunar Mascon residuals</td>
+    <td class="num">\(10^{-4}\) to \(10^{-3}\)</td>
+    <td>Residual after standard spherical-harmonic modelling</td>
+  </tr>
+  <tr>
+    <td>Apollo navigation residuals</td>
+    <td class="num">\(10^{-4}\) to \(10^{-3}\)</td>
+    <td>Velocity and guidance residuals on deep-space legs</td>
+  </tr>
+</table>
+
+<h2>6. Scope of this page</h2>
+<div class="band">
+<p>
+This page records an observation: that five independent measurement series
+report deviations of the same fractional magnitude. It does not claim a
+mechanism, and it does not present the field interpretation.
+</p>
+<p>
+Every value above is quoted from published measurements or from the companion
+papers in this body of work, with the source named in each row. The
+interpretation of these deviations as a response to a scalar field is developed
+separately, in the time-gradient field model and its verification papers, and is
+not required to read this page.
+</p>
+</div>
+
+<h2>7. Sources</h2>
+<p>[1] Jenkins, J.H. et al. "Evidence of Correlations between Nuclear Decay Rates and the Earth-Sun Distance." <em>Nuclear Physics A</em>, 807(1&ndash;2), 81&ndash;101, 2008.</p>
+<p>[2] Siegert, H., Schrader, H., and Sch&ouml;tzig, U. "Half-Life Measurements of the Ra-226 Alpha Decay." <em>Applied Radiation and Isotopes</em>, 49(9&ndash;11), 1397&ndash;1401, 1998.</p>
+<p>[3] Jenkins, J.H. and Fischbach, E. "Perturbation of Nuclear Decay Rates during the Solar Flare of 2006 December 13." <em>Nuclear Physics A</em>, 825(1&ndash;4), 101&ndash;108, 2009.</p>
+<p>[4] Sturrock, P.A., Buncher, J.B., Fischbach, E., Gruenwald, J.T., Javorsek, D., Jenkins, J.H. "Power Spectrum Analysis of BNL Decay-Rate Data." <em>Astrophysics and Space Science</em>, 2010.</p>
+<p>Full derivations, fitted parameters, and verification: <a href="https://richardkentgates.com/papers/time-gradient-field-model.html">Time-Gradient Field Model</a> and <a href="https://richardkentgates.com/papers/time_gradient_verification.html">Mathematical Verification of the Time-Gradient Field Model</a>.</p>
+
+<p class="back"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>
+
+</div>
+</body>
+</html>
