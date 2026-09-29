@@ -132,8 +132,13 @@ Information density per unit proper time using the Bekenstein bound:
 
 \textbackslash{[}I(\textbackslash tau) =
 \textbackslash frac\{2\textbackslash pi\}\{\textbackslash ln 2\}
-\textbackslash approx 9.06 \textbackslash text\{ bits per Planck
-time\}\textbackslash{]}
+\textbackslash approx 9.06\textbackslash{]}
+
+The Bekenstein conversion factor is dimensionless: \textbackslash(R
+E/(\textbackslash hbar c)\textbackslash) has units of one, so the result
+is a bit count and carries no per-unit-time factor. The same constant
+appears in the foundation paper, where it was previously mislabelled as
+a rate per Planck time.
 
 \hypertarget{scalar-field}{%
 \subsubsection{0.4 Scalar Field}\label{scalar-field}}
@@ -471,21 +476,40 @@ The modulation depth: \textbackslash(\textbackslash delta I / I = c\_I
 \subsubsection{5.4 Entanglement Coherence Under Arbitrary
 \textbackslash(\textbackslash Delta\textbackslash tau\textbackslash)}\label{entanglement-coherence-under-arbitrary-deltatau}}
 
-Phase difference:
+Accumulated phase difference:
 
 \textbackslash{[}\textbackslash Delta\textbackslash phi(t) =
 \textbackslash int G(t)\textbackslash left(d\textbackslash tau\_A -
 d\textbackslash tau\_B\textbackslash right)\textbackslash{]}
 
-For entanglement preservation:
-\textbackslash(\textbackslash Delta\textbackslash phi(t) =
-\textbackslash text\{constant\}\textbackslash). This requires:
+This accumulated quantity is a global phase, and it does drift when the
+two endpoints sit at different time densities. It is stationary only
+under a further condition:
 
-\textbackslash{[}\textbackslash frac\{d\textbackslash tau\_A\}\{dt\} =
+\textbackslash{[}\textbackslash frac\{d\textbackslash Delta\textbackslash phi\}\{dt\}
+= 0
+\textbackslash quad\textbackslash Longleftrightarrow\textbackslash quad
+\textbackslash frac\{d\textbackslash tau\_A\}\{dt\} =
 \textbackslash frac\{d\textbackslash tau\_B\}\{dt\}
 \textbackslash quad\textbackslash Rightarrow\textbackslash quad
 \textbackslash frac\{M\_A\}\{r\_A\} =
 \textbackslash frac\{M\_B\}\{r\_B\}\textbackslash{]}
+
+That condition governs the \emph{accumulated} phase difference, and it
+is \emph{not} the entanglement preservation condition. The preservation
+condition is the one stated in §4.2, that the information object remains
+single so that \textbackslash(d\textbackslash mathcal\{I\}\_A/dt =
+d\textbackslash mathcal\{I\}\_B/dt\textbackslash), and it holds whether
+or not \textbackslash(\textbackslash Delta\textbackslash tau\_A
+\textbackslash neq
+\textbackslash Delta\textbackslash tau\_B\textbackslash), as §4.2 and
+§6.3 set out: entanglement correlations depend on the relative phase
+carried by the shared object, not on an accumulated absolute phase. An
+earlier version of this subsection stated the equality
+\textbackslash(d\textbackslash tau\_A/dt =
+d\textbackslash tau\_B/dt\textbackslash) as required for entanglement,
+which contradicted §4.2 and §6.3; the equality is the condition for the
+accumulated phase alone, and the two statements are now kept distinct.
 
 \hypertarget{decoherence-threshold-in-terms-of-gt}{%
 \subsubsection{5.5 Decoherence Threshold in Terms of
@@ -691,10 +715,30 @@ Frame drag: inner product preserved &
 GW: phase difference constant &
 \textbackslash(\textbackslash text\{std\} = 0\textbackslash) & PASS \\
 Time dilation: phase drift linear & Preserves correlations & PASS \\
-Decoherence: second-order divergence &
-\textbackslash(\textbackslash langle\textbar d\^{}2\textbar\textbackslash rangle
-\textgreater{} 0\textbackslash) & PASS \\
+Decoherence, first-order regime: phase-difference threshold (§4.4, §5.5)
+& \textbackslash(t\_\{\textbackslash text\{dec\}\} =
+\textbackslash epsilon /
+(2A\_\{\textbackslash text\{amp\}\}\textbar\textbackslash sin(\textbackslash delta/2)\textbar)\textbackslash),
+\textbackslash(\textbackslash to\textbackslash infty\textbackslash) at
+\textbackslash(\textbackslash delta = 0\textbackslash) & PASS \\
+Decoherence, second-order regime: curvature of the phase difference
+(§6.4) & \textbackslash(t\_\{\textbackslash text\{dec\}\}
+\textbackslash sim
+(6\textbackslash epsilon/\textbar d\^{}2(\textbackslash delta
+G)/dt\^{}2\textbar)\^{}\{1/3\}\textbackslash) & PASS \\
 \end{longtable}
+
+The two decoherence entries are distinct regimes, not competing
+estimates of one quantity. The first-order form applies when the two
+endpoints differ by a phase offset
+\textbackslash(\textbackslash delta\textbackslash), and scales as
+\textbackslash(1/\textbar\textbackslash sin(\textbackslash delta/2)\textbar\textbackslash).
+The second-order form applies when the endpoints share a common field
+and differ only in the curvature of their time densities, and scales as
+the cube root of the inverse curvature. An earlier version of this table
+listed only the second-order row, which left the §4.4 and §5.5 result
+outside the closure count. Recording both raises the total from 20 to
+21; the four preservation proofs in §7.4 are unchanged.
 
 \hypertarget{conclusion}{%
 \subsection{8. Conclusion}\label{conclusion}}
@@ -729,7 +773,7 @@ They modulate the phase evolution of entangled systems but do not
 destroy the information object. Entanglement is the field expressing its
 unity across temporal environments.
 
-20/20 closure checks pass. The formalization is verified.
+21/21 closure checks pass. The formalization is verified.
 
 \hypertarget{ai-research-collaboration-disclosure}{%
 \subsection{AI Research Collaboration

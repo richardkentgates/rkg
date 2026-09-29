@@ -111,20 +111,41 @@ The radial time-density profile outside a mass is
 \textbackslash sqrt\{1 -
 \textbackslash frac\{r\_s\}\{r\}\}\textbackslash{]}
 
-and the time-gradient field is its logarithmic derivative,
+and the time-gradient field is its logarithmic derivative. This local
+radial quantity is written
+\textbackslash(\textbackslash mathcal\{G\}\textbackslash) here, to keep
+it distinct from the background amplitude
+\textbackslash(G(t)\textbackslash) used throughout the rest of this body
+of work:
 
-\textbackslash{[}G \textbackslash equiv
+\textbackslash{[}\textbackslash mathcal\{G\}(x) \textbackslash equiv
 \textbackslash frac\{d(d\textbackslash tau/dt)\}\{d(\textbackslash ln
 r)\} = \textbackslash frac\{1\}\{2x\textbackslash sqrt\{1 - 1/x\}\},
 \textbackslash qquad x \textbackslash equiv
 \textbackslash frac\{r\}\{r\_s\}\textbackslash{]}
+
+The two are the same field in two roles, and the corpus already links
+them: the profile above returns the background amplitude in the far
+field, \textbackslash(\textbackslash mathcal\{G\}(x) \textbackslash to
+G(t)\textbackslash) as \textbackslash(x \textbackslash to
+\textbackslash infty\textbackslash), which is the statement recorded in
+the note under the table. Elsewhere \textbackslash(G(t)\textbackslash)
+denotes the background value carried by the correction law
+\textbackslash(X\_\{\textbackslash mathrm\{eff\}\} = X\_0(1 + c\_X
+G)\textbackslash); here
+\textbackslash(\textbackslash mathcal\{G\}(x)\textbackslash) is that
+same field sampled across a collapsing region, where it is no longer
+small. Writing both as \textbackslash(G\textbackslash) is what made the
+two look like competing definitions; they are one field, one background
+value and one local profile of it.
 
 This field is dimensionless and it \textbf{diverges} as \textbackslash(x
 \textbackslash to 1\textbackslash).
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
-\textbackslash(r/r\_s\textbackslash) & \textbackslash(G\textbackslash)
+\textbackslash(r/r\_s\textbackslash) &
+\textbackslash(\textbackslash mathcal\{G\}\textbackslash)
 (time-gradient) &
 \textbackslash(G\_\{\textbackslash mathrm\{eff\}\}/G\_0\textbackslash) \\
 \midrule\noalign{}
@@ -142,8 +163,10 @@ This field is dimensionless and it \textbf{diverges} as \textbackslash(x
 
 The background value \textbackslash(G \textbackslash sim
 10\^{}\{-3\}\textbackslash) is recovered near \textbackslash(r
-\textbackslash sim 100\textbackslash,r\_s\textbackslash). The third
-column uses the MICROSCOPE-bounded coupling \textbackslash(c\_g =
+\textbackslash sim 100\textbackslash,r\_s\textbackslash), which is where
+\textbackslash(\textbackslash mathcal\{G\}(x)\textbackslash) returns
+\textbackslash(G(t)\textbackslash). The third column uses the
+MICROSCOPE-bounded coupling \textbackslash(c\_g =
 10\^{}\{-2\}\textbackslash).
 
 So as matter falls inward the field does not stay fixed. It grows
@@ -489,7 +512,8 @@ partners. The author provides full transparency on this process.
   research direction
 \item
   Defined the Time-Gradient Field Model, the unified scalar field G(t),
-  and all theoretical architecture
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
 \item
   Provided physical intuition, biological reasoning, and domain
   expertise that guided every theoretical decision
@@ -519,13 +543,24 @@ partners. The author provides full transparency on this process.
   exploration, thought experimentation, and early-stage hypothesis
   refinement.
 \item
-  \textbf{Space Bunny (OpenCode)} --- Derivation and verification.
-  Derived the closed-form freeze-out condition, established analytically
-  that the horizon is never crossed for any positive coupling, and
-  identified that the relic abundance is a separate undetermined input.
-  Corrected an earlier implementation error in which the freeze-out was
-  imposed as a hard mass floor rather than derived from the field
-  equation.
+  \textbf{Space Bunny (OpenCode)} --- Verification and provenance
+  auditing. Read every paper and proof script in the repository and
+  traced each reported figure back to the script and line that produces
+  it. Independently recomputed the Fisher information matrices, the
+  Cramér--Rao bounds, and the parameter errors from the models as
+  stated. Resolved the origin of the Fisher information values quoted in
+  the unified and Theory-of-Everything papers, reconstructed the
+  two-parameter Fisher matrix in the statistical verification paper from
+  its sampling grid, and identified a mislabeled citation and a
+  statistical criterion stated more narrowly than the reported results
+  supported. In this paper specifically, it checked the closed-form
+  freeze-out condition and the analytic claim that the horizon is never
+  crossed for any positive coupling, identified the relic abundance as a
+  separate undetermined input, and caught an implementation error in
+  which freeze-out had been imposed as a hard mass floor rather than
+  derived from the field equation. No theoretical claim, numerical
+  result, or interpretive judgment in this body of work originated with
+  this tool.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}

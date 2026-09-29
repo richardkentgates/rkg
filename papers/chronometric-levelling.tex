@@ -319,23 +319,41 @@ limit on the framework\textquotesingle s coupling
 \textbackslash(c\_\{g\}\textbackslash), since a fractional deviation of
 the rate is \textbackslash(c\_\{g\}G\textbackslash):
 
-\begin{longtable}[]{@{}lll@{}}
+\begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
 Experiment & Kind of test & Limit on
-\textbackslash(c\_\{g\}\textbackslash) \\
+\textbackslash(c\_\{g\}\textbackslash) & Informative? \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Paris--PTB, 1415 km & first derivative & \textless{}
-7.2×10\textsuperscript{−8} \\
-MICROSCOPE, 21 cm & differential & \textless{}
-1.2×10\textsuperscript{2} \\
+7.2×10\textsuperscript{−8} & yes \\
+MICROSCOPE, 21 cm & differential & \textless{} 1.2×10\textsuperscript{2}
+& no --- vacuous \\
 Skytree, 450 m & first derivative & \textless{}
-1.3×10\textsuperscript{5} \\
+1.3×10\textsuperscript{5} & no --- vacuous \\
 PTB--MPQ, 457 km & first derivative & \textless{}
-9.5×10\textsuperscript{5} \\
+9.5×10\textsuperscript{5} & no --- vacuous \\
 \end{longtable}
+
+One of the four constrains the coupling. The other three are
+arithmetically correct but carry no information: a bound of
+\textbackslash(1.2\textbackslash times10\^{}\{2\}\textbackslash),
+\textbackslash(1.3\textbackslash times10\^{}\{5\}\textbackslash), or
+\textbackslash(9.5\textbackslash times10\^{}\{5\}\textbackslash) on
+\textbackslash(c\_\{g\}\textbackslash) is weaker than the requirement
+that \textbackslash(c\_\{g\}\textbackslash) be small at all, since the
+correction law assumes \textbackslash(\textbar c\_\{g\}G\textbar{}
+\textbackslash ll 1\textbackslash) and any \textbackslash(c\_\{g\}
+\textbackslash gtrsim 1\textbackslash) would make the expansion
+meaningless. Those three rows are retained because they record what each
+measurement could in principle reach, but they should not be read as
+evidence about \textbackslash(c\_\{g\}\textbackslash). The only
+quantitative statement these experiments support is
+\textbackslash(c\_\{g\} \textless{}
+7.2\textbackslash times10\^{}\{-8\}\textbackslash) from the Paris--PTB
+residual.
 
 Transcribed in \texttt{local\_experiment\_data.txt} and evaluated by
 \texttt{local\_experiments.py}, which writes
@@ -394,16 +412,19 @@ difference at every baseline where the framework\textquotesingle s own
 quantity has been read.
 
 §4 widens this to the second derivative and to differential tests. Read
-together the local data place upper limits on the coupling, from
+together, the local data give one quantitative bound on the coupling,
 \textbackslash(c\_\{g\} \textless{}
-7.2\textbackslash times10\^{}\{-8\}\textbackslash) at 1415 km to
-\textbackslash(c\_\{g\} \textless{}
-1.2\textbackslash times10\^{}\{2\}\textbackslash) from MICROSCOPE. All
-of them are consistent with the framework\textquotesingle s
-zero-correction limit, and none of them can distinguish it from the
-limit itself. The framework is not contradicted by any local
-measurement, and is not distinguished by one either. That is the state
-of the evidence, stated without inflation.
+7.2\textbackslash times10\^{}\{-8\}\textbackslash) from the 1415~km
+residual. The remaining three tests translate to bounds of
+\textbackslash(10\^{}\{2\}\textbackslash) to
+\textbackslash(10\^{}\{6\}\textbackslash) on
+\textbackslash(c\_\{g\}\textbackslash), which are weaker than the
+assumption that \textbackslash(c\_\{g\}\textbackslash) is small and
+therefore state nothing about it. All four are consistent with the
+framework\textquotesingle s zero-correction limit, and none of them can
+distinguish it from the limit itself. The framework is not contradicted
+by any local measurement, and is not distinguished by one either. That
+is the state of the evidence, stated without inflation.
 
 What is genuinely constrained is the singularity result, which follows
 from the divergence of \textbackslash(G\textbackslash) at the horizon
@@ -428,7 +449,8 @@ partners. The author provides full transparency on this process.
   research direction
 \item
   Defined the Time-Gradient Field Model, the unified scalar field G(t),
-  and all theoretical architecture
+  the distance → time → information → G(t) framework, and all
+  theoretical architecture
 \item
   Provided physical intuition, biological reasoning, and domain
   expertise that guided every theoretical decision
@@ -458,12 +480,23 @@ partners. The author provides full transparency on this process.
   exploration, thought experimentation, and early-stage hypothesis
   refinement.
 \item
-  \textbf{Space Bunny (OpenCode)} --- Literature retrieval and numerical
-  analysis. Identified chronometric levelling as a direct measurement of
-  the framework\textquotesingle s primary observable, transcribed three
-  published results with their citations, and corrected an initial
-  dimensional error in which the GR-violation parameter was compared
-  against a raw frequency shift.
+  \textbf{Space Bunny (OpenCode)} --- Verification and provenance
+  auditing. Read every paper and proof script in the repository and
+  traced each reported figure back to the script and line that produces
+  it. Independently recomputed the Fisher information matrices, the
+  Cramér--Rao bounds, and the parameter errors from the models as
+  stated. Resolved the origin of the Fisher information values quoted in
+  the unified and Theory-of-Everything papers, reconstructed the
+  two-parameter Fisher matrix in the statistical verification paper from
+  its sampling grid, and identified a mislabeled citation and a
+  statistical criterion stated more narrowly than the reported results
+  supported. In this paper specifically, it identified chronometric
+  levelling as a direct measurement of the framework\textquotesingle s
+  primary observable, transcribed three published results with their
+  citations, and caught a dimensional error in which the GR-violation
+  parameter had been compared against a raw frequency shift. No
+  theoretical claim, numerical result, or interpretive judgment in this
+  body of work originated with this tool.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
