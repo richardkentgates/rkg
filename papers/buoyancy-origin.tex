@@ -230,34 +230,35 @@ magnitude in density:
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
 Body & Density (kg m\textbackslash(\^{}\{-3\}\textbackslash)) & Mean
-\textbackslash(Z\textbackslash) & Acceleration
+\textbackslash(Z\textbackslash) &
+\textbackslash(d\textbackslash tau/dt\textbackslash) gradient
 (s\textbackslash(\^{}\{-1\}\textbackslash)) \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Hydrogen (H\textsubscript{2}) &
-\textbackslash(8.99\textbackslash times10\^{}\{-8\}\textbackslash) & 0.1
-&
+\textbackslash(8.99\textbackslash times10\^{}\{-8\}\textbackslash) &
+0.67 &
 \textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
 Water (H\textsubscript{2}O) &
-\textbackslash(1.00\textbackslash times10\^{}\{3\}\textbackslash) & 18.0
+\textbackslash(1.00\textbackslash times10\^{}\{3\}\textbackslash) & 3.33
 &
 \textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
 Silicate rock &
-\textbackslash(2.50\textbackslash times10\^{}\{3\}\textbackslash) & 67.1
-&
+\textbackslash(2.50\textbackslash times10\^{}\{3\}\textbackslash) &
+10.00 &
 \textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
 Iron core &
-\textbackslash(7.87\textbackslash times10\^{}\{3\}\textbackslash) & 55.8
-&
+\textbackslash(7.87\textbackslash times10\^{}\{3\}\textbackslash) &
+26.00 &
 \textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
 Lead & \textbackslash(1.34\textbackslash times10\^{}\{4\}\textbackslash)
-& 82.4 &
+& 82.00 &
 \textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
 Degenerate matter &
-\textbackslash(1.00\textbackslash times10\^{}\{12\}\textbackslash) & 2.0
-&
+\textbackslash(1.00\textbackslash times10\^{}\{12\}\textbackslash) &
+2.00 &
 \textbackslash(2.7312882907\textbackslash times10\^{}\{-17\}\textbackslash) \\
 \multicolumn{2}{@{}l}{%
 Spread across all compositions} &
@@ -265,6 +266,16 @@ Spread across all compositions} &
 \multicolumn{2}{@{}l}{%
 Result} & PASS & \\
 \end{longtable}
+
+Mean \textbackslash(Z\textbackslash) is the atomic number per
+constituent nucleus, averaged by number: H\textsubscript{2} gives
+\textbackslash(2/3 = 0.67\textbackslash), H\textsubscript{2}O gives
+\textbackslash((2\textbackslash times1 + 8)/3 = 3.33\textbackslash), and
+SiO\textsubscript{2} gives \textbackslash((14 +
+2\textbackslash times8)/3 = 10.00\textbackslash). The final column is
+the gradient of the proper-time rate, in
+s\textbackslash(\^{}\{-1\}\textbackslash); the acceleration is this
+value multiplied by \textbackslash(c\^{}\{2\}\textbackslash).
 
 The spread is exactly zero. The equivalence principle holds for the
 origin on its own terms, with no appeal to the equivalence principle as
@@ -331,14 +342,17 @@ dense medium, gravity carries matter toward slower time, so the sign
 inverts while the mechanism of a density gradient carrying a body with
 it does not.
 
-Two properties of this origin are verified numerically. The gradient of
-the proper-time rate reproduces Newtonian acceleration to a relative
-error below \textbackslash(10\^{}\{-9\}\textbackslash), with no
-measurable contribution from linearization at planetary radii. The
-coupling is independent of composition, so the equivalence principle
+Two properties of this origin are established. The gradient of the
+proper-time rate reproduces Newtonian acceleration to a relative error
+below \textbackslash(10\^{}\{-9\}\textbackslash), with no measurable
+contribution from linearization at planetary radii. The second follows
+from the structure of the model rather than from measurement: the
+coupling carries no compositional input, so the equivalence principle
 holds exactly and composition dependence in
 \textbackslash(c\_g\textbackslash) becomes a measurable deviation rather
 than a fitted parameter.
+
+\href{https://richardkentgates.com/}{← richardkentgates.com}
 
 \href{https://richardkentgates.com/}{← richardkentgates.com}
 

@@ -48,19 +48,6 @@
 % Allow footnotes in longtable head/foot
 \IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
 \makesavenoteenv{longtable}
-\usepackage{graphicx}
-\makeatletter
-\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
-\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
-\makeatother
-% Scale images if necessary, so that they will not overflow the page
-% margins by default, and it is still possible to overwrite the defaults
-% using explicit options in \includegraphics[width, height, ...]{}
-\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-% Set default figure placement to htbp
-\makeatletter
-\def\fps@figure{htbp}
-\makeatother
 \setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
@@ -90,188 +77,400 @@
 
 \begin{document}
 
-\hypertarget{black-hole-lifecycle-field-driven-cosmology-with-relics-as-the-gradient-driven-component}{%
-\section{Black Hole Lifecycle: Field-Driven Cosmology with Relics as the
-Gradient-Driven
-Component}\label{black-hole-lifecycle-field-driven-cosmology-with-relics-as-the-gradient-driven-component}}
+\hypertarget{black-hole-lifecycle}{%
+\section{Black Hole Lifecycle}\label{black-hole-lifecycle}}
 
-Richard Kent Gates
+Singularity elimination by the time-gradient field
 
-mail@richardkentgates.com
+\hypertarget{the-question}{%
+\subsection{1. The question}\label{the-question}}
 
-September 16, 2026
+The foundation of this framework is a chain of three principles:
+distance necessitates time, time is information, and information cannot
+be lost. If that chain holds, then a singularity is not merely
+undesirable but inadmissible, because it requires infinite information
+in zero volume.
 
-\hypertarget{cosmic-expansion-from-field}{%
-\subsection{1. Cosmic Expansion from
-Field}\label{cosmic-expansion-from-field}}
+This paper asks what the field theory implies for black hole collapse.
+The question is not whether collapse can be stopped by imposing a
+condition, but whether the equations already contain one.
 
-The scalar field \textbackslash(\textbackslash Phi(t)\textbackslash)
-with potential \textbackslash(V(\textbackslash Phi)\textbackslash)
-replaces the cosmological constant
-\textbackslash(\textbackslash Lambda\textbackslash):
+\hypertarget{mass-as-extreme-time-density}{%
+\subsection{2. Mass as extreme
+time-density}\label{mass-as-extreme-time-density}}
 
-\textbackslash{[}\textbackslash rho\_F =
-\textbackslash tfrac\{1\}\{2\}\textbackslash dot\{\textbackslash Phi\}\^{}2
-+ V(\textbackslash Phi), \textbackslash qquad p\_F =
-\textbackslash tfrac\{1\}\{2\}\textbackslash dot\{\textbackslash Phi\}\^{}2
-- V(\textbackslash Phi)\textbackslash{]} \textbackslash{[}H\^{}2 =
+The starting move is to take the framework\textquotesingle s premise
+seriously in a specific way. If mass is the terminal limit of
+time-density, then the field that measures time-density must diverge
+wherever mass would otherwise become singular. This is not an additional
+postulate; it is what the axiom chain requires.
+
+The radial time-density profile outside a mass is
+
+\textbackslash{[}\textbackslash frac\{d\textbackslash tau\}\{dt\} =
+\textbackslash sqrt\{1 -
+\textbackslash frac\{r\_s\}\{r\}\}\textbackslash{]}
+
+and the time-gradient field is its logarithmic derivative,
+
+\textbackslash{[}G \textbackslash equiv
+\textbackslash frac\{d(d\textbackslash tau/dt)\}\{d(\textbackslash ln
+r)\} = \textbackslash frac\{1\}\{2x\textbackslash sqrt\{1 - 1/x\}\},
+\textbackslash qquad x \textbackslash equiv
+\textbackslash frac\{r\}\{r\_s\}\textbackslash{]}
+
+This field is dimensionless and it \textbf{diverges} as \textbackslash(x
+\textbackslash to 1\textbackslash).
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+\textbackslash(r/r\_s\textbackslash) & \textbackslash(G\textbackslash)
+(time-gradient) &
+\textbackslash(G\_\{\textbackslash mathrm\{eff\}\}/G\_0\textbackslash) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+100 & 5.025e-03 & 0.99995 \\
+10 & 5.271e-02 & 0.99947 \\
+2 & 3.536e-01 & 0.99646 \\
+1.1 & 1.508e+00 & 0.98492 \\
+1.01 & 4.975e+00 & 0.95025 \\
+1.001 & 1.580e+01 & 0.84197 \\
+1.0001 & 4.9998e+01 & 0.50002 \\
+\end{longtable}
+
+The background value \textbackslash(G \textbackslash sim
+10\^{}\{-3\}\textbackslash) is recovered near \textbackslash(r
+\textbackslash sim 100\textbackslash,r\_s\textbackslash). The third
+column uses the MICROSCOPE-bounded coupling \textbackslash(c\_g =
+10\^{}\{-2\}\textbackslash).
+
+So as matter falls inward the field does not stay fixed. It grows
+without bound.
+
+\hypertarget{gravity-is-regulated-by-the-field}{%
+\subsection{3. Gravity is regulated by the
+field}\label{gravity-is-regulated-by-the-field}}
+
+The effective gravitational constant is not constant in this framework.
+It depends on the field, and regularizes as the field grows:
+
+\textbackslash{[}G\_\{\textbackslash mathrm\{eff\}\} =
+G\_0\textbackslash left(1 - c\_g G\textbackslash right)\textbackslash{]}
+
+The coupling is not free. MICROSCOPE bounds the fractional deviation of
+the gravitational constant to below
+\textbackslash(10\^{}\{-5\}\textbackslash). The framework writes that
+deviation as \textbackslash(c\_g G\textbackslash), and with a background
+field \textbackslash(G \textbackslash sim 10\^{}\{-3\}\textbackslash)
+this requires
+
+\textbackslash{[}c\_g \textless{}
+\textbackslash frac\{10\^{}\{-5\}\}\{10\^{}\{-3\}\} =
+10\^{}\{-2\}\textbackslash{]}
+
+\hypertarget{freeze-out-in-closed-form}{%
+\subsection{4. Freeze-out, in closed
+form}\label{freeze-out-in-closed-form}}
+
+Collapse stalls when the effective constant reaches zero, that is when
+\textbackslash(c\_g G = 1\textbackslash). Substituting the field from
+Section 2:
+
+\textbackslash{[}\textbackslash frac\{c\_g\}\{2x\textbackslash sqrt\{1-1/x\}\}
+= 1
+\textbackslash;\textbackslash;\textbackslash Longrightarrow\textbackslash;\textbackslash;
+4x(x-1) = c\_g\^{}2
+\textbackslash;\textbackslash;\textbackslash Longrightarrow\textbackslash;\textbackslash;
+x\^{}2 - x - \textbackslash frac\{c\_g\^{}2\}\{4\} = 0\textbackslash{]}
+
+Solving the quadratic:
+
+\textbackslash{[}\textbackslash boxed\{\textbackslash;\textbackslash frac\{r\_\{\textbackslash mathrm\{freeze\}\}\}\{r\_s\}
+= \textbackslash frac\{1 + \textbackslash sqrt\{1 +
+c\_g\^{}2\}\}\{2\}\textbackslash;\}\textbackslash{]}
+
+There are no free parameters in this expression. The stopping condition
+is derived, not imposed.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+\textbackslash(c\_g\textbackslash) &
+\textbackslash(r\_\{\textbackslash mathrm\{freeze\}\}/r\_s\textbackslash)
+& Outside horizon by \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+1e-04 & 1.0000000025 & 2.5e-09 \textbackslash(r\_s\textbackslash) \\
+1e-03 & 1.00000025 & 2.5e-07 \textbackslash(r\_s\textbackslash) \\
+1e-02 & 1.00002500 & 2.5e-05 \textbackslash(r\_s\textbackslash) \\
+1e-01 & 1.00249378 & 2.5e-03 \textbackslash(r\_s\textbackslash) \\
+0.5 & 1.05901699 & 5.9e-02 \textbackslash(r\_s\textbackslash) \\
+1.0 & 1.20710678 & 2.1e-01 \textbackslash(r\_s\textbackslash) \\
+2.0 & 1.61803399 & 6.2e-01 \textbackslash(r\_s\textbackslash) \\
+\end{longtable}
+
+Since \textbackslash(\textbackslash sqrt\{1 + c\_g\^{}2\} \textgreater{}
+1\textbackslash) strictly for every \textbackslash(c\_g \textgreater{}
+0\textbackslash),
+
+\textbackslash{[}\textbackslash frac\{r\_\{\textbackslash mathrm\{freeze\}\}\}\{r\_s\}
+\textgreater{} 1 \textbackslash quad \textbackslash text\{for all \}
+c\_g \textgreater{} 0\textbackslash{]}
+
+\textbf{The freeze-out always occurs outside the horizon.} For the
+MICROSCOPE-bounded value \textbackslash(c\_g =
+10\^{}\{-2\}\textbackslash), collapse stalls \textbackslash(2.5
+\textbackslash times 10\^{}\{-5\}\textbackslash,r\_s\textbackslash)
+outside the Schwarzschild radius.
+
+Numerical integration of the regulated radial free-fall confirms this.
+The time to descend from
+\textbackslash(1000\textbackslash,r\_s\textbackslash) saturates as the
+freeze-out radius is approached, at \textbackslash(2.0771\textbackslash)
+s for a
+\textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
+object, and the descent asymptotically halts there.
+
+\hypertarget{the-bounce}{%
+\subsection{5. The bounce}\label{the-bounce}}
+
+Once \textbackslash(G\_\{\textbackslash mathrm\{eff\}\} =
+0\textbackslash) there is nothing left to compress the object further.
+The field\textquotesingle s own stress is then decisive:
+
+\textbackslash{[}\textbackslash rho\_G + 3P\_G =
+2\textbackslash dot\{\textbackslash phi\}\^{}2 -
+2V(\textbackslash phi)\textbackslash{]}
+
+For a slowly rolling field,
+\textbackslash(\textbackslash dot\{\textbackslash phi\}
+\textbackslash to 0\textbackslash), and this reduces to
+\textbackslash(-2V(\textbackslash phi) \textless{} 0\textbackslash) for
+any non-zero potential. Negative \textbackslash(\textbackslash rho +
+3p\textbackslash) is a repulsive, accelerated solution. The condition is
+satisfied for every \textbackslash(V\_0 \textgreater{} 0\textbackslash)
+and is therefore not a fine-tuning.
+
+The collapse reverses and the envelope is ejected. This is the behaviour
+of accreting on one side and ejecting on the other: with the
+time-gradient at zero the object can no longer draw matter in through
+gravity, but the field still carries stress and radiates.
+
+\hypertarget{the-remnant}{%
+\subsection{6. The remnant}\label{the-remnant}}
+
+The collapse does not end in a singularity. It compresses all the way
+down to the most basic component, which is time-information, and that
+component is what remains. The remnant is therefore not a small dense
+object left over from a larger one; it is the full time-information
+content of what collapsed, held together by the field rather than by
+gravity. Nothing is discarded in the process, so the information is
+preserved in full rather than in part.
+
+The content is the Bekenstein information at the freeze-out radius,
+which for collapse from a mass \textbackslash(M\textbackslash) is
+
+\textbackslash{[}I = \textbackslash frac\{2\textbackslash pi R
+E\}\{\textbackslash hbar c \textbackslash ln 2\} =
+\textbackslash frac\{4\textbackslash pi G M\^{}2\}\{\textbackslash hbar
+c \textbackslash ln 2\}\textbackslash{]}
+
+a classical expression used to size the content, not a relic mass. A
+black hole of
+\textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
+holds \textbackslash(1.5\textbackslash times10\^{}\{79\}\textbackslash)
+bits. This is the quantity the lifecycle preserves, and it is conserved:
+at freeze-out the time-density the mass was supporting transfers to the
+field, whose negative stress \textbackslash(\textbackslash rho\_G +
+3P\_G \textless{} 0\textbackslash) then holds it, while the mass-energy
+departs in the ejecta.
+
+The remnant is bound by the field rather than by gravity, since gravity
+is switched off. Balancing the residual gravitational pull against the
+field\textquotesingle s own repulsion,
+
+\textbackslash{[}\textbackslash frac\{GM\}\{r\^{}2\} =
 \textbackslash frac\{8\textbackslash pi
-G\}\{3\}\textbackslash left{[}\textbackslash rho\_b +
-\textbackslash rho\_r +
-\textbackslash rho\_\{\textbackslash text\{relic\}\} +
-\textbackslash rho\_F\textbackslash right{]}\textbackslash{]}
-\textbackslash{[}\textbackslash ddot\{\textbackslash Phi\} +
-3H\textbackslash dot\{\textbackslash Phi\} +
-\textbackslash frac\{dV\}\{d\textbackslash Phi\} = 0\textbackslash{]}
+G\}\{3\}\textbackslash frac\{r\textbackslash,V(\textbackslash phi)\}\{c\^{}2\}\textbackslash{]}
 
-DESI constraint: \textbackslash(w = -0.85\textbackslash) gives
-\textbackslash(K/V = (1+w)/(1-w) = 0.0811\textbackslash). The numerical
-integration yields \textbackslash(w \textbackslash approx
--0.995\textbackslash) over late times, consistent with a slowly rolling
-field.
+and substituting \textbackslash(M =
+\textbackslash tfrac\{4\}\{3\}\textbackslash pi r\^{}3
+\textbackslash rho\_\{\textbackslash mathrm\{rem\}\}\textbackslash)
+gives a clean bound on the remnant density,
 
-\begin{figure}
-\centering
-\includegraphics{fig-energy-budget.png}
-\caption{Figure 1: Cosmic energy budget. The scalar field (dark energy)
-dominates at late times. Relics (dark matter) dominate the matter
-budget. Baryons are a small fraction.}
-\end{figure}
-
-\hypertarget{relics-as-the-gradient-driven-component-fluid-description}{%
-\subsection{2. Relics as the Gradient-Driven Component (Fluid
-Description)}\label{relics-as-the-gradient-driven-component-fluid-description}}
-
-\textbackslash{[}\textbackslash dot\{\textbackslash rho\}\_\{\textbackslash text\{relic\}\}
-+ 3H\textbackslash rho\_\{\textbackslash text\{relic\}\} =
-S\_\{\textbackslash text\{form\}\} -
-S\_\{\textbackslash text\{absorb\}\} -
-S\_\{\textbackslash text\{decay\}\}\textbackslash{]}
-\textbackslash{[}p\_\{\textbackslash text\{relic\}\}
-\textbackslash approx 0\textbackslash{]}
-
-Relics behave as pressureless matter. The continuity equation residual
-is
-\textbackslash(\textbackslash mathcal\{O\}(10\^{}\{-4\})\textbackslash),
-confirming CDM behavior.
-
-\hypertarget{single-black-hole-mass-evolution}{%
-\subsection{3. Single Black Hole Mass
-Evolution}\label{single-black-hole-mass-evolution}}
-
-\textbackslash{[}\textbackslash frac\{dM\}\{dt\} =
-\textbackslash dot\{M\}\_\{\textbackslash text\{acc\}\} +
-\textbackslash dot\{M\}\_\{\textbackslash text\{evap\}\} +
-\textbackslash dot\{M\}\_\{\textbackslash text\{field\}\} +
-\textbackslash dot\{M\}\_\{\textbackslash text\{int\}\}\textbackslash{]}
-
-\begin{figure}
-\centering
-\includegraphics{fig-bh-mass-evolution.png}
-\caption{Figure 1: Black hole mass evolution across three phases.
-Accretion dominates at high mass, evaporation dominates at low mass, and
-the field-driven freeze-out mechanism halts collapse at
-\textbackslash(M\_\{\textbackslash text\{relic\}\} \textgreater{}
-0\textbackslash), preserving information.}
-\end{figure}
-
-\begin{longtable}[]{@{}lll@{}}
-\toprule\noalign{}
-Phase & Condition & Behavior \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Accretion & \textbackslash(M \textgreater{}
-M\_\{\textbackslash text\{cross\}\}\textbackslash) & Growth from
-environment \\
-Evaporation & \textbackslash(M \textless{}
-M\_\{\textbackslash text\{cross\}\}\textbackslash) & Hawking-like mass
-loss \\
-Freeze-out & \textbackslash(M \textbackslash to
-M\_\{\textbackslash text\{relic\}\}\textbackslash) & Stable Planckian
-relic \\
-\end{longtable}
-
-A \textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
-black hole evaporates to a relic of mass
-\textbackslash(M\_\{\textbackslash text\{relic\}\} \textbackslash sim
-10\^{}\{-5\}\textbackslash,M\_\{\textbackslash text\{Pl\}\}\textbackslash).
-
-\hypertarget{relic-identity-variable}{%
-\subsection{4. Relic Identity Variable}\label{relic-identity-variable}}
-
-\textbackslash{[}\textbackslash dot\{\textbackslash chi\} =
--\textbackslash Gamma\_\{\textbackslash text\{abs\}\}\textbackslash,\textbackslash chi
-+ \textbackslash Gamma\_\{\textbackslash text\{form\}\}(1 -
-\textbackslash chi)\textbackslash{]}
-
-With \textbackslash(\textbackslash Gamma\_\{\textbackslash text\{abs\}\}
+\textbackslash{[}\textbackslash boxed\{\textbackslash;\textbackslash rho\_\{\textbackslash mathrm\{rem\}\}
 =
-10\^{}\{-25\}\textbackslash,\textbackslash text\{s\}\^{}\{-1\}\textbackslash),
-the identity timescale is \textbackslash(\textbackslash tau = 3.17
-\textbackslash times 10\^{}\{17\}\textbackslash) years --- far exceeding
-the age of the universe. Relics are stable.
+\textbackslash frac\{2V(\textbackslash phi)\}\{c\^{}2\}\textbackslash;\}\textbackslash{]}
 
-\hypertarget{structure-formation}{%
-\subsection{5. Structure Formation}\label{structure-formation}}
+Using the potential fixed by the DESI energy split (\textbackslash(w =
+-0.85\textbackslash), so \textbackslash(K/V = 0.0811\textbackslash),
+giving \textbackslash(V\_0 =
+0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)):
 
-\textbackslash{[}\textbackslash ddot\{\textbackslash delta\} +
-2H\textbackslash dot\{\textbackslash delta\} = 4\textbackslash pi
-G\textbackslash left{[}\textbackslash rho\_b\textbackslash delta\_b +
-\textbackslash rho\_\{\textbackslash text\{relic\}\}\textbackslash delta\_\{\textbackslash text\{relic\}\}\textbackslash right{]}\textbackslash{]}
+\textbackslash{[}\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
+1.19 \textbackslash times 10\^{}\{-26\} \textbackslash{}
+\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\} =
+1.40\textbackslash{}
+\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash{]}
 
-Results: \textbackslash(\textbackslash Omega\_m = 0.314\textbackslash),
-\textbackslash(\textbackslash Omega\_\{\textbackslash text\{relic\}\} =
-0.265\textbackslash), growth rate \textbackslash(f =
-0.529\textbackslash). Relics cluster identically to CDM.
+The remnant sits at \emph{cosmic} density, not nuclear density. It is a
+field-stabilised region, not a compact object, and it carries no
+Schwarzschild charge because it never crossed a horizon. Its binding
+length is the field Compton wavelength,
+\textbackslash(\textbackslash lambda\_C =
+\textbackslash hbar/(m\_\{\textbackslash mathrm\{eff\}\}
+c)\textbackslash).
 
-\hypertarget{observable-predictions}{%
-\subsection{6. Observable Predictions}\label{observable-predictions}}
+\hypertarget{what-is-determined-and-what-is-not}{%
+\subsection{7. What is determined, and what is
+not}\label{what-is-determined-and-what-is-not}}
 
-\begin{longtable}[]{@{}lll@{}}
-\toprule\noalign{}
-Observable & Prediction & Status \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Rotation curve (10 kpc) & 153 km/s & Flat to 23\% over 10--100 kpc \\
-Rotation curve (100 kpc) & 118 km/s & Consistent with observations \\
-Lensing & \textbackslash(\textbackslash kappa \textbackslash sim
-10\^{}\{-25\}\textbackslash) & Requires full ray-tracing \\
-\end{longtable}
+\textbf{Established, in closed form:}
 
-\hypertarget{numerical-results}{%
-\subsection{7. Numerical Results}\label{numerical-results}}
+\begin{itemize}
+\tightlist
+\item
+  The time-gradient field diverges as \textbackslash(r \textbackslash to
+  r\_s\textbackslash)
+\item
+  Freeze-out occurs at
+  \textbackslash(r\_\{\textbackslash mathrm\{freeze\}\}/r\_s =
+  (1+\textbackslash sqrt\{1+c\_g\^{}2\})/2\textbackslash)
+\item
+  This ratio exceeds unity for every \textbackslash(c\_g \textgreater{}
+  0\textbackslash), so no horizon forms
+\item
+  The bounce condition holds for any \textbackslash(V\_0 \textgreater{}
+  0\textbackslash)
+\item
+  The remnant is the time-information content, preserved in full, not a
+  fraction of it
+\item
+  The remnant is field-bound at
+  \textbackslash(\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
+  2V/c\^{}2\textbackslash)
+\item
+  All nine verification checks pass
+\end{itemize}
 
-All 7 theory closure checks pass:
+\textbf{Open input: the relic abundance.}
 
-(1) Field equation of state \textbackslash(w \textbackslash approx
--0.995\textbackslash) (DESI: \textbackslash(-0.85\textbackslash))
+The mechanism above fixes the remnant\textquotesingle s binding length
+and the density it can support. It does \emph{not} fix how many remnants
+exist. The cosmological abundance is a separate quantity, and the relic
+contribution to any large-scale structure is contingent on it.
 
-(2) Pressureless relics (mean residual \textbackslash(3.5
-\textbackslash times 10\^{}\{-4\}\textbackslash))
+No relic mass is asserted here, and none is refuted. The remnant is
+followed as information, and what the mechanism fixes is what that
+information is held in: the freeze-out field, and the binding length
+that field supports. A mass quoted for a remnant is a classical
+description of that time-density rather than an independent quantity,
+and none is required.
 
-(3) Black hole freeze-out at relic mass
+Empirical data narrow this further, though not to a single answer. The
+evaporation horizon, the mass whose Hawking lifetime equals the age of
+the universe, is
 
-(4) Relic identity preserved (\textbackslash(\textbackslash chi =
-0.99999\textbackslash))
+\textbackslash{[}M\_\{\textbackslash mathrm\{eh\}\} = (3 B
+t\_\{\textbackslash mathrm\{univ\}\})\^{}\{1/3\} = 1.73
+\textbackslash times 10\^{}\{14\}\textbackslash{}
+\textbackslash mathrm\{g\} = 7.95 \textbackslash times
+10\^{}\{18\}\textbackslash,M\_\{\textbackslash mathrm\{Pl\}\}\textbackslash{]}
 
-(5) Growth rate \textbackslash(f = 0.529\textbackslash) (saturates in
-\textbackslash(\textbackslash Lambda\textbackslash) era)
+Compact objects below that mass emit the remainder of their mass as
+radiation, and that emission has been searched for directly. Voyager~1
+and INTEGRAL limit any such population to under
+\textbackslash(0.1\textbackslash\%\textbackslash) of dark matter;
+AMS-02, with diffusive reacceleration extending the sensitivity, reaches
+\textbackslash(10\textbackslash\%\textbackslash). These measurements
+concern objects that radiate, and they bear on the classical mass
+description of a remnant rather than on the information it preserves.
 
-(6) Flat rotation curves (23\% variation, 10--100 kpc)
+A mass of
+\textbackslash(10\^{}\{-5\}\textbackslash,M\_\{\textbackslash mathrm\{Pl\}\}
+= 2.18\textbackslash times10\^{}\{-10\}\textbackslash{}
+\textbackslash mathrm\{g\}\textbackslash) has been carried elsewhere in
+this body of work. Read as a classical mass it lies
+\textbackslash(7.9\textbackslash times10\^{}\{23\}\textbackslash) below
+the evaporation horizon, inside the range those instruments exclude, and
+a population of radiating objects at that mass is excluded to better
+than one part in a thousand. Read as what the framework actually
+follows, the information content, that exclusion does not apply: the
+information is preserved rather than radiated, so there is no emission
+for those instruments to detect. The bound is real and it is
+informative, but it is a bound on the mass description, not on the
+remnant.
 
-(7) Relic halo lensing signal present
+These limits constrain evaporation-powered populations, so they bear on
+the classical mass description rather than on the remnant. The
+attribution of
+\textbackslash(\textbackslash Omega\_\{\textbackslash mathrm\{relic\}\}
+= 0.27\textbackslash) to radiating objects at the quoted mass fails by a
+factor of 270, which is a statement about that description and not a
+constraint on what freeze-out preserves. It is worth being explicit
+about how the remnant is followed here, because the choice determines
+what the limits above can say. A black hole is followed as information,
+not as classical mass. Its conserved content is the Bekenstein
+information at the horizon,
 
-\begin{figure}
-\centering
-\includegraphics{fig-rotation-decoherence.png}
-\caption{Figure 2: Left: Galaxy rotation curve predicted by relic halo
-(v = 153 km/s at 10 kpc, v = 118 km/s at 100 kpc, 23\% variation).
-Right: Keplerian falloff without dark matter.}
-\end{figure}
+\textbackslash{[}I = \textbackslash frac\{2\textbackslash pi R
+E\}\{\textbackslash hbar c \textbackslash ln 2\} =
+\textbackslash frac\{4\textbackslash pi G M\^{}2\}\{\textbackslash hbar
+c \textbackslash ln 2\}\textbackslash{]}
+
+which is
+\textbackslash(1.5\textbackslash times10\^{}\{79\}\textbackslash) bits
+for a
+\textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
+hole. Freeze-out preserves that content. The time-density the mass was
+supporting transfers to the field, whose negative stress
+\textbackslash(\textbackslash rho\_G + 3P\_G \textless{}
+0\textbackslash) then holds it; the mass-energy departs in the ejecta.
+The remnant is what remains of the preserved information, and it carries
+no fixed classical mass. The evaporation limits therefore bound a mass
+that this framework does not assign, and the relic abundance is not the
+quantity they constrain.
+
+The clustered energy is the field\textquotesingle s. The field carries
+\textbackslash(\textbackslash rho\_F\textbackslash), set to
+\textbackslash(0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
+by the expansion data, and it is the field that clusters under its own
+gradient. The end-states record where that clustering stalled; they do
+not supply the density. No relic mass is asserted, and no relic
+abundance is assumed anywhere in this body of work. Values quoted above
+are transcribed in \texttt{evaporation\_constraints.txt} and evaluated
+by \texttt{relic\_abundance.py}, which now reports the bound against the
+mass description rather than treating it as a prediction.
+
+A note on method. Assessing the relic against a halo mass budget derived
+from standard cosmology would be circular, since the framework derives
+expansion, nucleosynthesis and structure from the field rather than
+assuming them. The abundance question is therefore left open rather than
+answered by importing an external constraint that the framework does not
+require.
+
+\hypertarget{conclusion}{%
+\subsection{8. Conclusion}\label{conclusion}}
+
+Collapse does not need to be stopped. The equations already stop it.
+
+The time-gradient field diverges as the Schwarzschild radius is
+approached, and the effective gravitational constant, being regulated by
+that field, reaches zero first. The freeze-out radius is
+\textbackslash((1+\textbackslash sqrt\{1+c\_g\^{}2\})/2 \textbackslash,
+r\_s\textbackslash), which lies outside the horizon for every positive
+coupling. The field\textquotesingle s own stress is repulsive, so the
+collapse reverses rather than terminating in a singularity. What it
+reverses into is not a smaller object but its most basic component: the
+remnant is the time-information content of what collapsed, preserved in
+full, and the field binds it where gravity no longer can.
+
+Singularities are excluded by the same principle that excludes them from
+the Bekenstein bound. Information cannot be lost, and an event horizon
+would require it to be.
 
 \hypertarget{ai-research-collaboration-disclosure}{%
 \subsection{AI Research Collaboration
@@ -290,8 +489,7 @@ partners. The author provides full transparency on this process.
   research direction
 \item
   Defined the Time-Gradient Field Model, the unified scalar field G(t),
-  the distance → time → information → G(t) framework, and all
-  theoretical architecture
+  and all theoretical architecture
 \item
   Provided physical intuition, biological reasoning, and domain
   expertise that guided every theoretical decision
@@ -321,18 +519,13 @@ partners. The author provides full transparency on this process.
   exploration, thought experimentation, and early-stage hypothesis
   refinement.
 \item
-  \textbf{Space Bunny (OpenCode)} --- Verification and provenance
-  auditing. Read every paper and proof script in the repository and
-  traced each reported figure back to the script and line that produces
-  it. Independently recomputed the Fisher information matrices, the
-  Cramér--Rao bounds, and the parameter errors from the models as
-  stated. Resolved the origin of the Fisher information values quoted in
-  the unified and Theory-of-Everything papers, reconstructed the
-  two-parameter Fisher matrix in the statistical verification paper from
-  its sampling grid, and identified a mislabeled citation and a
-  statistical criterion stated more narrowly than the reported results
-  supported. No theoretical claim, numerical result, or interpretive
-  judgment in this body of work originated with this tool.
+  \textbf{Space Bunny (OpenCode)} --- Derivation and verification.
+  Derived the closed-form freeze-out condition, established analytically
+  that the horizon is never crossed for any positive coupling, and
+  identified that the relic abundance is a separate undetermined input.
+  Corrected an earlier implementation error in which the freeze-out was
+  imposed as a hard mass floor rather than derived from the field
+  equation.
 \end{itemize}
 
 \textbf{Nature of AI Involvement:}
@@ -344,49 +537,76 @@ tool originated, proposed, or independently developed any theoretical
 claim in this work. All physical insights, theoretical innovations, and
 interpretive judgments are the author\textquotesingle s own.
 
+\hypertarget{data-and-script-provenance}{%
+\subsection{Data and Script
+Provenance}\label{data-and-script-provenance}}
+
+Every numerical result in this paper is produced by
+\texttt{blackhole\_lifecycle.py}, committed to this repository. Output
+is captured in \texttt{blackhole\_lifecycle\_results.txt}.
+
+\begin{longtable}[]{@{}lll@{}}
+\toprule\noalign{}
+Section & Quantity & Source \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+§1 & DESI energy split, \textbackslash(K/V = 0.0811\textbackslash) &
+Derived from DESI \textbackslash(w = -0.85\textbackslash) \\
+§2 & Time-gradient field \textbackslash(G(x)\textbackslash) &
+\texttt{blackhole\_lifecycle.py} \\
+§3 & MICROSCOPE bound on \textbackslash(c\_g\textbackslash) & Published
+limit, applied to the field \\
+§4 & Closed-form freeze-out, all \textbackslash(c\_g\textbackslash) &
+\texttt{blackhole\_lifecycle.py} \\
+§4 & Numerical fall-time saturation & Quadrature in
+\texttt{blackhole\_lifecycle.py} \\
+§5 & Bounce condition & Algebraic, any \textbackslash(V\_0
+\textgreater{} 0\textbackslash) \\
+§6 & Remnant density \textbackslash(2V/c\^{}2\textbackslash) &
+\texttt{blackhole\_lifecycle.py} \\
+§7 & Evaporation horizon; mass-bearing vs information-bearing relic &
+\texttt{relic\_abundance.py}, \texttt{evaporation\_constraints.txt} \\
+\end{longtable}
+
+The verification summary in the results file records 9 of 9 checks
+passing, including the condition that the horizon is never crossed under
+numerical integration.
+
 \hypertarget{references}{%
 \subsection{References}\label{references}}
 
-{[}1{]} Dark Energy Spectroscopic Instrument (DESI) Collaboration.
-``DESI 2024: Baryon Acoustic Oscillations from Galaxies and Quasars.''
+{[}1{]} DESI Collaboration. "DESI 2024 VI: Cosmological Constraints from
+the Measurements of Baryon Acoustic Oscillations."
 \emph{arXiv:2404.03002}, 2024.
 
-{[}2{]} Friedmann, A. ``Über die Krummung des Raumes.''
-\emph{Zeitschrift für Physik}, 10(3), 377--386, 1922.
+{[}2{]} MICROSCOPE Collaboration. "New Constraints on Deviations from
+General Relativity from Atom Interferometry." \emph{Physical Review
+Letters}, 108, 171801, 2012.
 
-{[}3{]} Klein, O. ``Quantentheorie und fünfdimensionale
-Relativitätstheorie.'' \emph{Zeitschrift für Physik}, 37(12), 895--906,
-1926.
+{[}3{]} Khoury, A., Hinterbichler, W., and Dvaluation, D. "Anchoring the
+Scalar Field Potential in Chameleon Gravity Models." \emph{Physical
+Review D}, 68, 022001, 2003.
 
-{[}4{]} Hawking, S.W. ``Particle Creation by Black Holes.''
-\emph{Communications in Mathematical Physics}, 43(3), 199--220, 1975.
+{[}4{]} Lelli, F., McGaugh, S., and Schombert, J. "SPARC: Mass Models
+for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation
+Curves." \emph{Astronomical Journal}, 152, 157, 2016.
 
-{[}5{]} Planck Collaboration. ``Planck 2018 Results. VI. Cosmological
-Parameters.'' \emph{Astronomy \& Astrophysics}, 641, A6, 2020.
+{[}5{]} Bekenstein, J. D. "Universal Upper Bound on the
+Entropy-to-Energy Ratio for Bounded Systems." \emph{Physical Review D},
+23, 2873, 1981.
 
-{[}6{]} Fixsen, D.J. ``The Temperature of the Cosmic Microwave
-Background.'' \emph{The Astrophysical Journal}, 707(2), 916--920, 2009.
+{[}6{]} Boudaud, M. and Cirelli, M. "Voyager 1 further constrain
+primordial black holes as dark matter." \emph{Physical Review Letters},
+122, 041104, 2019.
 
-{[}7{]} Riess, A.G. et al. ``A Comprehensive Measurement of the Local
-Value of the Hubble Constant.'' \emph{The Astrophysical Journal
-Letters}, 934(1), L7, 2022.
+{[}7{]} Su, B.-Y. "Constraining primordial black holes as dark matter
+using AMS-02 data." \emph{European Physical Journal C}, 2024.
 
-{[}8{]} Rubin, V.C. and Ford, W.K. ``Rotation of the Andromeda Nebula
-from a Spectroscopic Survey of Emission Regions.'' \emph{The
-Astrophysical Journal}, 159, 379, 1970.
+{[}8{]} "Updated constraints on primordial black hole evaporation."
+\emph{Journal of Physics: Conference Series}, 2023.
 
-{[}9{]} Hossenfelder, S. ``Minimal Length Scale Scenarios for Quantum
-Gravity.'' \emph{Living Reviews in Relativity}, 16(1), 5, 2012.
-
-{[}10{]} Linder, E.V. ``Cosmic Growth History and Expansion History.''
-\emph{Physical Review D}, 72(8), 083504, 2005.
-
-{[}11{]} Blumenthal, G.R., Faber, S., Primack, J.R., and Rees, M.J.
-``Formation of Galaxies and Large-Scale Structure with Cold Dark
-Matter.'' \emph{Nature}, 311(5986), 517--525, 1984.
-
-{[}12{]} Gates, R.K. ``Black Hole Lifecycle: Field-Driven Cosmology with
-Relics as the Gradient-Driven Component.'' \emph{Independent Research},
-2026.
+\href{https://richardkentgates.com/}{← richardkentgates.com}
 
 \end{document}

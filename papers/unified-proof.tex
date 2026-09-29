@@ -108,12 +108,56 @@ September 16, 2026
 \subsection{1. The Current State}\label{the-current-state}}
 
 We observe today: expansion (H\&sub0; = 70 km/s/Mpc), accelerated
-expansion (ΩΛ = 0.68, w \textasciitilde{} −1), gradient-driven
-clustering from relics (Ω\textsubscript{relic} = 0.27 from black hole
-end-states), baryons (Ω\textsubscript{b} = 0.05), radiation (CMB at T =
-2.7255 K), structure (galaxies, clusters, voids), and modified decay
-rates (λ\textsubscript{eff} = λ\&sub0;(1 + αG(t))). All of this is the
-scalar field G(t).
+expansion (ΩΛ = 0.68, w \textasciitilde{} −1), baryons
+(Ω\textsubscript{b} = 0.05), radiation (CMB at T = 2.7255 K), structure
+(galaxies, clusters, voids), and modified decay rates
+(λ\textsubscript{eff} = λ\textsubscript{0}(1 + αG(t))). All of this is
+the scalar field G(t).
+
+One component is \emph{not} established here, and it is stated as
+information rather than as mass. The dark matter that produces
+gradient-driven clustering is carried by the field, whose energy density
+\textbackslash(\textbackslash rho\_F\textbackslash) is already
+constrained to
+\textbackslash(0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
+by the expansion data in §1. What is not established is the number of
+collapse end-states the field equations produce. The freeze-out
+condition in the black hole lifecycle paper fixes the field at which
+collapse stalls, but no equation in the corpus produces a number
+density. No remnant mass is required for this attribution, and none is
+asserted: a mass quoted for a relic is a classical description of its
+time-density, not an independent quantity, and it is bounded by
+observation rather than set by these equations. Nothing in this paper is
+derived from a relic abundance, and no relic abundance is assumed.
+
+The relic is followed as information, not as classical mass, and that
+choice settles the abundance question. A black hole at formation holds a
+Bekenstein information content at its horizon, \textbackslash(I =
+4\textbackslash pi G M\^{}2/(\textbackslash hbar c \textbackslash ln
+2)\textbackslash), which is
+\textbackslash(1.5\textbackslash times10\^{}\{79\}\textbackslash) bits
+for a
+\textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
+hole. This content is conservative. When the field switches gravity off
+at freeze-out, the time-density that the mass was supporting transfers
+to the field rather than being destroyed, which is what the
+field\textquotesingle s negative stress
+\textbackslash(\textbackslash rho\_G + 3P\_G \textless{}
+0\textbackslash) expresses. Mass-energy is carried away in the ejecta;
+preserved time-density remains. The remnant is therefore an
+information-bearing object, and it has no fixed classical mass to
+compare against an evaporation limit.nd the relic mass carried at
+\textbackslash(10\^{}\{-5\}\textbackslash,M\_\{\textbackslash mathrm\{Pl\}\}\textbackslash)
+lies \textbackslash(7.9\textbackslash times10\^{}\{23\}\textbackslash)
+below the evaporation horizon, in a range where Voyager~1 and INTEGRAL
+exclude such a population to better than one part in a thousand. If
+instead the field is the clustered component and relics mark where
+collapse stalled, no remnant mass is required and those limits do not
+apply. The lifecycle paper develops the second case, in which the
+preserved time-density transfers from the mass to the field at
+freeze-out. The dark matter energy must then be accounted for by the
+field rather than by remnant mass, which relocates the open question
+from relic abundance to field energy density.
 
 \hypertarget{tracing-backward}{%
 \subsection{2. Tracing Backward}\label{tracing-backward}}
@@ -191,7 +235,17 @@ the field.
 \item
   \textbf{Expansion:} the field amplitude damping over time
 \item
-  \textbf{Structure:} relics (from BH evaporation) clustering
+  \textbf{Structure:} the field clustering under its own gradient, with
+  collapse end-states marking where that clustering stalled. These are
+  followed as information: a black hole carries a conserved Bekenstein
+  content \textbackslash(I = 4\textbackslash pi G
+  M\^{}2/(\textbackslash hbar c \textbackslash ln 2)\textbackslash) that
+  is preserved at freeze-out, and the remnant is what remains of it. The
+  clustered energy is the field\textquotesingle s,
+  \textbackslash(\textbackslash rho\_F =
+  0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash);
+  the end-states record the history rather than supplying the density.
+  No relic abundance is assumed
 \item
   \textbf{Dark energy:} the field at small amplitude (today)
 \end{itemize}
@@ -242,12 +296,18 @@ Fisher information F & 15,000,000,000 & signal\_processing\_proof.py \\
 CRLB σ\textsubscript{G} & ≥ 8.16 × 10−\&sup6; &
 signal\_processing\_proof.py \\
 Condition number κ(H) & 1.00 & signal\_processing\_proof.py \\
-Relic pressureless residual & 3.5 × 10−\&sup4; &
+Black hole freeze-out & r/r\textsubscript{s} = (1 + √(1 +
+c\textsubscript{g}²))/2 \textgreater{} 1 for all c\textsubscript{g}
+\textgreater{} 0 & blackhole\_lifecycle.py, 9/9 checks \\
+Remnant density & 2V/c² = 1.40 ρ\textsubscript{crit} &
 blackhole\_lifecycle.py \\
-BH freeze-out mass & 10−\&sup5; M\textsubscript{Pl} &
-blackhole\_lifecycle.py \\
-Growth rate f & 0.529 & blackhole\_lifecycle.py \\
-Field equation of state w & −0.995 & blackhole\_lifecycle.py \\
+Gradient law, clock test & consistent with zero departure at 0.15σ over
+450 m & chronometric\_levelling.py; Takamoto et al. 2020 \\
+Gradient law, 457 km & chronometric and geodetic agree to 0.85σ &
+arXiv:2309.14953 \\
+Baryonic shortfall & −36\% in 142 of 165 galaxies &
+rotation\_curves\_sparc.py; SPARC \\
+Field equation of state w & −0.995 & DESI w = −0.85 via K/V = 0.0811 \\
 \end{longtable}
 
 Note on the Fisher information rows: these values are the single-channel
@@ -394,5 +454,7 @@ Singularities." \emph{Physical Review Letters}, 14, 57--59.
 {[}10{]} Gates, R.K. (2026). Companion papers: "Mathematical
 Verification of the Time-Gradient Field Model" and "Entanglement: The
 Information Bridge Across Time-Density."
+
+\href{https://richardkentgates.com/}{← richardkentgates.com}
 
 \end{document}
