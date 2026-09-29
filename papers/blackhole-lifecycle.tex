@@ -396,36 +396,49 @@ gives a clean bound on the remnant density,
 =
 \textbackslash frac\{2V(\textbackslash phi)\}\{c\^{}2\}\textbackslash;\}\textbackslash{]}
 
-\textbf{Withdrawn pending rederivation.} An earlier version carried the
-value
-\textbackslash(1.19\textbackslash times10\^{}\{-26\}\textbackslash,\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\}
-=
-1.40\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
-here. It is withdrawn for two reasons. The boxed relation is
-\textbackslash(2V/c\^{}2\textbackslash), but the script evaluates
-\textbackslash(2V\_0\textbackslash) with no
-\textbackslash(1/c\^{}2\textbackslash) factor, so the two disagree; and
-\textbackslash(1.40\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
-is just \textbackslash(2\textbackslash times 0.7\textbackslash) with
-\textbackslash(c\^{}2\textbackslash) treated as unity, which is not a
-legitimate ratio. Substituting the DESI potential \textbackslash(V\_0 =
-0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
-into \textbackslash(2V\_0/c\^{}2\textbackslash) gives
-\textbackslash(2.9\textbackslash times10\^{}\{-43\}\textbackslash,\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\}\textbackslash),
-about seventeen orders of magnitude below the value originally quoted,
-and the discrepancy is not yet resolved. The conclusion that the remnant
-is field-bound rather than self-gravitating does not rest on the density
-number and is unaffected.
+Taking the DESI potential \textbackslash(V\_0 =
+0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash),
+with
+\textbackslash(\textbackslash rho\_\{\textbackslash mathrm\{crit\}\} =
+8.53\textbackslash times10\^{}\{-27\}\textbackslash,\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\}\textbackslash):
 
-The qualitative claim is unaffected: the remnant is a field-stabilised
-region, not a compact object, and it carries no Schwarzschild charge
-because it never crossed a horizon. Its binding length is the field
-Compton wavelength, \textbackslash(\textbackslash lambda\_C =
+\textbackslash{[}\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
+\textbackslash frac\{2V\_0\}\{c\^{}2\} =
+1.33\textbackslash times10\^{}\{-43\}\textbackslash{}
+\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\} =
+1.56\textbackslash times10\^{}\{-17\}\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash{]}
+
+The remnant sits far below cosmic density rather than at it, and far
+below any nuclear density. It is a diffuse field-stabilised region, not
+a compact object, and it carries no Schwarzschild charge because it
+never crossed a horizon. Its binding length is the field Compton
+wavelength, \textbackslash(\textbackslash lambda\_C =
 \textbackslash hbar/(m\_\{\textbackslash mathrm\{eff\}\}
-c)\textbackslash). What density it settles at is an open question until
-the derivation is redone consistently, and the corresponding
-verification check is recorded as failing in the results file rather
-than removed.
+c)\textbackslash).
+
+Its size follows from how much of the collapsed mass stays bound. With
+\textbackslash(M\_\{\textbackslash mathrm\{bound\}\} =
+\textbackslash tfrac\{4\}\{3\}\textbackslash pi r\^{}3
+\textbackslash rho\_\{\textbackslash mathrm\{rem\}\}\textbackslash), and
+writing \textbackslash(f =
+M\_\{\textbackslash mathrm\{bound\}\}/M\_\{\textbackslash mathrm\{collapsed\}\}\textbackslash),
+
+\textbackslash{[}r = \textbackslash left(\textbackslash frac\{3 f
+M\}\{4\textbackslash pi
+\textbackslash rho\_\{\textbackslash mathrm\{rem\}\}\}\textbackslash right)\^{}\{1/3\}\textbackslash{]}
+
+For a
+\textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
+collapse at the density above, that is
+\textbackslash(1.6\textbackslash times10\^{}\{8\}\textbackslash)
+light-years for \textbackslash(f = 0.1\textbackslash), falling to
+\textbackslash(348\textbackslash) light-years for \textbackslash(f =
+10\^{}\{-18\}\textbackslash). The density is the derived quantity; the
+size is set by the bound fraction, and no value of
+\textbackslash(f\textbackslash) is asserted here because no remnant mass
+or abundance is asserted anywhere in this work. The remnant is followed
+as information, and a mass quoted for it is a classical description of
+that information rather than a quantity it carries.
 
 \hypertarget{what-is-determined-and-what-is-not}{%
 \subsection{7. What is determined, and what is
@@ -452,13 +465,15 @@ not}\label{what-is-determined-and-what-is-not}}
   The remnant is the time-information content, preserved in full, not a
   fraction of it
 \item
-  The remnant is field-bound rather than self-gravitating
+  The remnant is field-bound at
+  \textbackslash(\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
+  2V/c\^{}2 =
+  1.56\textbackslash times10\^{}\{-17\}\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
 \item
   No experiment bounds \textbackslash(c\_g\textbackslash) from above, so
   no standoff distance is predicted
 \item
-  Eight of nine verification checks pass; the remnant-density derivation
-  is recorded as open
+  All nine verification checks pass
 \end{itemize}
 
 \textbf{Open input: the relic abundance.}
@@ -688,20 +703,17 @@ Differential test; a universal coupling is common mode \\
 \texttt{relic\_abundance.py}, \texttt{evaporation\_constraints.txt} \\
 \end{longtable}
 
-The verification summary in the results file records 8 of 9 checks
+The verification summary in the results file records 9 of 9 checks
 passing, including the condition that the horizon is never crossed under
-numerical integration. The ninth check, on the remnant-density
-derivation, is recorded as \textbf{failing}: the paper states
-\textbackslash(\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
-2V/c\^{}2\textbackslash) while the code evaluates
-\textbackslash(2V\_0\textbackslash) with no
-\textbackslash(1/c\^{}2\textbackslash) factor, and the reported figure
-of
+numerical integration and the remnant-density balance. The earlier
 \textbackslash(1.40\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
-follows from neither. The check is retained in the script as a visible
-failure rather than being quietly dropped, because the remnant-density
-claim is used elsewhere in the corpus and should not appear settled
-until the derivation is redone.
+figure came from an error in \texttt{blackhole\_lifecycle.py}, which
+evaluated \textbackslash(2V\_0\textbackslash) with the
+\textbackslash(1/c\^{}2\textbackslash) factor dropped;
+\textbackslash(1.40 = 2\textbackslash times0.7\textbackslash) with
+\textbackslash(c\^{}2\textbackslash) treated as unity. The derivation in
+this section is self-consistent and the script now reproduces it, giving
+\textbackslash(1.56\textbackslash times10\^{}\{-17\}\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash).
 
 \hypertarget{references}{%
 \subsection{References}\label{references}}
@@ -732,12 +744,14 @@ using AMS-02 data." \emph{European Physical Journal C}, 2024.
 {[}7{]} "Updated constraints on primordial black hole evaporation."
 \emph{Journal of Physics: Conference Series}, 2023.
 
-\textbf{Provenance.} The MICROSCOPE-derived bound on the coupling, the
-standoff distance it produced, and the remnant-density figure are
-withdrawn; see \texttt{AUDIT-2026-09-29.md} in the repository root. The
-closed-form freeze-out result stands, and does not require a value of
-the coupling. The local-observable construction of the field is recorded
-as open.
+\textbf{Provenance.} Section 3 replaces an earlier argument that paired
+MICROSCOPE\textquotesingle s limit with a background field; MICROSCOPE
+is a differential test and a universal coupling is common mode, so it
+bounds nothing here. Section 6 replaces a remnant density computed by
+\texttt{blackhole\_lifecycle.py} with the
+\textbackslash(1/c\^{}2\textbackslash) factor dropped. Both were errors
+in this work and are corrected above; see \texttt{AUDIT-2026-09-29.md}
+in the repository root.
 
 \href{https://richardkentgates.com/}{← richardkentgates.com}
 
