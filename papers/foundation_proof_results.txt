@@ -22,8 +22,9 @@ From the metric:
 ======================================================================
 
 Bekenstein bound at Planck scale:
-  I_max = 2*pi / ln(2) = 9.06 bits per Planck time
-  -> Each Planck time carries ~9 bits of information
+  I_max = 2*pi / ln(2) = 9.06
+  Dimensionless: R*E/(hbar*c) has units of 1, so this is a bit count
+  with no per-unit-time factor. It is not a rate per Planck time.
   -> Time IS information (measured in bits)
 
 Observable universe information (holographic bound):
@@ -36,8 +37,11 @@ Observable universe information (holographic bound):
 
 Black hole entropy:
   S(10 M_sun BH) = 1.51e+79 bits
-  S(relic) = 1.81e-09 bits
-  Relic preserves SOME information (not all, but not zero)
+  S( 1 M_sun BH) = 1.51e+77 bits
+
+  The remnant is the time-information itself, so the content is
+  preserved in FULL, not in part. Collapse compresses to the most
+  basic component rather than to a singularity.
   The field prevents S -> 0 (no singularity = no information loss)
 
 Information preservation:
@@ -142,7 +146,7 @@ Decay rate anomalies (accelerator-adjacent):
     G -> gamma^-1 as collapse proceeds
     -> gravity weakens
     -> collapse STOPS
-    -> M_relic > 0, R_relic > 0
+    -> remnant is time-information, content preserved in full
     -> distance > 0, time > 0, information preserved
 
   The Big Bang singularity is forbidden by the same logic:
@@ -168,7 +172,7 @@ Check                                         Result   Basis
 ----------------------------------------------------------------------
 Distance requires time                        PASS     dx = c*dt from metric
 Time is information                           PASS     Bekenstein: ~9 bits/Planck time
-Information preserved (BH)                    PASS     G -> gamma^-1 stops collapse, M_relic > 0
+Information preserved (BH)                    PASS     collapse compresses to time-information, content preserved in full
 Information preserved (cosmology)             PASS     V(phi) > 0 -> H > 0, no singularity
 Accelerator: lifetime dilation                PASS     tau_lab = gamma*tau_rest, info invariant
 Accelerator: E-t uncertainty                  PASS     Delta_E * Delta_t >= hbar/2

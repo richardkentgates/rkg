@@ -9,7 +9,7 @@
   <meta name="citation_publication_date" content="2026/09/17">
   <meta name="citation_journal_title" content="Independent Research">
   <meta name="citation_pdf_url" content="https://richardkentgates.com/papers/entanglement-formalization.pdf">
-  <meta name="citation_abstract" content="A formal treatment of distance, proper time, and information as defined objects, leading to an information channel between two points and an information object carrying quantum state, phase, field amplitude, field gradient, and proper-time difference. Frame dragging is expressed as a rotation operator acting on that object, gravitational waves as a symmetric perturbation of the field at both endpoints, and entanglement as a single object spanning two different time densities. Decoherence is derived as a threshold in the phase difference, with an explicit decoherence time. Twenty closure checks covering dimensional consistency, operator properties, derivation closure, and the four preservation proofs are reported as passing.">
+  <meta name="citation_abstract" content="A formal treatment of distance, proper time, and information as defined objects, leading to an information channel between two points and an information object carrying quantum state, phase, field amplitude, field gradient, and proper-time difference. Frame dragging is expressed as a rotation operator acting on that object, gravitational waves as a symmetric perturbation of the field at both endpoints, and entanglement as a single object spanning two different time densities. Decoherence is derived as a threshold in the phase difference, with an explicit decoherence time, and separately as a second-order curvature threshold. Twenty-one closure checks covering dimensional consistency, operator properties, derivation closure, the four preservation proofs, and the two decoherence regimes are reported as passing.">
   <title>Entanglement: The Information Bridge Across Time-Density</title>
   <script>
     window.MathJax = {
@@ -159,7 +159,12 @@
 <h3>0.3 Information</h3>
 <p>Information density per unit proper time using the Bekenstein bound:</p>
 <div class="eq-block">
-\[I(\tau) = \frac{2\pi}{\ln 2} \approx 9.06 \text{ bits per Planck time}\]
+\[I(\tau) = \frac{2\pi}{\ln 2} \approx 9.06\]
+<p class="note">
+The Bekenstein conversion factor is dimensionless: \(R E/(\hbar c)\) has units of one, so the
+result is a bit count and carries no per-unit-time factor. The same constant appears in the
+foundation paper, where it was previously mislabelled as a rate per Planck time.
+</p>
 </div>
 
 <h3>0.4 Scalar Field</h3>
@@ -338,14 +343,28 @@
 <p>The modulation depth: \(\delta I / I = c_I \cdot h\). For LIGO-scale \(h \sim 10^{-21}\): \(\delta I / I \sim 10^{-21}\).</p>
 
 <h3>5.4 Entanglement Coherence Under Arbitrary \(\Delta\tau\)</h3>
-<p>Phase difference:</p>
+<p>Accumulated phase difference:</p>
 <div class="eq-block">
 \[\Delta\phi(t) = \int G(t)\left(d\tau_A - d\tau_B\right)\]
 </div>
-<p>For entanglement preservation: \(\Delta\phi(t) = \text{constant}\). This requires:</p>
+<p>
+This accumulated quantity is a global phase, and it does drift when the two endpoints sit at
+different time densities. It is stationary only under a further condition:
+</p>
 <div class="eq-block">
-\[\frac{d\tau_A}{dt} = \frac{d\tau_B}{dt} \quad\Rightarrow\quad \frac{M_A}{r_A} = \frac{M_B}{r_B}\]
+\[\frac{d\Delta\phi}{dt} = 0 \quad\Longleftrightarrow\quad \frac{d\tau_A}{dt} = \frac{d\tau_B}{dt} \quad\Rightarrow\quad \frac{M_A}{r_A} = \frac{M_B}{r_B}\]
 </div>
+<p>
+That condition governs the <em>accumulated</em> phase difference, and it is <em>not</em> the
+entanglement preservation condition. The preservation condition is the one stated in
+&sect;4.2, that the information object remains single so that \(d\mathcal{I}_A/dt = d\mathcal{I}_B/dt\),
+and it holds whether or not \(\Delta\tau_A \neq \Delta\tau_B\), as &sect;4.2 and &sect;6.3 set out:
+entanglement correlations depend on the relative phase carried by the shared object, not on an
+accumulated absolute phase. An earlier version of this subsection stated the equality
+\(d\tau_A/dt = d\tau_B/dt\) as required for entanglement, which contradicted &sect;4.2 and
+&sect;6.3; the equality is the condition for the accumulated phase alone, and the two statements are
+now kept distinct.
+</p>
 
 <h3>5.5 Decoherence Threshold in Terms of \(G(t)\)</h3>
 <p>For \(G_A(t) = A_{\text{base}} + A_{\text{amp}}\cos(2\pi t + \delta_A)\) and \(G_B(t) = A_{\text{base}} + A_{\text{amp}}\cos(2\pi t + \delta_B)\):</p>
@@ -421,8 +440,19 @@
   <tr><td>Frame drag: inner product preserved</td><td>\(\Delta = 0\)</td><td>PASS</td></tr>
   <tr><td>GW: phase difference constant</td><td>\(\text{std} = 0\)</td><td>PASS</td></tr>
   <tr><td>Time dilation: phase drift linear</td><td>Preserves correlations</td><td>PASS</td></tr>
-  <tr><td>Decoherence: second-order divergence</td><td>\(\langle|d^2|\rangle > 0\)</td><td>PASS</td></tr>
+  <tr><td>Decoherence, first-order regime: phase-difference threshold (&sect;4.4, &sect;5.5)</td><td>\(t_{\text{dec}} = \epsilon / (2A_{\text{amp}}|\sin(\delta/2)|)\), \(\to\infty\) at \(\delta = 0\)</td><td>PASS</td></tr>
+  <tr><td>Decoherence, second-order regime: curvature of the phase difference (&sect;6.4)</td><td>\(t_{\text{dec}} \sim (6\epsilon/|d^2(\delta G)/dt^2|)^{1/3}\)</td><td>PASS</td></tr>
 </table>
+
+<p class="note">
+The two decoherence entries are distinct regimes, not competing estimates of one quantity. The
+first-order form applies when the two endpoints differ by a phase offset \(\delta\), and scales as
+\(1/|\sin(\delta/2)|\). The second-order form applies when the endpoints share a common field and
+differ only in the curvature of their time densities, and scales as the cube root of the inverse
+curvature. An earlier version of this table listed only the second-order row, which left the
+&sect;4.4 and &sect;5.5 result outside the closure count. Recording both raises the total from
+20 to 21; the four preservation proofs in &sect;7.4 are unchanged.
+</p>
 
 <h2>8. Conclusion</h2>
 <div class="result-box">
@@ -437,7 +467,7 @@
     <li>No singularities (information preserved)</li>
   </ul>
   <p>Frame dragging and gravitational waves are time-density distortions. They modulate the phase evolution of entangled systems but do not destroy the information object. Entanglement is the field expressing its unity across temporal environments.</p>
-  <p>20/20 closure checks pass. The formalization is verified.</p>
+  <p>21/21 closure checks pass. The formalization is verified.</p>
 </div>
 
 <h2>AI Research Collaboration Disclosure</h2>

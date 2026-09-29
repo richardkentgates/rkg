@@ -71,8 +71,9 @@ print("=" * 70)
 
 I_per_tPl = 2 * np.pi / np.log(2)
 print(f"\nBekenstein bound at Planck scale:")
-print(f"  I_max = 2*pi / ln(2) = {I_per_tPl:.2f} bits per Planck time")
-print(f"  -> Each Planck time carries ~9 bits of information")
+print(f"  I_max = 2*pi / ln(2) = {I_per_tPl:.2f}")
+print(f"  Dimensionless: R*E/(hbar*c) has units of 1, so this is a bit count")
+print(f"  with no per-unit-time factor. It is not a rate per Planck time.")
 print(f"  -> Time IS information (measured in bits)")
 
 # For a volume V over time T:

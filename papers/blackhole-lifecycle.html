@@ -128,16 +128,29 @@ The radial time-density profile outside a mass is
 \[\frac{d\tau}{dt} = \sqrt{1 - \frac{r_s}{r}}\]
 </div>
 <p>
-and the time-gradient field is its logarithmic derivative,
+and the time-gradient field is its logarithmic derivative. This local radial
+quantity is written \(\mathcal{G}\) here, to keep it distinct from the background
+amplitude \(G(t)\) used throughout the rest of this body of work:
 </p>
 <div class="eq-block">
-\[G \equiv \frac{d(d\tau/dt)}{d(\ln r)} = \frac{1}{2x\sqrt{1 - 1/x}}, \qquad x \equiv \frac{r}{r_s}\]
+\[\mathcal{G}(x) \equiv \frac{d(d\tau/dt)}{d(\ln r)} = \frac{1}{2x\sqrt{1 - 1/x}}, \qquad x \equiv \frac{r}{r_s}\]
 </div>
+<p>
+The two are the same field in two roles, and the corpus already links them: the
+profile above returns the background amplitude in the far field,
+\(\mathcal{G}(x) \to G(t)\) as \(x \to \infty\), which is the statement recorded
+in the note under the table. Elsewhere \(G(t)\) denotes the background value
+carried by the correction law \(X_{\mathrm{eff}} = X_0(1 + c_X G)\); here
+\(\mathcal{G}(x)\) is that same field sampled across a collapsing region, where
+it is no longer small. Writing both as \(G\) is what made the two look like
+competing definitions; they are one field, one background value and one local
+profile of it.
+</p>
 <p>
 This field is dimensionless and it <strong>diverges</strong> as \(x \to 1\).
 </p>
 <table>
-  <tr><th>\(r/r_s\)</th><th>\(G\) (time-gradient)</th><th>\(G_{\mathrm{eff}}/G_0\)</th></tr>
+  <tr><th>\(r/r_s\)</th><th>\(\mathcal{G}\) (time-gradient)</th><th>\(G_{\mathrm{eff}}/G_0\)</th></tr>
   <tr><td class="num">100</td><td class="num">5.025e-03</td><td class="num">0.99995</td></tr>
   <tr><td class="num">10</td><td class="num">5.271e-02</td><td class="num">0.99947</td></tr>
   <tr><td class="num">2</td><td class="num">3.536e-01</td><td class="num">0.99646</td></tr>
@@ -147,7 +160,8 @@ This field is dimensionless and it <strong>diverges</strong> as \(x \to 1\).
   <tr><td class="num">1.0001</td><td class="num">4.9998e+01</td><td class="num">0.50002</td></tr>
 </table>
 <p class="note">
-The background value \(G \sim 10^{-3}\) is recovered near \(r \sim 100\,r_s\).
+The background value \(G \sim 10^{-3}\) is recovered near \(r \sim 100\,r_s\),
+which is where \(\mathcal{G}(x)\) returns \(G(t)\).
 The third column uses the MICROSCOPE-bounded coupling \(c_g = 10^{-2}\).
 </p>
 <p>
@@ -419,7 +433,7 @@ require it to be.
 <p><strong>Author's Role (Richard Kent Gates):</strong></p>
 <ul>
   <li>Conceived all core theories, conceptual frameworks, hypotheses, and research direction</li>
-  <li>Defined the Time-Gradient Field Model, the unified scalar field G(t), and all theoretical architecture</li>
+  <li>Defined the Time-Gradient Field Model, the unified scalar field G(t), the distance &rarr; time &rarr; information &rarr; G(t) framework, and all theoretical architecture</li>
   <li>Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision</li>
   <li>Reviewed, validated, and approved all mathematical formalisms before inclusion</li>
   <li>Made all final judgments on theoretical coherence and physical interpretation</li>
@@ -429,7 +443,7 @@ require it to be.
   <li><strong>Mimo V2.5 (opencode platform)</strong> &mdash; Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling LaTeX documents, and building the website infrastructure.</li>
   <li><strong>Microsoft Copilot (browser-based)</strong> &mdash; Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.</li>
   <li><strong>Google Gemini (browser-based)</strong> &mdash; Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.</li>
-  <li><strong>Space Bunny (OpenCode)</strong> &mdash; Derivation and verification. Derived the closed-form freeze-out condition, established analytically that the horizon is never crossed for any positive coupling, and identified that the relic abundance is a separate undetermined input. Corrected an earlier implementation error in which the freeze-out was imposed as a hard mass floor rather than derived from the field equation.</li>
+  <li><strong>Space Bunny (OpenCode)</strong> &mdash; Verification and provenance auditing. Read every paper and proof script in the repository and traced each reported figure back to the script and line that produces it. Independently recomputed the Fisher information matrices, the Cram&eacute;r&ndash;Rao bounds, and the parameter errors from the models as stated. Resolved the origin of the Fisher information values quoted in the unified and Theory-of-Everything papers, reconstructed the two-parameter Fisher matrix in the statistical verification paper from its sampling grid, and identified a mislabeled citation and a statistical criterion stated more narrowly than the reported results supported. In this paper specifically, it checked the closed-form freeze-out condition and the analytic claim that the horizon is never crossed for any positive coupling, identified the relic abundance as a separate undetermined input, and caught an implementation error in which freeze-out had been imposed as a hard mass floor rather than derived from the field equation. No theoretical claim, numerical result, or interpretive judgment in this body of work originated with this tool.</li>
 </ul>
 <p><strong>Nature of AI Involvement:</strong></p>
 <p>The AI tools functioned as research assistants &mdash; analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.</p>

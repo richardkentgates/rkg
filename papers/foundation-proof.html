@@ -166,10 +166,17 @@
 <p>At the Planck scale: \(l_{\text{Pl}} = c \cdot t_{\text{Pl}}\). Distance IS time at the fundamental level.</p>
 
 <h2>3. Time Is Information</h2>
-<p>The Bekenstein bound at the Planck scale:</p>
+<p>The Bekenstein bound at the Planck scale, evaluated with \(E = \hbar/t_{\text{Pl}}\) and \(R = c\,t_{\text{Pl}}\):</p>
 <div class="eq-block">
-\[I_{\text{max}} = \frac{2\pi R E}{\hbar c \ln 2} = \frac{2\pi}{\ln 2} \approx 9.06 \text{ bits per Planck time}\]
+\[I_{\text{max}} = \frac{2\pi R E}{\hbar c \ln 2} = \frac{2\pi}{\ln 2} \approx 9.06\]
 </div>
+<p>
+This constant is dimensionless: \(R E/(\hbar c)\) has units of \(\mathrm{m\,J}/(\mathrm{J\,s\,m/s}) = 1\), so
+the whole expression is a plain bit count and carries no per-unit-time factor. An earlier version of
+this line labelled it &ldquo;bits per Planck time&rdquo;, which is a dimensional misdescription: the
+substitution fixes the length and energy scale at the Planck values but leaves no time dimension in
+the result. The bound is a limit on how many bits a region of given \(R\) and \(E\) can hold.
+</p>
 <p>For the observable universe (holographic bound):</p>
 <div class="eq-block">
 \[I_{\text{univ}} \sim \left(\frac{R}{l_{\text{Pl}}}\right)^2 \sim 10^{122} \text{ bits}\]

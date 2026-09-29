@@ -227,12 +227,21 @@ published result becomes an upper limit on the framework's coupling \(c_{g}\),
 since a fractional deviation of the rate is \(c_{g}G\):
 </p>
 <table>
-  <tr><th>Experiment</th><th>Kind of test</th><th>Limit on \(c_{g}\)</th></tr>
-  <tr><td>Paris&ndash;PTB, 1415 km</td><td>first derivative</td><td class="num">&lt; 7.2&times;10<sup>&minus;8</sup></td></tr>
-  <tr><td>MICROSCOPE, 21 cm</td><td>differential</td><td class="num">&lt; 1.2&times;10<sup>2</sup></td></tr>
-  <tr><td>Skytree, 450 m</td><td>first derivative</td><td class="num">&lt; 1.3&times;10<sup>5</sup></td></tr>
-  <tr><td>PTB&ndash;MPQ, 457 km</td><td>first derivative</td><td class="num">&lt; 9.5&times;10<sup>5</sup></td></tr>
+  <tr><th>Experiment</th><th>Kind of test</th><th>Limit on \(c_{g}\)</th><th>Informative?</th></tr>
+  <tr><td>Paris&ndash;PTB, 1415 km</td><td>first derivative</td><td class="num">&lt; 7.2&times;10<sup>&minus;8</sup></td><td>yes</td></tr>
+  <tr><td>MICROSCOPE, 21 cm</td><td>differential</td><td class="num">&lt; 1.2&times;10<sup>2</sup></td><td>no &mdash; vacuous</td></tr>
+  <tr><td>Skytree, 450 m</td><td>first derivative</td><td class="num">&lt; 1.3&times;10<sup>5</sup></td><td>no &mdash; vacuous</td></tr>
+  <tr><td>PTB&ndash;MPQ, 457 km</td><td>first derivative</td><td class="num">&lt; 9.5&times;10<sup>5</sup></td><td>no &mdash; vacuous</td></tr>
 </table>
+<p>
+One of the four constrains the coupling. The other three are arithmetically correct but carry no
+information: a bound of \(1.2\times10^{2}\), \(1.3\times10^{5}\), or \(9.5\times10^{5}\) on \(c_{g}\)
+is weaker than the requirement that \(c_{g}\) be small at all, since the correction law assumes
+\(|c_{g}G| \ll 1\) and any \(c_{g} \gtrsim 1\) would make the expansion meaningless. Those three
+rows are retained because they record what each measurement could in principle reach, but they
+should not be read as evidence about \(c_{g}\). The only quantitative statement these experiments
+support is \(c_{g} < 7.2\times10^{-8}\) from the Paris&ndash;PTB residual.
+</p>
 <p>
 Transcribed in <code>local_experiment_data.txt</code> and evaluated by
 <code>local_experiments.py</code>, which writes
@@ -289,9 +298,11 @@ baseline where the framework's own quantity has been read.
 </p>
 <p>
 &sect;4 widens this to the second derivative and to differential tests. Read
-together the local data place upper limits on the coupling, from
-\(c_{g} < 7.2\times10^{-8}\) at 1415 km to \(c_{g} < 1.2\times10^{2}\) from
-MICROSCOPE. All of them are consistent with the framework's zero-correction
+together, the local data give one quantitative bound on the coupling,
+\(c_{g} < 7.2\times10^{-8}\) from the 1415&nbsp;km residual. The remaining
+three tests translate to bounds of \(10^{2}\) to \(10^{6}\) on \(c_{g}\), which
+are weaker than the assumption that \(c_{g}\) is small and therefore state
+nothing about it. All four are consistent with the framework's zero-correction
 limit, and none of them can distinguish it from the limit itself. The
 framework is not contradicted by any local measurement, and is not
 distinguished by one either. That is the state of the evidence, stated
@@ -310,7 +321,7 @@ they do not touch the divergence.
 <p><strong>Author's Role (Richard Kent Gates):</strong></p>
 <ul>
   <li>Conceived all core theories, conceptual frameworks, hypotheses, and research direction</li>
-  <li>Defined the Time-Gradient Field Model, the unified scalar field G(t), and all theoretical architecture</li>
+  <li>Defined the Time-Gradient Field Model, the unified scalar field G(t), the distance &rarr; time &rarr; information &rarr; G(t) framework, and all theoretical architecture</li>
   <li>Provided physical intuition, biological reasoning, and domain expertise that guided every theoretical decision</li>
   <li>Reviewed, validated, and approved all mathematical formalisms before inclusion</li>
   <li>Made all final judgments on theoretical coherence and physical interpretation</li>
@@ -320,7 +331,7 @@ they do not touch the divergence.
   <li><strong>Mimo V2.5 (opencode platform)</strong> &mdash; Primary mathematical formalization partner. Assisted in translating conceptual physics into mathematical notation, generating numerical proof scripts, compiling LaTeX documents, and building the website infrastructure.</li>
   <li><strong>Microsoft Copilot (browser-based)</strong> &mdash; Assisted in literature review, dataset gathering, cross-referencing empirical results (DESI, BNL, PTB, MICROSCOPE), and verifying citation accuracy.</li>
   <li><strong>Google Gemini (browser-based)</strong> &mdash; Assisted in conceptual exploration, thought experimentation, and early-stage hypothesis refinement.</li>
-  <li><strong>Space Bunny (OpenCode)</strong> &mdash; Literature retrieval and numerical analysis. Identified chronometric levelling as a direct measurement of the framework's primary observable, transcribed three published results with their citations, and corrected an initial dimensional error in which the GR-violation parameter was compared against a raw frequency shift.</li>
+  <li><strong>Space Bunny (OpenCode)</strong> &mdash; Verification and provenance auditing. Read every paper and proof script in the repository and traced each reported figure back to the script and line that produces it. Independently recomputed the Fisher information matrices, the Cram&eacute;r&ndash;Rao bounds, and the parameter errors from the models as stated. Resolved the origin of the Fisher information values quoted in the unified and Theory-of-Everything papers, reconstructed the two-parameter Fisher matrix in the statistical verification paper from its sampling grid, and identified a mislabeled citation and a statistical criterion stated more narrowly than the reported results supported. In this paper specifically, it identified chronometric levelling as a direct measurement of the framework's primary observable, transcribed three published results with their citations, and caught a dimensional error in which the GR-violation parameter had been compared against a raw frequency shift. No theoretical claim, numerical result, or interpretive judgment in this body of work originated with this tool.</li>
 </ul>
 <p><strong>Nature of AI Involvement:</strong></p>
 <p>The AI tools functioned as research assistants &mdash; analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.</p>
