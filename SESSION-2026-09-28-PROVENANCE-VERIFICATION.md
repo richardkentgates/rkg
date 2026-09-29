@@ -551,13 +551,24 @@ beginning cannot be validated against the alternative.
   clustered energy is the field's and is set by \(\rho_F = 0.7\rho_{\mathrm{crit}}\);
   the end-states record where clustering stalled. No relic abundance is assumed
   and none is required.
+- **Field profile on galactic scales.** No equation in the corpus specifies how
+  the field varies across a disc, so the framework cannot currently make any
+  galactic-scale prediction. This is the blocker the rotation-curve work
+  exposed, and `ROADMAP.md` now records it as one rather than a task.
+- **Element weights.** The corpus maps the field onto the electron-to-proton
+  mass ratio, which parameterises a variation rather than generating a mass.
+  There is no derivation of the binding-energy curve, no treatment of the
+  neutron-proton mass difference, and no statement of where the curve peaks.
+  `element_weights.py` records the published measurements that would constrain
+  such a derivation, and establishes that half-lives cannot: the field is
+  1.2e-39 at a nucleon radius.
 
-## 5a. Withdrawn: the halo fit in the rotation-curve paper
+## 5a. Withdrawn and then removed: the rotation-curve paper
 
 An earlier version of `rotation-curves.html` fitted a pressureless halo profile
 in quadrature with the baryons, one free parameter per galaxy, and reported
 that the median residual fell from 33.5 to 10.1 km/s with the pressureless
-component preferred in 165 of 165. That fit has been removed rather than
+component preferred in 165 of 165. That fit was removed rather than
 reinterpreted, for three reasons:
 
 1. **It could not distinguish the framework from what it reduces to.** The halo
@@ -573,20 +584,23 @@ reinterpreted, for three reasons:
 3. **It was mass-defined reasoning in a framework whose primitive is not
    mass.** Inferring a halo mass from a velocity is the classical operation.
 
-What survives is the 36% baryonic shortfall in 142 of 165 galaxies, which was
-never a framework result. The paper is now a specification: it states the
-requirement, records that the corpus specifies no field profile on galactic
-scales, and states what such a profile would have to reproduce, namely
-`dtau/dt` falling as `1/r` for a flat curve with no fitted mass.
+A shortened replacement was then written, reducing the paper to the one
+framework-independent measurement — the 36% baryonic shortfall in 142 of 165
+galaxies — plus a statement of the requirement a field-based account would
+have to meet. The author directed that the paper come off the site entirely,
+and it has been removed with all associated products: the analysis script,
+the figure script, the generated PNG, the results file, the vendored SPARC
+data, the `Lelli2019` bibliography entry, and every reference to it in
+`index.html` (JSON-LD entry and project card), `sitemap.xml`, `README.md`,
+`ROADMAP.md`, `theory-of-everything.html` (status-table row),
+`unified-proof.html` (provenance cell), and the `blackhole-lifecycle.html`
+reference list.
 
-`theory-of-everything.html` carried the same withdrawn claim in its status
-table and has been corrected, so the corpus no longer asserts it anywhere.
-A grep for the old numbers across the repository returns nothing.
-
-The figure was rebuilt to show observed and baryonic velocities only, with no
-halo drawn, and the panels are now chosen by a stated rule: one galaxy from
-each quartile of flat velocity among those with at least 30 radial points.
-Four galaxies, shortfalls of +19% to +51% in the outer half.
+`ROADMAP.md` now records the underlying gap as a blocker rather than a task:
+the framework specifies no field profile on galactic scales, so no
+galactic-scale prediction can be made until one is derived. The rotation-curve
+work is not deleted from history, only from the site, and can be revisited if
+that derivation exists.
 
 ## 6. Release decision
 

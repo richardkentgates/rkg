@@ -59,11 +59,9 @@ rkg/
 without network access. Each carries a citation, licence, retrieval date, and
 checksum.
 
-| Dataset | Licence | Used by |
-|---|---|---|
-| SPARC rotation curves (175 galaxies) | CC BY 4.0 | `rotation_curves_sparc.py` |
-
-See `papers/data/SPARC-README.md`.
+The SPARC rotation-curve dataset used by the withdrawn rotation-curve paper
+has been removed with it. Nothing else in the corpus reads a vendored
+dataset.
 
 ## Papers
 
@@ -75,7 +73,6 @@ The `papers/` directory contains the Unified Scalar Time-Gradient Field Theory r
 | foundation-proof | Distance → time → information → singularities forbidden |
 | unified-proof | The field IS the universe; no beginning, no singularity |
 | chronometric-levelling | The time-gradient law read directly: 3 clock results plus gradient and differential tests |
-| rotation-curves | The 36% baryonic shortfall as a measured requirement; the framework's galactic gap stated |
 | blackhole-lifecycle | Singularity elimination: freeze-out derived in closed form, horizon never crossed |
 | entanglement-formalization | Entanglement, frame dragging, GWs in the G(t) framework |
 | time-gradient-field-model | Decay-rate and lifetime anomalies |
@@ -114,7 +111,6 @@ Python scripts (NumPy only, no external dependencies) and their tab-separated ou
 | `unified_proof.py` | `unified_proof_results.txt` |
 | `theory_of_everything.py` | `theory_of_everything_results.txt` |
 | `blackhole_lifecycle.py` | `blackhole_lifecycle_results.txt` |
-| `rotation_curves_sparc.py` | `rotation_curves_results.txt` (reads vendored `data/Rotmod_LTG.zip`) |
 | `chronometric_levelling.py` | `chronometric_results.txt` (reads `chronometric_data.txt`) |
 | `renormalization_proof.py` | `renormalization_proof_results.txt` |
 | `entanglement_formalization.py` | `entanglement_formalization_results.txt` |
@@ -124,9 +120,9 @@ Figure generation uses matplotlib and is kept out of the numerical path:
 | Script | Output |
 |---|---|
 | `make_decoherence_figure.py` | `fig-decoherence.png` (used by `entanglement-formalization.html`) |
-| `make_rotation_figure.py` | `fig-sparc-rotation-curves.png` (baryons vs observed, no halo, used by `rotation-curves.html`) |
 | `make_chronometric_figure.py` | `fig-chronometric.png` (used by `chronometric-levelling.html`) |
 | `local_experiments.py` | `local_experiment_results.txt` (coupling limits, §4 of `chronometric-levelling.html`) |
+| `element_weights.py` | `element_weights_results.txt` (nuclear-channel groundwork) |
 
 ## CI/CD
 

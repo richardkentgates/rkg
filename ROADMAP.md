@@ -90,7 +90,7 @@ change because a remote file did.
 
 | # | Item | Source |
 |---|---|---|
-| 3.1 | SPARC rotation curves: 175 galaxies, HI+Hα, with published baryonic decomposition and per-point errors. CC BY 4.0. **Vendored as part of 4.1** | Lelli, McGaugh & Schombert 2019, AJ 152, 157 |
+| 3.1 | SPARC rotation curves: 175 galaxies, HI+Hα, with published baryonic decomposition and per-point errors. CC BY 4.0. **Not vendored — the rotation-curve paper and its data were withdrawn; revisit only with a derivation to test** | Lelli, McGaugh & Schombert 2019, AJ 152, 157 |
 | 3.2 | HST Frontier Fields κ/γ lensing maps, 6 clusters, multiple independent teams. Requires the STScI acknowledgement verbatim. **Vendored as part of 4.2** | archive.stsci.edu |
 | 3.3 | Vetted f·σ₈ compilation, 22 points (18 Gold-2017 RSD + 4 eBOSS DR14 quasar). **Vendored as part of 4.3** | Sagredo et al. 2018, PRD 98, 083543 |
 | 3.4 | Local dark-matter density. **Vendored as part of 2.5** | Sofue 2020 |
@@ -165,14 +165,18 @@ asserted.
 
 ## Sequencing
 
-**Chosen order, and why.** 4.1 rotation curves goes first. It is the single
-highest-value item — the one test that would let a paper claim something it
-currently cannot — and it depends on nothing: SPARC is 110 KB, and neither the
-relic abundance nor any author decision gates it. It also exercises the right
-methodology, so it de-risks 4.2 and 4.3 rather than merely preceding them.
+**Chosen order, and why.** 4.1 rotation curves was to go first, and was
+attempted. It was withdrawn: the framework has no field profile on galactic
+scales, so the only available model was a fitted halo, and a free mass
+parameter per galaxy cannot distinguish the framework from the Newtonian limit
+it reduces to. The gap it exposed is real and still governs the sequencing —
+**no galactic-scale prediction can be made until a field profile on those
+scales is derived.** Everything below is therefore either local physics, which
+is testable now, or a specification step rather than a test.
 
 ```
-  4.1  rotation curves via a = c^2 d(dtau/dt)/dr      <-- START HERE
+  4.1  galactic field profile: BLOCKED, no derivation exists yet
+        (this is the prerequisite, not a test)
         |  DONE. 165 galaxies, vendored. Baryons fall 36% short in
         |  142/165; one free parameter cuts median RMS 33.5 -> 10.1 km/s;
         |  pressureless component preferred by chi^2 in 165/165.
@@ -227,11 +231,12 @@ From this session, so they are not re-learned:
    holds there is no beginning cannot be validated against a ΛCDM halo mass
    function, an f·σ₈ fiducial, or a baryon-fraction budget derived from
    BBN/CMB. Those are the alternative, not a neutral yardstick, and JWST is
-   currently revising them. Rotation curves, lensing geometry, orbital
-   mechanics, and the correction law measured in the laboratory are local,
+   currently revising them. Lensing geometry, orbital mechanics, and the
+   correction law measured in the laboratory are local,
    assumption-light, and available now. Those are where the framework's
    distinctive claims can actually be tested.
-8. **State the assumptions inside the "observed" data.** SPARC's per-point
-   uncertainties are themselves derived from a mass model. Reporting a fit as
-   "within the published errors" is not assumption-free, and should not be
-   written as though it were.
+8. **State the assumptions inside the "observed" data.** Published per-point
+   uncertainties on rotation curves are themselves derived from a mass model.
+   Reporting a fit as "within the published errors" is not assumption-free,
+   and should not be written as though it were. This is one of the reasons the
+   rotation-curve fit was withdrawn rather than reported with a caveat.
