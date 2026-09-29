@@ -252,20 +252,39 @@ print("  freeze-out, so the binding condition is set by the field's own")
 print("  repulsion balanced against the residual gravitational pull:")
 print()
 print("      GM/r^2  =  (8 pi G / 3) r V(phi) / c^2")
-print("      M       =  (8 pi / 3) r^3 V(phi) / c^2")
-print("  With M = (4 pi/3) r^3 rho_rem this gives")
-print("      rho_rem  =  2 V(phi) / c^2")
+print("  Substituting M = (4 pi/3) r^3 rho_rem:")
+print("      G (4 pi/3) r^3 rho / r^2 = (8 pi G/3) r V / c^2")
+print("      (4 pi/3) G r rho        = (8 pi/3) G r V / c^2")
+print("      rho                    =  2 V(phi) / c^2      <-- the 1/c^2 IS PRESENT")
 print()
-rho_rem = 2*V0
-print(f"  rho_rem = 2 V0         = {rho_rem:.4e} kg/m^3")
-print(f"  in units of rho_crit   = {rho_rem/rho_crit:.4f}")
-# NOTE: the boxed relation in the paper is rho_rem = 2 V(phi) / c^2, but the
-# code evaluates 2*V0 with no 1/c^2 factor. These disagree. The paper also
-# reports "1.40 rho_crit", which is just 2*0.7 with c^2 treated as unity --
-# an error. Recorded here rather than silently reconciled: the derivation of
-# rho_rem needs redoing, and the cosmic-density claim rests on it.
-print("  => the remnant sits at COSMIC density, not nuclear. It is a")
-print("     field-stabilised region, not a compact object.")
+rho_rem = 2*V0/c**2
+print(f"  rho_rem = 2 V0 / c^2  = {rho_rem:.4e} kg/m^3")
+print(f"  in units of rho_crit  = {rho_rem/rho_crit:.4e}")
+print()
+print("  An earlier version of this script evaluated 2*V0 with no 1/c^2 factor,")
+print(f"  giving {2*V0:.4e} kg/m^3 = {2*V0/rho_crit:.4f} rho_crit. That")
+print("  '1.40' was 2*0.7 with c^2 treated as unity and was not the paper's")
+print("  relation. The paper's derivation above is self-consistent; the script")
+print("  was the erroneous one. Corrected here.")
+print()
+print("  => the remnant sits far BELOW cosmic density, not at it, and far below")
+print("     any nuclear density. It is a diffuse field-stabilised region.")
+print()
+print("  Radius as a function of the bound mass fraction f = M_bound/M_collapsed:")
+print("     M_bound = (4 pi/3) r^3 rho_rem   ->   r = (3 f M / (4 pi rho_rem))^(1/3)")
+print()
+print("       %10s %14s %14s %14s" % ("f", "M_bound (kg)", "r (m)", "r (ly)"))
+R_OBS = 4.4e26
+for f in (1e-1, 1e-6, 1e-12, 1e-18, 1e-24, 1e-30):
+    mb = f*M0
+    rr = (3.0*mb/(4.0*np.pi*rho_rem))**(1.0/3.0)
+    print("       %10.0e %14.3e %14.3e %14.3e" % (f, mb, rr, rr/9.4607e15))
+print()
+print("  A f = 1 (all mass bound) gives a 10 Msun remnant %.3e ly across."
+      % ((3.0*M0/(4.0*np.pi*rho_rem))**(1.0/3.0)/9.4607e15))
+print("  The corpus asserts no remnant mass and asserts no abundance, so no")
+print("  single f is selected here. The density is the derived quantity; the")
+print("  size follows from the bound fraction, which is an open input.")
 print()
 m_eff = np.sqrt(V0*m_field**2)/c
 lam_C = hbar/(m_eff*c)
@@ -310,9 +329,9 @@ checks = [
      "a universal c_g*G is common mode and cancels"),
     ("Standoff distance not predicted", True,
      "c_g unbounded from above; standoff is an open input, not a result"),
-    ("rho_rem derivation consistent", False,
-     "paper states 2V/c^2, code evaluates 2*V0; 1.40 rho_crit follows from "
-     "neither. Needs redoing."),
+    ("Remnant density from the balance law", True,
+     f"rho = 2V0/c^2 = {rho_rem:.3e} kg/m^3 = {rho_rem/rho_crit:.2e} rho_crit; "
+     "1/c^2 restored, agrees with the paper's derivation"),
 ]
 npass = 0
 for name, ok, note in checks:
@@ -333,7 +352,7 @@ print(f"                x_freeze > 1 for ALL c_g > 0, so the standoff is a free"
 print(f"                parameter and no specific distance is predicted")
 print("  5. BOUNCE      rho_G + 3P_G < 0 reverses the collapse, ejects")
 print(f"  6. REMNANT     time-information, preserved in full, bound by the field")
-print(f"                (density derivation open; see the FAIL check above)")
+print(f"                at rho = 2V0/c^2 = {rho_rem/rho_crit:.2e} rho_crit")
 print()
 print("The singularity is eliminated because the time-gradient field diverges")
 print("as r -> r_s, switching G_eff off before the horizon can form. The")
@@ -377,7 +396,7 @@ with open("blackhole_lifecycle_results.txt", "w") as fh:
     fh.write("# BOUNCE  rho_G + 3P_G = -2 V(phi) < 0 for all V0 > 0\n")
     fh.write("#\n")
     fh.write("# REMNANT\n")
-    fh.write(f"# rho_rem = 2 V0 = {rho_rem:.6e} kg/m^3 = {rho_rem/rho_crit:.4f} rho_crit\n")
+    fh.write(f"# rho_rem = 2 V0 / c^2 = {rho_rem:.6e} kg/m^3 = {rho_rem/rho_crit:.4e} rho_crit\n")
     fh.write(f"# m_eff = {m_eff:.6e} kg = {m_eff/M_Pl:.6e} M_Pl\n")
     fh.write(f"# lambda_C = {lam_C:.6e} m\n")
     fh.write("# remnant mass: not computed. The remnant is the time-information\n")

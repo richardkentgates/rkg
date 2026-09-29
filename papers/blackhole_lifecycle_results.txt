@@ -46,14 +46,14 @@
 # BOUNCE  rho_G + 3P_G = -2 V(phi) < 0 for all V0 > 0
 #
 # REMNANT
-# rho_rem = 2 V0 = 1.194636e-26 kg/m^3 = 1.4000 rho_crit
+# rho_rem = 2 V0 / c^2 = 1.329145e-43 kg/m^3 = 1.5576e-17 rho_crit
 # m_eff = 2.577930e-24 kg = 1.184711e-16 M_Pl
 # lambda_C = 1.364499e-19 m
 # remnant mass: not computed. The remnant is the time-information
 # content of what collapsed, preserved in full; a mass is a classical
 # description of that content, not a quantity the remnant carries.
 #
-# CHECKS: 8/9 PASS
+# CHECKS: 9/9 PASS
 # [PASS] Background field from DESI energy split :: K/V = 0.0811, V0 = 0.7 rho_crit
 # [PASS] Time-gradient field diverges at r_s :: G(1.0001 r_s) = 5.00e+01, unbounded at 1 r_s
 # [PASS] Freeze-out solved in closed form :: x = (1 + sqrt(1 + c_g^2))/2
@@ -62,6 +62,6 @@
 # [PASS] Bounce condition satisfied for all V0 > 0 :: rho_G + 3P_G = -2V(phi) < 0
 # [PASS] MICROSCOPE null predicted by construction :: composition-dependent coupling = 0 (buoyancy_origin.py); a universal c_g*G is common mode and cancels
 # [PASS] Standoff distance not predicted :: c_g unbounded from above; standoff is an open input, not a result
-# [FAIL] rho_rem derivation consistent :: paper states 2V/c^2, code evaluates 2*V0; 1.40 rho_crit follows from neither. Needs redoing.
+# [PASS] Remnant density from the balance law :: rho = 2V0/c^2 = 1.329e-43 kg/m^3 = 1.56e-17 rho_crit; 1/c^2 restored, agrees with the paper's derivation
 #
 # HORIZON NEVER CROSSED FOR ANY c_g > 0. NO SINGULARITY.

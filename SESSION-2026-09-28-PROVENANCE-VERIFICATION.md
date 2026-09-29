@@ -12,11 +12,10 @@ is marked open, the papers say so at the point of use rather than implying
 resolution. The git history of this repository carries the full diff of every
 correction.
 
-**Withdrawals recorded here:** 6 (Hawking-based relic analysis, a statistical
+**Withdrawals recorded here:** 5 (Hawking-based relic analysis, a statistical
 finding mislabelled as a defect, a tautological residual, an overstated
-independence claim, the rotation-curve paper in full, and a MICROSCOPE-derived
-coupling bound). **Open items recorded here:** 2 (remnant-density derivation,
-local-observable construction of the time-gradient field).
+independence claim, and the rotation-curve paper in full). **Open items recorded
+here:** 1 (local-observable construction of the time-gradient field).
 
 **Later audits** are recorded in `AUDIT-2026-09-29.md`.
 

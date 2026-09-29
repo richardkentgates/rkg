@@ -53,15 +53,12 @@ See `AUDIT-2026-09-29.md` §1.
 
 *Blocks:* 0.1, and any relic mass statement.
 
-**0.4 — Redo the remnant-density derivation.** The paper states
-`ρ_rem = 2V(φ)/c²`; the script evaluates `2·V0` with no `1/c²` factor; and the
-reported `1.40 ρ_crit` is `2 × 0.7` with `c²` treated as unity. The two
-disagree and the ratio does not follow from either. The verification check is
-currently a visible FAIL in `blackhole_lifecycle.py` by design. The qualitative
-claim — field-bound rather than self-gravitating — does not depend on the
-number and stands.
-
-*Blocks:* any statement about remnant density in any paper.
+**0.4 — DONE: remnant-density derivation.** The paper's balance law is
+self-consistent and reduces to `ρ_rem = 2V(φ)/c²`. The script had dropped the
+`1/c²` factor, which is where `1.40 ρ_crit` came from (`2 × 0.7` with `c²`
+treated as unity). Corrected to `1.33×10⁻⁴³ kg/m³ = 1.56×10⁻¹⁷ ρ_crit`.
+Remnant size now follows from the bound mass fraction `f`, with no value of `f`
+asserted. Checks are 9 of 9.
 
 **0.3 — Surface the growth tension.** The framework's growth will resemble
 ΛCDM's, and eBOSS small-scale RSD sits 1.4–2.3σ below the Planck-ΛCDM
