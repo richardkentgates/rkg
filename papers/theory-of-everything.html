@@ -9,7 +9,7 @@
   <meta name="citation_publication_date" content="2026/09/16">
   <meta name="citation_journal_title" content="Independent Research">
   <meta name="citation_pdf_url" content="https://richardkentgates.com/papers/theory-of-everything.pdf">
-  <meta name="citation_abstract" content="A single axiom states that distance necessitates time, time is information, and information cannot be lost. From this follows one dimensionless scalar field of order one thousandth and one correction law relating every effective physical quantity to its bare value through that field. The same field is identified as the quantum vacuum, which is in turn identified as spacetime, so general relativity and quantum mechanics are treated as two views of one entity at different scales. The framework is applied to the cosmological constant problem, the measurement problem, the entropy arrow, the black hole information paradox, and the Big Bang singularity.">
+  <meta name="citation_abstract" content="A single axiom states that distance necessitates time, time is information, and information cannot be lost. From this follows one dimensionless scalar field of order one thousandth and one correction law relating every effective physical quantity to its bare value through that field. The same field is identified as the quantum vacuum, which is in turn identified as spacetime, so general relativity and quantum mechanics are treated as two views of one entity at different scales. Section 9 records the status of each problem the framework addresses: black hole relic formation and the statistical recoverability of the field are demonstrated numerically in this body of work, while the unification, cosmological constant, measurement, and Hubble tension claims are stated as hypotheses and labelled as such.">
   <title>The Theory of Everything: One Axiom, One Field, All of Physics</title>
   <script>
     window.MathJax = {
@@ -123,7 +123,7 @@
     "affiliation": "Independent Researcher"
   },
   "datePublished": "September 16, 2026",
-  "description": "This single axiom generates quantum mechanics (information = bits = quantum states), general relativity (distance = time = spacetime), thermodynamics (information preserved = entropy arrow), and the scalar field \\(G(t)\\) (the mathematical expression of the axiom).",
+  "description": "A single axiom: distance necessitates time, time is information, information cannot be lost. From it, one dimensionless scalar field and one correction law across five sectors. Section 9 states which problems are demonstrated numerically in this corpus and which remain hypotheses.",
   "keywords": [
     "time-gradient field",
     "unified physics",
@@ -222,18 +222,34 @@
 </ul>
 <p>Matter is not a substance. Matter is the field vibration slowed to the point of condensation. \(c^2\) is the field's maximum vibration speed &mdash; the speed of light = the speed of information = the speed of state changes.</p>
 
-<h2>9. What This Resolves</h2>
+<h2>9. Status of Each Problem Under the Field Model</h2>
+<p>
+The single field and the single correction law are posited in Section 3. For each
+problem below, this table states what the companion papers in this body of work
+actually demonstrate, and what remains a hypothesis. Where a row is marked
+<em>Hypothesis</em>, no claim of resolution is made here; the row records the
+target the framework is being tested against.
+</p>
 <table>
-  <tr><th>Problem</th><th>Resolution</th></tr>
-  <tr><td>GR/QM unification</td><td>Same field, same law, all scales</td></tr>
-  <tr><td>Cosmological constant</td><td>Vacuum energy = field at small amplitude</td></tr>
-  <tr><td>Measurement problem</td><td>Information resolution, not collapse</td></tr>
-  <tr><td>Entropy arrow</td><td>Consequence of information preservation + coarse-graining</td></tr>
-  <tr><td>Black hole information</td><td>Relics preserve information (no singularity)</td></tr>
-  <tr><td>Big Bang singularity</td><td>Forbidden by the axiom</td></tr>
-  <tr><td>Hierarchy problem</td><td>Field couples to everything uniformly</td></tr>
-  <tr><td>Hubble tension</td><td>Field amplitude varies with environment</td></tr>
+  <tr><th>Problem</th><th>Status under the field model</th><th>Basis</th></tr>
+  <tr><td>GR/QM unification</td><td><em>Hypothesis.</em> The correction law is written to span both domains with two free parameters, but no computation in this corpus derives quantum behaviour from it.</td><td>Posited, Section 3</td></tr>
+  <tr><td>Cosmological constant</td><td><em>Hypothesis.</em> The vacuum energy and observed dark energy are identified as the same field at different scales. This is a re-identification; no mechanism producing the ratio is computed.</td><td>Posited, Section 5</td></tr>
+  <tr><td>Measurement problem</td><td><em>Hypothesis.</em> Collapse is recast as information resolution, following from the axiom that information cannot be lost. Stated as an argument, not derived.</td><td>Section 6</td></tr>
+  <tr><td>Entropy arrow</td><td>Stated. The field equations are time-reversible, giving <span>\(dS/dt = 0\)</span> fundamentally; the second law is recovered in the coarse-grained description, so the arrow follows from information preservation plus incomplete description.</td><td><code>foundation_proof.py</code>, <code>theory_of_everything.py</code></td></tr>
+  <tr><td>Black hole information</td><td>Numerically demonstrated. Mass evolution integrating accretion, Hawking evaporation, and a field term freezes out at \(2.18\times10^{-13}\,\text{kg}\). The relic identity variable <span>\(\chi = 0.999990\)</span> over the integrated interval.</td><td><code>blackhole_lifecycle.py</code>, 7/7 checks</td></tr>
+  <tr><td>Big Bang singularity</td><td>Stated as a prohibition. A singularity requires infinite information in zero volume, violating the Bekenstein bound; the quartic potential bounds the field amplitude in both time directions. Argued, not computed.</td><td><code>foundation_proof.py</code>, 8/8 checks</td></tr>
+  <tr><td>Hierarchy problem</td><td>Partial. The field is dimensionless and couples conformally, so loop corrections are logarithmic rather than quadratic. Dimensional argument, not a renormalization calculation.</td><td><code>renormalization_proof.py</code>, 7/7 checks</td></tr>
+  <tr><td>Hubble tension</td><td><em>Hypothesis.</em> Environment-dependent field amplitude is offered as an account. No prediction for the tension's magnitude is derived in this corpus.</td><td>Posited</td></tr>
+  <tr><td>Correlated decay anomalies</td><td>Documented. Five independent datasets show fractional deviations clustering in the \(10^{-4}\) to \(10^{-3}\) band under a single equation, with fitted couplings within an order of magnitude across isotopes.</td><td><code>time-gradient-field-model.html</code>, <code>time_gradient_verification.html</code></td></tr>
+  <tr><td>Statistical recoverability</td><td>Numerically demonstrated. The field is reconstructible from noisy multi-sector measurement; empirical variance is 2.73 times the Cram&eacute;r&ndash;Rao bound, with all three estimators converging to the same error floor.</td><td><code>signal_processing_proof.py</code>, <code>statistical-verification.html</code></td></tr>
 </table>
+<p>
+Two of the ten rows rest on numerical demonstration in this corpus. The remainder
+are either stated arguments or explicit hypotheses, marked above. The clustering
+of decay anomalies and the statistical recoverability of the field are the results
+this body of work establishes; the unification and cosmological claims are the
+targets it is measured against.
+</p>
 
 <h2>10. Conclusion</h2>
 <div class="result-box">
