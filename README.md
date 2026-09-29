@@ -75,7 +75,7 @@ The `papers/` directory contains the Unified Scalar Time-Gradient Field Theory r
 | foundation-proof | Distance → time → information → singularities forbidden |
 | unified-proof | The field IS the universe; no beginning, no singularity |
 | chronometric-levelling | The time-gradient law read directly: 3 clock results plus gradient and differential tests |
-| rotation-curves | Time-gradient gravity law fitted to 165 SPARC rotation curves |
+| rotation-curves | The 36% baryonic shortfall as a measured requirement; the framework's galactic gap stated |
 | blackhole-lifecycle | Singularity elimination: freeze-out derived in closed form, horizon never crossed |
 | entanglement-formalization | Entanglement, frame dragging, GWs in the G(t) framework |
 | time-gradient-field-model | Decay-rate and lifetime anomalies |
@@ -124,7 +124,7 @@ Figure generation uses matplotlib and is kept out of the numerical path:
 | Script | Output |
 |---|---|
 | `make_decoherence_figure.py` | `fig-decoherence.png` (used by `entanglement-formalization.html`) |
-| `make_rotation_figure.py` | `fig-sparc-rotation-curves.png` (used by `rotation-curves.html`) |
+| `make_rotation_figure.py` | `fig-sparc-rotation-curves.png` (baryons vs observed, no halo, used by `rotation-curves.html`) |
 | `make_chronometric_figure.py` | `fig-chronometric.png` (used by `chronometric-levelling.html`) |
 | `local_experiments.py` | `local_experiment_results.txt` (coupling limits, §4 of `chronometric-levelling.html`) |
 

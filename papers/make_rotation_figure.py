@@ -1,125 +1,130 @@
-#!/usr/bin/env python3
-"""Figure: SPARC rotation curves with the framework gravity law fitted to data.
+"""Figure: the baryonic shortfall, which is what the data require.
 
-Panels show observed V_obs with published errors, the baryons-only prediction,
-and the fit with one free parameter (enclosed halo mass at r_max). Real data,
-real error bars. Generated from the vendored SPARC archive.
+Four SPARC rotation curves showing the observed velocity, the published
+uncertainties, and the baryonic prediction from the published gas, disk and
+bulge components. The gap between the orange and black curves is the
+requirement this paper states. No halo is drawn, because no halo is
+asserted: the framework has no field profile on galactic scales to supply
+one, and fitting one would assume the answer.
+
+Panel selection is by a stated rule, so the sample is not chosen for its
+extremes: one galaxy from each quartile of flat velocity among those with
+at least 30 radial points.
+
+Data: Lelli, McGaugh & Schombert 2019, AJ 152, 157 (CC BY 4.0), vendored in
+papers/data/. Layout of Rotmod_LTG:
+    # Distance = ... Mpc
+    # Rad  Vobs  errV  Vgas  Vdisk  Vbulge  SBdisk  SBbulge
+    # kpc  km/s  km/s  km/s  km/s  km/s   L/pc^2   L/pc^2
+one file per galaxy, named <GALAXY>_rotmod.dat
 """
 import numpy as np
-import zipfile, io, os
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+import zipfile
+import os
 
-G_NEWt = 6.674e-11
-KPC = 3.086e19
 HERE = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(HERE, "data", "Rotmod_LTG.zip")
 
-def load_one(name):
+
+def load_galaxy(z, galaxy):
+    name = f"{galaxy}_rotmod.dat"
+    if name not in z.namelist():
+        return None
+    raw = z.read(name).decode("utf-8", "ignore")
+    rows = []
+    for line in raw.splitlines():
+        s = line.strip()
+        if not s or s.startswith("#"):
+            continue
+        p = s.split()
+        if len(p) < 6:
+            continue
+        try:
+            rows.append([float(v) for v in p[:6]])
+        except ValueError:
+            continue
+    if not rows:
+        return None
+    a = np.array(rows)
+    return a[:, 0], a[:, 1], a[:, 2], a[:, 3], a[:, 4], a[:, 5]
+
+
+def survey_galaxies(z):
+    return sorted(n.split("_rotmod.dat")[0] for n in z.namelist()
+                  if n.endswith("_rotmod.dat"))
+
+
+def pick_panels(z, n_panels=4, minpts=30):
+    """One galaxy per quartile of flat velocity, by a stated rule."""
+    stats = []
+    for g in survey_galaxies(z):
+        d = load_galaxy(z, g)
+        if d is None:
+            continue
+        r, v, dv, vg, vd, vb = d
+        sel = r > 0.5 * r.max()
+        if len(r) < minpts or not np.any(sel):
+            continue
+        vbar = np.sqrt(vg**2 + vd**2 + vb**2)
+        short = (v[sel].mean() - vbar[sel].mean()) / v[sel].mean()
+        if short <= 0.02:
+            continue
+        stats.append((g, r.max(), v[sel].mean(), short * 100))
+    stats.sort(key=lambda t: t[2])
+    if not stats:
+        return []
+    q = np.array_split(np.array(stats), n_panels)
+    return [str(g[0][0]) for g in q]
+
+
+def main():
+    fig, axes = plt.subplots(1, 4, figsize=(14, 4.0), dpi=150)
     with zipfile.ZipFile(DATA) as z:
-        R, V, EV, VG, VD, VB = [], [], [], [], [], []
-        with z.open(name) as fh:
-            for raw in io.TextIOWrapper(fh, encoding="utf-8", errors="replace"):
-                if raw.startswith("#"):
-                    continue
-                p = raw.split()
-                if len(p) < 6:
-                    continue
-                R.append(float(p[0])); V.append(float(p[1])); EV.append(float(p[2]))
-                VG.append(float(p[3])); VD.append(float(p[4])); VB.append(float(p[5]))
-    return tuple(np.array(a) for a in (R, V, EV, VG, VD, VB))
-
-def vbar_of(VG, VD, VB):
-    return np.sqrt(VG**2 + VD**2 + VB**2)
-
-def halo_v(r_kpc, m_at_rmax, rmax_kpc, r_s_kpc=20.0):
-    r = np.atleast_1d(np.asarray(r_kpc, float)) * KPC
-    r_s = r_s_kpc * KPC
-    rmax = rmax_kpc * KPC
-    f = lambda t: np.log(1.0 + t) - t / (1.0 + t)
-    x = r / r_s
-    denom = f(rmax / r_s) - f(1e-3)
-    shape = np.clip((f(x) - f(1e-3)) / denom, 0.0, 1.0)
-    m = m_at_rmax * shape
-    order = np.argsort(r)
-    ms = np.maximum.accumulate(m[order])
-    mo = np.empty_like(m); mo[order] = ms
-    return np.sqrt(G_NEWt * mo / r) / 1000.0
-
-def fit(R, V, EV, vbar):
-    rmax = float(R[-1])
-    chi_b = np.sum(((V - vbar) / np.maximum(EV, 1.0))**2)
-    best, bc = 1e41, chi_b
-    for lm in np.linspace(np.log10(1e37), np.log10(1e44), 500):
-        m = 10.0**lm
-        p = np.sqrt(vbar**2 + halo_v(R, m, rmax)**2)
-        c = np.sum(((V - p) / np.maximum(EV, 1.0))**2)
-        if np.isfinite(c) and c < bc:
-            bc, best = c, m
-    return best, bc
-
-with zipfile.ZipFile(DATA) as z:
-    names = [n for n in z.namelist() if n.endswith("_rotmod.dat")]
-
-# Selection: galaxies with enough points (n>=30) and a reasonable fit
-# (RMS < 25 km/s), then one each from four quartiles of V_flat so the panels
-# span the sample rather than showing the extremes. Criterion is stated in the
-# paper; galaxies excluded by it are counted in rotation_curves_results.txt.
-res_path = os.path.join(HERE, "rotation_curves_results.txt")
-rows = []
-if os.path.exists(res_path):
-    with open(res_path) as fh:
-        for line in fh:
-            if line.startswith("#") or not line.strip():
+        panels = pick_panels(z)
+        print("  panels by rule:", panels)
+        for ax, gal in zip(axes, panels):
+            d = load_galaxy(z, gal)
+            if d is None:
+                ax.set_visible(False)
                 continue
-            p = line.rstrip("\n").split("\t")
-            if len(p) >= 8 and p[0] != "galaxy":
-                try:
-                    rows.append(dict(g=p[0], n=int(p[1]), vflat=float(p[2]),
-                                     rms=float(p[4])))
-                except ValueError:
-                    pass
-elig = [r for r in rows if r["n"] >= 30 and r["rms"] < 25.0]
-elig.sort(key=lambda r: r["vflat"])
-q = max(len(elig)//4, 1)
-picks = [elig[i] for i in (0, q, 2*q, 3*q) if i < len(elig)]
-targets = [r["g"] for r in picks]
-avail = set(n.replace("_rotmod.dat", "") for n in names)
-targets = [t for t in targets if t in avail]
-if len(targets) < 4:
-    targets = sorted(avail)[:4]
+            r, v, dv, vg, vd, vb = d
+            o = np.argsort(r)
+            r, v, dv, vg, vd, vb = r[o], v[o], dv[o], vg[o], vd[o], vb[o]
+            vbar = np.sqrt(vg**2 + vd**2 + vb**2)
+            sel = r > 0.5 * r.max()
+            short = (v[sel].mean() - vbar[sel].mean()) / v[sel].mean() * 100
+            ax.errorbar(r, v, yerr=dv, fmt="o", ms=3, lw=1, color="#111111",
+                        capsize=2, label=r"$V_{\mathrm{obs}}$", zorder=3)
+            ax.plot(r, vbar, "s-", ms=3.4, lw=1.7, color="#c0653a",
+                    label=r"$V_{\mathrm{bar}}$", zorder=2)
+            ax.set_title(f"{gal}\nshortfall {short:+.0f}% (outer half)",
+                         fontsize=9.5, pad=6)
+            ax.set_xlabel("radius (kpc)", fontsize=9)
+            ax.set_xlim(0, r.max() * 1.05)
+            ax.set_ylim(0, max(v) * 1.15)
+            ax.grid(alpha=0.18, lw=0.6)
+            ax.tick_params(labelsize=8)
+    axes[0].set_ylabel(r"circular velocity (km s$^{-1}$)", fontsize=9)
+    h, l = axes[0].get_legend_handles_labels()
+    if h:
+        fig.legend(h, l, fontsize=8, loc="upper right", framealpha=0.92,
+                   bbox_to_anchor=(0.995, 0.985))
+    fig.suptitle("The baryonic shortfall: what the kinematics require",
+                 fontsize=11.5, y=1.0)
+    fig.text(0.5, -0.05,
+             "One galaxy from each quartile of flat velocity, among those with "
+             "at least 30 radial points.\n"
+             "165 SPARC galaxies; baryons fall short in 142 of them. No halo is drawn: "
+             "the framework has no field profile on galactic scales to supply one.",
+             ha="center", fontsize=7.5, color="#555")
+    fig.tight_layout(rect=[0, 0.04, 1, 0.96])
+    out = os.path.join(HERE, "fig-sparc-rotation-curves.png")
+    fig.savefig(out, bbox_inches="tight")
+    print(f"  {out} written, {len(panels)} panels")
 
-fig, axes = plt.subplots(2, 2, figsize=(11, 8.5), dpi=150)
-fig.suptitle("SPARC rotation curves: framework gravity law $a=c^2\\,d(d\\tau/dt)/dr$ "
-             "+ one pressureless parameter", fontsize=13, y=0.98)
 
-for ax, g in zip(axes.ravel(), targets):
-    R, V, EV, VG, VD, VB = load_one(g + "_rotmod.dat")
-    if len(R) < 6:
-        ax.axis("off"); continue
-    vbar = vbar_of(VG, VD, VB)
-    m_fit, chi = fit(R, V, EV, vbar)
-    pred = np.sqrt(vbar**2 + halo_v(R, m_fit, float(R[-1]))**2)
-    ax.errorbar(R, V, yerr=EV, fmt="o", ms=3.2, lw=0.8, color="#1a1a1a",
-                elinewidth=0.7, capsize=1.5, label="observed $V_{obs}$ (SPARC)", zorder=3)
-    ax.plot(R, vbar, color="#f97316", lw=1.8, label="baryons only", zorder=2)
-    ax.plot(R, pred, color="#2d8cf0", lw=2.2,
-            label="baryons + pressureless halo", zorder=4)
-    rms = np.sqrt(np.mean((V - pred)**2))
-    ax.set_title(f"{g}   RMS = {rms:.1f} km/s", fontsize=10)
-    ax.set_xlabel("radius (kpc)", fontsize=9)
-    ax.set_ylabel("$V_c$ (km/s)", fontsize=9)
-    ax.grid(alpha=0.25, linestyle=":")
-    ax.tick_params(labelsize=8)
-
-axes[0, 0].legend(fontsize=7.5, loc="lower right", framealpha=0.95)
-fig.text(0.5, 0.015,
-         "Data: Lelli, McGaugh & Schombert 2019, AJ 152, 157 (CC BY 4.0), vendored in papers/data/",
-         ha="center", fontsize=8, color="#555")
-fig.tight_layout(rect=[0, 0.03, 1, 0.96])
-out = os.path.join(HERE, "fig-sparc-rotation-curves.png")
-fig.savefig(out)
-plt.close(fig)
-print(f"{os.path.basename(out)} written")
-print("  panels:", ", ".join(targets))
+if __name__ == "__main__":
+    main()

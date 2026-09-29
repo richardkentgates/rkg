@@ -3,21 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rotation Curves: Testing the Time-Gradient Gravity Law Against 165 Galaxies</title>
-<meta name="description" content="The framework derives acceleration as a directional bias along the time-density gradient. Fitted to 165 SPARC rotation curves with one free parameter per galaxy, it reproduces the observed velocities.">
+<title>Rotation Curves: The Baryonic Shortfall as an Open Requirement</title>
+<meta name="description" content="SPARC kinematics require a pressureless component: baryons fall 36 percent short in the outer half of 142 of 165 galaxies. That shortfall is framework-independent. The framework has no field profile on galactic scales to answer it, and the halo fit previously reported here is withdrawn.">
 <script>
   window.MathJax = {
     tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] }
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async></script>
-<meta name="citation_title" content="Rotation Curves: Testing the Time-Gradient Gravity Law Against 165 Galaxies">
+<meta name="citation_title" content="Rotation Curves: The Baryonic Shortfall as an Open Requirement">
 <meta name="citation_author" content="Gates, Richard Kent">
 <meta name="citation_author_institution" content="Independent Researcher">
 <meta name="citation_publication_date" content="2026-09-28">
 <meta name="citation_journal_title" content="Independent Research">
 <meta name="citation_pdf_url" content="https://richardkentgates.com/papers/rotation-curves.pdf">
-<meta name="citation_abstract" content="The framework derives acceleration as a directional bias along the local gradient of the proper-time rate, a = c^2 d(dtau/dt)/dr, rather than as a force or a geometric distortion. This paper tests that law against 165 spiral galaxies with measured H I and H-alpha rotation curves. Baryons alone fall 36 percent short of the observed circular velocity in the outer half of 142 of 165 galaxies, so a pressureless component is required by the data. Fitting the framework law with a single free parameter per galaxy reduces the median residual from 33.5 to 10.1 km/s, and the pressureless component is preferred over no halo in 165 of 165 galaxies by chi-squared. The field factor G_eff = G_0(1 - c_g G) equals unity to within MICROSCOPE's 1e-5 bound at the galactic field amplitude, so the result does not depend on the coupling.">
+<meta name="citation_abstract" content="SPARC kinematics establish that baryons fall 36 percent short of the observed circular velocity in the outer half of 142 of 165 galaxies, so a pressureless component is required. This is a statement about the data and holds independently of any theory. The framework treats mass as the terminal limit of time-density and carries a field potential V(phi), but the corpus specifies neither the potential shape nor the field profile on galactic scales, so the framework as written cannot supply the shortfall and no prediction is made for it. This paper states the requirement and specifies what a field-based account would have to reproduce: the flat-curve shape from V squared equals r times a(r) with no fitted mass, and the measured outer-half shortfall as a fixed target. A halo fit previously reported in this paper is withdrawn, because a free mass parameter per galaxy cannot distinguish the framework from the Newtonian limit it reduces to.">
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
@@ -70,7 +70,7 @@
 {
   "@context": "https://schema.org",
   "@type": "ScholarlyArticle",
-  "name": "Rotation Curves: Testing the Time-Gradient Gravity Law Against 165 Galaxies",
+  "name": "Rotation Curves: The Baryonic Shortfall as an Open Requirement",
   "url": "https://richardkentgates.com/papers/rotation-curves.html",
   "author": {
     "@type": "Person",
@@ -78,8 +78,8 @@
     "email": "mail@richardkentgates.com",
     "affiliation": "Independent Researcher"
   },
-  "datePublished": "2026-09-28",
-  "description": "The framework derives acceleration as a directional bias along the time-density gradient. Fitted to 165 SPARC rotation curves with one free parameter per galaxy, it reproduces the observed velocities.",
+  "datePublished": "2026-09-29",
+  "description": "SPARC kinematics require a pressureless component: baryons fall 36 percent short in 142 of 165 galaxies. The framework has no galactic field profile to answer it, and the previous halo fit is withdrawn.",
   "keywords": ["time-gradient field", "unified physics", "quantum gravity", "scalar field G(t)"]
 }
 </script>
@@ -88,151 +88,205 @@
 <div class="paper">
 
 <h1>Rotation Curves</h1>
-<p class="subtitle">
-    The time-gradient gravity law tested against 165 galaxies
-</p>
+<div class="date">September 29, 2026</div>
 
-<h2>1. What is being tested</h2>
+<h2>1. What this paper claims, and what it does not</h2>
 <p>
-The framework does not treat gravity as a force or as a curvature of spacetime.
-It derives acceleration as a directional bias along the local gradient of the
-proper-time rate:
+The framework derives acceleration as a directional bias along the local
+gradient of the proper-time rate:
 </p>
 <div class="eq-block">
 \[a = c^{2}\,\frac{d(d\tau/dt)}{dr}\]
 </div>
 <p>
-For a spherically symmetric mass distribution this reproduces the usual
-relation for circular motion, so the test is whether the framework's own law,
-integrated from the <em>observed baryonic</em> distribution, accounts for the
-observed circular velocities.
+The observable here is the time-density rate \(d\tau/dt\), not a mass. Distance
+necessitates time, so that quantity is defined everywhere and measurable
+anywhere, and the law is a differential relation: it needs two points, not a
+galaxy. That locality is what makes the framework testable at all.
 </p>
 <p>
-The sample is the SPARC survey: 175 late-type galaxies with Spitzer photometry
-at 3.6&nbsp;&micro;m and rotation curves from H&nbsp;I and H&alpha; spectroscopy
-spanning more than five decades in stellar mass. Of these, 165 carry enough
-radial coverage for the outer-half test below. The data are vendored in this
-repository, so every number here is reproducible without network access.
+This paper makes one claim and states one requirement.
 </p>
+<ul>
+<li><strong>The claim.</strong> SPARC kinematics require a pressureless
+component. Baryons fall short of the observed circular velocity in the outer
+halves of the overwhelming majority of these galaxies, and that is a
+statement about the data. It holds whatever the theory is.</li>
+<li><strong>The requirement.</strong> The framework, as currently specified,
+cannot answer it. This paper states what a field-based answer would have to
+reproduce, so the next step is an equation rather than another fit.</li>
+</ul>
+<div class="open">
+<p><strong>What was withdrawn from this paper, and why.</strong></p>
+<p>
+An earlier version fitted a pressureless halo profile in quadrature with the
+baryons, one free parameter per galaxy, and reported that the median residual
+fell from 33.5 to 10.1&nbsp;km/s. That fit has been removed rather than
+reinterpreted, for three reasons that are worth recording.
+</p>
+<ul>
+<li><strong>It could not distinguish the framework from what it reduces
+to.</strong> The halo was computed as \(V^{2} = G_{\mathrm{eff}}M(&lt;r)/r\),
+which is Newtonian gravity with a symbol attached. The paper itself noted that
+the coupling drops out, and \(c_{g}G \sim 10^{-5}\) at galactic field
+amplitudes is below the MICROSCOPE bound. A test whose outcome is insensitive
+to the framework is not a test of the framework.</li>
+<li><strong>The profile was chosen, not derived.</strong> A mass parameter per
+galaxy supplies whatever shape is needed to reach the data. The data establish
+that the baryons are insufficient; they do not establish the form of whatever
+fills the gap, and inserting a halo asserts that form rather than predicting
+it.</li>
+<li><strong>It was mass-defined reasoning in a framework whose primitive is
+not mass.</strong> Inferring a halo mass from a velocity and fitting its
+profile is the classical operation. The framework treats mass as the terminal
+limit of time-density, so the question is what the field's gradient does, not
+how much mass to add.</li>
+</ul>
+<p>
+The 36 % shortfall survives all of this. It was never a framework result; it
+is kinematics, and it is reported below on its own terms.
+</p>
+</div>
 
-<h2>2. The data require a pressureless component</h2>
+<h2>2. The requirement, measured</h2>
 <p>
-Before asking whether any particular law fits, it is worth asking what the
-data demand on their own. SPARC publishes the gas, disk, and bulge
-contributions separately, so the baryonic circular velocity is
+SPARC publishes the gas, disk and bulge contributions separately, so the
+baryonic circular velocity is
 </p>
 <div class="eq-block">
 \[V_{\mathrm{bar}} = \sqrt{V_{\mathrm{gas}}^{2} + V_{\mathrm{disk}}^{2} + V_{\mathrm{bul}}^{2}}\]
 </div>
 <p>
-Comparing this with the observed velocity in the outer half of each galaxy's
-radial range:
+The sample is 175 late-type galaxies with Spitzer photometry at
+3.6&nbsp;&micro;m and rotation curves from H&nbsp;I and H&alpha; spectroscopy,
+spanning more than five decades in stellar mass. Of these, 165 carry enough
+radial coverage for the outer-half comparison. Comparing the baryonic
+prediction with the observed velocity across the outer half of each galaxy's
+radial range gives
 </p>
 <div class="eq-block">
 \[\frac{\langle V_{\mathrm{obs}} - V_{\mathrm{bar}}\rangle_{\mathrm{outer}}}{\langle V_{\mathrm{obs}}\rangle_{\mathrm{outer}}} = +0.364\]
 </div>
 <table>
   <tr><th>Quantity</th><th>Value</th></tr>
+  <tr><td>Galaxies with sufficient outer coverage</td><td class="num">165 / 165</td></tr>
   <tr><td>Median baryonic shortfall, outer half</td><td class="num">+36.4 %</td></tr>
   <tr><td>Galaxies where baryons fall short by more than 2 %</td><td class="num">142 / 165</td></tr>
-  <tr><td>Galaxies with sufficient outer coverage</td><td class="num">165 / 165</td></tr>
+  <tr><td>Median RMS, baryons only</td><td class="num">33.48 km/s</td></tr>
 </table>
 <p>
-Baryons account for roughly two-thirds of the observed velocity at large
-radius, and they fall short in the overwhelming majority of galaxies. A
+Baryons account for roughly two-thirds of the observed circular velocity at
+large radius, and they fall short in the overwhelming majority of galaxies. A
 pressureless component is required. This conclusion is independent of any
 theory: it is what the kinematics say.
 </p>
+<p>
+Two things follow from it, and one does not. It follows that any account of
+galactic rotation has to supply the missing attraction, whatever that account
+is. It follows that the shortfall is uniform enough across the sample to be a
+structural requirement rather than a few outliers. What it does not follow is
+the form, the profile shape, or the mass of whatever supplies it.
+</p>
 
-<h2>3. The fit</h2>
-<p>
-A single free parameter is fitted per galaxy: the enclosed halo mass at the
-outermost data point. Parameterising by an enclosed mass rather than a density
-makes the parameter scale-free and physical, and it leaves the profile shape
-fixed, so the fit is not free to redraw itself around the data.
-</p>
-<p>
-The model is the baryonic contribution in quadrature with the pressureless
-halo:
-</p>
-<div class="eq-block">
-\[V_{\mathrm{model}}(r) = \sqrt{V_{\mathrm{bar}}^{2}(r) + V_{\mathrm{halo}}^{2}(r)}\]
-</div>
-<p>
-with \(V_{\mathrm{halo}}\) obtained from the framework's gradient law,
-\(V_{\mathrm{halo}}^{2} = G_{\mathrm{eff}}\,M(&lt;r)/r\), and
-\(G_{\mathrm{eff}} = G_{0}(1 - c_{g}G)\).
-</p>
-<p>
-Four representative galaxies are shown below, selected by a stated rule
-(at least 30 radial points, residual below 25 km/s) and then one from each
-quartile of flat velocity, so the panels span the sample rather than showing
-its extremes.
-</p>
 <figure class="figure">
-  <img src="fig-sparc-rotation-curves.png" alt="Four SPARC rotation curves showing observed velocity with error bars, the baryons-only prediction, and the fit with one free parameter" style="max-width:100%; height:auto;">
-  <figcaption style="font-size:0.85em; color:#666; margin-top:0.5em;">Figure 1: Observed \(V_{\mathrm{obs}}\) with published uncertainties (black), the baryons-only prediction (orange), and the framework law with one free parameter (blue). Data: Lelli, McGaugh &amp; Schombert 2019, AJ 152, 157 (CC BY 4.0), vendored in <code>papers/data/</code>.</figcaption>
+  <img src="fig-sparc-rotation-curves.png" alt="Four SPARC rotation curves showing the observed circular velocity with published uncertainties in black and the baryonic prediction from the published gas, disk and bulge components in orange. The observed curve stays flat or rises while the baryonic prediction turns over and falls, leaving a shortfall of 19 to 51 percent across the outer halves.">
+  <figcaption style="font-size:0.85em; color:#666; margin-top:0.5em;">Figure 1: Observed \(V_{\mathrm{obs}}\) with published uncertainties (black) and the baryonic prediction \(V_{\mathrm{bar}}\) from the published gas, disk and bulge components (orange). One galaxy from each quartile of flat velocity, among those with at least 30 radial points. The observed curve stays flat or rises while the baryonic prediction turns over, and the gap in the outer half is the requirement stated in &sect;2. No halo is drawn, because none is asserted. Data: Lelli, McGaugh &amp; Schombert 2019, AJ 152, 157 (CC BY 4.0), vendored in <code>papers/data/</code>.</figcaption>
 </figure>
 
-<h2>4. Result</h2>
-<table>
-  <tr><th>Quantity</th><th>Value</th></tr>
-  <tr><td>Galaxies fitted</td><td class="num">165</td></tr>
-  <tr><td>Median RMS, baryons only</td><td class="num">33.48 km/s</td></tr>
-  <tr><td>Median RMS, framework law + pressureless halo</td><td class="num">10.10 km/s</td></tr>
-  <tr><td>Galaxies where the halo improves the fit</td><td class="num">134 / 165</td></tr>
-  <tr><td>Galaxies where the halo is preferred over none, by &chi;<sup>2</sup></td><td class="num">165 / 165</td></tr>
-  <tr><td>Median reduced &chi;<sup>2</sup> (one free parameter)</td><td class="num">4.58</td></tr>
-  <tr><td>Galaxies with reduced &chi;<sup>2</sup> below 3</td><td class="num">75 / 165</td></tr>
-</table>
+<h2>3. Why the framework cannot yet answer it</h2>
 <p>
-Adding one free parameter per galaxy reduces the median residual from
-33.5&nbsp;km/s to 10.1&nbsp;km/s, and in every one of the 165 galaxies the
-pressureless component is preferred over no halo at all. The requirement is
-universal in this sample; the size of the improvement varies.
+The framework has a field, a potential \(V(\phi)\), and a coupling. What it
+lacks is a spatial profile. The law
+\(a = c^{2}d(d\tau/dt)/dr\) needs \(d\tau/dt\) as a function of position, and
+the corpus specifies only the field's amplitude through the expansion history,
+not how it varies across a disc.
+</p>
+<p>
+This is a specification gap, not a computational one. It is worth being
+precise about the difference, because the computational reading is
+discouraging and the specification reading is not.
+</p>
+<p>
+Resolving a galactic volume at the smallest measurable distance is
+\(7.9\times10^{167}\) cells, which is not computable: even at an idealised
+\(10^{12}\) cell-solves per second it is \(1.8\times10^{147}\) Gyr, some
+\(10^{145}\) times the age of the universe. A brute-force treatment is
+therefore impossible, and no amount of arithmetic changes that.</p>
+<p>
+But a missing function is not made whole by computing. If the field's
+profile on galactic scales is unspecified, then evaluating the law on a finer
+grid resolves the same unspecified function more finely. The obstruction is
+that the equation is not written, not that the machine is too slow. That
+distinction is what makes this paper a specification rather than a
+disappointment.
 </p>
 
-<h2>5. The coupling does not enter the result</h2>
+<h2>4. What a field-based account would have to reproduce</h2>
 <p>
-The framework regulates gravity with a field factor,
-\(G_{\mathrm{eff}} = G_{0}(1 - c_{g}G)\). The MICROSCOPE experiment bounds the
-fractional deviation of the gravitational constant below \(10^{-5}\), which for
-a background field \(G \sim 10^{-3}\) requires \(c_{g} < 10^{-2}\).
+For circular motion the acceleration must equal \(V^{2}/r\), so the
+framework's law requires
+</p>
+<div class="eq-block">
+\[\frac{d(d\tau/dt)}{dr} = \frac{V_{\mathrm{flat}}^{2}}{c^{2}\,r}\]
+</div>
+<p>
+A flat rotation curve at a constant \(V\) is therefore a specific statement
+about the field: \(d\tau/dt\) must fall as \(1/r\) across the outer disc, with
+no free parameter. That is a target, and it is a testable one, because the
+observed \(V_{\mathrm{flat}}\) varies by an order of magnitude across the
+sample and the corresponding \(1/r\) field profile varies with it. A single
+field profile that reproduced all 165 would be doing real work, and one that
+did not would be informative.
 </p>
 <table>
-  <tr><th>Field</th><th>\(G_{\mathrm{eff}}/G_{0}\)</th></tr>
-  <tr><td class="num">0</td><td class="num">1.000000</td></tr>
-  <tr><td class="num">\(10^{-3}\)</td><td class="num">0.999990</td></tr>
-  <tr><td class="num">\(10^{-2}\)</td><td class="num">0.999900</td></tr>
+  <tr><th>A field-based account must reproduce</th><th>Fixed by</th></tr>
+  <tr><td>Flat-curve shape from \(V^{2} = r\,a(r)\)</td><td>the field's spatial profile, \(d\tau/dt\) falling as \(1/r\)</td></tr>
+  <tr><td>Outer-half shortfall of 36 %</td><td>measured, this paper &sect;2</td></tr>
+  <tr><td>Variation of \(V_{\mathrm{flat}}\) across the sample</td><td>published SPARC velocities, one order of magnitude</td></tr>
+  <tr><td>No free parameter per galaxy</td><td>design requirement, or the test is void</td></tr>
 </table>
 <p>
-At galactic field amplitudes the factor differs from unity by less than
-MICROSCOPE can resolve, and \(c_{g}G_{\mathrm{bg}} = 10^{-5}\) saturates the
-published bound exactly. The framework therefore reduces to Newtonian gravity
-where it is constrained to, and the rotation-curve result does not depend on
-the coupling.
+The last row is the one that was violated before. A parameter fitted per
+galaxy guarantees a fit; what would be informative is a field profile with no
+per-galaxy freedom that either reproduces the curves or does not.
 </p>
 
-<h2>6. Conclusion</h2>
+<h2>5. Conclusion</h2>
 <div class="result-box">
 <p>
-Gravity in this framework is a bias along the gradient of time-density rather
-than a force. That law was fitted to 165 galaxies with measured rotation
-curves, using one free parameter each and no other freedom.
+Baryons fall 36 % short of the observed circular velocity in the outer half
+of 142 of 165 galaxies, with a median residual of 33.5&nbsp;km/s. Something
+beyond the baryons supplies that attraction. This is measured, it is uniform
+across the sample, and it is independent of any theory.
 </p>
 <p>
-Baryons fall 36 % short of the observed circular velocity in the outer half of
-142 of 165 galaxies, so the data require a pressureless component. With the
-framework's law, the median residual drops from 33.5 to 10.1 km/s, and the
-pressureless component is preferred in every galaxy fitted.
+The framework's own law, \(a = c^{2}d(d\tau/dt)/dr\), would supply it if the
+field's profile on galactic scales were specified, since a flat curve
+requires \(d\tau/dt\) to fall as \(1/r\). The corpus does not specify it. No
+prediction is therefore made here, and the earlier halo fit is withdrawn
+because a free mass parameter per galaxy could not have distinguished the
+framework from the Newtonian limit it reduces to at galactic field
+amplitudes.
 </p>
 <p>
-The field factor is unity to within the MICROSCOPE bound at these amplitudes,
-so the fit does not rest on the coupling. The law that generates the framework's
-singularity result in the companion paper is the same law that reproduces
-these rotation curves.
+The singularity result in the companion paper does not depend on any of this.
+It follows from the field's time-gradient diverging as the Schwarzschild
+radius is approached, so the effective coupling reaches zero before a horizon
+forms, and that holds for every positive coupling regardless of the field's
+spatial profile. The galactic question is separate and remains open.
 </p>
 </div>
+
+<h2>Data and Script Provenance</h2>
+<p>The SPARC survey is the only data source. Values are transcribed in the repository data files and read by <code>rotation_curves_sparc.py</code>, which writes <code>rotation_curves_results.txt</code>. The figure is generated by <code>make_rotation_figure.py</code>. No network access is required to reproduce any number.</p>
+<table>
+  <tr><th>Section</th><th>Quantity</th><th>Source</th></tr>
+  <tr><td>&sect;2</td><td>Shortfall \(+0.364\), 142/165, median RMS 33.48 km/s</td><td><code>rotation_curves_sparc.py</code> from <code>data/Rotmod_LTG.zip</code></td></tr>
+  <tr><td>&sect;3</td><td>Cell count \(7.9\times10^{167}\), horizon \(1.8\times10^{147}\) Gyr</td><td>Arithmetic from a 30 kpc radius at the Planck length</td></tr>
+  <tr><td>&sect;4</td><td>\(d\tau/dt \propto 1/r\) requirement</td><td>Framework law combined with \(V^{2}=ra\)</td></tr>
+  <tr><td>&sect;1, &sect;5</td><td>Withdrawn halo fit, and the reasons</td><td>Recorded, not reproduced</td></tr>
+</table>
+<p>See <code>data/SPARC-README.md</code> for column definitions, the file checksum, and the CC BY 4.0 attribution for the Lelli, McGaugh &amp; Schombert data.</p>
 
 <h2>AI Research Collaboration Disclosure</h2>
 <p>This body of work was developed through a collaborative research process between the author, Richard Kent Gates, and multiple AI research partners. The author provides full transparency on this process.</p>

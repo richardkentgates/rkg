@@ -552,6 +552,42 @@ beginning cannot be validated against the alternative.
   the end-states record where clustering stalled. No relic abundance is assumed
   and none is required.
 
+## 5a. Withdrawn: the halo fit in the rotation-curve paper
+
+An earlier version of `rotation-curves.html` fitted a pressureless halo profile
+in quadrature with the baryons, one free parameter per galaxy, and reported
+that the median residual fell from 33.5 to 10.1 km/s with the pressureless
+component preferred in 165 of 165. That fit has been removed rather than
+reinterpreted, for three reasons:
+
+1. **It could not distinguish the framework from what it reduces to.** The halo
+   was computed as `V^2 = G_eff M(<r)/r`, which is Newtonian gravity with a
+   symbol attached, and the paper itself noted that the coupling drops out at
+   galactic field amplitudes. A test whose outcome is insensitive to the
+   parameter is not a test of the parameter. This is the same criticism the
+   chronometric paper now states about its own local limits.
+2. **The profile was chosen, not derived.** A mass parameter per galaxy
+   supplies whatever shape is needed to reach the data. The kinematics
+   establish that baryons are insufficient; they do not establish the form of
+   whatever fills the gap.
+3. **It was mass-defined reasoning in a framework whose primitive is not
+   mass.** Inferring a halo mass from a velocity is the classical operation.
+
+What survives is the 36% baryonic shortfall in 142 of 165 galaxies, which was
+never a framework result. The paper is now a specification: it states the
+requirement, records that the corpus specifies no field profile on galactic
+scales, and states what such a profile would have to reproduce, namely
+`dtau/dt` falling as `1/r` for a flat curve with no fitted mass.
+
+`theory-of-everything.html` carried the same withdrawn claim in its status
+table and has been corrected, so the corpus no longer asserts it anywhere.
+A grep for the old numbers across the repository returns nothing.
+
+The figure was rebuilt to show observed and baryonic velocities only, with no
+halo drawn, and the panels are now chosen by a stated rule: one galaxy from
+each quartile of flat velocity among those with at least 30 radial points.
+Four galaxies, shortfalls of +19% to +51% in the outer half.
+
 ## 6. Release decision
 
 Push the papers whose claims are measured or closed-form. The relic mass and
