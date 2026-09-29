@@ -74,7 +74,7 @@ The `papers/` directory contains the Unified Scalar Time-Gradient Field Theory r
 | theory-of-everything | Capstone: one axiom, one field, all of physics |
 | foundation-proof | Distance → time → information → singularities forbidden |
 | unified-proof | The field IS the universe; no beginning, no singularity |
-| chronometric-levelling | The time-gradient law read directly by atomic clocks: 3 published results |
+| chronometric-levelling | The time-gradient law read directly: 3 clock results plus gradient and differential tests |
 | rotation-curves | Time-gradient gravity law fitted to 165 SPARC rotation curves |
 | blackhole-lifecycle | Singularity elimination: freeze-out derived in closed form, horizon never crossed |
 | entanglement-formalization | Entanglement, frame dragging, GWs in the G(t) framework |
@@ -126,6 +126,7 @@ Figure generation uses matplotlib and is kept out of the numerical path:
 | `make_decoherence_figure.py` | `fig-decoherence.png` (used by `entanglement-formalization.html`) |
 | `make_rotation_figure.py` | `fig-sparc-rotation-curves.png` (used by `rotation-curves.html`) |
 | `make_chronometric_figure.py` | `fig-chronometric.png` (used by `chronometric-levelling.html`) |
+| `local_experiments.py` | `local_experiment_results.txt` (coupling limits, §4 of `chronometric-levelling.html`) |
 
 ## CI/CD
 

@@ -1,0 +1,88 @@
+# Local experiments that read the framework's own observable
+#
+# Framework law:      a = c^2 * d(dtau/dt)/dr
+# Field:              G = d(dtau/dt)/d(ln r)  =  Phi/c^2   in the weak field
+# Regulated coupling: G_eff = G_0 (1 - c_g G)
+#
+# Everything below is transcribed from a published result. No fitted
+# parameters, no cosmological inputs, no mass models.
+#
+# ---------------------------------------------------------------------------
+# 1. SKYTREE, Tokyo. Atomic clocks 450 m apart.
+#    Takamoto et al. 2020, Nature Photonics 14, 411
+#    Measured geopotential difference vs the framework prediction.
+#    alpha = (1.4 +/- 9.1) e-5, consistent with the zero-correction limit at 0.15 sigma
+#    ---------------------------------------------------------------
+SKYTREE_HEIGHT_M      = 450.0
+SKYTREE_ALPHA         = 1.4e-5
+SKYTREE_ALPHA_SIGMA   = 9.1e-5
+SKYTREE_SIGMA         = 0.15
+
+# ---------------------------------------------------------------------------
+# 2. PTB - MPQ. Geodetic comparison over 457 km.
+#    arXiv:2309.14953
+#    Chronometric and geodetic methods agree to 0.85 sigma on the geopotential
+#    difference 3918.1 +/- 2.6 m^2/s^2
+#    ---------------------------------------------------------------
+PTB_MPQ_BASELINE_KM   = 457.0
+PTB_MPQ_DU            = 3918.1     # m^2/s^2
+PTB_MPQ_DU_SIGMA      = 2.6
+PTB_MPQ_SIGMA         = 0.85
+
+# ---------------------------------------------------------------------------
+# 3. PARIS - PTB. Transport comparison over 1415 km.
+#    Grose et al. 2015, Nature Communications 6, 7768
+#    Residual consistent with zero: (4.7 +/- 5.0) e-17
+#    ---------------------------------------------------------------
+PARIS_PTB_BASELINE_KM = 1415.0
+PARIS_PTB_RESIDUAL    = 4.7e-17
+PARIS_PTB_SIGMA_VAL   = 5.0e-17
+
+# ---------------------------------------------------------------------------
+# 4. OVERSTREET et al. 2018. Dual-species atom interferometer gravity gradiometer.
+#    Phys. Rev. Lett. 120, 183604
+#    Reads the second spatial derivative of the time-density, T_zz, directly.
+#    Relative precision dg/g = 6e-11 per shot.
+#    Gravity-gradient systematics suppressed to 1 part in 1e13.
+#    ---------------------------------------------------------------
+OVERSTREET_DG_OVER_G  = 6.0e-11
+OVERSTREET_SYST_FRAC  = 1.0e-13
+
+# ---------------------------------------------------------------------------
+# 5. MICROSCOPE final result. Space equivalence principle test.
+#    Touboul et al. 2022, Phys. Rev. Lett. 129, 121102
+#    eta(Ti,Pt) = [-1.5 +/- 2.3 (stat) +/- 1.5 (syst)] e-15
+#    No violation at 2.7e-15 combining errors quadratically.
+#    Test masses are concentric: PtRh10 inner, Ti alloy outer, 21 cm apart.
+#    ---------------------------------------------------------------
+MICROSCOPE_ETA        = -1.5e-15
+MICROSCOPE_STAT       = 2.3e-15
+MICROSCOPE_SYST       = 1.5e-15
+MICROSCOPE_LIMIT      = 2.7e-15
+MICROSCOPE_SEPARATION_CM = 21.0
+
+# ---------------------------------------------------------------------------
+# 6. Cold-atom absolute gravimeter AQG#B01, Larzac observatory.
+#    Menoret et al. 2018; Cooke et al., in preparation
+#    Vertical gravity gradient measured between two heights 1.2 m apart:
+#    -3.220 kE and -3.226 kE, 1 kE = 10 nm/s^2 per cm
+#    ---------------------------------------------------------------
+AQG_HEIGHT_SEP_M      = 1.2
+AQG_GRAD_K_E          = -3.226
+AQG_GRAD_SD_K_E       = 0.017
+
+# ---------------------------------------------------------------------------
+# 7. Cold-atom gravity gradiometer, Birmingham.
+#    Sensitivity 20 E after 10 min, 1 E = 1e-9 /s^2
+#    ---------------------------------------------------------------
+BIRMINGHAM_SENS_E     = 20.0
+BIRMINGHAM_INTEGRATION_MIN = 10.0
+
+# ---------------------------------------------------------------------------
+# Local environment, needed to convert a gradient to a field value.
+# Earth surface, used only to convert the gradiometer readings above into
+# the framework's G. Not a cosmological input.
+# ---------------------------------------------------------------------------
+G_EARTH   = 9.80665      # m/s^2
+R_EARTH   = 6.371e6      # m
+C_LIGHT   = 2.99792458e8

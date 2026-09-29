@@ -188,7 +188,91 @@ in it. The clock comparisons here reach \(5\times10^{-17}\) in fractional rate,
 so nothing in this data permits a larger \(c_{g}\) at that field amplitude.
 </p>
 
-<h2>4. Conclusion</h2>
+<h2>4. Beyond clocks: gradients and differential tests</h2>
+<p>
+Clocks read one thing, the first spatial derivative of the time-density rate.
+Two other kinds of local experiment read the rest, and the framework predicts
+values for both without any cosmological input.
+</p>
+<p>
+<strong>The second derivative.</strong> A gravity gradiometer measures
+\(T_{zz} = d^{2}(d\tau/dt)/dz^{2}\) directly. Overstreet et al. built a
+dual-species atom interferometer that reaches a relative precision of
+\(\Delta g/g \approx 6\times10^{-11}\) per shot and suppresses gravity-gradient
+systematics to one part in \(10^{13}\). That is the framework's observable at
+second order, read by atoms in free fall, rather than by clocks at rest. The
+corresponding cold-atom instruments reach comparable sensitivity in the field.
+</p>
+<p>
+<strong>The differential test.</strong> Two bodies at the same place see the same
+\(d\tau/dt\), so the framework predicts identical acceleration and therefore
+\(\eta = 0\) exactly. MICROSCOPE tested this and found
+\(\eta(\mathrm{Ti},\mathrm{Pt}) = [-1.5 \pm 2.3_{stat} \pm 1.5_{syst}]\times10^{-15}\),
+a null at \(2.7\times10^{-15}\). Because the prediction is a null by
+construction, the test has power against any field variation across the 21 cm
+instrument separation, and none against the field's existence.
+</p>
+<p>
+<strong>An absolute gradient.</strong> A cold-atom absolute gravimeter at the
+Larzac observatory measured a vertical gravity gradient of
+\(-3.226 \pm 0.017\) kE over 1.2 m, which is \(-2g/R\) to 99 %. This is a
+measurement of the first derivative of \(d\tau/dt\) by matter rather than by
+clocks, and it is the one place where the framework's quantity is compared
+against a terrestrial value directly.
+</p>
+<h3>4.1 What these bound</h3>
+<p>
+Using \(G = \Phi/c^{2} = gR/c^{2} = 6.95\times10^{-10}\) at Earth's surface, each
+published result becomes an upper limit on the framework's coupling \(c_{g}\),
+since a fractional deviation of the rate is \(c_{g}G\):
+</p>
+<table>
+  <tr><th>Experiment</th><th>Kind of test</th><th>Limit on \(c_{g}\)</th></tr>
+  <tr><td>Paris&ndash;PTB, 1415 km</td><td>first derivative</td><td class="num">&lt; 7.2&times;10<sup>&minus;8</sup></td></tr>
+  <tr><td>MICROSCOPE, 21 cm</td><td>differential</td><td class="num">&lt; 1.2&times;10<sup>2</sup></td></tr>
+  <tr><td>Skytree, 450 m</td><td>first derivative</td><td class="num">&lt; 1.3&times;10<sup>5</sup></td></tr>
+  <tr><td>PTB&ndash;MPQ, 457 km</td><td>first derivative</td><td class="num">&lt; 9.5&times;10<sup>5</sup></td></tr>
+</table>
+<p>
+Transcribed in <code>local_experiment_data.txt</code> and evaluated by
+<code>local_experiments.py</code>, which writes
+<code>local_experiment_results.txt</code>. No network access is required.
+</p>
+<div class="open">
+<p><strong>The honest reading, which is not a confirmation.</strong></p>
+<p>
+Every one of these is an upper limit, and none requires a non-zero value.
+Taken together they push \(c_{g}\) toward zero, which means the framework is
+indistinguishable from the limit it reduces to across every local test
+currently available. In all three kinds of experiment the framework's
+prediction coincides with \(a = g\). What the data establish is that the
+framework passes every test it faces without contradiction, not that the field
+does anything.
+</p>
+<p>
+This is the same limitation the withdrawn halo fit in the rotation-curve paper
+had, and it should be stated in the same terms: a test that is insensitive to
+the parameter cannot confirm the parameter. The difference is that the clocks
+were not chosen to satisfy the framework, so passing them is weak evidence
+rather than none, whereas the halo fit passed by construction.
+</p>
+<p>
+The singularity result does not depend on this. It rests on \(G\) diverging at
+the horizon, so \(c_{g}G = 1\) is reached for any \(c_{g} > 0\); a small
+\(c_{g}\) means the divergence is steep, not that the coupling is absent. The
+two statements are consistent, and the framework has not yet done the work to
+separate them.
+</p>
+<p>
+What would separate them is a test in which the field and the mass disagree
+rather than a null. A measurement of the second derivative resolving the
+difference between \(c^{2}d(d\tau/dt)/dr\) and \(g\) would do it. No such
+measurement exists at present, and the current generation of gradiometers is
+not yet at the required precision.
+</p>
+</div>
+
+<h2>5. Conclusion</h2>
 <div class="result-box">
 <p>
 The relation \(a = c^{2}\,d(d\tau/dt)/dr\) is what these experiments test,
@@ -202,6 +286,22 @@ potential is removed is consistent with zero.
 No cosmological model, no mass function, and no fitted parameter enters any of
 the three. The law reproduces the directly measured rate difference at every
 baseline where the framework's own quantity has been read.
+</p>
+<p>
+&sect;4 widens this to the second derivative and to differential tests. Read
+together the local data place upper limits on the coupling, from
+\(c_{g} < 7.2\times10^{-8}\) at 1415 km to \(c_{g} < 1.2\times10^{2}\) from
+MICROSCOPE. All of them are consistent with the framework's zero-correction
+limit, and none of them can distinguish it from the limit itself. The
+framework is not contradicted by any local measurement, and is not
+distinguished by one either. That is the state of the evidence, stated
+without inflation.
+</p>
+<p>
+What is genuinely constrained is the singularity result, which follows from
+the divergence of \(G\) at the horizon and holds for every \(c_{g} > 0\)
+regardless of how small the coupling is. Local experiments bound the coupling;
+they do not touch the divergence.
 </p>
 </div>
 
@@ -234,9 +334,15 @@ baseline where the framework's own quantity has been read.
   <tr><td>&sect;2.3</td><td>Residual (4.7 &plusmn; 5.0)&times;10<sup>&minus;17</sup>, 1415 km</td><td>Grose et al. 2015, Nat. Commun. 6, 7768</td></tr>
   <tr><td>&sect;3</td><td>MICROSCOPE bound on the field factor</td><td>Published limit, applied to the framework's coupling</td></tr>
   <tr><td>&sect;2</td><td>Figure 1</td><td><code>make_chronometric_figure.py</code></td></tr>
+  <tr><td>&sect;4</td><td>Second-derivative test, \(\Delta g/g = 6\times10^{-11}\) per shot, systematics to \(10^{-13}\)</td><td>Overstreet et al. 2018, Phys. Rev. Lett. 120, 183604</td></tr>
+  <tr><td>&sect;4</td><td>Differential test, \(\eta(\mathrm{Ti},\mathrm{Pt}) = -1.5\times10^{-15}\)</td><td>Touboul et al. 2022, Phys. Rev. Lett. 129, 121102 (MICROSCOPE final)</td></tr>
+  <tr><td>&sect;4</td><td>Absolute vertical gradient, \(-3.226 \pm 0.017\) kE over 1.2 m</td><td>Menoret et al. 2018; Cooke et al., in preparation (AQG#B01, Larzac)</td></tr>
+  <tr><td>&sect;4.1</td><td>Coupling limits on \(c_{g}\) from all of the above</td><td><code>local_experiments.py</code> &rarr; <code>local_experiment_results.txt</code>, from <code>local_experiment_data.txt</code></td></tr>
 </table>
 
 <h2>References</h2>
+<p>[0] Overstreet, C., Asenbaum, P., Kovachy, T., Notermans, R., Hogan, J. M., and Kasevich, M. "Effective Inertial Frame in an Atom Interferometric Test of the Equivalence Principle." <em>Physical Review Letters</em>, 120, 183604, 2018.</p>
+<p>[0a] Touboul, P., et al. "MICROSCOPE Mission: Final Results of the Test of the Equivalence Principle." <em>Physical Review Letters</em>, 129, 121102, 2022.</p>
 <p>[1] Takamoto, M., Ushijima, I., Ohmae, N., Yahagi, T., Kokado, K., Shinkai, H., and Katori, H. "Test of general relativity by a pair of transportable optical lattice clocks." <em>Nature Photonics</em>, 14, 411&ndash;415, 2020.</p>
 <p>[2] "Long-distance chronometric leveling with a portable optical clock." <em>arXiv:2309.14953</em>.</p>
 <p>[3] Grose, G. G., et al. "Frequency comparison of two optical lattice clocks at a distance of 1415 km." <em>Nature Communications</em>, 6, 7768, 2015.</p>
