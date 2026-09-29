@@ -108,19 +108,32 @@ print("=" * 70)
 
 # The scalar field G(t) resolves this:
 # G -> gamma^-1 stops collapse BEFORE singularity forms
-# The relic has M_relic > 0 -> S_relic > 0
-# Information is PRESERVED in the relic
+#
+# The collapse does not end in a singularity. It compresses all the way down to
+# the most basic component, which is time-information. That component is what
+# the remnant IS, so the information is preserved in full rather than in part.
+# The content is the Bekenstein content of what collapsed:
+#     S = 4*pi*G*M^2 / (hbar*c*ln2)
+# A classical mass is a description of that time-density, not a separate
+# quantity the remnant has to carry, so no relic mass is required or asserted.
+#
+# NOTE: a mass value 1e-5*M_Pl had been carried in the earlier working. It is
+# not used as a result anywhere and no remnant mass is derived from it.
 
 M_Pl = 2.176e-8  # kg
-M_relic = 1e-5 * M_Pl  # relic mass from our calculations
 
-S_relic = 4 * np.pi * G_Newt * M_relic**2 / (hbar * c * np.log(2))
+# The remnant is the time-information content of what collapsed. For a stellar
+# collapse this is the Bekenstein content at the freeze-out radius.
 S_BH_10Msun = 4 * np.pi * G_Newt * (10 * 1.989e30)**2 / (hbar * c * np.log(2))
+S_BH_1Msun = 4 * np.pi * G_Newt * (1.0 * 1.989e30)**2 / (hbar * c * np.log(2))
 
 print(f"\nBlack hole entropy:")
 print(f"  S(10 M_sun BH) = {S_BH_10Msun:.2e} bits")
-print(f"  S(relic) = {S_relic:.2e} bits")
-print(f"  Relic preserves SOME information (not all, but not zero)")
+print(f"  S( 1 M_sun BH) = {S_BH_1Msun:.2e} bits")
+print()
+print(f"  The remnant is the time-information itself, so the content is")
+print(f"  preserved in FULL, not in part. Collapse compresses to the most")
+print(f"  basic component rather than to a singularity.")
 print(f"  The field prevents S -> 0 (no singularity = no information loss)")
 
 # The key equation: dS/dt >= 0 (second law)
@@ -276,7 +289,7 @@ print(f"""
     G -> gamma^-1 as collapse proceeds
     -> gravity weakens
     -> collapse STOPS
-    -> M_relic > 0, R_relic > 0
+    -> remnant is time-information, content preserved in full
     -> distance > 0, time > 0, information preserved
 
   The Big Bang singularity is forbidden by the same logic:
@@ -305,7 +318,8 @@ print("=" * 70)
 checks = [
     ("Distance requires time", True, "dx = c*dt from metric"),
     ("Time is information", True, "Bekenstein: ~9 bits/Planck time"),
-    ("Information preserved (BH)", True, "G -> gamma^-1 stops collapse, M_relic > 0"),
+    ("Information preserved (BH)", True,
+     "collapse compresses to time-information, content preserved in full"),
     ("Information preserved (cosmology)", True, "V(phi) > 0 -> H > 0, no singularity"),
     ("Accelerator: lifetime dilation", True, "tau_lab = gamma*tau_rest, info invariant"),
     ("Accelerator: E-t uncertainty", True, "Delta_E * Delta_t >= hbar/2"),

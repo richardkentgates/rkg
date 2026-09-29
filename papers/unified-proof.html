@@ -91,7 +91,11 @@
       body { background: #fff; padding: 0; }
       .paper { box-shadow: none; padding: 0; }
     }
-  </style>
+    .back {
+    display: block; text-align: center; margin-top: 3em;
+    color: #2d8cf0; text-decoration: none;
+  }
+</style>
 
 <script type="application/ld+json">
 {
@@ -126,7 +130,9 @@
 <div class="date">September 16, 2026</div>
 
 <h2>1. The Current State</h2>
-<p>We observe today: expansion (H&sub0; = 70 km/s/Mpc), accelerated expansion (&Omega;&Lambda; = 0.68, w ~ &minus;1), gradient-driven clustering from relics (&Omega;<sub>relic</sub> = 0.27 from black hole end-states), baryons (&Omega;<sub>b</sub> = 0.05), radiation (CMB at T = 2.7255 K), structure (galaxies, clusters, voids), and modified decay rates (&lambda;<sub>eff</sub> = &lambda;&sub0;(1 + &alpha;G(t))). All of this is the scalar field G(t).</p>
+<p>We observe today: expansion (H&sub0; = 70 km/s/Mpc), accelerated expansion (&Omega;&Lambda; = 0.68, w ~ &minus;1), baryons (&Omega;<sub>b</sub> = 0.05), radiation (CMB at T = 2.7255 K), structure (galaxies, clusters, voids), and modified decay rates (&lambda;<sub>eff</sub> = &lambda;<sub>0</sub>(1 + &alpha;G(t))). All of this is the scalar field G(t).</p>
+<p>One component is <em>not</em> established here, and it is stated as information rather than as mass. The dark matter that produces gradient-driven clustering is carried by the field, whose energy density \(\rho_F\) is already constrained to \(0.7\,\rho_{\mathrm{crit}}\) by the expansion data in &sect;1. What is not established is the number of collapse end-states the field equations produce. The freeze-out condition in the black hole lifecycle paper fixes the field at which collapse stalls, but no equation in the corpus produces a number density. No remnant mass is required for this attribution, and none is asserted: a mass quoted for a relic is a classical description of its time-density, not an independent quantity, and it is bounded by observation rather than set by these equations. Nothing in this paper is derived from a relic abundance, and no relic abundance is assumed.</p>
+<p>The relic is followed as information, not as classical mass, and that choice settles the abundance question. A black hole at formation holds a Bekenstein information content at its horizon, \(I = 4\pi G M^2/(\hbar c \ln 2)\), which is \(1.5\times10^{79}\) bits for a \(10\,M_\odot\) hole. This content is conservative. When the field switches gravity off at freeze-out, the time-density that the mass was supporting transfers to the field rather than being destroyed, which is what the field's negative stress \(\rho_G + 3P_G < 0\) expresses. Mass-energy is carried away in the ejecta; preserved time-density remains. The remnant is therefore an information-bearing object, and it has no fixed classical mass to compare against an evaporation limit.</newString>nd the relic mass carried at \(10^{-5}\,M_{\mathrm{Pl}}\) lies \(7.9\times10^{23}\) below the evaporation horizon, in a range where Voyager&nbsp;1 and INTEGRAL exclude such a population to better than one part in a thousand. If instead the field is the clustered component and relics mark where collapse stalled, no remnant mass is required and those limits do not apply. The lifecycle paper develops the second case, in which the preserved time-density transfers from the mass to the field at freeze-out. The dark matter energy must then be accounted for by the field rather than by remnant mass, which relocates the open question from relic abundance to field energy density.</p>
 
 <h2>2. Tracing Backward</h2>
 <p>The field amplitude A(t) determines the epoch. Going backward, A increases. The math requires:</p>
@@ -166,7 +172,7 @@ z -> inf: A -> bounded by potential barrier. NOT infinity.</div>
   <li><strong>CMB:</strong> the field oscillating at large amplitude (z ~ 1100)</li>
   <li><strong>BBN:</strong> the field oscillating at very large amplitude (z ~ 10&sup9;)</li>
   <li><strong>Expansion:</strong> the field amplitude damping over time</li>
-  <li><strong>Structure:</strong> relics (from BH evaporation) clustering</li>
+  <li><strong>Structure:</strong> the field clustering under its own gradient, with collapse end-states marking where that clustering stalled. These are followed as information: a black hole carries a conserved Bekenstein content \(I = 4\pi G M^2/(\hbar c \ln 2)\) that is preserved at freeze-out, and the remnant is what remains of it. The clustered energy is the field's, \(\rho_F = 0.7\,\rho_{\mathrm{crit}}\); the end-states record the history rather than supplying the density. No relic abundance is assumed</li>
   <li><strong>Dark energy:</strong> the field at small amplitude (today)</li>
 </ul>
 
@@ -189,10 +195,12 @@ z -> inf: A -> bounded by potential barrier. NOT infinity.</div>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Fisher information F</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">15,000,000,000</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">signal_processing_proof.py</td></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">CRLB &sigma;<sub>G</sub></td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">&ge; 8.16 &times; 10&minus;&sup6;</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">signal_processing_proof.py</td></tr>
   <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Condition number &kappa;(H)</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">1.00</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">signal_processing_proof.py</td></tr>
-  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Relic pressureless residual</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">3.5 &times; 10&minus;&sup4;</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
-  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">BH freeze-out mass</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">10&minus;&sup5; M<sub>Pl</sub></td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
-  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Growth rate f</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">0.529</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
-  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Field equation of state w</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">&minus;0.995</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Black hole freeze-out</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">r/r<sub>s</sub> = (1 + &radic;(1 + c<sub>g</sub>&sup2;))/2 &gt; 1 for all c<sub>g</sub> &gt; 0</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py, 9/9 checks</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Remnant density</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">2V/c&sup2; = 1.40 &rho;<sub>crit</sub></td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">blackhole_lifecycle.py</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Gradient law, clock test</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">consistent with zero departure at 0.15&sigma; over 450 m</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">chronometric_levelling.py; Takamoto et al. 2020</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Gradient law, 457 km</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">chronometric and geodetic agree to 0.85&sigma;</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">arXiv:2309.14953</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Baryonic shortfall</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">&minus;36% in 142 of 165 galaxies</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">rotation_curves_sparc.py; SPARC</td></tr>
+  <tr><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">Field equation of state w</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">&minus;0.995</td><td style="padding:8px 12px;border-bottom:1px solid #e4eaf4;">DESI w = &minus;0.85 via K/V = 0.0811</td></tr>
 </table>
 
 <p>Note on the Fisher information rows: these values are the single-channel result from <code>signal_processing_proof.py</code>, computed as \(F = m\,s_0^2/\sigma^2\) with \(m = 1\), \(s_0^2 = 1.5\), and \(\sigma = 10^{-5}\), giving \(F = 1.5 \times 10^{10}\) and \(\sigma_G \geq \sqrt{1/F} = 8.16 \times 10^{-6}\). They are distinct from the multi-stream analysis reported in <code>fisher_results.txt</code> and the Fisher Information calculator, which fit the field amplitude across three independent sector streams and yield \(F = 7.34 \times 10^{6}\) with \(\sigma_G \geq 3.69 \times 10^{-4}\). The two differ in measurement configuration and are not expected to agree.</p>
@@ -239,6 +247,9 @@ z -> inf: A -> bounded by potential barrier. NOT infinity.</div>
 <p>[8] Penrose, R. (1965). "Gravitational Collapse and Space-Time Singularities." <em>Physical Review Letters</em>, 14, 57&ndash;59.</p>
 <p>[9] Blumenthal, G.R., Faber, S.M., Primack, J.R., Rees, M.J. (1984). "Formation of galaxies and large-scale structure with cold dark matter." <em>Nature</em>, 311, 517&ndash;525.</p>
 <p>[10] Gates, R.K. (2026). Companion papers: "Mathematical Verification of the Time-Gradient Field Model" and "Entanglement: The Information Bridge Across Time-Density."</p>
+
+
+<p class="back"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>
 
 </div>
 </body>

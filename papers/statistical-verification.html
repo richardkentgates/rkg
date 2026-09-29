@@ -108,7 +108,11 @@
       body { background: #fff; padding: 0; }
       .paper { box-shadow: none; padding: 0; }
     }
-  </style>
+    .back {
+    display: block; text-align: center; margin-top: 3em;
+    color: #2d8cf0; text-decoration: none;
+  }
+</style>
 
 <script type="application/ld+json">
 {
@@ -218,16 +222,16 @@
 <p>At the \(1\sigma\) level the two parameters differ in behavior: \(\theta_1\) lies within one standard deviation of its bound, while \(\theta_2\) deviates by \(1.69\,\sigma\) and would not satisfy the strict \(1\sigma\) condition. This is the expected behavior of a maximum-likelihood estimate and does not indicate a defect in the reconstruction. An estimate drawn from a well-specified model will exceed a \(1\sigma\) bound a substantial fraction of the time, by construction, so a single realization cannot be required to satisfy it.</p>
 <p>The statistically correct test for a joint two-parameter fit is the Mahalanobis distance of the error vector against the inverse CRLB, which is \(\chi^2\)-distributed with two degrees of freedom:</p>
 <div class="eq-block">
-\[D^2 = \Delta\theta^{\mathsf{T}}\, \text{CRLB}^{-1}\, \Delta\theta = 3.369\]
-\[\chi^2_{\text{critical}}(2\ \text{dof},\ 95\%) = 5.991, \qquad p = 0.185\]
+\[D^2 = \Delta\theta^{\mathsf{T}}\, \text{CRLB}^{-1}\, \Delta\theta = 3.356\]
+\[\chi^2_{\text{critical}}(2\ \text{dof},\ 95\%) = 5.991, \qquad p = 0.187\]
 </div>
-<p>Since \(D^2 = 3.369\) is below the critical value, the two-parameter estimate is statistically consistent with the true parameters at the 95% confidence level. This joint test is the appropriate measure of consistency for a model fitted with two free parameters, and it is satisfied.</p>
+<p>Since \(D^2 = 3.356\) is below the critical value, the two-parameter estimate is statistically consistent with the true parameters at the 95% confidence level. This joint test is the appropriate measure of consistency for a model fitted with two free parameters, and it is satisfied.</p>
 
 <h2>8. Summary</h2>
 <div class="conclusion">
   <p>The following conditions are satisfied:</p>
   <p>(1) The empirical variance \(\hat{\sigma}^2\) is within \(\mathcal{O}(1)\) of the CRLB.</p>
-  <p>(2) The parameter errors \(|\Delta\theta|\) lie inside the \(2\sigma\) CRLB bounds, and the joint two-parameter test is satisfied (\(D^2 = 3.369 &lt; 5.991\), \(p = 0.185\)).</p>
+  <p>(2) The parameter errors \(|\Delta\theta|\) lie inside the \(2\sigma\) CRLB bounds, and the joint two-parameter test is satisfied (\(D^2 = 3.356 &lt; 5.991\), \(p = 0.187\)).</p>
   <p>(3) All estimators (LS, regularized, iterative) converge to the same solution.</p>
   <p>(4) The Fisher Information is finite, well-conditioned, and non-singular.</p>
   <p>The reconstruction method operates at the theoretical statistical limit.</p>
@@ -292,10 +296,13 @@
 
 <h2>References</h2>
 <p>[1] Fisher, R.A. "Theory of Statistical Estimation." <em>Proceedings of the Cambridge Philosophical Society</em>, 22(5), 700&ndash;725, 1925.</p>
-<p>[2] Cr&aacute;mer, H. <em>Mathematical Methods of Statistics</em>. Princeton University Press, 1946.</p>
+<p>[2] Cram&eacute;r, H. <em>Mathematical Methods of Statistics</em>. Princeton University Press, 1946.</p>
 <p>[3] Legendre, A.-M. <em>Nouvelles M&eacute;thodes pour la D&eacute;termination des Orbites des Com&egrave;tes</em>. Didot, Paris, 1805.</p>
 <p>[4] Tikhonov, A.N. "Solution of Incorrectly Formulated Problems and the Regularization Method." <em>Soviet Mathematics</em>, 4, 1035&ndash;1038, 1963.</p>
 <p>[5] Van Trees, H.L. <em>Detection, Estimation, and Modulation Theory, Part I</em>. John Wiley &amp; Sons, 2001.</p>
+
+
+<p class="back"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>
 
 </div>
 </body>

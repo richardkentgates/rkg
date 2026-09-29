@@ -1,0 +1,82 @@
+# Chronometric levelling — published values
+
+Transcribed from the cited publications on 2026-09-29. Used by
+`chronometric_levelling.py`. Every line is `key = value`.
+
+The framework's observable is dtau/dt. A clock pair reads it as a frequency
+ratio; no mass model is used to obtain it. The Skytree experiment reports the
+fractional frequency shift in the standard form used throughout the
+chronometric-levelling literature:
+
+    dnu/nu = (1/2) (1 + alpha) dU / c^2
+
+where dU is the geopotential difference between the two clocks, c the speed of
+light, and alpha the dimensionless parameter that measures departure from the
+Einstein value alpha = 0. alpha is the reported quantity; it is not a raw
+frequency shift and cannot be compared directly against g h / c^2.
+
+---
+
+== SKYTREE ==
+
+Two transportable 87Sr optical lattice clocks, 450 m height difference,
+Tokyo Skytree broadcasting tower. Frequency difference measured over ~3.6e5 s
+in 7 days; Allan deviation 9e-16 (tau/s)^-1/2.
+
+height_m = 450.0                    # m, tower level separation
+alpha_measured = 1.4e-5             # dimensionless GR-violation parameter
+alpha_unc = 9.1e-5                  # 1 sigma
+dU_m2s2 = 4405.0                    # m^2/s^2, geopotential difference (g*h)
+
+Source: Takamoto, M., Ushijima, I., Ohmae, N., Yahagi, T., Kokado, K.,
+Shinkai, H., & Katori, H. "Test of general relativity by a pair of
+transportable optical lattice clocks." Nature Photonics 14, 411-415 (2020).
+doi:10.1038/s41566-020-0619-8. Reported redshift test at
+alpha = (1.4 +- 9.1) x 10^-5.
+
+---
+
+== PTBMPQ ==
+
+Chronometric levelling between the PTB (Braunschweig) and MPQ (Garching)
+sites, 457 km apart, connected by a 940 km interferometric fibre link. Two
+independent determinations of the same geopotential difference: by clock
+comparison, and geodetically.
+
+separation_km = 457.0               # km, linear distance
+chronometric_m2s2 = 3918.1          # m^2/s^2, DeltaU from clock comparison
+chronometric_unc_m2s2 = 2.6         # m^2/s^2, 1 sigma
+geodetic_m2s2 = 3915.88             # m^2/s^2, GNSS/geodetic determination
+geodetic_unc_m2s2 = 0.30            # m^2/s^2, 1 sigma
+
+Source: "Long-distance chronometric leveling with a portable optical clock",
+arXiv:2309.14953. Corresponds to a 27 cm height resolution at 457 km.
+
+---
+
+== PARISPTB ==
+
+Two 87Sr optical lattice clocks at LNE-SYRTE (Paris) and PTB (Braunschweig),
+690 km line-of-sight, 1415 km of telecommunication fibre. The residual
+fractional frequency offset after the independently determined relativistic
+redshift correction has been applied.
+
+fibre_km = 1415.0                   # km, total fibre path
+residual_fractional = 4.7e-17       # reported as (4.7 +- 5.0) x 10^-17
+residual_unc_fractional = 5.0e-17   # 1 sigma
+
+Source: Grose, G. G. et al. "Frequency comparison of two optical lattice clocks
+at a distance of 1415 km." Nature Communications 6, 7768 (2015).
+
+---
+
+## Notes
+
+Values are transcribed as published. The Skytree result is the GR-violation
+parameter alpha, consistent with alpha = 0 (Einstein) to within its
+uncertainty. The framework predicts no violation of the Einstein redshift in
+the absence of a field correction, so the comparison is between the
+framework's alpha = 0 limit and the measurement.
+
+The comparison is performed in `chronometric_levelling.py`, which writes
+`chronometric_results.txt`.

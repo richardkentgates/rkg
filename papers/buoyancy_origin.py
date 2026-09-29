@@ -131,23 +131,29 @@ R_eval = 2.0 * r_test
 grad_at_r = G_Newt * M_test / R_eval ** 2 / c ** 2
 
 bodies = [
-    ("hydrogen (H2)",      8.99e-8,    0.1),
-    ("water (H2O)",        1.00e3,    18.0),
-    ("silicate rock",      2.50e3,    67.1),
-    ("iron core",          7.87e3,    55.8),
-    ("lead",               1.34e4,    82.4),
-    ("degenerate matter",  1.00e12,    2.0),
+    # (label, density kg/m^3, mean Z)
+    # mean Z is the atomic number per constituent nucleus, averaged by number:
+    #   H2    (2*1)/3          =  0.67
+    #   H2O   (2*1 + 1*8)/3    =  3.33
+    #   SiO2  (1*14 + 2*8)/3   = 10.00
+    #   Fe    26, Pb 82, degenerate matter nominal
+    ("hydrogen (H2)",      8.99e-8,    0.67),
+    ("water (H2O)",        1.00e3,     3.33),
+    ("silicate rock",      2.50e3,    10.00),
+    ("iron core",          7.87e3,    26.00),
+    ("lead",               1.34e4,    82.00),
+    ("degenerate matter",  1.00e12,    2.00),
 ]
 
 print(f"\n  Gradient evaluated at r = {R_eval:.4e} m:  {grad_at_r:.6e} 1/s")
 print(f"  Bodies differ in density by 20 orders of magnitude. The gradient the")
 print(f"  body responds to is a property of the source mass alone.\n")
-print(f"  {'Body':<20} {'density kg/m^3':>16} {'mean Z':>9} {'a = c^2 grad':>20}")
-print(f"  {'-' * 70}")
+print(f"  {'Body':<20} {'density kg/m^3':>16} {'mean Z':>9} {'dtau/dt gradient (1/s)':>24}")
+print(f"  {'-' * 74}")
 
 forces = [grad_at_r for _ in bodies]
 for (label, rho, Zbar), F_body in zip(bodies, forces):
-    print(f"  {label:<20} {rho:>16.4e} {Zbar:>9.1f} {F_body:>20.10e}")
+    print(f"  {label:<20} {rho:>16.4e} {Zbar:>9.2f} {F_body:>24.10e}")
 
 spread = (max(forces) - min(forces)) / float(np.mean(forces))
 print(f"\n  Spread across all compositions = {spread:.3e}")

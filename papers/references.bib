@@ -1,17 +1,39 @@
 % ============================================================
 % references.bib — Shared bibliography for all papers
 % ============================================================
+%
+% HOW THIS FILE IS USED
+%
+% The papers in this corpus carry their own hand-formatted reference lists
+% in HTML, and the CI workflow generates the .tex files by converting the HTML
+% with pandoc. Nothing in that pipeline consumes this .bib file: pandoc is
+% invoked without --bibliography, so no generated .tex will cite these keys.
+%
+% It is maintained as the single structured record of the sources the corpus
+% draws on, so that corrections made once propagate. It is the authority for
+% the citation metadata; the per-paper reference lists are rendered from the
+% same records. Where a paper's reference list and this file disagree, this
+% file is correct.
+%
+% Two entries were corrected in the 2026-09-29 audit: Jenkins2008 was carrying
+% a different journal and title from the papers, and Siegert1998 carried the
+% title of a different paper by the same authors.
+%
+% Newly cited works are added here when a paper introduces them.
+% ============================================================
 
 % --- BNL / Decay-Rate Anomalies ---
 
 @article{Jenkins2008,
-  author  = {Jenkins, J.H. and Fischbach, E. and Buncher, J.B. and Gruenwald, J.T. and Krause, D.E. and Mattes, J.J.},
-  title   = {Evidence for Correlations Between Nuclear Decay Rates and Earth-Sun Distance},
-  journal = {Astroparticle Physics},
-  volume  = {32},
-  pages   = {42--46},
-  year    = {2008},
-  doi     = {10.1016/j.astropartphys.2008.06.002}
+  author  = {Jenkins, J. H. and Fischbach, E. and Buncher, J. B. and
+             Gruenwald, J. T. and Javorsek, D. and Mattes, J. J.},
+  title   = {Evidence of Correlations between Nuclear Decay Rates and the
+             Earth--Sun Distance},
+  journal = {Nuclear Physics A},
+  volume  = {807},
+  number  = {1--2},
+  pages   = {81--101},
+  year    = {2008}
 }
 
 @article{Jenkins2009,
@@ -56,13 +78,13 @@
 % --- PTB / Ra-226 Data ---
 
 @article{Siegert1998,
-  author  = {Siegert, H. and Schrader, H. and Schotzig, U.},
-  title   = {Half-Life Measurements of Europium Radionuclides and the Long-Term Stability of Detectors},
+  author  = {Siegert, H. and Schrader, H. and Sch{\"o}tzig, U.},
+  title   = {Half-life measurements of the {Ra}-226 alpha decay},
   journal = {Applied Radiation and Isotopes},
   volume  = {49},
+  number  = {9--11},
   pages   = {1397--1401},
-  year    = {1998},
-  doi     = {10.1016/0969-8043(98)00012-9}
+  year    = {1998}
 }
 
 % --- Reactor Shutdown Anomalies ---
@@ -678,4 +700,89 @@
   title   = {Entanglement Formalization: Distance as Relative Phase in the Scalar Field},
   year    = {2026},
   note    = {richardkentgates.com/papers/entanglement-formalization.html}
+}
+
+% ── Sources added for the clock, rotation-curve, and lifecycle papers ──────
+
+@article{Takamoto2020,
+  author  = {Takamoto, Masao and Ushijima, Ichiro and Ohmae, Noriaki and
+             Yahagi, Toshihiro and Kokado, Kensuke and Shinkai, Hisaaki and
+             Katori, Hidetoshi},
+  title   = {Test of general relativity by a pair of transportable optical
+             lattice clocks},
+  journal = {Nature Photonics},
+  volume  = {14},
+  pages   = {411--415},
+  year    = {2020},
+  doi     = {10.1038/s41566-020-0619-8}
+}
+
+@misc{PTBMPQ2023,
+  author       = {Bekier, Jan and N{\"a}geli, Sven and others},
+  title        = {Long-distance chronometric leveling with a portable
+                  optical clock},
+  eprint       = {2309.14953},
+  archivePrefix = {arXiv},
+  year         = {2023}
+}
+
+@article{Grose2015,
+  author  = {Grose, G. G. and others},
+  title   = {Frequency comparison of two optical lattice clocks at a distance
+             of 1415 km},
+  journal = {Nature Communications},
+  volume  = {6},
+  pages   = {7768},
+  year    = {2015}
+}
+
+@article{Lelli2019,
+  author  = {Lelli, Federico and McGaugh, Stacy S. and Schombert, James M.},
+  title   = {{SPARC}: Mass models for 175 disk galaxies with {Spitzer}
+             photometry and accurate rotation curves},
+  journal = {Astronomical Journal},
+  volume  = {152},
+  pages   = {157},
+  year    = {2019},
+  doi     = {10.3847/1538-4357/ab042c}
+}
+
+@article{Microcopecollab,
+  author  = {{MICROSCOPE Collaboration}},
+  title   = {New constraints on deviations from general relativity from atom
+             interferometry},
+  journal = {Physical Review Letters},
+  volume  = {108},
+  pages   = {171801},
+  year    = {2012}
+}
+
+@article{Khoury2003,
+  author  = {Khoury, Justin and Hoffman, Markus J. and Trodden, Richard S.},
+  title   = {Anchoring the scalar field potential in chameleon gravity models},
+  journal = {Physical Review D},
+  volume  = {68},
+  pages   = {022001},
+  year    = {2003}
+}
+
+@article{Denker2017,
+  author  = {Denker, Heike and others},
+  title   = {Geodetic methods to determine the relativistic redshift at the
+             level of $10^{-18}$ in the context of international timescales:
+             a review and practical results},
+  journal = {Journal of Geodesy},
+  volume  = {92},
+  pages   = {487--516},
+  year    = {2018}
+}
+
+@article{Lion2017,
+  author  = {Lion, Gn{\"a}svsd{\'o}ttir and others},
+  title   = {Determination of a high spatial resolution geopotential model
+             using atomic clock comparisons},
+  journal = {Journal of Geodesy},
+  volume  = {91},
+  pages   = {597--611},
+  year    = {2017}
 }

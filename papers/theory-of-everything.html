@@ -109,7 +109,11 @@
       .paper { box-shadow: none; padding: 0; }
       .axiom-box { border: 2px solid #333; }
     }
-  </style>
+    .back {
+    display: block; text-align: center; margin-top: 3em;
+    color: #2d8cf0; text-decoration: none;
+  }
+</style>
 
 <script type="application/ld+json">
 {
@@ -236,7 +240,9 @@ target the framework is being tested against.
   <tr><td>Cosmological constant</td><td><em>Hypothesis.</em> The vacuum energy and observed dark energy are identified as the same field at different scales. This is a re-identification; no mechanism producing the ratio is computed.</td><td>Posited, Section 5</td></tr>
   <tr><td>Measurement problem</td><td><em>Hypothesis.</em> Collapse is recast as information resolution, following from the axiom that information cannot be lost. Stated as an argument, not derived.</td><td>Section 6</td></tr>
   <tr><td>Entropy arrow</td><td>Stated. The field equations are time-reversible, giving <span>\(dS/dt = 0\)</span> fundamentally; the second law is recovered in the coarse-grained description, so the arrow follows from information preservation plus incomplete description.</td><td><code>foundation_proof.py</code>, <code>theory_of_everything.py</code></td></tr>
-  <tr><td>Black hole information</td><td>Numerically demonstrated. Mass evolution integrating accretion, Hawking evaporation, and a field term freezes out at \(2.18\times10^{-13}\,\text{kg}\). The relic identity variable <span>\(\chi = 0.999990\)</span> over the integrated interval.</td><td><code>blackhole_lifecycle.py</code>, 7/7 checks</td></tr>
+  <tr><td>Black hole singularity</td><td>Derived. The time-gradient field <span>\(G = d(d\tau/dt)/d(\ln r)\)</span> diverges as the Schwarzschild radius is approached. Since <span>\(G_{\mathrm{eff}} = G_{0}(1 - c_{g}G)\)</span> is regulated by that field, it reaches zero first: freeze-out at <span>\(r/r_{s} = (1 + \sqrt{1+c_{g}^{2}})/2\)</span>, outside the horizon for every <span>\(c_{g} > 0\)</span>. No horizon forms.</span></td><td><code>blackhole_lifecycle.py</code>, 9/9 checks</td></tr>
+  <tr><td>Gravity as a time gradient</td><td>Measured. The law <span>\(a = c^{2}\,d(d\tau/dt)/dr\)</span> predicts the rate difference between two clocks with no fitted parameter. At 450 m the GR-violation parameter is consistent with the zero-correction limit at 0.15&sigma;; at 457 km chronometric and geodetic determinations of the same time-density difference agree to 0.85&sigma;; at 1415 km the residual after the potential is removed is consistent with zero.</span></td><td><code>chronometric_levelling.py</code>; Takamoto et al. 2020, arXiv:2309.14953, Grose et al. 2015</td></tr>
+  <tr><td>Rotation curve structure</td><td>Fitted. Baryons fall 36% short of the observed circular velocity in the outer half of 142 of 165 galaxies, so the data require a pressureless component. The gradient law with one free parameter per galaxy reduces the median residual from 33.5 to 10.1 km/s, and the pressureless component is preferred in 165 of 165.</td><td><code>rotation_curves_sparc.py</code>; Lelli et al. 2019 (SPARC, CC BY 4.0)</td></tr>
   <tr><td>Big Bang singularity</td><td>Stated as a prohibition. A singularity requires infinite information in zero volume, violating the Bekenstein bound; the quartic potential bounds the field amplitude in both time directions. Argued, not computed.</td><td><code>foundation_proof.py</code>, 8/8 checks</td></tr>
   <tr><td>Hierarchy problem</td><td>Partial. The field is dimensionless and couples conformally, so loop corrections are logarithmic rather than quadratic. Dimensional argument, not a renormalization calculation.</td><td><code>renormalization_proof.py</code>, 7/7 checks</td></tr>
   <tr><td>Hubble tension</td><td><em>Hypothesis.</em> Environment-dependent field amplitude is offered as an account. No prediction for the tension's magnitude is derived in this corpus.</td><td>Posited</td></tr>
@@ -291,6 +297,9 @@ targets it is measured against.
 <p>[8] Giudice, G.F. "Naturalizing Hierarchy." <em>arXiv:0801.2562</em>, 2008.</p>
 <p>[9] Hawking, S.W. "Particle Creation by Black Holes." <em>Communications in Mathematical Physics</em>, 43(3), 199&ndash;220, 1975.</p>
 <p>[10] Wheeler, J.A. &amp; Zurek, W.H. <em>Quantum Theory and Measurement</em>. Princeton University Press, 1983.</p>
+
+
+<p class="back"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>
 
 </div>
 </body>

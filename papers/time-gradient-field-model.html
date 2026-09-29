@@ -112,7 +112,11 @@
       body { background: #fff; padding: 0; }
       .paper { box-shadow: none; padding: 0; }
     }
-  </style>
+    .back {
+    display: block; text-align: center; margin-top: 3em;
+    color: #2d8cf0; text-decoration: none;
+  }
+</style>
 
 <script type="application/ld+json">
 {
@@ -203,6 +207,26 @@
   <tr><th>Isotope</th><th>\(\alpha\)</th><th>\(\phi\)</th></tr>
   <tr><td>Ra-226</td><td>\(8 \times 10^{-4}\)</td><td>\(0.1\pi\)</td></tr>
 </table>
+
+<h3>4.2.1 Normalisation note</h3>
+<p>
+The Brookhaven values in the table above are larger than the corresponding
+figures in <em>Mathematical Verification of the Time-Gradient Field Model</em> by
+a factor of about two: Si-32 appears as \(1.5\times10^{-3}\) here and
+\(7.9\times10^{-4}\) there, and Cl-36 as \(1.2\times10^{-3}\) here and
+\(6.2\times10^{-4}\) there. The Ra-226 value agrees between the two documents
+(\(8\times10^{-4}\) and \(8.3\times10^{-4}\)).
+</p>
+<p>
+The verification paper states its convention explicitly, taking
+\(\alpha = \delta\lambda/\lambda\) for a background field of unity, and also
+reports a third figure for the same Brookhaven data obtained by normalising to
+the fractional \(1/R^2\) variation: \(7.9\times10^{-4}/0.067 \approx 0.012\).
+This paper does not state the convention behind its own Brookhaven values, and
+the factor-of-two difference is therefore unresolved. The values are left as
+published here rather than reconciled, pending a statement of the normalisation
+used in this section.
+</p>
 
 <h3>4.3. Interpretation</h3>
 <ul>
@@ -312,13 +336,16 @@
 <p>The AI tools functioned as research assistants &mdash; analogous to graduate students or technical collaborators who help formalize, compute, and organize ideas that originate from the principal investigator. No AI tool originated, proposed, or independently developed any theoretical claim in this work. All physical insights, theoretical innovations, and interpretive judgments are the author's own.</p>
 
 <h2>References</h2>
-<p>[1] Jenkins, J.H. et al. "Evidence of Correlations Between Nuclear Decay Rates and Earth&ndash;Sun Distance." <em>Nuclear Instruments and Methods in Physics Research A</em>, 592(1&ndash;2), 268&ndash;272, 2008.</p>
-<p>[2] Siegert, H. et al. "On the Time Dependence of the &szlig;-Decay Rate of Ra-226." <em>Applied Radiation and Isotopes</em>, 49(11), 1397&ndash;1401, 1998.</p>
+<p>[1] Jenkins, J.H. et al. "Evidence of Correlations between Nuclear Decay Rates and Earth&ndash;Sun Distance." <em>Nuclear Physics A</em>, 807(1&ndash;2), 81&ndash;101, 2008.</p>
+<p>[2] Siegert, H., Schrader, H., and Sch&ouml;tzig, U. "Half-life measurements of the Ra-226 alpha decay." <em>Applied Radiation and Isotopes</em>, 49(9&ndash;11), 1397&ndash;1401, 1998.</p>
 <p>[3] Jenkins, J.H. &amp; Fischbach, E. "Perturbation of Nuclear Decay Rates During the Solar Flare of 13 December 2006." <em>Applied Radiation and Isotopes</em>, 67(10), 1805&ndash;1808, 2009.</p>
 <p>[4] Fischbach, E. et al. "Time-Dependent Nuclear Decay Rates: A Status Report." <em>arXiv:0903.2314</em>, 2009.</p>
 <p>[5] Sturrock, P.A. et al. "Power Spectrum Analysis of BNL Nuclear Decay Data." <em>Physics Reports</em>, 494(4), 109&ndash;123, 2010.</p>
 <p>[6] Parkhomov, A.G. "Deviation of Beta Decay from Exponential Law." <em>arXiv:1002.3348</em>, 2010.</p>
 <p>[7] Particle Data Group. "Muon Properties &mdash; Muon Lifetime." <em>Physical Review D</em>, 110, 030001, 2024.</p>
+
+
+<p class="back"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>
 
 </div>
 </body>
