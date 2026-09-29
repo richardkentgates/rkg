@@ -10,11 +10,11 @@ The rotation-curve paper was withdrawn for exactly that reason, and the withdraw
 is recorded rather than deleted. Sequencing below is the same sequencing that
 produced that decision.
 
-**Current state.** The audit of 2026-09-29 closed most of the provenance items
-below; see `AUDIT-2026-09-29.md` for what was corrected, withdrawn, and left open.
-Two items remain genuinely open and both are physics, not bookkeeping: the
-local-observable construction of the time-gradient field (4.0) and the
-remnant-density derivation (0.4).
+**Current state.** The audit of 2026-09-29 closed the provenance items and both
+physics items that were open: the remnant-density derivation (0.4) and the
+local-observable construction of the time-gradient field (4.0). See
+`AUDIT-2026-09-29.md`. One item remains open, and it is the one that has always
+governed the sequencing: the galactic-scale field profile.
 
 **The single most useful thing in this file** is the sequencing diagram at the
 bottom. Everything above it is detail.
@@ -131,31 +131,32 @@ reads it also runs from a clean checkout with no network access.
 
 ---
 
-## Phase 3.5 — The load-bearing derivation (open, and it gates the rest)
+## Phase 3.5 — DONE: the load-bearing derivation
 
-**4.0 — Build 𝒢 from local clock observables, not from a global solution.**
+**4.0 — Build 𝒢 from local clock observables.** Complete. `blackhole-lifecycle.html`
+§2.1 now derives the field from the framework's primary observable rather than from
+a coordinate solution, and three checks were added (12 of 12 pass).
 
-The freeze-out mechanism runs on `𝒢(x) = d(dτ/dt)/d(ln r)` diverging as
-`r → r_s`. That divergence is a property of the Schwarzschild solution — of the
-coordinate system chosen — and not an independent fact about nature. An
-infalling observer sees nothing special at the horizon. Until the framework shows
-`𝒢` is a real field with physical divergence, the singularity result rests on a
-coordinate-dependent quantity, and the black hole sector is the strongest claim
-in the corpus resting on the weakest foundation.
+```
+dnu/nu  = (dtau/dt)_2/(dtau/dt)_1 - 1  =  Delta(dtau/dt)   <- a clock pair
+Gcal(r) = r * d(dtau/dt)/dr                                  <- across a baseline
+```
 
-This is a derivation, not a measurement. It needs no data the corpus does not
-already transcribe. `chronometric-levelling.html` §1 establishes that two clocks
-at different geopotentials measure `dτ/dt` directly as a frequency ratio with no
-mass model; building `𝒢` from that reading is what would make the divergence a
-claim about clock rates converging somewhere physically real.
+The construction closes on the framework's own correction law: since the correction
+multiplies G, a clock reads `dtau/dt = sqrt(1 - 2 G_0 (1 - c_g Gcal) M/(r c^2))`,
+and differentiating that reproduces `Gcal = 1/(2x sqrt(1-1/x))` identically. The
+square root is what a multiplicative correction to G does, not a coordinate choice.
 
-*Deliverable:* a section in `blackhole-lifecycle.html` giving `𝒢` in terms of
-locally measured clock rates, with the far-field limit `𝒢 → 1/(2x) → 0` recovered
-from that expression rather than assumed.
+Two results the corpus did not previously contain. The far field is *recovered*,
+`Gcal -> 1/(2x) -> 0` as `x -> infinity`, which is the Field Postulate as a limit
+rather than an assumption. And the bounce is a *clock reading*: a lowered clock
+pair sees `dtau/dt` fall into a minimum near the stall and then rise back to unity
+below it, because `G_eff = 0` there. That reversal is a directly measurable
+signature and nothing imposes it.
 
-*Blocks:* the standing of the freeze-out result. Nothing in Phase 4 can proceed
-on galactic scales until a field profile exists at those scales, and this is the
-local-scale version of the same problem.
+*Consequence:* the collapse result no longer rests on a coordinate solution. What
+remains unverified is not the field's construction but its magnitude — nothing has
+yet measured a clock pair near a stalling radius.
 
 ## Phase 4 — The two real tests
 

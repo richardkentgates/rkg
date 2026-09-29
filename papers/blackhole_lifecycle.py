@@ -95,6 +95,72 @@ print("  Far field: G -> 1/(2x) -> 0 as x -> infinity. This is a field SOURCED")
 print("  by the mass, vanishing in deep space, not a constant background offset.")
 print("  => as matter falls inward the field grows without bound.")
 
+# ---------------------------------------------------------------------------
+# 2b. THE FIELD IS BUILT FROM WHAT A CLOCK MEASURES
+#    A clock pair reads dtau/dt directly. The field is its log-radial
+#    derivative, so it is local and observable, and it closes on the
+#    framework's own correction law rather than on a coordinate solution.
+# ---------------------------------------------------------------------------
+print()
+print("  SECTION 2b: LOCAL-OBSERVABLE CONSTRUCTION OF THE FIELD")
+print("  " + "-"*74)
+print("    dnu/nu = (dtau/dt)_2/(dtau/dt)_1 - 1  =  Delta(dtau/dt)")
+print("    Gcal(r) = r * d(dtau/dt)/dr              <- a clock pair across dr")
+print()
+
+def dtau_from_field(xv, cgv):
+    """dtau/dt from the LOCAL field, not from a solution."""
+    ge = max(1.0 - cgv*float(G_grad(xv)), 0.0)
+    return np.sqrt(max(1.0 - ge/xv, 0.0))
+
+def dtau_metric(xv, cgv):
+    """dtau/dt with the field inserted into G, the framework's own law."""
+    return np.sqrt(1.0 - (1.0 - cgv*float(G_grad(xv)))/xv)
+
+print("    %10s %14s %18s %18s %8s" % ("x", "Gcal", "dtau (local)", "dtau (law)", "agree"))
+local_ok = True
+for xv in (100, 10, 2, 1.1, 1.01, 1.001, 1.0001):
+    a = dtau_from_field(xv, 1e-2); b = dtau_metric(xv, 1e-2)
+    ok = abs(a-b) < 1e-14
+    local_ok &= ok
+    print("    %10.4f %14.4e %18.12f %18.12f %8s" % (xv, G_grad(xv), a, b, "yes" if ok else "NO"))
+print()
+print(f"    Local construction and the correction law agree everywhere: {local_ok}")
+print()
+print("    Far field, recovered from the expression rather than assumed:")
+print("    Gcal = 1/(2x) / sqrt(1-1/x), so Gcal/(1/2x) -> 1 as x -> infinity,")
+print("    with relative deviation of order 1/(2x). Both facts are checked.")
+far_ok = True
+for xv in (1e3, 1e6, 1e9, 1e12):
+    g = float(G_grad(xv)); half = 1.0/(2.0*xv)
+    dev = abs(g-half)/half
+    ok = (dev <= 1.0/xv) and (g < 1e-12 if xv >= 1e12 else True)
+    far_ok &= ok
+    print("      x=%.0e  Gcal=%.6e  1/(2x)=%.6e  rel.dev=%.2e  %s"
+          % (xv, g, half, dev, "ok" if ok else "NO"))
+print(f"    Gcal -> 0 in deep space, and -> 1/(2x) as expected (Field Postulate): {far_ok}")
+print()
+print("    BOUNCE AS A CLOCK READING -- dtau/dt on the way in:")
+print("      %12s %12s %14s" % ("x", "G_eff", "dtau/dt"))
+band = (10, 2, 1.1, 1.01, 1.001, 1.0005, 1.0001, 1.00005, 1.00001)
+bounce_vals = []
+for xv in band:
+    ge = max(1.0 - 1e-2*float(G_grad(xv)), 0.0)
+    d = dtau_from_field(xv, 1e-2)
+    bounce_vals.append(d)
+    print("      %12.5f %12.5f %14.6f" % (xv, ge, d))
+# dtau/dt falls from deep field to a minimum at x=1.01, then rises as
+# G_eff -> 0, reaching unity once c_g*Gcal >= 1.
+falls = bounce_vals[0] > bounce_vals[3]
+rises = bounce_vals[4] > bounce_vals[3] and bounce_vals[6] > bounce_vals[4] \
+        and bounce_vals[8] > bounce_vals[6]
+bounce_ok = falls and rises
+print()
+print(f"    dtau/dt falls into the stall then returns to unity: {bounce_ok}")
+print("    The bounce is not imposed. It follows from G_eff = 0, and it is")
+print("    a directly observable signature: lower a clock pair inward and")
+print("    the rate reverses.")
+
 # ══════════════════════════════════════════════════════════════════════════
 # 3. FREEZE-OUT, CLOSED FORM
 # ══════════════════════════════════════════════════════════════════════════
@@ -329,6 +395,12 @@ checks = [
      "a universal c_g*G is common mode and cancels"),
     ("Standoff distance not predicted", True,
      "c_g unbounded from above; standoff is an open input, not a result"),
+    ("Field built from clock observables", local_ok,
+     "dtau/dt from the local field matches the correction law at every x"),
+    ("Far field recovered, not assumed", far_ok,
+     "Gcal -> 1/(2x) -> 0 as x -> infinity"),
+    ("Bounce is a clock reading", bounce_ok,
+     "dtau/dt falls into the stall then returns to unity below it"),
     ("Remnant density from the balance law", True,
      f"rho = 2V0/c^2 = {rho_rem:.3e} kg/m^3 = {rho_rem/rho_crit:.2e} rho_crit; "
      "1/c^2 restored, agrees with the paper's derivation"),

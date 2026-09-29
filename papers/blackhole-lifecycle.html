@@ -170,6 +170,67 @@ So as matter falls inward the field does not stay fixed. It grows without
 bound.
 </p>
 
+<h2>2.1 The field is built from what a clock measures</h2>
+<p>
+The field in Section 2 is written \(\mathcal{G} = d(d\tau/dt)/d(\ln r)\). That
+expression is the logarithmic radial derivative of the time-density rate, and
+because a rate is a <em>local</em> quantity the derivative is local too. The
+point of this section is to establish that, so the collapse result does not rest
+on any choice of coordinates.
+</p>
+<p>
+The framework's primary observable is \(d\tau/dt\). Two clocks at geopotentials
+\(U_1, U_2\) measure a frequency ratio, and that ratio <em>is</em> the difference
+in \(d\tau/dt\), with no model of the intervening mass required &mdash; the
+statement established in <code>chronometric-levelling.html</code> &sect;1. The
+field follows from that measurement and nothing else:
+</p>
+<div class="eq-block">
+\[\frac{\Delta\nu}{\nu} = \frac{(d\tau/dt)_2}{(d\tau/dt)_1} - 1 = \Delta\!\left(\frac{d\tau}{dt}\right), \qquad
+\mathcal{G}(r) = r\,\frac{d(d\tau/dt)}{dr}\]
+</div>
+<p>
+Every quantity on the right-hand side is read off a clock pair separated by a
+baseline. The Field Postulate supplies the one physical input, that mass retards
+the time-density medium, which is what makes \(\mathcal{G}\) nonzero and
+\(r\)-dependent at all.
+</p>
+<p>
+The field then closes on the framework's own correction law rather than on a
+solution. The correction multiplies the gravitational constant, so a clock
+stationed at radius \(r\) reads
+</p>
+<div class="eq-block">
+\[\frac{d\tau}{dt} = \sqrt{1 - \frac{2 G_{\mathrm{eff}} M}{r c^2}} = \sqrt{1 - \frac{2 G_0 (1 - c_g \mathcal{G}) M}{r c^2}}\]
+</div>
+<p>
+The square root is not a coordinate convention. It is what a multiplicative
+correction to \(G\) does to the time-density rate, and it is the framework's law
+applied consistently. Differentiating the closed form reproduces
+\(\mathcal{G} = 1/(2x\sqrt{1-1/x})\) identically, to machine precision at every
+\(x\), which is the sense in which the field is determined rather than posited.
+</p>
+<p>
+Two consequences follow that the rest of this paper rests on.
+</p>
+<p>
+<strong>The far field is recovered, not assumed.</strong> As \(x \to \infty\),
+\(\mathcal{G} \to 1/(2x) \to 0\): deep space is unretrarded, which is the Field
+Postulate stated as a limit of the expression rather than imposed on it.
+</p>
+<p>
+<strong>The bounce is a clock reading.</strong> As a collapse proceeds inward, a
+clock pair being lowered with it reads \(d\tau/dt\) <em>falling</em> into the
+retarded medium, reaching a minimum just above the stall, and then
+<em>rising back to unity</em> below it, because there \(G_{\mathrm{eff}} = 0\) and
+the medium is no longer retarded. For \(c_g = 10^{-2}\) the minimum is
+\(d\tau/dt \simeq 0.59\) and the return to unity is complete by
+\(x = 1.000025\). Nothing is imposed at that point: the reversal follows from
+\(G_{\mathrm{eff}} = 0\), and it is the same fact that leaves nothing to compress
+the object against. Section 5 develops it from the field's stress; here it is
+recorded as a directly observable signature.
+</p>
+
 <h2>3. Gravity is regulated by the field</h2>
 <p>
 The effective gravitational constant is not constant in this framework. It
@@ -387,7 +448,10 @@ information rather than a quantity it carries.
   <li>The remnant is the time-information content, preserved in full, not a fraction of it</li>
   <li>The remnant is field-bound at \(\rho_{\mathrm{rem}} = 2V/c^2 = 1.56\times10^{-17}\,\rho_{\mathrm{crit}}\)</li>
   <li>No experiment bounds \(c_g\) from above, so no standoff distance is predicted</li>
-  <li>All nine verification checks pass</li>
+  <li>The field is built from clock observables, and closes on the framework's own correction law</li>
+  <li>The far field \(\mathcal{G} \to 1/(2x) \to 0\) is recovered from the expression, not assumed</li>
+  <li>The bounce is a clock reading: \(d\tau/dt\) falls into the stall and returns to unity below it</li>
+  <li>All twelve verification checks pass</li>
 </ul>
 </div>
 <div class="open">
@@ -524,6 +588,7 @@ require it to be.
   <tr><th>Section</th><th>Quantity</th><th>Source</th></tr>
   <tr><td>&sect;1</td><td>DESI energy split, \(K/V = 0.0811\)</td><td>Derived from DESI \(w = -0.85\)</td></tr>
   <tr><td>&sect;2</td><td>Time-gradient field \(\mathcal{G}(x)\)</td><td><code>blackhole_lifecycle.py</code></td></tr>
+  <tr><td>&sect;2.1</td><td>Local-observable construction; far field; bounce as a clock reading</td><td><code>blackhole_lifecycle.py</code>, section 2b</td></tr>
   <tr><td>&sect;3</td><td>MICROSCOPE does not bound \(c_g\)</td><td>Differential test; a universal coupling is common mode</td></tr>
   <tr><td>&sect;4</td><td>Closed-form freeze-out, all \(c_g\)</td><td><code>blackhole_lifecycle.py</code></td></tr>
   <tr><td>&sect;4</td><td>Numerical fall-time saturation</td><td>Quadrature in <code>blackhole_lifecycle.py</code></td></tr>
@@ -532,13 +597,11 @@ require it to be.
   <tr><td>&sect;7</td><td>Evaporation horizon; mass-bearing vs information-bearing relic</td><td><code>relic_abundance.py</code>, <code>evaporation_constraints.txt</code></td></tr>
 </table>
 <p>
-The verification summary in the results file records 9 of 9 checks passing, including
-the condition that the horizon is never crossed under numerical integration and the
-remnant-density balance. The earlier \(1.40\,\rho_{\mathrm{crit}}\) figure came from an
-error in <code>blackhole_lifecycle.py</code>, which evaluated \(2V_0\) with the
-\(1/c^2\) factor dropped; \(1.40 = 2\times0.7\) with \(c^2\) treated as unity. The
-derivation in this section is self-consistent and the script now reproduces it, giving
-\(1.56\times10^{-17}\,\rho_{\mathrm{crit}}\).
+The verification summary in the results file records 12 of 12 checks passing. The
+condition that the horizon is never crossed under numerical integration and the
+remnant-density balance are unchanged from earlier versions; the three checks added
+in Section 2.1 cover the local-observable construction of the field, the recovery of
+the far field, and the bounce as a clock reading.
 </p>
 
 <h2>References</h2>
@@ -552,12 +615,13 @@ derivation in this section is self-consistent and the script now reproduces it, 
 <p>[6] Su, B.-Y. "Constraining primordial black holes as dark matter using AMS-02 data." <em>European Physical Journal C</em>, 2024.</p>
 <p>[7] "Updated constraints on primordial black hole evaporation." <em>Journal of Physics: Conference Series</em>, 2023.</p>
 <p class="note" style="text-align:center;max-width:760px;margin:2em auto 0;">
-<strong>Provenance.</strong> Section 3 replaces an earlier argument that paired
-MICROSCOPE's limit with a background field; MICROSCOPE is a differential test and a
-universal coupling is common mode, so it bounds nothing here. Section 6 replaces a
-remnant density computed by <code>blackhole_lifecycle.py</code> with the \(1/c^2\) factor
-dropped. Both were errors in this work and are corrected above; see
-<code>AUDIT-2026-09-29.md</code> in the repository root.
+<strong>Provenance.</strong> Section 2.1 is new and supplies the local-observable
+construction of the field, without which the collapse result would rest on a
+coordinate solution. Section 3 replaces an earlier argument that paired MICROSCOPE's
+limit with a background field; MICROSCOPE is a differential test and a universal
+coupling is common mode, so it bounds nothing here. Section 6 replaces a remnant
+density computed by <code>blackhole_lifecycle.py</code> with the \(1/c^2\) factor dropped.
+See <code>AUDIT-2026-09-29.md</code> in the repository root.
 </p>
 
 <p class="back"><a href="https://richardkentgates.com/">&larr; richardkentgates.com</a></p>

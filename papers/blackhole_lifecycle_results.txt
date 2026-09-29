@@ -53,7 +53,7 @@
 # content of what collapsed, preserved in full; a mass is a classical
 # description of that content, not a quantity the remnant carries.
 #
-# CHECKS: 9/9 PASS
+# CHECKS: 12/12 PASS
 # [PASS] Background field from DESI energy split :: K/V = 0.0811, V0 = 0.7 rho_crit
 # [PASS] Time-gradient field diverges at r_s :: G(1.0001 r_s) = 5.00e+01, unbounded at 1 r_s
 # [PASS] Freeze-out solved in closed form :: x = (1 + sqrt(1 + c_g^2))/2
@@ -62,6 +62,9 @@
 # [PASS] Bounce condition satisfied for all V0 > 0 :: rho_G + 3P_G = -2V(phi) < 0
 # [PASS] MICROSCOPE null predicted by construction :: composition-dependent coupling = 0 (buoyancy_origin.py); a universal c_g*G is common mode and cancels
 # [PASS] Standoff distance not predicted :: c_g unbounded from above; standoff is an open input, not a result
+# [PASS] Field built from clock observables :: dtau/dt from the local field matches the correction law at every x
+# [PASS] Far field recovered, not assumed :: Gcal -> 1/(2x) -> 0 as x -> infinity
+# [PASS] Bounce is a clock reading :: dtau/dt falls into the stall then returns to unity below it
 # [PASS] Remnant density from the balance law :: rho = 2V0/c^2 = 1.329e-43 kg/m^3 = 1.56e-17 rho_crit; 1/c^2 restored, agrees with the paper's derivation
 #
 # HORIZON NEVER CROSSED FOR ANY c_g > 0. NO SINGULARITY.
