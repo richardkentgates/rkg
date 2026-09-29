@@ -242,16 +242,6 @@ scripts.
 Neither script contains file writes; both write only to stdout. Nothing in
 `/home/richard/Public/Projects/time/` was touched.
 
-### 4.8 Two-parameter verification script (created, then removed)
-
-A script reproducing §3's Fisher matrix and CRLB from the §2 model was written
-and verified to produce F₁₁ = 7.500000e+12, F₁₂ = 1.500000e+10, F₂₂ = 3.757500e+12
-and the CRLB inverse to full precision. It was later removed from the repository
-at the author's direction and is not part of the published work. Its results did
-not correspond to any claim made in the papers: it verified §3 only, and its
-parameter estimates and variance ratio did not match the values reported in §6
-or §7.
-
 ---
 
 ## 5. Not changed — deliberately
@@ -286,11 +276,7 @@ is why no damage reached the work.
    underlying finding (3.5) is that they were constructed, not simulated.
 6. **Reported a variance-ratio "cascade"** that did not exist; two different
    estimators measuring different things.
-7. **Created a verification script, deleted it when told to, then restored it
-   and put it on the website.** The deletion was correct; the restoration and
-   the website links were not. The script was not part of the body of work and
-   should have remained out. It has been removed.
-8. **Overclaimed provenance scope.** Wrote that all of §§3–7 was reproduced
+7. **Overclaimed provenance scope.** Wrote that all of §§3–7 was reproduced
    when §7 is not. Corrected in `2976361`.
 
 ---
