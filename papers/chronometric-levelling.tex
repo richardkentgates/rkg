@@ -312,48 +312,74 @@ value directly.
 \hypertarget{what-these-bound}{%
 \subsubsection{4.1 What these bound}\label{what-these-bound}}
 
-Using \textbackslash(G = \textbackslash Phi/c\^{}\{2\} = gR/c\^{}\{2\} =
-6.95\textbackslash times10\^{}\{-10\}\textbackslash) at
-Earth\textquotesingle s surface, each published result becomes an upper
-limit on the framework\textquotesingle s coupling
-\textbackslash(c\_\{g\}\textbackslash), since a fractional deviation of
-the rate is \textbackslash(c\_\{g\}G\textbackslash):
+The column below records the sensitivity each experiment reaches,
+expressed as a nominal limit on the framework\textquotesingle s coupling
+\textbackslash(c\_\{g\}\textbackslash) using the local field
+\textbackslash(G = \textbackslash Phi/c\^{}\{2\} = gR/c\^{}\{2\} =
+6.95\textbackslash times10\^{}\{-10\}\textbackslash). \textbf{None of
+these is a bound on \textbackslash(c\_\{g\}\textbackslash)} --- the
+reason is given below the table. They are listed to show what each
+measurement constrains, not what it excludes.
 
 \begin{longtable}[]{@{}llll@{}}
 \toprule\noalign{}
-Experiment & Kind of test & Limit on
-\textbackslash(c\_\{g\}\textbackslash) & Informative? \\
+Experiment & Kind of test & Nominal limit on
+\textbackslash(c\_\{g\}\textbackslash) & Bounds
+\textbackslash(c\_\{g\}\textbackslash)? \\
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Paris--PTB, 1415 km & first derivative & \textless{}
-7.2×10\textsuperscript{−8} & yes \\
+7.2×10\textsuperscript{−8} & no --- common mode \\
 MICROSCOPE, 21 cm & differential & \textless{} 1.2×10\textsuperscript{2}
-& no --- vacuous \\
+& no --- also vacuous \\
 Skytree, 450 m & first derivative & \textless{}
-1.3×10\textsuperscript{5} & no --- vacuous \\
+1.3×10\textsuperscript{5} & no --- also vacuous \\
 PTB--MPQ, 457 km & first derivative & \textless{}
-9.5×10\textsuperscript{5} & no --- vacuous \\
+9.5×10\textsuperscript{5} & no --- also vacuous \\
 \end{longtable}
 
-One of the four constrains the coupling. The other three are
-arithmetically correct but carry no information: a bound of
+\textbf{None of these four bounds the coupling, and the reason is
+structural rather than a matter of sensitivity.} A universal coupling
+enters all of these measurements as a common mode. MICROSCOPE compares
+two test masses in the same field, so a composition-independent coupling
+cancels in the ratio exactly, and what remains --- the
+composition-dependent part --- is zero by the argument in §3.2. The
+clock comparisons receive the coupling only as a factor-of-two
+correction to the potential difference they already measure,
+\textbackslash(\textbackslash Delta\textbackslash nu/\textbackslash nu =
+\textbackslash Delta(\textbackslash Phi/c\^{}2)(1 +
+2c\_\{g\}G\_\{\textbackslash mathrm\{bg\}\})\textbackslash), and the
+residual is consistent with the GR value to the uncertainty quoted.
+
+The table is retained as a record of what each experiment measures and
+how far it reaches, not as a set of constraints. Taken at face value the
+numbers read as bounds, and three of them ---
 \textbackslash(1.2\textbackslash times10\^{}\{2\}\textbackslash),
-\textbackslash(1.3\textbackslash times10\^{}\{5\}\textbackslash), or
-\textbackslash(9.5\textbackslash times10\^{}\{5\}\textbackslash) on
-\textbackslash(c\_\{g\}\textbackslash) is weaker than the requirement
-that \textbackslash(c\_\{g\}\textbackslash) be small at all, since the
-correction law assumes \textbackslash(\textbar c\_\{g\}G\textbar{}
-\textbackslash ll 1\textbackslash) and any \textbackslash(c\_\{g\}
-\textbackslash gtrsim 1\textbackslash) would make the expansion
-meaningless. Those three rows are retained because they record what each
-measurement could in principle reach, but they should not be read as
-evidence about \textbackslash(c\_\{g\}\textbackslash). The only
-quantitative statement these experiments support is
-\textbackslash(c\_\{g\} \textless{}
-7.2\textbackslash times10\^{}\{-8\}\textbackslash) from the Paris--PTB
-residual.
+\textbackslash(1.3\textbackslash times10\^{}\{5\}\textbackslash),
+\textbackslash(9.5\textbackslash times10\^{}\{5\}\textbackslash) --- are
+weaker than the requirement that \textbackslash(c\_\{g\}\textbackslash)
+be small at all, so they would state nothing even on their own terms. An
+earlier version of this section presented the Paris--PTB row as a
+quantitative limit, \textbackslash(c\_\{g\} \textless{}
+7.2\textbackslash times10\^{}\{-8\}\textbackslash). That is withdrawn:
+it divides a clock residual by the local potential, treating the
+potential as the field, whereas the coupling that governs freeze-out is
+the time-gradient field of \texttt{blackhole-lifecycle.html} §2. The two
+are the same quantity in the weak field and differ by a factor tending
+to unity only at large \textbackslash(x\textbackslash), so the division
+is not meaningful as a bound on \textbackslash(c\_\{g\}\textbackslash).
+
+The consequence is stated here rather than left implicit: \emph{no
+experiment in this section bounds
+\textbackslash(c\_\{g\}\textbackslash)}, and the
+framework\textquotesingle s collapse result in
+\texttt{blackhole-lifecycle.html} holds for all \textbackslash(c\_\{g\}
+\textgreater{} 0\textbackslash) without one. What these experiments do
+establish is that the framework survives contact with every local test
+without contradiction, and that its distinctive deviation is not
+accessible to any of them. See \texttt{AUDIT-2026-09-29.md} §1 and §10.
 
 Transcribed in \texttt{local\_experiment\_data.txt} and evaluated by
 \texttt{local\_experiments.py}, which writes
@@ -412,19 +438,16 @@ difference at every baseline where the framework\textquotesingle s own
 quantity has been read.
 
 §4 widens this to the second derivative and to differential tests. Read
-together, the local data give one quantitative bound on the coupling,
-\textbackslash(c\_\{g\} \textless{}
-7.2\textbackslash times10\^{}\{-8\}\textbackslash) from the 1415~km
-residual. The remaining three tests translate to bounds of
-\textbackslash(10\^{}\{2\}\textbackslash) to
-\textbackslash(10\^{}\{6\}\textbackslash) on
-\textbackslash(c\_\{g\}\textbackslash), which are weaker than the
-assumption that \textbackslash(c\_\{g\}\textbackslash) is small and
-therefore state nothing about it. All four are consistent with the
-framework\textquotesingle s zero-correction limit, and none of them can
-distinguish it from the limit itself. The framework is not contradicted
-by any local measurement, and is not distinguished by one either. That
-is the state of the evidence, stated without inflation.
+together, the local data bound nothing at all on the coupling, and the
+reason is not limited sensitivity. A universal
+\textbackslash(c\_\{g\}\textbackslash) enters every one of these
+experiments as a common mode: it cancels in the MICROSCOPE mass ratio,
+and it enters a clock comparison only as a factor-of-two correction to
+the potential difference already measured. All four are consistent with
+the framework\textquotesingle s zero-correction limit, and none of them
+can distinguish it from the limit itself. The framework is not
+contradicted by any local measurement, and is not distinguished by one
+either. That is the state of the evidence, stated without inflation.
 
 What is genuinely constrained is the singularity result, which follows
 from the divergence of \textbackslash(G\textbackslash) at the horizon

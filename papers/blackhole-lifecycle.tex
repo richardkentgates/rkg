@@ -161,13 +161,14 @@ This field is dimensionless and it \textbf{diverges} as \textbackslash(x
 1.0001 & 4.9998e+01 & 0.50002 \\
 \end{longtable}
 
-The background value \textbackslash(G \textbackslash sim
-10\^{}\{-3\}\textbackslash) is recovered near \textbackslash(r
-\textbackslash sim 100\textbackslash,r\_s\textbackslash), which is where
-\textbackslash(\textbackslash mathcal\{G\}(x)\textbackslash) returns
-\textbackslash(G(t)\textbackslash). The third column uses the
-MICROSCOPE-bounded coupling \textbackslash(c\_g =
-10\^{}\{-2\}\textbackslash).
+This is a sourced field, vanishing in the far field:
+\textbackslash(\textbackslash mathcal\{G\}(x) \textbackslash to 1/(2x)
+\textbackslash to 0\textbackslash) as \textbackslash(x \textbackslash to
+\textbackslash infty\textbackslash), rather than tending to a constant
+background offset. The third column is evaluated at an illustrative
+\textbackslash(c\_g = 10\^{}\{-2\}\textbackslash); since
+\textbackslash(c\_g\textbackslash) is unconstrained from above (Section
+3), it is not a prediction.
 
 So as matter falls inward the field does not stay fixed. It grows
 without bound.
@@ -182,16 +183,62 @@ It depends on the field, and regularizes as the field grows:
 \textbackslash{[}G\_\{\textbackslash mathrm\{eff\}\} =
 G\_0\textbackslash left(1 - c\_g G\textbackslash right)\textbackslash{]}
 
-The coupling is not free. MICROSCOPE bounds the fractional deviation of
-the gravitational constant to below
-\textbackslash(10\^{}\{-5\}\textbackslash). The framework writes that
-deviation as \textbackslash(c\_g G\textbackslash), and with a background
-field \textbackslash(G \textbackslash sim 10\^{}\{-3\}\textbackslash)
-this requires
+An earlier version of this section argued that MICROSCOPE bounds the
+coupling, by pairing its limit with a background field and reporting
+\textbackslash(c\_g \textless{} 10\^{}\{-2\}\textbackslash). That
+argument is withdrawn. MICROSCOPE is a differential test: it compares
+two test masses, titanium and platinum-rhodium, in the same field and
+the same orbit, 21~cm apart. It bounds the \emph{fractional difference}
+in the gravitational constant between two materials, not its absolute
+value. A coupling that is universal across materials enters both test
+masses identically and cancels in the ratio,
 
-\textbackslash{[}c\_g \textless{}
-\textbackslash frac\{10\^{}\{-5\}\}\{10\^{}\{-3\}\} =
-10\^{}\{-2\}\textbackslash{]}
+\textbackslash{[}\textbackslash frac\{a\_\{\textbackslash mathrm\{Ti\}\}\}\{a\_\{\textbackslash mathrm\{Pt\}\}\}
+=
+\textbackslash frac\{m\_\{\textbackslash mathrm\{Ti\}\}\}\{m\_\{\textbackslash mathrm\{Pt\}\}\}\textbackslash;\textbackslash frac\{1
++ c\_g G\_\{\textbackslash mathrm\{Ti\}\}\}\{1 + c\_g
+G\_\{\textbackslash mathrm\{Pt\}\}\}
+\textbackslash;\textbackslash xrightarrow\{\textbackslash;G\_\{\textbackslash mathrm\{Ti\}\}
+= G\_\{\textbackslash mathrm\{Pt\}\}\textbackslash;\}\textbackslash;
+\textbackslash frac\{m\_\{\textbackslash mathrm\{Ti\}\}\}\{m\_\{\textbackslash mathrm\{Pt\}\}\}\textbackslash{]}
+
+so the deviation is common mode and MICROSCOPE returns a null whatever
+\textbackslash(c\_g G\textbackslash) is. What MICROSCOPE does bound is
+the composition-dependent part of the coupling, and §3.2 of
+\texttt{buoyancy-origin.html} establishes that part as exactly zero,
+because the time field is a property of the source mass and carries no
+information about the responding body. The framework therefore predicts
+the MICROSCOPE null by construction, and MICROSCOPE constrains
+\textbackslash(c\_g G\textbackslash) not at all.
+
+The same cancellation removes the bound that the chronometric-levelling
+paper drew. A frequency difference between two clocks at geopotentials
+\textbackslash(U\_1, U\_2\textbackslash) receives the coupling only as a
+factor-of-two correction to the potential difference it already
+measures,
+
+\textbackslash{[}\textbackslash frac\{\textbackslash Delta\textbackslash nu\}\{\textbackslash nu\}
+=
+\textbackslash Delta\textbackslash!\textbackslash left(\textbackslash frac\{\textbackslash Phi\}\{c\^{}2\}\textbackslash right)
++ 2\textbackslash,c\_g
+G\_\{\textbackslash mathrm\{bg\}\}\textbackslash,\textbackslash Delta\textbackslash!\textbackslash left(\textbackslash frac\{\textbackslash Phi\}\{c\^{}2\}\textbackslash right)\textbackslash{]}
+
+and with the Paris--PTB residual of \textbackslash((4.7
+\textbackslash pm 5.0)\textbackslash times10\^{}\{-17\}\textbackslash)
+on a potential difference of
+\textbackslash(4.36\textbackslash times10\^{}\{-14\}\textbackslash),
+this yields \textbackslash(c\_g G\_\{\textbackslash mathrm\{bg\}\}
+\textless{} 5.7\textbackslash times10\^{}\{-4\}\textbackslash), which is
+no bound worth having.
+
+\textbf{No current experiment bounds \textbackslash(c\_g\textbackslash)
+from above.} The framework therefore makes a qualitative claim only, and
+declines to predict a standoff distance until
+\textbackslash(c\_g\textbackslash) is measured. That is a stronger
+position than a quoted number resting on a cancellation, and it is
+stated here rather than implied: Section 4 derives \emph{where} collapse
+stalls for any \textbackslash(c\_g\textbackslash), and §7 records the
+distance as an open input rather than a result.
 
 \hypertarget{freeze-out-in-closed-form}{%
 \subsection{4. Freeze-out, in closed
@@ -214,8 +261,14 @@ Solving the quadratic:
 = \textbackslash frac\{1 + \textbackslash sqrt\{1 +
 c\_g\^{}2\}\}\{2\}\textbackslash;\}\textbackslash{]}
 
-There are no free parameters in this expression. The stopping condition
-is derived, not imposed.
+The condition carries no free parameter: the stopping rule is derived,
+not imposed. \textbackslash(c\_g\textbackslash) appears as the
+framework\textquotesingle s own undetermined coupling, and Section 3
+shows that no current experiment bounds it. The expression is therefore
+a family parameterised by \textbackslash(c\_g\textbackslash), and the
+one property that holds across the whole family is
+\textbackslash(r\_\{\textbackslash mathrm\{freeze\}\} \textgreater{}
+r\_s\textbackslash).
 
 \begin{longtable}[]{@{}lll@{}}
 \toprule\noalign{}
@@ -243,11 +296,26 @@ Since \textbackslash(\textbackslash sqrt\{1 + c\_g\^{}2\} \textgreater{}
 \textgreater{} 1 \textbackslash quad \textbackslash text\{for all \}
 c\_g \textgreater{} 0\textbackslash{]}
 
-\textbf{The freeze-out always occurs outside the horizon.} For the
-MICROSCOPE-bounded value \textbackslash(c\_g =
-10\^{}\{-2\}\textbackslash), collapse stalls \textbackslash(2.5
-\textbackslash times 10\^{}\{-5\}\textbackslash,r\_s\textbackslash)
-outside the Schwarzschild radius.
+\textbf{The freeze-out always occurs outside the horizon.} This is the
+framework\textquotesingle s quantitative result, and it holds for every
+positive coupling without needing one. The table above is a survey of
+the \emph{family} of standoff distances, not a set of predictions: since
+\textbackslash(c\_g\textbackslash) is unconstrained from above (Section
+3), the corpus does not select a row. The standoff is an open input
+pending a measurement, and §7 records it as such.
+
+An earlier version of this section quoted the \textbackslash(c\_g =
+10\^{}\{-2\}\textbackslash) row, deriving
+\textbackslash(2.5\textbackslash times10\^{}\{-5\}\textbackslash,r\_s\textbackslash)
+from a MICROSCOPE bound on \textbackslash(c\_g\textbackslash). That
+derivation rested on treating a universal coupling as a differential
+observable, and is withdrawn. The qualitative claim is unaffected; the
+specific distance was never supported. For a
+\textbackslash(10\textbackslash,M\_\textbackslash odot\textbackslash)
+object the \textbackslash(c\_g = 10\^{}\{-2\}\textbackslash) row would
+correspond to a standoff of about \textbackslash(0.7\textbackslash) m,
+so the withdrawn number was not observably meaningful even on its own
+terms.
 
 Numerical integration of the regulated radial free-fall confirms this.
 The time to descend from
@@ -328,24 +396,36 @@ gives a clean bound on the remnant density,
 =
 \textbackslash frac\{2V(\textbackslash phi)\}\{c\^{}2\}\textbackslash;\}\textbackslash{]}
 
-Using the potential fixed by the DESI energy split (\textbackslash(w =
--0.85\textbackslash), so \textbackslash(K/V = 0.0811\textbackslash),
-giving \textbackslash(V\_0 =
-0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)):
+\textbf{Withdrawn pending rederivation.} An earlier version carried the
+value
+\textbackslash(1.19\textbackslash times10\^{}\{-26\}\textbackslash,\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\}
+=
+1.40\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
+here. It is withdrawn for two reasons. The boxed relation is
+\textbackslash(2V/c\^{}2\textbackslash), but the script evaluates
+\textbackslash(2V\_0\textbackslash) with no
+\textbackslash(1/c\^{}2\textbackslash) factor, so the two disagree; and
+\textbackslash(1.40\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
+is just \textbackslash(2\textbackslash times 0.7\textbackslash) with
+\textbackslash(c\^{}2\textbackslash) treated as unity, which is not a
+legitimate ratio. Substituting the DESI potential \textbackslash(V\_0 =
+0.7\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
+into \textbackslash(2V\_0/c\^{}2\textbackslash) gives
+\textbackslash(2.9\textbackslash times10\^{}\{-43\}\textbackslash,\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\}\textbackslash),
+about seventeen orders of magnitude below the value originally quoted,
+and the discrepancy is not yet resolved. The conclusion that the remnant
+is field-bound rather than self-gravitating does not rest on the density
+number and is unaffected.
 
-\textbackslash{[}\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
-1.19 \textbackslash times 10\^{}\{-26\} \textbackslash{}
-\textbackslash mathrm\{kg\textbackslash,m\^{}\{-3\}\} =
-1.40\textbackslash{}
-\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash{]}
-
-The remnant sits at \emph{cosmic} density, not nuclear density. It is a
-field-stabilised region, not a compact object, and it carries no
-Schwarzschild charge because it never crossed a horizon. Its binding
-length is the field Compton wavelength,
-\textbackslash(\textbackslash lambda\_C =
+The qualitative claim is unaffected: the remnant is a field-stabilised
+region, not a compact object, and it carries no Schwarzschild charge
+because it never crossed a horizon. Its binding length is the field
+Compton wavelength, \textbackslash(\textbackslash lambda\_C =
 \textbackslash hbar/(m\_\{\textbackslash mathrm\{eff\}\}
-c)\textbackslash).
+c)\textbackslash). What density it settles at is an open question until
+the derivation is redone consistently, and the corresponding
+verification check is recorded as failing in the results file rather
+than removed.
 
 \hypertarget{what-is-determined-and-what-is-not}{%
 \subsection{7. What is determined, and what is
@@ -372,11 +452,13 @@ not}\label{what-is-determined-and-what-is-not}}
   The remnant is the time-information content, preserved in full, not a
   fraction of it
 \item
-  The remnant is field-bound at
-  \textbackslash(\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
-  2V/c\^{}2\textbackslash)
+  The remnant is field-bound rather than self-gravitating
 \item
-  All nine verification checks pass
+  No experiment bounds \textbackslash(c\_g\textbackslash) from above, so
+  no standoff distance is predicted
+\item
+  Eight of nine verification checks pass; the remnant-density derivation
+  is recorded as open
 \end{itemize}
 
 \textbf{Open input: the relic abundance.}
@@ -589,10 +671,11 @@ Section & Quantity & Source \\
 \endlastfoot
 §1 & DESI energy split, \textbackslash(K/V = 0.0811\textbackslash) &
 Derived from DESI \textbackslash(w = -0.85\textbackslash) \\
-§2 & Time-gradient field \textbackslash(G(x)\textbackslash) &
+§2 & Time-gradient field
+\textbackslash(\textbackslash mathcal\{G\}(x)\textbackslash) &
 \texttt{blackhole\_lifecycle.py} \\
-§3 & MICROSCOPE bound on \textbackslash(c\_g\textbackslash) & Published
-limit, applied to the field \\
+§3 & MICROSCOPE does not bound \textbackslash(c\_g\textbackslash) &
+Differential test; a universal coupling is common mode \\
 §4 & Closed-form freeze-out, all \textbackslash(c\_g\textbackslash) &
 \texttt{blackhole\_lifecycle.py} \\
 §4 & Numerical fall-time saturation & Quadrature in
@@ -605,9 +688,20 @@ limit, applied to the field \\
 \texttt{relic\_abundance.py}, \texttt{evaporation\_constraints.txt} \\
 \end{longtable}
 
-The verification summary in the results file records 9 of 9 checks
+The verification summary in the results file records 8 of 9 checks
 passing, including the condition that the horizon is never crossed under
-numerical integration.
+numerical integration. The ninth check, on the remnant-density
+derivation, is recorded as \textbf{failing}: the paper states
+\textbackslash(\textbackslash rho\_\{\textbackslash mathrm\{rem\}\} =
+2V/c\^{}2\textbackslash) while the code evaluates
+\textbackslash(2V\_0\textbackslash) with no
+\textbackslash(1/c\^{}2\textbackslash) factor, and the reported figure
+of
+\textbackslash(1.40\textbackslash,\textbackslash rho\_\{\textbackslash mathrm\{crit\}\}\textbackslash)
+follows from neither. The check is retained in the script as a visible
+failure rather than being quietly dropped, because the remnant-density
+claim is used elsewhere in the corpus and should not appear settled
+until the derivation is redone.
 
 \hypertarget{references}{%
 \subsection{References}\label{references}}
@@ -637,6 +731,13 @@ using AMS-02 data." \emph{European Physical Journal C}, 2024.
 
 {[}7{]} "Updated constraints on primordial black hole evaporation."
 \emph{Journal of Physics: Conference Series}, 2023.
+
+\textbf{Provenance.} The MICROSCOPE-derived bound on the coupling, the
+standoff distance it produced, and the remnant-density figure are
+withdrawn; see \texttt{AUDIT-2026-09-29.md} in the repository root. The
+closed-form freeze-out result stands, and does not require a value of
+the coupling. The local-observable construction of the field is recorded
+as open.
 
 \href{https://richardkentgates.com/}{← richardkentgates.com}
 
